@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 
 namespace SerializerLib
 {
-    internal class ClassSerializeXML
+    public class ClassSerializeXML1
     {
         public static void SerializeToXml<T>(T obj, string filePath, Action<string> log)
         {

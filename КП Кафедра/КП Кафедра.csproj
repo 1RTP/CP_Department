@@ -50,7 +50,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SerializerLib">
+    <Reference Include="SerializerLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\SerializerLib\SerializerLib\bin\Debug\SerializerLib.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -69,10 +70,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClassSerializeBIN.cs" />
-    <Compile Include="ClassSerializeJSON.cs" />
     <Compile Include="DatabaseSQL.cs" />
     <Compile Include="DataService.cs" />
+    <Compile Include="DepartmentData.cs" />
     <Compile Include="FormMainMenu.cs">
       <SubType>Form</SubType>
     </Compile>

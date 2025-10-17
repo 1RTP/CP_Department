@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using КП_Кафедра.Properties;
 using static КП_Кафедра.ToastForm;
+using SerializerLib;
 
 namespace КП_Кафедра.Forms
 {
@@ -84,57 +85,28 @@ namespace КП_Кафедра.Forms
             return Path.Combine(dataFolder, $"{entityName}.{format.ToLower()}");
         }
 
-        private void SaveData<T>(List<T> data, string entityName, string format)
+        private void SaveAllData(DepartmentData data, string format)
         {
-            string path = GetFilePath(entityName, format);
+            string path = GetFilePath("department", format);
             switch (format.ToUpper())
             {
-                case "XML": 
-                    if (entityName == "teachers") 
-                    { 
-                        XmlHelper.SerializeTeachers(data.Cast<Teacher>().ToList(), path); 
-                    }
-                    else 
-                    { 
-                        ClassSerializeXML.SerializeToXml(data, path); 
-                    } 
-                    break;
-                case "JSON": ClassSerializeJSON.SerializeToJSON(data, path); break;
-                case "BIN": ClassSerializeBIN.SerializeToBIN(data, path); break;
+                case "XML": ClassSerializeXML1.SerializeToXml(data, path, msg => LoggerService.LogInfo(msg)); break;
+                case "JSON": ClassSerializeJSON1.SerializeToJSON(data, path, msg => LoggerService.LogInfo(msg)); break;
+                case "BIN": ClassSerializeBIN1.SerializeToBIN(data, path, msg => LoggerService.LogInfo(msg)); break;
             }
         }
 
-        private List<T> LoadData<T>(string entityName, string format)
+        private DepartmentData LoadAllData(string format)
         {
-            string path = GetFilePath(entityName, format);
-            if (!File.Exists(path)) return new List<T>();
+            string path = GetFilePath("department", format);
+            if (!File.Exists(path)) return new DepartmentData();
 
             switch (format.ToUpper())
             {
-                case "XML":
-                    if (entityName == "teachers") return XmlHelper.DeserializeTeachers(path).Cast<T>().ToList();
-                    else return ClassSerializeXML.DeserializeFromXml<List<T>>(path);
-                case "JSON": return ClassSerializeJSON.DeserializeFromJSON<T>(path);
-                case "BIN": return ClassSerializeBIN.DeserializeFromBIN<T>(path);
-                default: return new List<T>();
-            }
-        }
-
-        private void btnLoad_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (FormTable.Instance == null) return;
-                var loadedTeachers = LoadData<Teacher>("teachers", currentFormat);
-                FormTable.Instance.UpdateGrid(loadedTeachers);
-                DataService.Teachers = new List<Teacher>(loadedTeachers);
-                Toast.Show("INFO", $"Дані завантажено з файлу ({currentFormat}).");
-                LoggerService.LogInfo($"Десеріалізовано {loadedTeachers.Count} викладачів з {currentFormat}");
-            }
-            catch (Exception ex)
-            {
-                LoggerService.LogError($"Помилка при завантаженні ({currentFormat}): {ex.Message}");
-                Toast.Show("ERROR", $"Помилка при завантаженні ({currentFormat}).");
+                case "XML": return ClassSerializeXML1.DeserializeFromXml<DepartmentData>(path, msg => LoggerService.LogInfo(msg));
+                case "JSON": return ClassSerializeJSON1.DeserializeFromJSON<DepartmentData>(path, msg => LoggerService.LogInfo(msg));
+                case "BIN": return ClassSerializeBIN1.DeserializeFromBIN<DepartmentData>(path, msg => LoggerService.LogInfo(msg));
+                default: return new DepartmentData();
             }
         }
 
@@ -142,9 +114,14 @@ namespace КП_Кафедра.Forms
         {
             try
             {
-                var teachersToSave = DataService.Teachers; // беремо дані з DataService
-                if (teachersToSave == null || teachersToSave.Count == 0) return;
-                SaveData(teachersToSave, "teachers", currentFormat);
+                DepartmentData data = new DepartmentData
+                {
+                    Teachers = DataService.Teachers,
+                    Subjects = DataService.Subjects,
+                    Assignments = DataService.Assignments
+                    // інші таблиці
+                };
+                SaveAllData(data, currentFormat);
                 Toast.Show("SUCCESS", $"Дані збережено ({currentFormat}).");
                 LoggerService.LogInfo($"Дані успішно збережено у форматі {currentFormat}");
             }
@@ -152,6 +129,28 @@ namespace КП_Кафедра.Forms
             {
                 LoggerService.LogError($"Помилка при збереженні ({currentFormat}): {ex.Message}");
                 Toast.Show("ERROR", $"Помилка при збереженні ({currentFormat}).");
+            }
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DepartmentData data = LoadAllData(currentFormat);
+
+                DataService.Teachers = data.Teachers ?? new List<Teacher>();
+                DataService.Subjects = data.Subjects ?? new List<Subject>();
+                DataService.Assignments = data.Assignments ?? new List<Assignment>();
+                // інші таблиці
+
+                if (FormTable.Instance != null) { FormTable.Instance.UpdateGrid(DataService.Teachers); }
+                Toast.Show("INFO", $"Дані завантажено з файлу ({currentFormat}).");
+                LoggerService.LogInfo($"Десеріалізовано всі дані з {currentFormat}.");
+            }
+            catch (Exception ex)
+            {
+                LoggerService.LogError($"Помилка при завантаженні ({currentFormat}): {ex.Message}");
+                Toast.Show("ERROR", $"Помилка при завантаженні ({currentFormat}).");
             }
         }
 

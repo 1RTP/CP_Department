@@ -8,51 +8,48 @@ using System.Threading.Tasks;
 
 namespace SerializerLib
 {
-    internal class ClassSerializeBIN
+    public static class ClassSerializeBIN1
     {
-        public static void SerializeToBIN<T>(List<T> data, string filePath, Action<string> log)
+        public static void SerializeToBIN<T>(T obj, string filePath, Action<string> log = null)
         {
             try
             {
-                using (FileStream fs = new FileStream(filePath, FileMode.Create, FileAccess.Write))
+                using (var fs = new FileStream(filePath, FileMode.Create, FileAccess.Write))
                 {
-                    BinaryFormatter formatter = new BinaryFormatter();
-                    formatter.Serialize(fs, data);
+                    var formatter = new BinaryFormatter();
+                    formatter.Serialize(fs, obj);
                 }
-                log?.Invoke($"Збережено {data.Count} об’єктів у {filePath}");
+                log?.Invoke($"Збережено об’єкт {typeof(T).Name} у {filePath}");
             }
-            catch (Exception ex) { log?.Invoke($"Помилка при серіалізації (BIN): {ex.Message}"); throw; }
+            catch (Exception ex)
+            {
+                log?.Invoke($"Помилка при серіалізації (BIN): {ex.Message}");
+                throw;
+            }
         }
 
-        public static List<T> DeserializeFromBIN<T>(string filePath, Action<string> log)
+        public static T DeserializeFromBIN<T>(string filePath, Action<string> log = null)
         {
             try
             {
                 if (!File.Exists(filePath))
                 {
-                    log?.Invoke($"Файл {filePath} не знайдено, десеріалізація не виконана.");
-                    return new List<T>();
+                    log?.Invoke($"Файл {filePath} не знайдено. Повертається дефолт типу {typeof(T).Name}");
+                    return default(T);
                 }
 
-                FileInfo fileInfo = new FileInfo(filePath);
-                if (fileInfo.Length == 0)
+                using (var fs = new FileStream(filePath, FileMode.Open, FileAccess.Read))
                 {
-                    log?.Invoke($"Файл {filePath} порожній.");
-                    return new List<T>();
-                }
-
-                using (FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read))
-                {
-                    BinaryFormatter formatter = new BinaryFormatter();
-                    var data = (List<T>)formatter.Deserialize(fs);
-                    log?.Invoke($"Завантажено {data.Count} об’єктів з {filePath}");
-                    return data;
+                    var formatter = new BinaryFormatter();
+                    var obj = (T)formatter.Deserialize(fs);
+                    log?.Invoke($"Завантажено об’єкт {typeof(T).Name} з {filePath}");
+                    return obj;
                 }
             }
             catch (Exception ex)
             {
                 log?.Invoke($"Помилка при десеріалізації (BIN): {ex.Message}");
-                return new List<T>();
+                return default(T);
             }
         }
     }

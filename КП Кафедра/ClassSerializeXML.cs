@@ -49,30 +49,4 @@ namespace КП_Кафедра
             return t;
         }
     }
-
-    public static class XmlHelper
-    {
-        public static void SerializeTeachers(List<Teacher> teachers, string filePath)
-        {
-            try
-            {
-                var dtoList = teachers.Select(TeacherDto.FromTeacher).ToList();
-                ClassSerializeXML1.SerializeToXml(dtoList, filePath);
-                LoggerService.LogInfo($"Збережено {dtoList.Count} викладачів у {filePath}");
-            }
-            catch (Exception ex) { LoggerService.LogError($"Помилка при серіалізації викладачів: {ex.Message}"); throw; }
-        }
-
-        public static List<Teacher> DeserializeTeachers(string filePath)
-        {
-            try
-            {
-                var dtoList = ClassSerializeXML1.DeserializeFromXml<List<TeacherDto>>(filePath);
-                var teachers = dtoList.Select(d => d.ToTeacher()).ToList();
-                LoggerService.LogInfo($"Завантажено {teachers.Count} викладачів з {filePath}");
-                return teachers;
-            }
-            catch (Exception ex) { LoggerService.LogError($"Помилка при десеріалізації викладачів: {ex.Message}"); return new List<Teacher>(); }
-        }
-    }
 }

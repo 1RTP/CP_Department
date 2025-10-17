@@ -25,6 +25,8 @@ namespace КП_Кафедра
         public int TotalHours { get; set; }
         public bool Status { get; set; }
 
+        public Subject() { }
+
         public Subject(int id = 0, string name = "", int sem = 0, int hours = 0, bool st = true) 
         { 
             SubjectId = id; 
@@ -46,6 +48,7 @@ namespace КП_Кафедра
         public int LessonTypeId { get; set; }
         public string TypeName { get; set; }
 
+        public LessonType() { }
         public LessonType(int id = 0, string typeName = "") { LessonTypeId = id; TypeName = typeName; }
 
         public string GetInfo()
@@ -65,6 +68,7 @@ namespace КП_Кафедра
         public string Email { get; set; }
         public bool Status { get; set; }
 
+        public Teacher() { }
         public List<Participation> Participations { get; set; }
         public List<Assignment> Assignments { get; set; }
 
@@ -125,9 +129,11 @@ namespace КП_Кафедра
         public DateTime HireDate { get; set; }
         public bool Status { get; set; }
 
-        [NonSerialized]
-        //public List<Teacher> Teachers { get; set; }
-        public List<Teacher> Teachers;
+        [XmlIgnore]
+        public List<Teacher> Teachers { get; set; } 
+
+        public Assignment() { }
+
         public List<Subject> Subjects { get; set; }
         public LessonType LessonType { get; set; }
 
@@ -162,9 +168,9 @@ namespace КП_Кафедра
         public int ParticipationId { get; set; }
         public Research Project { get; set; }
 
-        [NonSerialized]
-        //public Teacher Teacher { get; set; }
-        public Teacher Teacher;
+        [XmlIgnore]
+        public Teacher Teacher { get; set; }
+        public Participation() { }
 
         public Participation(int id = 0, Teacher t = null, Research r = null) { ParticipationId = id; Project = r; Teacher = t; }
 
@@ -189,6 +195,7 @@ namespace КП_Кафедра
         public DateTime EndDate { get; set; }
         public List<Participation> Participants { get; set; }
 
+        public Research() { }
         public Research(int id = 0, string name = "", DateTime? start = null, DateTime? end = null)
         {
             ResearchId = id;
