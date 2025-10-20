@@ -19,12 +19,13 @@ namespace КП_Кафедра.Forms
     public partial class FormSettings : Form
     {
         private string currentFormat = "XML"; // формат за замовчуванням
+        private bool isInitializing = true;
         private string dataFolder = Path.Combine(Application.StartupPath, "Data");
 
         public FormSettings()
         {
             InitializeComponent();
-            UpdateButtonStates();
+            //UpdateButtonStates();
 
             LanguageManager.LanguageChanged += ApplyLocalization;
         }
@@ -34,6 +35,11 @@ namespace КП_Кафедра.Forms
             try
             {
                 EnsureDataFolderExists();
+
+                isInitializing = true;
+                rbXML.Checked = true;
+                isInitializing = false;
+
                 cmbLanguage.Items.Add("Українська");
                 cmbLanguage.Items.Add("English");
                 cmbLanguage.SelectedItem = Settings.Default.Language;
@@ -48,36 +54,36 @@ namespace КП_Кафедра.Forms
             LoggerService.LogInfo("Папка Data перевірена/створена.");
         }
 
-        private void UpdateButtonStates()
-        {
-            btnXml.BackColor = currentFormat == "XML" ? Color.LightGreen : SystemColors.Control;
-            btnJson.BackColor = currentFormat == "JSON" ? Color.LightGreen : SystemColors.Control;
-            btnBin.BackColor = currentFormat == "BIN" ? Color.LightGreen : SystemColors.Control;
-        }
+        //private void UpdateButtonStates()
+        //{
+        //    btnXml.BackColor = currentFormat == "XML" ? Color.LightGreen : SystemColors.Control;
+        //    btnJson.BackColor = currentFormat == "JSON" ? Color.LightGreen : SystemColors.Control;
+        //    btnBin.BackColor = currentFormat == "BIN" ? Color.LightGreen : SystemColors.Control;
+        //}
 
-        private void btnXml_Click(object sender, EventArgs e)
-        {
-            currentFormat = "XML";
-            LoggerService.LogInfo("Обрано формат XML.");
-            Toast.Show("INFO", $"Обрано формат XML.");
-            UpdateButtonStates();
-        }
+        //private void btnXml_Click(object sender, EventArgs e)
+        //{
+        //    currentFormat = "XML";
+        //    LoggerService.LogInfo("Обрано формат XML.");
+        //    Toast.Show("INFO", $"Обрано формат XML.");
+        //    UpdateButtonStates();
+        //}
 
-        private void btnJson_Click(object sender, EventArgs e)
-        {
-            currentFormat = "JSON";
-            LoggerService.LogInfo("Обрано формат JSON.");
-            Toast.Show("INFO", $"Обрано формат JSON.");
-            UpdateButtonStates();
-        }
+        //private void btnJson_Click(object sender, EventArgs e)
+        //{
+        //    currentFormat = "JSON";
+        //    LoggerService.LogInfo("Обрано формат JSON.");
+        //    Toast.Show("INFO", $"Обрано формат JSON.");
+        //    UpdateButtonStates();
+        //}
 
-        private void btnBin_Click(object sender, EventArgs e)
-        {
-            currentFormat = "BIN";
-            LoggerService.LogInfo("Обрано формат BIN.");
-            Toast.Show("INFO", $"Обрано формат BIN.");
-            UpdateButtonStates();
-        }
+        //private void btnBin_Click(object sender, EventArgs e)
+        //{
+        //    currentFormat = "BIN";
+        //    LoggerService.LogInfo("Обрано формат BIN.");
+        //    Toast.Show("INFO", $"Обрано формат BIN.");
+        //    UpdateButtonStates();
+        //}
 
         private string GetFilePath(string entityName, string format)
         {
@@ -171,6 +177,32 @@ namespace КП_Кафедра.Forms
             lbLanguage.Text = LanguageManager.GetString("lbLanguage");
         }
 
+        private void rbXML_CheckedChanged(object sender, EventArgs e)
+        {
+            if (isInitializing || !rbXML.Checked) return;
+
+            currentFormat = "XML";
+            LoggerService.LogInfo("Обрано формат XML.");
+            Toast.Show("INFO", $"Обрано формат XML.");
+        }
+
+        private void rbJSON_CheckedChanged(object sender, EventArgs e)
+        {
+            if (isInitializing || !rbJSON.Checked) return;
+
+            currentFormat = "JSON";
+            LoggerService.LogInfo("Обрано формат JSON.");
+            Toast.Show("INFO", $"Обрано формат JSON.");
+        }
+
+        private void rbBIN_CheckedChanged(object sender, EventArgs e)
+        {
+            if (isInitializing || !rbBIN.Checked) return;
+
+            currentFormat = "BIN";
+            LoggerService.LogInfo("Обрано формат BIN.");
+            Toast.Show("INFO", $"Обрано формат BIN.");
+        }
     }
     
 }

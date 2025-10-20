@@ -26,6 +26,8 @@ namespace КП_Кафедра.Forms
             txtSearch.GotFocus += TxtSearch_GotFocus;
             txtSearch.LostFocus += TxtSearch_LostFocus;
             txtSearch.TextChanged += txtSearch_TextChanged_1;
+
+            dataGridView1.CellFormatting += DataGridView1_CellFormatting;
         }
 
         private void FormTable_Load(object sender, EventArgs e)
@@ -47,7 +49,7 @@ namespace КП_Кафедра.Forms
                 using (var connection = new SqliteConnection($"Data Source={dbPath}"))
                 {
                     connection.Open();
-                    string query = "SELECT emp_id, emp_full_name, emp_position, emp_hire_date, phone_number, email FROM teacher";
+                    string query = "SELECT emp_id, emp_full_name, emp_position, emp_hire_date, phone_number, email, status FROM teacher ORDER BY status DESC, emp_full_name ASC";
 
                     using (var command = new SqliteCommand(query, connection))
                     using (var reader = command.ExecuteReader())
@@ -56,11 +58,14 @@ namespace КП_Кафедра.Forms
                         table.Load(reader);
                         originalTable = table.Copy();
                         dataGridView1.DataSource = table;
+
+                        //if (dataGridView1.Columns.Contains("status")) // прибрати колонку статус з відображення
+                        //    dataGridView1.Columns["status"].Visible = false;
                     }
                 }
                 DataService.Teachers = GetTeachersFromGrid();
             }
-            catch (Exception ex) { MessageBox.Show("Помилка при завантаженні даних: " + ex.Message); }
+            catch (Exception ex) { Toast.Show("ERROR", $"Помилка при завантаженні викладачів: {ex.Message}"); }
         }
         private void LoadSubjects()
         {
@@ -82,7 +87,7 @@ namespace КП_Кафедра.Forms
                 }
                 DataService.Subjects = GetSubjectsFromGrid();
             }
-            catch (Exception ex) { MessageBox.Show("Помилка при завантаженні предметів: " + ex.Message); }
+            catch (Exception ex) { Toast.Show("ERROR", $"Помилка при завантаженні предметів: {ex.Message}"); }
         }
         private void LoadAssignments()
         {
@@ -108,7 +113,7 @@ namespace КП_Кафедра.Forms
                 }
                 DataService.Assignments = GetAssignmentsFromGrid();
             }
-            catch (Exception ex) { MessageBox.Show("Помилка при завантаженні призначень: " + ex.Message); }
+            catch (Exception ex) { Toast.Show("ERROR", $"Помилка при завантаженні призначень: {ex.Message}"); }
         }
         private void LoadResearch()
         {
@@ -130,7 +135,7 @@ namespace КП_Кафедра.Forms
                 }
                 DataService.Researches = GetResearchFromGrid();
             }
-            catch (Exception ex) { MessageBox.Show("Помилка при завантаженні досліджень: " + ex.Message); }
+            catch (Exception ex) { Toast.Show("ERROR", $"Помилка при завантаженні досліджень: {ex.Message}"); }
         }
 
         public List<Teacher> GetTeachersFromGrid()
@@ -247,7 +252,7 @@ namespace КП_Кафедра.Forms
                 }
                 dataGridView1.DataSource = filtered;
             }
-            catch (Exception ex) { MessageBox.Show("Помилка під час пошуку: " + ex.Message); }
+            catch (Exception ex) { Toast.Show("ERROR", $"Помилка під час пошуку: {ex.Message}"); }
         }
 
         private void TxtSearch_GotFocus(object sender, EventArgs e)
@@ -301,6 +306,160 @@ namespace КП_Кафедра.Forms
             btnAssignments.Text = LanguageManager.GetString("btnAssignments");
             btnResearches.Text = LanguageManager.GetString("btnResearches");
             btnSubjects.Text = LanguageManager.GetString("btnSubjects");
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPosition_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpHireDate_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPhone_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddTeacher_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var connection = new SqliteConnection($"Data Source={dbPath}"))
+                {
+                    connection.Open();
+                    string query = @"INSERT INTO teacher (emp_full_name, emp_position, emp_hire_date, phone_number, email, status) VALUES (@name, @position, @hireDate, @phone, @mail, 1)";
+                    using (var cmd = new SqliteCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@name", txtName.Text.Trim());
+                        cmd.Parameters.AddWithValue("@position", txtPosition.Text.Trim());
+                        cmd.Parameters.AddWithValue("@hireDate", dtpHireDate.Value.ToString("yyyy-MM-dd"));
+                        cmd.Parameters.AddWithValue("@phone", txtPhone.Text.Trim());
+                        cmd.Parameters.AddWithValue("@mail", txtEmail.Text.Trim());
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                LoadTeachers();
+                Toast.Show("SUCCESS", "Викладача додано успішно!"); 
+            }
+            catch (Exception ex) { Toast.Show("ERROR", $"Помилка при додаванні: {ex.Message}"); }
+        }
+
+        private void btnUpdateTeacher_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow == null) return;
+
+            int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["emp_id"].Value);
+
+            try
+            {
+                using (var connection = new SqliteConnection($"Data Source={dbPath}"))
+                {
+                    connection.Open();
+                    string query = @"UPDATE teacher SET
+                             emp_full_name = @name,
+                             emp_position = @position,
+                             emp_hire_date = @hireDate,
+                             phone_number = @phone,
+                             email = @mail
+                             WHERE emp_id = @id";
+
+                    using (var cmd = new SqliteCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@name", txtName.Text.Trim());
+                        cmd.Parameters.AddWithValue("@position", txtPosition.Text.Trim());
+                        cmd.Parameters.AddWithValue("@hireDate", dtpHireDate.Value.ToString("yyyy-MM-dd"));
+                        cmd.Parameters.AddWithValue("@phone", txtPhone.Text.Trim());
+                        cmd.Parameters.AddWithValue("@mail", txtEmail.Text.Trim());
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                LoadTeachers();
+                Toast.Show("SUCCESS", "Дані оновлено успішно!");
+            }
+            catch (Exception ex) { Toast.Show("ERROR", $"Помилка при оновленні: {ex.Message}"); }
+        }
+
+        private void btnDeactivateTeacher_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow == null) return;
+
+            int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["emp_id"].Value);
+
+            try
+            {
+                using (var connection = new SqliteConnection($"Data Source={dbPath}"))
+                {
+                    connection.Open();
+                    string query = "UPDATE teacher SET status = 0 WHERE emp_id = @id";
+                    using (var cmd = new SqliteCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                LoadTeachers();
+                Toast.Show("SUCCESS", "Викладача деактивовано.");
+            }
+            catch (Exception ex) { Toast.Show("ERROR", $"Помилка при деактивації: {ex.Message}"); }
+        }
+
+        private void DataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView1.Columns.Contains("status"))
+            {
+                var row = dataGridView1.Rows[e.RowIndex];
+                if (row.Cells["status"].Value != null &&
+                    int.TryParse(row.Cells["status"].Value.ToString(), out int status))
+                {
+                    if (status == 0)
+                    {
+                        // неактивні викладачі
+                        row.DefaultCellStyle.BackColor = Color.LightGray;
+                        row.DefaultCellStyle.ForeColor = Color.DarkSlateGray;
+                        row.DefaultCellStyle.SelectionBackColor = Color.Gray;
+                        row.DefaultCellStyle.SelectionForeColor = Color.White;
+                    }
+                    else
+                    {
+                        // активні викладачі
+                        row.DefaultCellStyle.BackColor = Color.White;
+                        row.DefaultCellStyle.ForeColor = Color.Black;
+                        row.DefaultCellStyle.SelectionBackColor = SystemColors.Highlight;
+                        row.DefaultCellStyle.SelectionForeColor = Color.White;
+                    }
+                }
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.CurrentRow == null) return;
+
+            txtName.Text = dataGridView1.CurrentRow.Cells["emp_full_name"].Value?.ToString();
+            txtPosition.Text = dataGridView1.CurrentRow.Cells["emp_position"].Value?.ToString();
+            txtPhone.Text = dataGridView1.CurrentRow.Cells["phone_number"].Value?.ToString();
+            txtEmail.Text = dataGridView1.CurrentRow.Cells["email"].Value?.ToString();
+
+            if (DateTime.TryParse(dataGridView1.CurrentRow.Cells["emp_hire_date"].Value?.ToString(), out DateTime d)) dtpHireDate.Value = d;
         }
     }
 }

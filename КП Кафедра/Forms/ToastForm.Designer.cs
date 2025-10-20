@@ -55,7 +55,6 @@
             this.IbMessage.Size = new System.Drawing.Size(85, 15);
             this.IbMessage.TabIndex = 3;
             this.IbMessage.Text = "Toast Message";
-            this.IbMessage.Click += new System.EventHandler(this.label2_Click);
             // 
             // IbType
             // 
@@ -66,7 +65,6 @@
             this.IbType.Size = new System.Drawing.Size(37, 17);
             this.IbType.TabIndex = 2;
             this.IbType.Text = "Type";
-            this.IbType.Click += new System.EventHandler(this.label3_Click);
             // 
             // IbIcon
             // 
@@ -77,7 +75,6 @@
             this.IbIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.IbIcon.TabIndex = 1;
             this.IbIcon.TabStop = false;
-            this.IbIcon.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // toastTimer
             // 

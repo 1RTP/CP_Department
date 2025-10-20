@@ -39,10 +39,7 @@ namespace КП_Кафедра
                     IbIcon.Image = Properties.Resources.img_icons8;
                     break;
             }
-
             Position();
-
-
         }
 
         public static class Toast
@@ -52,21 +49,6 @@ namespace КП_Кафедра
                 ToastForm toast = new ToastForm(type, message);
                 toast.Show();
             }
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void ToastForm_Load(object sender, EventArgs e)
@@ -97,6 +79,7 @@ namespace КП_Кафедра
                 }
             }
         }
+
         int y = 100;
         private void toastHide_Tick(object sender, EventArgs e)
         {
@@ -120,7 +103,6 @@ namespace КП_Кафедра
             toastX = ScreenWidth - this.Width - margin;
             toastY = ScreenHeight + this.Height;
             targetY = ScreenHeight - this.Height - margin;
-
 
             this.Location = new Point(toastX, toastY);
         }
