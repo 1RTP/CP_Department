@@ -1,0 +1,60 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>WASMUserApp</RootNamespace>
+
+    <!--Trimming-->
+    <!--Do not trim debug app! It causes incorrect trimming of 'MainLayout.razor' and therefore app failure --> 
+    <IsTrimmable>false</IsTrimmable>
+    <TrimmerSingleWarn>True</TrimmerSingleWarn>
+    <!--<WasmBuildNative>true</WasmBuildNative>-->
+
+    <BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
+    <!--<StaticWebAssetBasePath>wasm</StaticWebAssetBasePath>-->
+  </PropertyGroup>
+  <ItemGroup>
+	<PackageReference Include="FastReport.Blazor.Wasm.Demo" Version="*" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.*" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.*" PrivateAssets="all" />
+  </ItemGroup>
+
+
+  <ItemGroup Label="Reports">
+	  <EmbeddedResource Include="..\..\..\Reports.New\**">
+		  <Link>Reports\%(Filename)%(Extension)</Link>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="..\..\..\Reports\nwind.xml">
+		  <Link>Reports\%(Filename)%(Extension)</Link>
+	  </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup Label="Fonts">
+    <EmbeddedResource Include="Fonts\**">
+      <Link>Fonts\%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </EmbeddedResource>
+  </ItemGroup>
+	
+  <ItemGroup Label="Fonts" Condition="Exists('..\..\..\..\Tools\Fonts')">
+	  <EmbeddedResource Include="..\..\..\..\Tools\Fonts\**">
+		  <Link>Fonts\%(RecursiveDir)%(Filename)%(Extension)</Link>
+	  </EmbeddedResource>
+  </ItemGroup>
+	
+  <ItemGroup>
+    <EmbeddedResource Remove="..\..\..\Reports.New\Interactive Reports\Handle Preview Clicks.frx" />
+    <EmbeddedResource Remove="..\..\..\Reports.New\Interactive Reports\Interactive Matrix - Details.frx" />
+    <EmbeddedResource Remove="..\..\..\Reports.New\Interactive Reports\Interactive Report.frx" />
+    <EmbeddedResource Remove="..\..\..\Reports.New\Miscellaneous\Box.frx" />
+    <EmbeddedResource Remove="..\..\..\Reports.New\Miscellaneous\Business Objects.frx" />
+    <EmbeddedResource Remove="..\..\..\Reports.New\NorthWind Reports\Order Search.frx" />
+    <EmbeddedResource Remove="..\..\..\Reports.New\NorthWind Reports\Sales Map.frx" />
+    <EmbeddedResource Remove="..\..\..\Reports.New\Report Objects\Map.frx" />
+    <EmbeddedResource Remove="..\..\..\Reports.New\Report Types\Inherited Report - base.frx" />
+    <EmbeddedResource Remove="..\..\..\Reports.New\Report Types\Inherited Report.frx" />
+    <EmbeddedResource Remove="..\..\..\Reports.New\Simple Matrix\Matrix With Columns Only.frx" />
+    <EmbeddedResource Remove="..\..\..\Reports.New\Simple Matrix\Matrix With Rows Only.frx" />
+  </ItemGroup>
+</Project>

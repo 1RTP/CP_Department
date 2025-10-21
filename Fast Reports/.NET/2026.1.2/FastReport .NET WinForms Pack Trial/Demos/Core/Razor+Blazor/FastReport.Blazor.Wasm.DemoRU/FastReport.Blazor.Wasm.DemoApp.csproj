@@ -1,0 +1,62 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>WASMUserApp</RootNamespace>
+
+    <!--Trimming-->
+    <!--Do not trim debug app! It causes incorrect trimming of 'MainLayout.razor' and therefore app failure --> 
+    <IsTrimmable>false</IsTrimmable>
+    <TrimmerSingleWarn>True</TrimmerSingleWarn>
+    <!--<WasmBuildNative>true</WasmBuildNative>-->
+
+    <BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
+    <!--<StaticWebAssetBasePath>wasm</StaticWebAssetBasePath>-->
+  </PropertyGroup>
+	<ItemGroup>
+    <PackageReference Include="FastReport.Blazor.Wasm.Demo" Version="*" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.*" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.*" PrivateAssets="all" />
+	</ItemGroup>
+
+
+  <ItemGroup Label="Reports">
+	  <EmbeddedResource Include="..\..\..\Reports.New.Ru\**">
+		  <Link>Reports\%(Filename)%(Extension)</Link>
+	  </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup Label="Fonts">
+    <EmbeddedResource Include="Fonts\**">
+      <Link>Fonts\%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup Label="Fonts" Condition="Exists('..\..\..\..\Tools\Fonts')">
+	<EmbeddedResource Include="..\..\..\..\Tools\Fonts\**">
+	  	<Link>Fonts\%(RecursiveDir)%(Filename)%(Extension)</Link>
+	</EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+	  <EmbeddedResource Remove="..\..\..\Reports.New.Ru\Интерактивные Отчёты\Интерактивная Матрица - Основа.frx" />
+	  <EmbeddedResource Remove="..\..\..\Reports.New.Ru\Интерактивные Отчёты\Интерактивный Отчёт - основа.frx" />
+	  <EmbeddedResource Remove="..\..\..\Reports.New.Ru\Интерактивные Отчёты\Интерактивный Отчёт.frx" />
+	  <EmbeddedResource Remove="..\..\..\Reports.New.Ru\Простая Матрица\Матрица Только со Столбцами.frx" />
+	  <EmbeddedResource Remove="..\..\..\Reports.New.Ru\Простая Матрица\Матрица Только со Строками.frx" />
+	  <EmbeddedResource Remove="..\..\..\Reports.New.Ru\Объекты Отчёта\Карта.frx" />
+	  <EmbeddedResource Remove="..\..\..\Reports.New.Ru\Отчёты NorthWind\Карта Продаж.frx" />
+	  <EmbeddedResource Remove="..\..\..\Reports.New.Ru\Разные Отчёты\Бизнес-объекты.frx" />
+	  <EmbeddedResource Remove="..\..\..\Reports.New.Ru\Разные Отчёты\Коробка.frx" />
+	  <EmbeddedResource Remove="..\..\..\Reports.New.Ru\Интерактивные Отчёты\События в Превью.frx" />
+	  <EmbeddedResource Remove="..\..\..\Reports.New.Ru\Отчёты NorthWind\Поиск Заказов.frx" />
+	  <EmbeddedResource Remove="..\..\..\Reports.New.Ru\Типы Отчётов\Наследованный Отчёт - Основа.frx" />
+	  <EmbeddedResource Remove="..\..\..\Reports.New.Ru\Типы Отчётов\Наследованный Отчёт.frx" />
+  </ItemGroup>
+	
+  <ItemGroup>
+	  <EmbeddedResource Include="..\..\..\..\Localization\Russian.frl" Link="Russian.frl" />
+  </ItemGroup>
+</Project>

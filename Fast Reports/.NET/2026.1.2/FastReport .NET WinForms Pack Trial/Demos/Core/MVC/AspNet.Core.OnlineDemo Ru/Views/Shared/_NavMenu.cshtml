@@ -1,0 +1,106 @@
+﻿@using AspNet.Demo.Data
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Localization
+@inject IHttpContextAccessor HttpContextAccessor
+@inject IReportFileProvider ReportListProvider
+
+@{
+    var groups = ReportListProvider.Folders;
+    groups.FirstOrDefault()!.Hidden = false;
+
+    var reportName = HttpContextAccessor.HttpContext?.Request.Path.Value?[1..];
+}
+
+<div class="top-row pl-4 navbar navbar-dark">
+    <meta name="viewport" content="width=device-width">
+    <a class="navbar-brand" href="">
+        <img style="height: 3.5rem;" src="@LocalizationConfig.LogoUrl">
+    </a>
+    <p class="navbar-title">FastReport Web @LocalizationConfig.TitleName</p>
+</div>
+
+<div class="top-row pl-4 navbar navbar-dark" style="padding-bottom:0px">
+    <a href="@LocalizationConfig.LinkToHome" style="font-size:14px;bottom:4px;font-weight: 500;color:#35363A; font-family: 'Montserrat', sans-serif;">
+        <img style="padding-right: 5px" src="img/back-arrow.png"/>
+        @LocalizationConfig.LabelToHome
+    </a>
+</div>
+
+<div style="overflow-y:scroll;height:inherit;background-color: #EFEFEF;height: calc(100% - 7.5rem - 8px);">
+    <ul class="nav flex-column" style="padding-bottom: 60px;">
+        @foreach (var folder in groups)
+        {
+            <li class="nav-item">
+                <a title="@folder.Description" id="@folder.FolderName-Folder" onclick="toggleFolder('@folder.FolderName', this)" class="folder @(folder.Hidden ? "" : "selected-folder")">
+                    <img style="max-width:30px;" src="img/folder.png"/>
+                    <p>@folder.FolderName</p>
+                </a>
+
+                <ul class="nav-dropdown-content" id="@folder.FolderName-Reports" @(folder.Hidden ? "style=display:none;" : "")>
+                    @foreach (var report in folder.Reports)
+                    {
+                        <li class="nav-dropdown-item report-item">
+                            <a class="nav-dropdown-report report" href="@report.FilePath" id="@report.FileName">
+                                <div class="nav-dropdown-item_img">
+                                    <img src="img/Thumbnails/@LocalizationConfig.SubFolder/@(report.FileName.Replace("+", "")).png" title="@report.FileName" />
+                                    <p style="margin: 10px; margin-bottom: 0;position: absolute;font-weight:500;padding-top: 5px" class="image-name">@report.FileName</p>
+                                </div>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </li>
+        }
+    </ul>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+          var reportName = decodeUnicodeString('@reportName');
+          var folder = findFolderByReportName(reportName);
+          if (folder && folder.folderName !== '@groups[0].FolderName') {
+              toggleFolder(folder.folderName);
+          }
+      });
+
+      function decodeUnicodeString(unicodeString) {
+          return unicodeString.replace(/&#x([0-9A-F]{1,5});/gi, function (match, group1) {
+              return String.fromCharCode(parseInt(group1, 16));
+          });
+      }
+
+      function findFolderByReportName(reportName) {
+        var groups = @Html.Raw(Json.Serialize(groups));
+          for (var i = 0; i < groups.length; i++) {
+              var folder = groups[i];
+            for (var j = 0; j < folder.reports.length; j++) {
+                if (folder.reports[j].file === reportName) {
+                      return folder;
+                  }
+              }
+          }
+          return null;
+      }
+
+      function toggleFolder(folderName) {
+          var folderElement = document.getElementById(folderName + '-Reports');
+          var allFolders = document.querySelectorAll('.nav-dropdown-content');
+          allFolders.forEach(function (item) {
+              item.style.display = 'none';
+          });
+
+          var element = document.getElementById(folderName + '-Folder');
+          var isSelected = element.classList.contains("selected-folder");
+          var allFolderLinks = document.querySelectorAll('.folder');
+          allFolderLinks.forEach(function (link) {
+              link.classList.remove('selected-folder');
+          });
+          if (!isSelected) {
+              element.classList.add('selected-folder');
+              folderElement.style.display = 'flex';
+          }
+          else {
+              folderElement.style.display = 'none';
+          }
+      }
+</script>

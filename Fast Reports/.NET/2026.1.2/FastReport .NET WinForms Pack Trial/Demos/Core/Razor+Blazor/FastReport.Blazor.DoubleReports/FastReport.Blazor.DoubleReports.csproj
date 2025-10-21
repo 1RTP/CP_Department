@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Configurations>Debug;Release;</Configurations>
+  </PropertyGroup>
+
+  <Import Project="..\..\..\..\UsedPackages.version" />
+  <ItemGroup>
+    <PackageReference Include="FastReport.Core" Version="$(FRCoreVersion)-demo" />
+    <PackageReference Include="FastReport.Web" Version="$(FRCoreVersion)-demo" />
+  </ItemGroup>
+  
+</Project>

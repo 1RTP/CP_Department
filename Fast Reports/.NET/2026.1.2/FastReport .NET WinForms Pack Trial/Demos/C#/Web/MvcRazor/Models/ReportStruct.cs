@@ -1,0 +1,16 @@
+﻿namespace MvcRazor.Models
+{
+    public sealed class ReportStruct
+    {
+        /// <summary>
+        /// Name of the report file with extension
+        /// </summary>
+        public string FilePath { get; set; }
+
+        /// <summary>
+        /// Name of the report without extension
+        /// </summary>
+        /// 
+        public string FileName { get; set; }
+    }
+}

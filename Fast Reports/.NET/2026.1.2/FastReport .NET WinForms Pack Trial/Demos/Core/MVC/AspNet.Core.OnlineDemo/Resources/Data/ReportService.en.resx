@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <data name="SubFolder" xml:space="preserve">
+    <value>Eng</value>
+  </data>
+  <data name="DesignerLocale" xml:space="preserve">
+    <value>en</value>
+  </data>
+  <data name="ReportDatabase" xml:space="preserve">
+    <value>NorthWind</value>
+  </data>
+  <data name="DefaultReport" xml:space="preserve">
+    <value>Employee List.frx</value>
+  </data>
+  <data name="LocalizationFile" xml:space="preserve">
+    <value></value>
+  </data>
+</root>

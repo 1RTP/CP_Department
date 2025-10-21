@@ -36,10 +36,10 @@ namespace КП_Кафедра
             Status = st; 
         }
 
-        public string GetInfo()
-        {
-            return $"Subject: {Name}, Semester: {Semester}, Hours: {TotalHours}, Active: {Status}";
-        }
+        //public string GetInfo()
+        //{
+        //    return $"Subject: {Name}, Semester: {Semester}, Hours: {TotalHours}, Active: {Status}";
+        //}
     }
 
     [Serializable]
@@ -51,10 +51,10 @@ namespace КП_Кафедра
         public LessonType() { }
         public LessonType(int id = 0, string typeName = "") { LessonTypeId = id; TypeName = typeName; }
 
-        public string GetInfo()
-        {
-            return $"Lesson Type: {TypeName}";
-        }
+        //public string GetInfo()
+        //{
+        //    return $"Lesson Type: {TypeName}";
+        //}
     }
 
     [Serializable]
@@ -113,11 +113,11 @@ namespace КП_Кафедра
             return p;
         }
 
-        public string GetInfo()
-        {
-            string hireDateText = HireDate == DateTime.MinValue ? "Not set" : HireDate.ToString("dd.MM.yyyy");
-            return $"Teacher: {FullName}, Position: {Position}, Hire Date: {hireDateText}, Phone: {PhoneNumber}, Email: {Email}, Active: {Status}";
-        }
+        //public string GetInfo()
+        //{
+        //    string hireDateText = HireDate == DateTime.MinValue ? "Not set" : HireDate.ToString("dd.MM.yyyy");
+        //    return $"Teacher: {FullName}, Position: {Position}, Hire Date: {hireDateText}, Phone: {PhoneNumber}, Email: {Email}, Active: {Status}";
+        //}
     }
 
     [Serializable]
@@ -155,11 +155,11 @@ namespace КП_Кафедра
             if (TaughtHours > PlanHours) TaughtHours = PlanHours;
         }
 
-        public string GetInfo()
-        {
-            string hireDateText = HireDate == DateTime.MinValue ? "Not set" : HireDate.ToString("dd.MM.yyyy");
-            return $"Assignment {AssignmentId}: Plan {PlanHours}, Done {TaughtHours}, Hire Date: {hireDateText}, Lesson: {LessonType?.TypeName}";
-        }
+        //public string GetInfo()
+        //{
+        //    string hireDateText = HireDate == DateTime.MinValue ? "Not set" : HireDate.ToString("dd.MM.yyyy");
+        //    return $"Assignment {AssignmentId}: Plan {PlanHours}, Done {TaughtHours}, Hire Date: {hireDateText}, Lesson: {LessonType?.TypeName}";
+        //}
     }
 
     [Serializable]
@@ -180,10 +180,10 @@ namespace КП_Кафедра
             return "Invalid participation data";
         }
 
-        public string GetInfo()
-        {
-            return $"Participation {ParticipationId}: {Teacher?.FullName} in {Project?.ResearchName}";
-        }
+        //public string GetInfo()
+        //{
+        //    return $"Participation {ParticipationId}: {Teacher?.FullName} in {Project?.ResearchName}";
+        //}
     }
 
     [Serializable]
@@ -218,12 +218,12 @@ namespace КП_Кафедра
             return (EndDate - StartDate).Days;
         }
 
-        public string GetInfo()
-        {
-            string startDateText = StartDate == DateTime.MinValue ? "Not set" : StartDate.ToString("dd.MM.yyyy");
-            string endDateText = EndDate == DateTime.MinValue ? "Not set" : EndDate.ToString("dd.MM.yyyy");
-            return $"Research: {ResearchName}, Start: {startDateText}, End: {endDateText}, Participants: {Participants.Count}";
-        }
+        //public string GetInfo()
+        //{
+        //    string startDateText = StartDate == DateTime.MinValue ? "Not set" : StartDate.ToString("dd.MM.yyyy");
+        //    string endDateText = EndDate == DateTime.MinValue ? "Not set" : EndDate.ToString("dd.MM.yyyy");
+        //    return $"Research: {ResearchName}, Start: {startDateText}, End: {endDateText}, Participants: {Participants.Count}";
+        //}
     }
 
     internal static class Program

@@ -1,0 +1,1 @@
+Add fonts files to Fonts folder such as Arial.ttf, SEGOEUI.TTF, SEGOEUIB.TTF, TAHOMAB0.ttf, TahomaRegular.ttf

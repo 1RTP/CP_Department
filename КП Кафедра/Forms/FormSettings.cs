@@ -124,8 +124,8 @@ namespace КП_Кафедра.Forms
                 {
                     Teachers = DataService.Teachers,
                     Subjects = DataService.Subjects,
-                    Assignments = DataService.Assignments
-                    // інші таблиці
+                    Assignments = DataService.Assignments,
+                    Researches = DataService.Researches
                 };
                 SaveAllData(data, currentFormat);
                 Toast.Show("SUCCESS", $"Дані збережено ({currentFormat}).");
@@ -147,7 +147,7 @@ namespace КП_Кафедра.Forms
                 DataService.Teachers = data.Teachers ?? new List<Teacher>();
                 DataService.Subjects = data.Subjects ?? new List<Subject>();
                 DataService.Assignments = data.Assignments ?? new List<Assignment>();
-                // інші таблиці
+                DataService.Researches = data.Researches ?? new List<Research>();
 
                 if (FormTable.Instance != null) { FormTable.Instance.UpdateGrid(DataService.Teachers); }
                 Toast.Show("INFO", $"Дані завантажено з файлу ({currentFormat}).");

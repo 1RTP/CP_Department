@@ -1,0 +1,14 @@
+﻿@page "/"
+@page "/{ReportName}"
+@using System.IO;
+@using System.Data;
+@using FastReport.Utils;
+<WebReportContainer WebReport="@UserWebReport" />
+<div class="blazor-version">FastReport Blazor Server v. @BlazorVersion</div>
+
+@code {
+    [Parameter]
+    public string ReportName { get; set; }
+
+    public string BlazorVersion = Config.Version;
+}

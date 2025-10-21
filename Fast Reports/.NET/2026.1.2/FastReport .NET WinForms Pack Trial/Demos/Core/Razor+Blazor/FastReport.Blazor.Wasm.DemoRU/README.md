@@ -1,0 +1,1 @@
+Добавьте в папку Fonts файлы шрифтов, такие как Arial.ttf, SEGOEUI.TTF, SEGOEUIB.TTF, TAHOMAB0.ttf, TahomaRegular.ttf

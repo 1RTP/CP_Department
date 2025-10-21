@@ -1,0 +1,36 @@
+﻿@page "/"
+@page "/{ReportName}"
+@using FastReport
+@using FastReport.Utils;
+@using FastReport.Web;
+@using FastReport.Web.Blazor.Components;
+@using WASMUserApp.Data
+@using WASMUserApp.Models
+@inject IReportService ReportService
+
+
+
+<WebReportContainer WebReport="WebReport" />
+
+<div class="blazor-version">FastReport Blazor Wasm v. @Config.Version</div>
+
+@code
+{
+
+    [Parameter]
+    public string? ReportName { get; set; }
+
+    WebReport? WebReport { get; set; }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        ReportName ??= LocalizationConfig.DefaultReport;
+
+        var report = await ReportService.GetReportAsync(ReportName);
+        WebReport = new WebReport { 
+            Report = report,
+        };
+
+        WebReport.SetLocalization(ReportService.GetLocale());
+    }
+}

@@ -39,7 +39,7 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnReports = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button14 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
@@ -70,7 +70,7 @@
             this.panel1.Controls.Add(this.button8);
             this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.button7);
-            this.panel1.Controls.Add(this.button6);
+            this.panel1.Controls.Add(this.btnReports);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.panel4);
@@ -79,8 +79,9 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 634);
+            this.panel1.Size = new System.Drawing.Size(267, 780);
             this.panel1.TabIndex = 0;
             // 
             // panel8
@@ -89,9 +90,10 @@
             this.panel8.Controls.Add(this.label5);
             this.panel8.Controls.Add(this.label4);
             this.panel8.Controls.Add(this.pictureBox2);
-            this.panel8.Location = new System.Drawing.Point(0, 584);
+            this.panel8.Location = new System.Drawing.Point(0, 719);
+            this.panel8.Margin = new System.Windows.Forms.Padding(4);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(200, 50);
+            this.panel8.Size = new System.Drawing.Size(267, 62);
             this.panel8.TabIndex = 14;
             // 
             // label5
@@ -100,9 +102,10 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(148)))), ((int)(((byte)(152)))));
-            this.label5.Location = new System.Drawing.Point(54, 22);
+            this.label5.Location = new System.Drawing.Point(72, 27);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(93, 14);
+            this.label5.Size = new System.Drawing.Size(122, 16);
             this.label5.TabIndex = 2;
             this.label5.Text = "admin@gmail.com";
             // 
@@ -112,9 +115,10 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(148)))), ((int)(((byte)(152)))));
-            this.label4.Location = new System.Drawing.Point(54, 6);
+            this.label4.Location = new System.Drawing.Point(72, 7);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 16);
+            this.label4.Size = new System.Drawing.Size(53, 19);
             this.label4.TabIndex = 1;
             this.label4.Text = "Name";
             // 
@@ -122,9 +126,10 @@
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBox2.Image = global::КП_Кафедра.Properties.Resources.Screenshot_2_removebg_preview;
-            this.pictureBox2.Location = new System.Drawing.Point(12, 6);
+            this.pictureBox2.Location = new System.Drawing.Point(16, 7);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(36, 36);
+            this.pictureBox2.Size = new System.Drawing.Size(48, 44);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
@@ -139,10 +144,11 @@
             this.btnSettings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(148)))), ((int)(((byte)(152)))));
             this.btnSettings.Image = global::КП_Кафедра.Properties.Resources.icons8_settings_32;
             this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSettings.Location = new System.Drawing.Point(0, 386);
+            this.btnSettings.Location = new System.Drawing.Point(0, 472);
+            this.btnSettings.Margin = new System.Windows.Forms.Padding(4);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.btnSettings.Size = new System.Drawing.Size(200, 32);
+            this.btnSettings.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnSettings.Size = new System.Drawing.Size(267, 39);
             this.btnSettings.TabIndex = 13;
             this.btnSettings.Text = "             Налаштування";
             this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -159,10 +165,11 @@
             this.button8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(148)))), ((int)(((byte)(152)))));
             this.button8.Image = global::КП_Кафедра.Properties.Resources.icons8_settings_32;
             this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.Location = new System.Drawing.Point(0, 354);
+            this.button8.Location = new System.Drawing.Point(0, 433);
+            this.button8.Margin = new System.Windows.Forms.Padding(4);
             this.button8.Name = "button8";
-            this.button8.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.button8.Size = new System.Drawing.Size(200, 32);
+            this.button8.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.button8.Size = new System.Drawing.Size(267, 39);
             this.button8.TabIndex = 12;
             this.button8.Text = "             Сповіщення";
             this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -172,9 +179,10 @@
             // 
             this.panel7.Controls.Add(this.label3);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 327);
+            this.panel7.Location = new System.Drawing.Point(0, 400);
+            this.panel7.Margin = new System.Windows.Forms.Padding(4);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(200, 27);
+            this.panel7.Size = new System.Drawing.Size(267, 33);
             this.panel7.TabIndex = 11;
             // 
             // label3
@@ -182,9 +190,10 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(148)))), ((int)(((byte)(152)))));
-            this.label3.Location = new System.Drawing.Point(9, 7);
+            this.label3.Location = new System.Drawing.Point(12, 9);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 13);
+            this.label3.Size = new System.Drawing.Size(38, 15);
             this.label3.TabIndex = 12;
             this.label3.Text = "ІНШЕ";
             // 
@@ -198,33 +207,36 @@
             this.button7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(148)))), ((int)(((byte)(152)))));
             this.button7.Image = global::КП_Кафедра.Properties.Resources.icons8_settings_32;
             this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(0, 295);
+            this.button7.Location = new System.Drawing.Point(0, 361);
+            this.button7.Margin = new System.Windows.Forms.Padding(4);
             this.button7.Name = "button7";
-            this.button7.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.button7.Size = new System.Drawing.Size(200, 32);
+            this.button7.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.button7.Size = new System.Drawing.Size(267, 39);
             this.button7.TabIndex = 10;
             this.button7.Text = "             Button";
             this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button7.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btnReports
             // 
-            this.button6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(148)))), ((int)(((byte)(152)))));
-            this.button6.Image = global::КП_Кафедра.Properties.Resources.icons8_settings_32;
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(0, 263);
-            this.button6.Name = "button6";
-            this.button6.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.button6.Size = new System.Drawing.Size(200, 32);
-            this.button6.TabIndex = 9;
-            this.button6.Text = "             Button";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnReports.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReports.FlatAppearance.BorderSize = 0;
+            this.btnReports.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
+            this.btnReports.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
+            this.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReports.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(148)))), ((int)(((byte)(152)))));
+            this.btnReports.Image = global::КП_Кафедра.Properties.Resources.icons8_settings_32;
+            this.btnReports.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReports.Location = new System.Drawing.Point(0, 322);
+            this.btnReports.Margin = new System.Windows.Forms.Padding(4);
+            this.btnReports.Name = "btnReports";
+            this.btnReports.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnReports.Size = new System.Drawing.Size(267, 39);
+            this.btnReports.TabIndex = 9;
+            this.btnReports.Text = "             Звіти";
+            this.btnReports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReports.UseVisualStyleBackColor = true;
+            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
             // 
             // panel5
             // 
@@ -232,9 +244,10 @@
             this.panel5.Controls.Add(this.button14);
             this.panel5.Controls.Add(this.button13);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 253);
+            this.panel5.Location = new System.Drawing.Point(0, 310);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(200, 10);
+            this.panel5.Size = new System.Drawing.Size(267, 12);
             this.panel5.TabIndex = 6;
             // 
             // button14
@@ -246,10 +259,11 @@
             this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(148)))), ((int)(((byte)(152)))));
             this.button14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button14.Location = new System.Drawing.Point(0, 32);
+            this.button14.Location = new System.Drawing.Point(0, 39);
+            this.button14.Margin = new System.Windows.Forms.Padding(4);
             this.button14.Name = "button14";
-            this.button14.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.button14.Size = new System.Drawing.Size(200, 32);
+            this.button14.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.button14.Size = new System.Drawing.Size(267, 39);
             this.button14.TabIndex = 4;
             this.button14.Text = "             DashBoard";
             this.button14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -265,9 +279,10 @@
             this.button13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(148)))), ((int)(((byte)(152)))));
             this.button13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button13.Location = new System.Drawing.Point(0, 0);
+            this.button13.Margin = new System.Windows.Forms.Padding(4);
             this.button13.Name = "button13";
-            this.button13.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.button13.Size = new System.Drawing.Size(200, 32);
+            this.button13.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.button13.Size = new System.Drawing.Size(267, 39);
             this.button13.TabIndex = 3;
             this.button13.Text = "             DashBoard";
             this.button13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -283,10 +298,11 @@
             this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(148)))), ((int)(((byte)(152)))));
             this.button4.Image = global::КП_Кафедра.Properties.Resources.icons8_settings_32;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(0, 221);
+            this.button4.Location = new System.Drawing.Point(0, 271);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
-            this.button4.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.button4.Size = new System.Drawing.Size(200, 32);
+            this.button4.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.button4.Size = new System.Drawing.Size(267, 39);
             this.button4.TabIndex = 5;
             this.button4.Text = "             Button";
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -300,9 +316,10 @@
             this.panel4.Controls.Add(this.button12);
             this.panel4.Controls.Add(this.button11);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 211);
+            this.panel4.Location = new System.Drawing.Point(0, 259);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(200, 10);
+            this.panel4.Size = new System.Drawing.Size(267, 12);
             this.panel4.TabIndex = 4;
             // 
             // button10
@@ -314,10 +331,11 @@
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(148)))), ((int)(((byte)(152)))));
             this.button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button10.Location = new System.Drawing.Point(0, 64);
+            this.button10.Location = new System.Drawing.Point(0, 78);
+            this.button10.Margin = new System.Windows.Forms.Padding(4);
             this.button10.Name = "button10";
-            this.button10.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.button10.Size = new System.Drawing.Size(200, 32);
+            this.button10.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.button10.Size = new System.Drawing.Size(267, 39);
             this.button10.TabIndex = 2;
             this.button10.Text = "             DashBoard";
             this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -332,10 +350,11 @@
             this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(148)))), ((int)(((byte)(152)))));
             this.button12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button12.Location = new System.Drawing.Point(0, 32);
+            this.button12.Location = new System.Drawing.Point(0, 39);
+            this.button12.Margin = new System.Windows.Forms.Padding(4);
             this.button12.Name = "button12";
-            this.button12.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.button12.Size = new System.Drawing.Size(200, 32);
+            this.button12.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.button12.Size = new System.Drawing.Size(267, 39);
             this.button12.TabIndex = 4;
             this.button12.Text = "             DashBoard";
             this.button12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -351,9 +370,10 @@
             this.button11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(148)))), ((int)(((byte)(152)))));
             this.button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button11.Location = new System.Drawing.Point(0, 0);
+            this.button11.Margin = new System.Windows.Forms.Padding(4);
             this.button11.Name = "button11";
-            this.button11.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.button11.Size = new System.Drawing.Size(200, 32);
+            this.button11.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.button11.Size = new System.Drawing.Size(267, 39);
             this.button11.TabIndex = 3;
             this.button11.Text = "             DashBoard";
             this.button11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -369,10 +389,11 @@
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(148)))), ((int)(((byte)(152)))));
             this.button3.Image = global::КП_Кафедра.Properties.Resources.icons8_settings_32;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(0, 179);
+            this.button3.Location = new System.Drawing.Point(0, 220);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.button3.Size = new System.Drawing.Size(200, 32);
+            this.button3.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.button3.Size = new System.Drawing.Size(267, 39);
             this.button3.TabIndex = 3;
             this.button3.Text = "             Button";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -389,10 +410,11 @@
             this.btnHead.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(148)))), ((int)(((byte)(152)))));
             this.btnHead.Image = global::КП_Кафедра.Properties.Resources.icons8_settings_32;
             this.btnHead.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHead.Location = new System.Drawing.Point(0, 147);
+            this.btnHead.Location = new System.Drawing.Point(0, 181);
+            this.btnHead.Margin = new System.Windows.Forms.Padding(4);
             this.btnHead.Name = "btnHead";
-            this.btnHead.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.btnHead.Size = new System.Drawing.Size(200, 32);
+            this.btnHead.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnHead.Size = new System.Drawing.Size(267, 39);
             this.btnHead.TabIndex = 1;
             this.btnHead.Text = "             Головна сторінка";
             this.btnHead.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -404,8 +426,9 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 147);
+            this.panel2.Size = new System.Drawing.Size(267, 181);
             this.panel2.TabIndex = 0;
             // 
             // label2
@@ -413,29 +436,32 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(148)))), ((int)(((byte)(152)))));
-            this.label2.Location = new System.Drawing.Point(13, 123);
+            this.label2.Location = new System.Drawing.Point(17, 151);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 13);
+            this.label2.Size = new System.Drawing.Size(64, 15);
             this.label2.TabIndex = 3;
             this.label2.Text = "ГОЛОВНЕ";
             // 
             // panel6
             // 
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(200, 0);
+            this.panel6.Location = new System.Drawing.Point(267, 0);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(823, 634);
+            this.panel6.Size = new System.Drawing.Size(1097, 780);
             this.panel6.TabIndex = 12;
             // 
             // FormMainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1023, 634);
+            this.ClientSize = new System.Drawing.Size(1364, 780);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel1);
-            this.MinimumSize = new System.Drawing.Size(16, 673);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(18, 817);
             this.Name = "FormMainMenu";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.FormMainMenu_Load);
@@ -459,7 +485,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnHead;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnReports;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label3;

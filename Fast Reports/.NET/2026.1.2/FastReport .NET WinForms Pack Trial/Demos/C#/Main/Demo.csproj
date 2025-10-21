@@ -1,0 +1,72 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFrameworks>net472;net6.0-windows</TargetFrameworks>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Configurations>Debug;Release;Academic;Demo;ReleaseIncludePlugins</Configurations>
+
+    <RootNamespace>Demo</RootNamespace>
+    <AssemblyName>Demo</AssemblyName>
+    <ApplicationIcon>fr-icon.ico</ApplicationIcon>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <Optimize>true</Optimize>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
+
+    <Company>Fast Reports Inc.</Company>
+    <Product>FastReport .NET Demo</Product>
+    <Title>FastReport .NET Demo</Title>
+    <Copyright>Copyright © Fast Reports Inc. 2007-2025</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DefineConstants>DOTNET_4;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Community'">
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(TargetFramework) != 'net472' Or $(MSBuildRuntimeType) != 'Full'">
+    <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+	  <Content Include="fr-icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(Configuration)' != 'ReleaseIncludePlugins'">
+	<ProjectReference Include="..\..\..\FastReport\FastReport.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<ProjectReference Include="..\..\..\FastReport.FastScript\FastReport.FastScript.Net\FastReport.FastScript.csproj" />
+  </ItemGroup>
+  <ItemGroup Condition="$(TargetFramework) == 'net472'">
+    <Reference Include="System.Configuration" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)' == 'ReleaseIncludePlugins'">
+    <PackageReference Include="FastReport.Compat" Version="2026.1.2.0" />
+    <PackageReference Include="FastReport.Net" Version="2026.1.2.0" />
+    <PackageReference Include="FastReport.Data.ClickHouse" Version="2026.1.2.0" />
+    <PackageReference Include="FastReport.Data.Couchbase" Version="2026.1.2.0" />
+    <PackageReference Include="FastReport.Data.Excel" Version="2026.1.2.0" />
+    <PackageReference Include="FastReport.Data.Firebird" Version="2026.1.2.0" />
+    <PackageReference Include="FastReport.Data.Json" Version="2026.1.2.0" />
+    <PackageReference Include="FastReport.Data.MongoDB" Version="2026.1.2.0" />
+    <PackageReference Include="FastReport.Data.MySql" Version="2026.1.2.0" />
+    <PackageReference Include="FastReport.Data.OracleODPCore" Version="2026.1.2.0" />
+    <PackageReference Include="FastReport.Data.Postgres" Version="2026.1.2.0" />
+    <PackageReference Include="FastReport.Data.RavenDB" Version="2026.1.2.0" />
+    <PackageReference Include="FastReport.Data.SQLite" Version="2026.1.2.0" />
+  </ItemGroup>
+
+</Project>

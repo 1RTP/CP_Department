@@ -1,0 +1,45 @@
+﻿@using FastReport.Blazor.Demo.Models
+<div class="top-row pl-4 navbar navbar-dark">
+    <meta name="viewport" content="width=device-width">
+    <a class="navbar-brand" href=""><img style="height: 3.5rem;" src="@LocalizationConfig.LogoUrl"></a>
+    <h1 class="navbar-title">FastReport Blazor @(LocalizationConfig.TitleName)</h1>
+</div>
+<div class="top-row pl-4 navbar navbar-dark" style="padding-bottom:0px">
+    <a href=@(LocalizationConfig.LinkToHome) style="font-size:14px;bottom:4px;font-weight: 500;color:#35363A;">
+        <img style="padding-right: 5px" src="img/back-arrow.png" />
+        @(LocalizationConfig.LabelToHome)
+    </a>
+</div>
+
+<div style="overflow-y:scroll;height:inherit;background-color: #EFEFEF;height: calc(100% - 7.5rem - 8px);">
+    <ul class="nav flex-column" style="padding-bottom: 60px;">
+        @foreach (var folder in Groups)
+        {
+            <li class="nav-item">
+                <a title="@folder.Description" @onclick="() => FolderClick(folder) " class="@(folder.Hiden ? "" : "selected-folder") folder">
+                    <img style="max-width:30px;" src="img/folder.png" /><p>@folder.FolderName</p>
+                </a>
+
+                
+
+                <ul class="nav-dropdown-content" hidden="@folder.Hiden">
+                    @foreach (var report in folder.Reports)
+                    {
+                        <li class="nav-dropdown-item report-item">
+                            <NavLink class="nav-dropdown-report report" href="@report.FileName"> 
+                                <div class="nav-dropdown-item_img">
+                                    <img src="img/Thumbnails/@(LocalizationConfig.SubFolder)/@(report.FileName.Replace("+", "")).png" title="@report.FileName"/>
+                                    <p style="margin: 10px; margin-bottom: 0;position: absolute;font-weight:500;padding-top: 5px" class="image-name">@report.FileName</p>
+                                </div>
+                            </NavLink>
+                        </li>
+                    }
+                </ul>
+            </li>
+        }
+    </ul>
+</div>
+
+@code {
+
+}

@@ -40,15 +40,15 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.chkActive = new System.Windows.Forms.Panel();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.txtPosition = new System.Windows.Forms.TextBox();
-            this.dtpHireDate = new System.Windows.Forms.DateTimePicker();
-            this.txtPhone = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.btnAddTeacher = new System.Windows.Forms.Button();
-            this.btnUpdateTeacher = new System.Windows.Forms.Button();
             this.btnDeactivateTeacher = new System.Windows.Forms.Button();
+            this.btnUpdateTeacher = new System.Windows.Forms.Button();
+            this.btnAddTeacher = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtPhone = new System.Windows.Forms.TextBox();
+            this.dtpHireDate = new System.Windows.Forms.DateTimePicker();
+            this.txtPosition = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.chkActive.SuspendLayout();
@@ -195,45 +195,35 @@
             this.chkActive.Size = new System.Drawing.Size(332, 820);
             this.chkActive.TabIndex = 13;
             // 
-            // txtName
+            // btnDeactivateTeacher
             // 
-            this.txtName.Location = new System.Drawing.Point(15, 18);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(306, 22);
-            this.txtName.TabIndex = 0;
-            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
+            this.btnDeactivateTeacher.Location = new System.Drawing.Point(201, 279);
+            this.btnDeactivateTeacher.Name = "btnDeactivateTeacher";
+            this.btnDeactivateTeacher.Size = new System.Drawing.Size(120, 23);
+            this.btnDeactivateTeacher.TabIndex = 8;
+            this.btnDeactivateTeacher.Text = "Деактивувати";
+            this.btnDeactivateTeacher.UseVisualStyleBackColor = true;
+            this.btnDeactivateTeacher.Click += new System.EventHandler(this.btnDeactivateTeacher_Click);
             // 
-            // txtPosition
+            // btnUpdateTeacher
             // 
-            this.txtPosition.Location = new System.Drawing.Point(15, 63);
-            this.txtPosition.Name = "txtPosition";
-            this.txtPosition.Size = new System.Drawing.Size(306, 22);
-            this.txtPosition.TabIndex = 1;
-            this.txtPosition.TextChanged += new System.EventHandler(this.txtPosition_TextChanged);
+            this.btnUpdateTeacher.Location = new System.Drawing.Point(110, 279);
+            this.btnUpdateTeacher.Name = "btnUpdateTeacher";
+            this.btnUpdateTeacher.Size = new System.Drawing.Size(85, 23);
+            this.btnUpdateTeacher.TabIndex = 7;
+            this.btnUpdateTeacher.Text = "Оновити";
+            this.btnUpdateTeacher.UseVisualStyleBackColor = true;
+            this.btnUpdateTeacher.Click += new System.EventHandler(this.btnUpdateTeacher_Click);
             // 
-            // dtpHireDate
+            // btnAddTeacher
             // 
-            this.dtpHireDate.Location = new System.Drawing.Point(15, 108);
-            this.dtpHireDate.Name = "dtpHireDate";
-            this.dtpHireDate.Size = new System.Drawing.Size(306, 22);
-            this.dtpHireDate.TabIndex = 2;
-            this.dtpHireDate.ValueChanged += new System.EventHandler(this.dtpHireDate_ValueChanged);
-            // 
-            // txtPhone
-            // 
-            this.txtPhone.Location = new System.Drawing.Point(15, 153);
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(306, 22);
-            this.txtPhone.TabIndex = 3;
-            this.txtPhone.TextChanged += new System.EventHandler(this.txtPhone_TextChanged);
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(15, 197);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(306, 22);
-            this.txtEmail.TabIndex = 4;
-            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
+            this.btnAddTeacher.Location = new System.Drawing.Point(16, 279);
+            this.btnAddTeacher.Name = "btnAddTeacher";
+            this.btnAddTeacher.Size = new System.Drawing.Size(88, 23);
+            this.btnAddTeacher.TabIndex = 6;
+            this.btnAddTeacher.Text = "Додати";
+            this.btnAddTeacher.UseVisualStyleBackColor = true;
+            this.btnAddTeacher.Click += new System.EventHandler(this.btnAddTeacher_Click);
             // 
             // checkBox1
             // 
@@ -247,35 +237,45 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // btnAddTeacher
+            // txtEmail
             // 
-            this.btnAddTeacher.Location = new System.Drawing.Point(16, 279);
-            this.btnAddTeacher.Name = "btnAddTeacher";
-            this.btnAddTeacher.Size = new System.Drawing.Size(88, 23);
-            this.btnAddTeacher.TabIndex = 6;
-            this.btnAddTeacher.Text = "Додати";
-            this.btnAddTeacher.UseVisualStyleBackColor = true;
-            this.btnAddTeacher.Click += new System.EventHandler(this.btnAddTeacher_Click);
+            this.txtEmail.Location = new System.Drawing.Point(15, 197);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(306, 22);
+            this.txtEmail.TabIndex = 4;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
-            // btnUpdateTeacher
+            // txtPhone
             // 
-            this.btnUpdateTeacher.Location = new System.Drawing.Point(110, 279);
-            this.btnUpdateTeacher.Name = "btnUpdateTeacher";
-            this.btnUpdateTeacher.Size = new System.Drawing.Size(85, 23);
-            this.btnUpdateTeacher.TabIndex = 7;
-            this.btnUpdateTeacher.Text = "Оновити";
-            this.btnUpdateTeacher.UseVisualStyleBackColor = true;
-            this.btnUpdateTeacher.Click += new System.EventHandler(this.btnUpdateTeacher_Click);
+            this.txtPhone.Location = new System.Drawing.Point(15, 153);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(306, 22);
+            this.txtPhone.TabIndex = 3;
+            this.txtPhone.TextChanged += new System.EventHandler(this.txtPhone_TextChanged);
             // 
-            // btnDeactivateTeacher
+            // dtpHireDate
             // 
-            this.btnDeactivateTeacher.Location = new System.Drawing.Point(201, 279);
-            this.btnDeactivateTeacher.Name = "btnDeactivateTeacher";
-            this.btnDeactivateTeacher.Size = new System.Drawing.Size(120, 23);
-            this.btnDeactivateTeacher.TabIndex = 8;
-            this.btnDeactivateTeacher.Text = "Деактивувати";
-            this.btnDeactivateTeacher.UseVisualStyleBackColor = true;
-            this.btnDeactivateTeacher.Click += new System.EventHandler(this.btnDeactivateTeacher_Click);
+            this.dtpHireDate.Location = new System.Drawing.Point(15, 108);
+            this.dtpHireDate.Name = "dtpHireDate";
+            this.dtpHireDate.Size = new System.Drawing.Size(306, 22);
+            this.dtpHireDate.TabIndex = 2;
+            this.dtpHireDate.ValueChanged += new System.EventHandler(this.dtpHireDate_ValueChanged);
+            // 
+            // txtPosition
+            // 
+            this.txtPosition.Location = new System.Drawing.Point(15, 63);
+            this.txtPosition.Name = "txtPosition";
+            this.txtPosition.Size = new System.Drawing.Size(306, 22);
+            this.txtPosition.TabIndex = 1;
+            this.txtPosition.TextChanged += new System.EventHandler(this.txtPosition_TextChanged);
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(15, 18);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(306, 22);
+            this.txtName.TabIndex = 0;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // FormTable
             // 

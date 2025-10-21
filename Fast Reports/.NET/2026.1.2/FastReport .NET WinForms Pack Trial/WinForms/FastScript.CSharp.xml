@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FastScript.CSharp</name>
+    </assembly>
+    <members>
+        <member name="M:FastScript.BitVector.Create(System.Int32)">
+            <summary>
+            Create BitArray with at least the specified number of bits.
+            </summary>
+        </member>
+        <member name="M:FastScript.BitVector.AllSet(System.Int32)">
+            <summary>
+            return a bit array with all bits set from index 0 through bitCount-1
+            </summary>
+            <param name="capacity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FastScript.BitVector.Clone">
+            <summary>
+            Make a copy of a bit array.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FastScript.BitVector.IntersectWith(FastScript.BitVector@)">
+            <summary>
+            Modify this bit vector by bitwise AND-ing each element with the other bit vector.
+            Return true if any changes were made to the bits of this bit vector.
+            </summary>
+        </member>
+    </members>
+</doc>

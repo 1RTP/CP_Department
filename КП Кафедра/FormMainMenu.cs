@@ -124,5 +124,10 @@ namespace КП_Кафедра
             btnHead.Text = LanguageManager.GetString("btnHead");
             btnSettings.Text = LanguageManager.GetString("btnSettings");
         }
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormReport());
+        }
     }
 }

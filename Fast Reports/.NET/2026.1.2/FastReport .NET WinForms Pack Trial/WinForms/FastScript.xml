@@ -1,0 +1,504 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FastScript</name>
+    </assembly>
+    <members>
+        <member name="T:FastScript.Ast.AstNode">
+            <summary>
+            Represents non-terminal AST node that has children.
+            </summary>
+        </member>
+        <member name="T:FastScript.Ast.AstTokenNode">
+            <summary>
+            Represents terminal AST node such as ident, keyword, literal.
+            </summary>
+        </member>
+        <member name="T:FastScript.Lexer.LexerBase">
+            <summary>
+            Represents abstract, language-agnostic lexer. Contains methods that can be reused in language-specific lexers.
+            Lexer parses the source text and returns such elements as identifiers, keywords, symbols, strings and numbers.
+            </summary>
+        </member>
+        <member name="T:FastScript.Lexer.LexerWindow">
+            <summary>
+            Represents higher-level lexer that uses language-specific SourceLexer internally.
+            Lexer holds a circular list of recently recognized tokens (up to 1024).
+            </summary>
+        </member>
+        <member name="P:FastScript.Lexer.LexerWindow.Position">
+            <summary>
+            The position in an internal circular list.
+            </summary>
+        </member>
+        <member name="P:FastScript.Lexer.LexerWindow.SourcePosition">
+            <summary>
+            The position in source text.
+            </summary>
+        </member>
+        <member name="P:FastScript.Lexer.LexerWindow.LeadingTriviaWidth">
+            <summary>
+            Used to accumulate widths of leading trivia nodes in TriviaMode = None.
+            The accumulated width is then added to a non-trivia node.
+            </summary>
+        </member>
+        <member name="M:FastScript.Parser.Parser.Parse(FastScript.CompilationUnit)">
+            <summary>
+            Parses the input text to an abstract syntaxt tree (AST).
+            </summary>
+            <param name="compilationUnit"></param>
+            <returns>true if parsing was successful.</returns>
+        </member>
+        <member name="T:FastScript.Runtime.Constant">
+            <summary>
+            Represents a named constant.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:FastScript.Runtime.DataContext" -->
+        <member name="P:FastScript.Runtime.DataContext.Parent">
+            <summary>
+            The parent of this context (e.g. for methods, this is a class context).
+            </summary>
+        </member>
+        <member name="P:FastScript.Runtime.DataContext.Owner">
+            <summary>
+            The object that created this context (either class or function).
+            </summary>
+        </member>
+        <member name="P:FastScript.Runtime.DataContext.InstanceContext">
+            <summary>
+            A reference to the context that is owned by a type instance.
+            </summary>
+        </member>
+        <member name="P:FastScript.Runtime.Expression.IsConstant">
+            <summary>
+            Determines if this expression is a constant expression that may be evaluated at compile time.
+            </summary>
+            <remarks>
+            A constant expression may contain operations and operands. All operands must be constant, 
+            i.e. ConstantExpression or LiteralExpression. 
+            </remarks>
+        </member>
+        <member name="T:FastScript.Runtime.IDataContextOwner">
+            <summary>
+            Indicates that implementor owns a DataContext (either Class or Function)
+            </summary>
+        </member>
+        <member name="T:FastScript.Runtime.Operations.AsOperation">
+            <summary>
+            Represents AS operation: Operand as AsType
+            </summary>
+        </member>
+        <member name="T:FastScript.Runtime.Operations.AssignmentOperation">
+            <summary>
+            Represents assignment operation: Left = Right
+            </summary>
+        </member>
+        <member name="T:FastScript.Runtime.Operations.BinaryOperation">
+            <summary>
+            Represents binary operation: Left Op Right
+            </summary>
+        </member>
+        <member name="T:FastScript.Runtime.Operations.BinaryOperationBase">
+            <summary>
+            Represents a base class for binary operations. Contains two operands, Left and Right.
+            </summary>
+        </member>
+        <member name="T:FastScript.Runtime.Operations.CompoundAssignmentOperation">
+            <summary>
+            Represents compound assignment operation: Left Op= Right.
+            </summary>
+            
+            <remarks>
+            Compound assignment is transformed to Result = Left Op Right. Result may be different from Left
+            if (Left Op Right) calculation replaces Left with an implicit cast.
+            </remarks>
+        </member>
+        <member name="T:FastScript.Runtime.Operations.ExplicitCastOperation">
+            <summary>
+            Represents explicit cast operation: (CastType)Operand.
+            </summary>
+        </member>
+        <member name="T:FastScript.Runtime.Operations.IsOperation">
+            <summary>
+            Represents IS operation: Operand is IsType Variable.
+            </summary>
+        </member>
+        <member name="T:FastScript.Runtime.Operations.NullCoalescingAssignmentOperation">
+            <summary>
+            Represents null-coalescing operation: Left ??= Right
+            </summary>
+        </member>
+        <member name="T:FastScript.Runtime.Operations.NullCoalescingOperation">
+            <summary>
+            Represents null-coalescing operation: Left ?? Right.
+            </summary>
+        </member>
+        <member name="T:FastScript.Runtime.Operations.TernaryOperation">
+            <summary>
+            Represents ternary operation: Condition ? Left : Right.
+            </summary>
+        </member>
+        <member name="T:FastScript.Runtime.Operations.UnaryOperation">
+            <summary>
+            Represent unary operation: Op Operand.
+            </summary>
+        </member>
+        <member name="T:FastScript.Runtime.Operations.UnaryOperationBase">
+            <summary>
+            Represents a base class for unary operations. Contains one Operand.
+            </summary>
+        </member>
+        <member name="T:FastScript.Runtime.Statement">
+            <summary>
+            Represents a base class for statements.
+            </summary>
+        </member>
+        <member name="T:FastScript.Runtime.Statements.LoopStatement">
+            <summary>
+            A base class for a loop statement such as FOR, FOREACH, DO, WHILE 
+            </summary>
+        </member>
+        <member name="M:FastScript.Runtime.Types.ConstructorInfo.Invoke(System.Object[])">
+            <summary>
+            Invokes a constructor.
+            </summary>
+            <param name="args">The arguments values.</param>
+            <returns>A result value.</returns>
+        </member>
+        <member name="M:FastScript.Runtime.Types.ConstructorInfo.Invoke(FastScript.Runtime.DataContext,FastScript.Runtime.Expression[])">
+            <summary>
+            Invokes a constructor. For internal use only.
+            </summary>
+            <param name="callingContext">The caller's DataContext used to calc arguments.</param>
+            <param name="args">The arguments list.</param>
+            <returns>A result value.</returns>
+        </member>
+        <member name="T:FastScript.Runtime.Types.WrappedArray">
+            <summary>
+            A wrapper around ScriptTypeInfo used to represent typed arrays of script-defined type.
+            </summary>
+        </member>
+        <member name="M:FastScript.Runtime.Types.MethodInfo.Invoke(System.Object,System.Object[])">
+            <summary>
+            Invokes a method.
+            </summary>
+            <param name="instance">Either DataContext or object instance (for reflection methods).</param>
+            <param name="args">The method parameters values.</param>
+            <returns>A result value.</returns>
+            <remarks>
+            DataContext passed in the <paramref name="instance"/> must have a valid parent for this method. 
+            E.g. if you call a class method, there must be a class context available in the context chain.
+            </remarks>
+        </member>
+        <member name="M:FastScript.Runtime.Types.MethodInfo.Invoke(System.Object,FastScript.Runtime.DataContext,FastScript.Runtime.Expression[])">
+            <summary>
+            Invokes a method. For internal use only.
+            </summary>
+            <param name="instance">Either DataContext or object instance (for reflection methods).</param>
+            <param name="callingContext">The caller's DataContext used to calc arguments.</param>
+            <param name="args">The arguments list.</param>
+            <returns>The method's return value or null if the method does not return a value.</returns>
+        </member>
+        <member name="T:FastScript.Runtime.Types.ScriptConstructorInfo">
+            <summary>
+            Represents a constructor.
+            </summary>
+        </member>
+        <member name="T:FastScript.Runtime.Types.ScriptMethodInfo">
+            <summary>
+            Represents a function (either method or local function).
+            </summary>
+        </member>
+        <member name="T:FastScript.Runtime.Variable">
+            <summary>
+            Represents a local variable.
+            </summary>
+            <remarks>
+            The Variable is an immutable object. To store its value, it uses a provided DataContext.
+            </remarks>
+        </member>
+        <member name="T:FastScript.Runtime.VarVariable">
+            <summary>
+            Represents a variable whose type is unknown at the moment of creation.
+            </summary>
+        </member>
+        <member name="T:FastScript.Utils.Converter">
+            <summary>
+            Contains methods that peform string to object and vice versa conversions.
+            </summary>
+        </member>
+        <member name="M:FastScript.Utils.Converter.ToXml(System.String)">
+            <summary>
+            Converts a string containing special symbols to the xml-compatible string.
+            </summary>
+            <param name="s">The string to convert.</param>
+            <returns>The result string.</returns>
+            <remarks>
+            This method replaces some special symbols like &lt;, &gt; into xml-compatible 
+            form: &amp;lt;, &amp;gt;. To convert such string back to original form, use the
+            <see cref="M:FastScript.Utils.Converter.FromXml(System.String)"/> method.
+            </remarks>
+        </member>
+        <member name="M:FastScript.Utils.Converter.ToXml(System.String,System.Boolean)">
+            <summary>
+            Converts a string containing special symbols to the xml-compatible string.
+            </summary>
+            <param name="s">The string to convert.</param>
+            <param name="convertCrlf">Determines whether it is necessary to convert cr-lf symbols to xml form.</param>
+            <returns>The result string.</returns>
+        </member>
+        <member name="M:FastScript.Utils.Converter.FromXml(System.String)">
+            <summary>
+            Convert the xml-compatible string to the regular one.
+            </summary>
+            <param name="s">The string to convert.</param>
+            <returns>The result string.</returns>
+            <remarks>
+            This is counterpart to the <see cref="M:FastScript.Utils.Converter.ToXml(System.String)"/> method.
+            </remarks>
+        </member>
+        <member name="T:FastScript.Utils.XmlProperty">
+            <summary>
+            Represents a xml property.
+            </summary>
+        </member>
+        <member name="P:FastScript.Utils.XmlProperty.Key">
+            <summary>
+            Represents a property key.
+            </summary>
+        </member>
+        <member name="P:FastScript.Utils.XmlProperty.Value">
+            <summary>
+            Represents a property value.
+            </summary>
+        </member>
+        <member name="M:FastScript.Utils.XmlProperty.Create(System.String,System.String)">
+            <summary>
+            Creates new property and assigns value
+            </summary>
+            <param name="key">Property key</param>
+            <param name="value">Property value</param>
+        </member>
+        <member name="T:FastScript.Utils.XmlItem">
+            <summary>
+            Represents a xml node.
+            </summary>
+        </member>
+        <member name="P:FastScript.Utils.XmlItem.Count">
+            <summary>
+            Gets a number of children in this node.
+            </summary>
+        </member>
+        <member name="P:FastScript.Utils.XmlItem.Items">
+            <summary>
+            Gets a list of children in this node.
+            </summary>
+        </member>
+        <member name="P:FastScript.Utils.XmlItem.Item(System.Int32)">
+            <summary>
+            Gets a child node with specified index.
+            </summary>
+            <param name="index">Index of node.</param>
+            <returns>The node with specified index.</returns>
+        </member>
+        <member name="P:FastScript.Utils.XmlItem.Name">
+            <summary>
+            Gets or sets the node name.
+            </summary>
+            <remarks>
+            This property will return "Node" for a node like <c>&lt;Node Text="" Left="0"/&gt;</c>
+            </remarks>
+        </member>
+        <member name="P:FastScript.Utils.XmlItem.Properties">
+            <summary>
+            Gets or sets a list of properties in this node.
+            </summary>
+        </member>
+        <member name="P:FastScript.Utils.XmlItem.Parent">
+            <summary>
+            Gets or sets the parent for this node.
+            </summary>
+        </member>
+        <member name="P:FastScript.Utils.XmlItem.Value">
+            <summary>
+            Gets or sets the node value.
+            </summary>
+            <remarks>
+            This property will return "ABC" for a node like <c>&lt;Node&gt;ABC&lt;/Node&gt;</c>
+            </remarks>
+        </member>
+        <member name="P:FastScript.Utils.XmlItem.Root">
+            <summary>
+            Gets the root node which owns this node.
+            </summary>
+        </member>
+        <member name="M:FastScript.Utils.XmlItem.Clear">
+            <summary>
+            Clears the child nodes of this node.
+            </summary>
+        </member>
+        <member name="M:FastScript.Utils.XmlItem.Add">
+            <summary>
+            Adds a new child node to this node.
+            </summary>
+            <returns>The new child node.</returns>
+        </member>
+        <member name="M:FastScript.Utils.XmlItem.AddItem(FastScript.Utils.XmlItem)">
+            <summary>
+            Adds a specified node to this node.
+            </summary>
+            <param name="item">The node to add.</param>
+        </member>
+        <member name="M:FastScript.Utils.XmlItem.InsertItem(System.Int32,FastScript.Utils.XmlItem)">
+            <summary>
+            Inserts a specified node to this node.
+            </summary>
+            <param name="index">Position to insert.</param>
+            <param name="item">Node to insert.</param>
+        </member>
+        <member name="M:FastScript.Utils.XmlItem.Find(System.String)">
+            <summary>
+            Finds the node with specified name.
+            </summary>
+            <param name="name">The name of node to find.</param>
+            <returns>The node with specified name, if found; <b>null</b> otherwise.</returns>
+        </member>
+        <member name="M:FastScript.Utils.XmlItem.FindItem(System.String)">
+            <summary>
+            Finds the node with specified name.
+            </summary>
+            <param name="name">The name of node to find.</param>
+            <returns>The node with specified name, if found; the new node otherwise.</returns>
+            <remarks>
+            This method adds the node with specified name to the child nodes if it cannot find the node.
+            Do not dispose items, which has been created by this method
+            </remarks>
+        </member>
+        <member name="M:FastScript.Utils.XmlItem.IndexOf(FastScript.Utils.XmlItem)">
+            <summary>
+            Gets the index of specified node in the child nodes list.
+            </summary>
+            <param name="item">The node to find.</param>
+            <returns>Zero-based index of node, if found; <b>-1</b> otherwise.</returns>
+        </member>
+        <member name="M:FastScript.Utils.XmlItem.GetProp(System.String)">
+            <summary>
+            Gets a property with specified name.
+            </summary>
+            <param name="key">The property name.</param>
+            <returns>The value of property, if found; empty string otherwise.</returns>
+            <remarks>
+            This property will return "0" when you request the "Left" property for a node 
+            like <c>&lt;Node Text="" Left="0"/&gt;</c>
+            </remarks>
+        </member>
+        <member name="M:FastScript.Utils.XmlItem.ClearProps">
+            <summary>
+            Removes all properties.
+            </summary>
+        </member>
+        <member name="M:FastScript.Utils.XmlItem.SetProp(System.String,System.String)">
+            <summary>
+            Sets the value for a specified property.
+            </summary>
+            <param name="key">The property name.</param>
+            <param name="value">Value to set.</param>
+            <remarks>
+            For example, you have a node like <c>&lt;Node Text="" Left="0"/&gt;</c>. When you set the
+            "Text" property to "test", the node will be <c>&lt;Node Text="test" Left="0"/&gt;</c>.
+            If property with specified name is not exist, it will be added.
+            </remarks>
+        </member>
+        <member name="M:FastScript.Utils.XmlItem.RemoveProp(System.String)">
+            <summary>
+            Removes a property with specified name.
+            </summary>
+            <param name="key">The property name.</param>
+            <returns>Returns true if property is removed, false otherwise.</returns>
+        </member>
+        <member name="M:FastScript.Utils.XmlItem.Dispose">
+            <summary>
+            Disposes the node and all its children.
+            </summary>
+        </member>
+        <member name="M:FastScript.Utils.XmlItem.#ctor">
+            <summary>
+            Initializes a new instance of the <b>XmlItem</b> class with default settings.
+            </summary>
+        </member>
+        <member name="T:FastScript.Utils.XmlDocument">
+            <summary>
+            Represents a xml document that contains the root xml node.
+            </summary>
+            <remarks>
+            Use <b>Load</b> and <b>Save</b> methods to load/save the document. To access the root node
+            of the document, use the <see cref="P:FastScript.Utils.XmlDocument.Root"/> property.
+            </remarks>
+        </member>
+        <member name="P:FastScript.Utils.XmlDocument.AutoIndent">
+            <summary>
+            Gets or sets a value indicating whether is necessary to indent the document
+            when saving it to a file/stream.
+            </summary>
+        </member>
+        <member name="P:FastScript.Utils.XmlDocument.WriteHeader">
+            <summary>
+            Gets or sets a value indicating whether is necessary to add xml header.
+            </summary>
+        </member>
+        <member name="P:FastScript.Utils.XmlDocument.Root">
+            <summary>
+            Gets the root node of the document.
+            </summary>
+        </member>
+        <member name="M:FastScript.Utils.XmlDocument.Clear">
+            <summary>
+            Clears the document.
+            </summary>
+        </member>
+        <member name="M:FastScript.Utils.XmlDocument.Save(System.IO.Stream)">
+            <summary>
+            Saves the document to a stream.
+            </summary>
+            <param name="stream">Stream to save to.</param>
+        </member>
+        <member name="M:FastScript.Utils.XmlDocument.Save(System.IO.TextWriter)">
+            <summary>
+            Saves the document to a string.
+            </summary>
+            <param name="textWriter">Writer to save to.</param>
+        </member>
+        <member name="M:FastScript.Utils.XmlDocument.Load(System.IO.Stream)">
+            <summary>
+            Loads the document from a stream.
+            </summary>
+            <param name="stream">Stream to load from.</param>
+        </member>
+        <member name="M:FastScript.Utils.XmlDocument.Save(System.String)">
+            <summary>
+            Saves the document to a file.
+            </summary>
+            <param name="fileName">The name of file to save to.</param>
+        </member>
+        <member name="M:FastScript.Utils.XmlDocument.Load(System.String)">
+            <summary>
+            Loads the document from a file.
+            </summary>
+            <param name="fileName">The name of file to load from.</param>
+        </member>
+        <member name="M:FastScript.Utils.XmlDocument.Dispose">
+            <summary>
+            Disposes resources used by the document.
+            </summary>
+        </member>
+        <member name="M:FastScript.Utils.XmlDocument.#ctor">
+            <summary>
+            Initializes a new instance of the <b>XmlDocument</b> class with default settings.
+            </summary>
+        </member>
+        <member name="M:FastScript.Utils.XmlDocument.ToString">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <data name="LogoUrl" xml:space="preserve">
+    <value>img/logo-fr.svg</value>
+  </data>
+  <data name="TitleName" xml:space="preserve">
+    <value>Demo</value>
+  </data>
+  <data name="LinkToHome" xml:space="preserve">
+    <value>https://www.fast-report.com/product/fast-report-net/</value>
+  </data>
+  <data name="LabelToHome" xml:space="preserve">
+    <value>Back to FastReport .NET</value>
+  </data>
+</root>
