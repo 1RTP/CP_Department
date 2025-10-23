@@ -67,7 +67,7 @@
             // cmbLanguage
             // 
             this.cmbLanguage.FormattingEnabled = true;
-            this.cmbLanguage.Location = new System.Drawing.Point(148, 14);
+            this.cmbLanguage.Location = new System.Drawing.Point(170, 14);
             this.cmbLanguage.Margin = new System.Windows.Forms.Padding(4);
             this.cmbLanguage.Name = "cmbLanguage";
             this.cmbLanguage.Size = new System.Drawing.Size(160, 24);

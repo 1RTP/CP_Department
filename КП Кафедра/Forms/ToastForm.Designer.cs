@@ -41,18 +41,20 @@
             // IbBorder
             // 
             this.IbBorder.BackColor = System.Drawing.Color.DarkGreen;
-            this.IbBorder.Location = new System.Drawing.Point(-2, -2);
+            this.IbBorder.Location = new System.Drawing.Point(-3, -2);
+            this.IbBorder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.IbBorder.Name = "IbBorder";
-            this.IbBorder.Size = new System.Drawing.Size(14, 65);
+            this.IbBorder.Size = new System.Drawing.Size(19, 80);
             this.IbBorder.TabIndex = 0;
             // 
             // IbMessage
             // 
             this.IbMessage.AutoSize = true;
             this.IbMessage.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IbMessage.Location = new System.Drawing.Point(67, 27);
+            this.IbMessage.Location = new System.Drawing.Point(89, 33);
+            this.IbMessage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.IbMessage.Name = "IbMessage";
-            this.IbMessage.Size = new System.Drawing.Size(85, 15);
+            this.IbMessage.Size = new System.Drawing.Size(107, 20);
             this.IbMessage.TabIndex = 3;
             this.IbMessage.Text = "Toast Message";
             // 
@@ -60,18 +62,20 @@
             // 
             this.IbType.AutoSize = true;
             this.IbType.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.IbType.Location = new System.Drawing.Point(67, 7);
+            this.IbType.Location = new System.Drawing.Point(89, 9);
+            this.IbType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.IbType.Name = "IbType";
-            this.IbType.Size = new System.Drawing.Size(37, 17);
+            this.IbType.Size = new System.Drawing.Size(48, 23);
             this.IbType.TabIndex = 2;
             this.IbType.Text = "Type";
             // 
             // IbIcon
             // 
             this.IbIcon.Image = global::КП_Кафедра.Properties.Resources.icons8_галочка_64;
-            this.IbIcon.Location = new System.Drawing.Point(27, 15);
+            this.IbIcon.Location = new System.Drawing.Point(36, 18);
+            this.IbIcon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.IbIcon.Name = "IbIcon";
-            this.IbIcon.Size = new System.Drawing.Size(25, 25);
+            this.IbIcon.Size = new System.Drawing.Size(33, 33);
             this.IbIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.IbIcon.TabIndex = 1;
             this.IbIcon.TabStop = false;
@@ -89,14 +93,15 @@
             // 
             // ToastForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(298, 59);
+            this.ClientSize = new System.Drawing.Size(397, 73);
             this.Controls.Add(this.IbMessage);
             this.Controls.Add(this.IbType);
             this.Controls.Add(this.IbIcon);
             this.Controls.Add(this.IbBorder);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ToastForm";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.ToastForm_Load);

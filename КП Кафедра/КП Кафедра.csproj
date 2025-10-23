@@ -122,11 +122,32 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ClassSerializeXML.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Strings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
+    <Compile Include="RoundButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <None Include="Resources\icons8-поиск-25.png" />
+    <None Include="Resources\icons8-поиск-100.png" />
+    <None Include="Resources\icons8-документ-251.png" />
+    <None Include="Resources\icons8-документ-252.png" />
+    <None Include="Resources\icons8-бизнес-отчет-251.png" />
+    <None Include="Resources\icons8-бизнес-отчет-25.png" />
+    <None Include="Resources\icons8-настройки-25.png" />
+    <None Include="Resources\icons8-home-25.png" />
+    <None Include="Resources\icons8-главная-25.png" />
+    <None Include="Resources\icons8-настройки-50.png" />
+    <None Include="Resources\icons8-информация-48.png" />
+    <None Include="Resources\icons8-главная-50.png" />
+    <None Include="Resources\icons8-бизнес-отчет-50.png" />
     <EmbeddedResource Include="Forms\FormReport.resx">
       <DependentUpon>FormReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,15 +161,11 @@
     </EmbeddedResource>
     <None Include="Resources\Screenshot_2-removebg-preview.png" />
     <None Include="Resources\icons8-expand-arrow-26.png" />
-    <None Include="Resources\icons8-settings-32.png" />
     <None Include="Resources\Screenshot_5-removebg-preview.png" />
     <None Include="Resources\images-removebg-preview-removebg-preview.png" />
     <None Include="Resources\images1.jpg" />
-    <None Include="Resources\images.jpg" />
-    <None Include="Resources\icons8-настройки-48.png" />
     <None Include="Resources\img.icons8.png" />
     <None Include="Resources\icons8-отмена-48.png" />
-    <None Include="Resources\icons8-информация-48.png" />
     <None Include="Resources\icons8-галочка-64.png" />
     <EmbeddedResource Include="FormMainMenu.resx">
       <DependentUpon>FormMainMenu.cs</DependentUpon>
@@ -164,14 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Content Include="NLog.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

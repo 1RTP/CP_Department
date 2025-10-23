@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static КП_Кафедра.ToastForm;
+using System.Drawing.Drawing2D;
 
 namespace КП_Кафедра.Forms
 {
@@ -272,6 +273,16 @@ namespace КП_Кафедра.Forms
             }
         }
 
+        private void btnResearches_Click(object sender, EventArgs e)
+        {
+            LoadResearch();
+        }
+
+        private void btnSubjects_Click(object sender, EventArgs e)
+        {
+            LoadSubjects();
+        }
+
         private void btnTeachers_Click(object sender, EventArgs e)
         {
             LoadTeachers();
@@ -280,16 +291,6 @@ namespace КП_Кафедра.Forms
         private void btnAssignments_Click(object sender, EventArgs e)
         {
             LoadAssignments();
-        }
-
-        private void btnSubjects_Click(object sender, EventArgs e)
-        {
-            LoadSubjects();
-        }
-
-        private void btnResearches_Click(object sender, EventArgs e)
-        {
-            LoadResearch();
         }
 
         protected override void OnLoad(EventArgs e)
@@ -307,6 +308,9 @@ namespace КП_Кафедра.Forms
             btnAssignments.Text = LanguageManager.GetString("btnAssignments");
             btnResearches.Text = LanguageManager.GetString("btnResearches");
             btnSubjects.Text = LanguageManager.GetString("btnSubjects");
+            btnAddTeacher.Text = LanguageManager.GetString("btnAddTeacher");
+            btnDeactivateTeacher.Text = LanguageManager.GetString("btnDeactivateTeacher");
+            btnUpdateTeacher.Text = LanguageManager.GetString("btnUpdateTeacher");
         }
 
         private void txtName_TextChanged(object sender, EventArgs e)
@@ -334,7 +338,7 @@ namespace КП_Кафедра.Forms
 
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void chkActive_CheckedChanged(object sender, EventArgs e)
         {
 
         }
@@ -375,12 +379,13 @@ namespace КП_Кафедра.Forms
                 {
                     connection.Open();
                     string query = @"UPDATE teacher SET
-                             emp_full_name = @name,
-                             emp_position = @position,
-                             emp_hire_date = @hireDate,
-                             phone_number = @phone,
-                             email = @mail
-                             WHERE emp_id = @id";
+                    emp_full_name = @name,
+                    emp_position = @position,
+                    emp_hire_date = @hireDate,
+                    phone_number = @phone,
+                    email = @mail,
+                    status = @status
+                WHERE emp_id = @id";
 
                     using (var cmd = new SqliteCommand(query, connection))
                     {
@@ -389,12 +394,13 @@ namespace КП_Кафедра.Forms
                         cmd.Parameters.AddWithValue("@hireDate", dtpHireDate.Value.ToString("yyyy-MM-dd"));
                         cmd.Parameters.AddWithValue("@phone", txtPhone.Text.Trim());
                         cmd.Parameters.AddWithValue("@mail", txtEmail.Text.Trim());
+                        cmd.Parameters.AddWithValue("@status", chkActive.Checked ? 1 : 0);
                         cmd.Parameters.AddWithValue("@id", id);
                         cmd.ExecuteNonQuery();
                     }
                 }
                 LoadTeachers();
-                Toast.Show("SUCCESS", "Дані оновлено успішно!");
+                Toast.Show("SUCCESS", "Дані викладача оновлено успішно!");
             }
             catch (Exception ex) { Toast.Show("ERROR", $"Помилка при оновленні: {ex.Message}"); }
         }
@@ -422,6 +428,31 @@ namespace КП_Кафедра.Forms
             }
             catch (Exception ex) { Toast.Show("ERROR", $"Помилка при деактивації: {ex.Message}"); }
         }
+
+        private void btnDeleteTeacher_Click(object sender, EventArgs e) // повне видалення викладача
+        {
+            if (dataGridView1.CurrentRow == null) return;
+            int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["emp_id"].Value);
+            var result = MessageBox.Show("Ви впевнені, що хочете повністю видалити цього викладача?", "Підтвердження", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.No) return;
+
+            try
+            {
+                using (var connection = new SqliteConnection($"Data Source={dbPath}"))
+                {
+                    connection.Open();
+                    string query = "DELETE FROM teacher WHERE emp_id = @id";
+                    using (var cmd = new SqliteCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                LoadTeachers();
+                Toast.Show("SUCCESS", "Викладача повністю видалено!");
+            }
+            catch (Exception ex) { Toast.Show("ERROR", $"Помилка при видаленні: {ex.Message}");}
+        } 
 
         private void DataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -460,7 +491,26 @@ namespace КП_Кафедра.Forms
             txtPhone.Text = dataGridView1.CurrentRow.Cells["phone_number"].Value?.ToString();
             txtEmail.Text = dataGridView1.CurrentRow.Cells["email"].Value?.ToString();
 
-            if (DateTime.TryParse(dataGridView1.CurrentRow.Cells["emp_hire_date"].Value?.ToString(), out DateTime d)) dtpHireDate.Value = d;
+            //if (DateTime.TryParse(dataGridView1.CurrentRow.Cells["emp_hire_date"].Value?.ToString(), out DateTime d)) dtpHireDate.Value = d;
+            dtpHireDate.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells["emp_hire_date"].Value.ToString());
+
+            int status = Convert.ToInt32(dataGridView1.CurrentRow.Cells["status"].Value);
+            chkActive.Checked = status == 1;
+        }
+
+        private void roundButton3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void roundButton2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void roundButton1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

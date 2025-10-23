@@ -145,6 +145,15 @@
     <value>Введіть ім’я</value>
   </data>
   <data name="lbLanguage" xml:space="preserve">
-    <value>Мова:</value>
+    <value>Мова застосунку:</value>
+  </data>
+  <data name="btnAddTeacher" xml:space="preserve">
+    <value>Додати</value>
+  </data>
+  <data name="btnUpdateTeacher" xml:space="preserve">
+    <value>Оновити</value>
+  </data>
+  <data name="btnDeactivateTeacher" xml:space="preserve">
+    <value>Деактивувати</value>
   </data>
 </root>

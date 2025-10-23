@@ -73,9 +73,39 @@ namespace КП_Кафедра.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_settings_32 {
+        internal static System.Drawing.Bitmap icons8_home_25 {
             get {
-                object obj = ResourceManager.GetObject("icons8-settings-32", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8-home-25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_бизнес_отчет_25 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-бизнес-отчет-25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_бизнес_отчет_251 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-бизнес-отчет-251", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_бизнес_отчет_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_бизнес_отчет_50", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,6 +123,46 @@ namespace КП_Кафедра.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_главная_25 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-главная-25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_главная_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_главная_50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_документ_251 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-документ-251", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_документ_252 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-документ-252", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_информация_48 {
             get {
                 object obj = ResourceManager.GetObject("icons8_информация_48", resourceCulture);
@@ -103,9 +173,19 @@ namespace КП_Кафедра.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_настройки_48 {
+        internal static System.Drawing.Bitmap icons8_настройки_25 {
             get {
-                object obj = ResourceManager.GetObject("icons8_настройки_48", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8-настройки-25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_настройки_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_настройки_50", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -116,6 +196,26 @@ namespace КП_Кафедра.Properties {
         internal static System.Drawing.Bitmap icons8_отмена_48 {
             get {
                 object obj = ResourceManager.GetObject("icons8_отмена_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_поиск_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-поиск-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_поиск_25 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-поиск-25", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

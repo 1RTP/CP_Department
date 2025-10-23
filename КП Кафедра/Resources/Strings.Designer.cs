@@ -61,11 +61,29 @@ namespace КП_Кафедра.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Додати.
+        /// </summary>
+        internal static string btnAddTeacher {
+            get {
+                return ResourceManager.GetString("btnAddTeacher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Призначення.
         /// </summary>
         internal static string btnAssignments {
             get {
                 return ResourceManager.GetString("btnAssignments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Деактивувати.
+        /// </summary>
+        internal static string btnDeactivateTeacher {
+            get {
+                return ResourceManager.GetString("btnDeactivateTeacher", resourceCulture);
             }
         }
         
@@ -133,7 +151,16 @@ namespace КП_Кафедра.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Мова:.
+        ///   Ищет локализованную строку, похожую на Оновити.
+        /// </summary>
+        internal static string btnUpdateTeacher {
+            get {
+                return ResourceManager.GetString("btnUpdateTeacher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Мова застосунку:.
         /// </summary>
         internal static string lbLanguage {
             get {

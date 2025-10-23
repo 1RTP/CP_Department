@@ -145,6 +145,15 @@
     <value>Enter name</value>
   </data>
   <data name="lbLanguage" xml:space="preserve">
-    <value>Language:</value>
+    <value>Application language:</value>
+  </data>
+  <data name="btnAddTeacher" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="btnUpdateTeacher" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="btnDeactivateTeacher" xml:space="preserve">
+    <value>Deactivate</value>
   </data>
 </root>
