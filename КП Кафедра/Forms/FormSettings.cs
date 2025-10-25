@@ -125,7 +125,8 @@ namespace КП_Кафедра.Forms
                     Teachers = DataService.Teachers,
                     Subjects = DataService.Subjects,
                     Assignments = DataService.Assignments,
-                    Researches = DataService.Researches
+                    Researches = DataService.Researches,
+                    Participations = DataService.Participations
                 };
                 SaveAllData(data, currentFormat);
                 Toast.Show("SUCCESS", $"Дані збережено ({currentFormat}).");
@@ -148,8 +149,10 @@ namespace КП_Кафедра.Forms
                 DataService.Subjects = data.Subjects ?? new List<Subject>();
                 DataService.Assignments = data.Assignments ?? new List<Assignment>();
                 DataService.Researches = data.Researches ?? new List<Research>();
+                DataService.Participations = data.Participations ?? new List<Participation>();
 
-                if (FormTable.Instance != null) { FormTable.Instance.UpdateGrid(DataService.Teachers); }
+
+                if (FormTables.Instance != null) { FormTables.Instance.UpdateGrid(DataService.Teachers); }
                 Toast.Show("INFO", $"Дані завантажено з файлу ({currentFormat}).");
                 LoggerService.LogInfo($"Десеріалізовано всі дані з {currentFormat}.");
             }
@@ -203,6 +206,7 @@ namespace КП_Кафедра.Forms
             LoggerService.LogInfo("Обрано формат BIN.");
             Toast.Show("INFO", $"Обрано формат BIN.");
         }
+
     }
     
 }

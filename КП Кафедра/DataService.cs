@@ -22,6 +22,7 @@ namespace КП_Кафедра
         public static List<Subject> Subjects = new List<Subject>();
         public static List<Research> Researches = new List<Research>();
         public static List<Assignment> Assignments = new List<Assignment>();
+        public static List<Participation> Participations = new List<Participation>();
 
     }
 }

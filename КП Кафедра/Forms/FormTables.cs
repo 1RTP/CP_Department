@@ -15,30 +15,30 @@ using System.Drawing.Drawing2D;
 
 namespace КП_Кафедра.Forms
 {
-    public partial class FormTable : Form
+    public partial class FormTables : Form
     {
         private DataTable originalTable;
+        private bool isLoading = false;
         private string dbPath = "Data/department.db";
-        public static FormTable Instance { get; private set; }
+        public static FormTables Instance { get; private set; }
 
-        public FormTable()
+        public FormTables()
         {
             InitializeComponent();
-
-            txtSearch.GotFocus += TxtSearch_GotFocus;
-            txtSearch.LostFocus += TxtSearch_LostFocus;
-            txtSearch.TextChanged += txtSearch_TextChanged_1;
-
-            dataGridView1.CellFormatting += DataGridView1_CellFormatting;
+            InitializeBoxes();
         }
 
-        private void FormTable_Load(object sender, EventArgs e)
+        private void FormTables_Load(object sender, EventArgs e)
         {
             try
             {
                 Instance = this;
+                isLoading = true;
                 LoadTeachers();
-                //UpdateGrid(DataService.Teachers);
+                isLoading = false;
+
+                dataGridView1.ClearSelection();
+
             }
             catch (Exception ex) { LoggerService.LogError($"Помилка при завантаженні даних: {ex.Message}"); }
 
@@ -51,7 +51,15 @@ namespace КП_Кафедра.Forms
                 using (var connection = new SqliteConnection($"Data Source={dbPath}"))
                 {
                     connection.Open();
-                    string query = "SELECT emp_id, emp_full_name, emp_position, emp_hire_date, phone_number, email, status FROM teacher ORDER BY status DESC, emp_full_name ASC";
+                    string query = @"SELECT emp_id,
+                                emp_full_name,
+                                emp_position,
+                                emp_hire_date,
+                                phone_number,
+                                email,
+                                status
+                            FROM teacher
+                            ORDER BY status DESC, emp_full_name ASC";
 
                     using (var command = new SqliteCommand(query, connection))
                     using (var reader = command.ExecuteReader())
@@ -60,6 +68,7 @@ namespace КП_Кафедра.Forms
                         table.Load(reader);
                         originalTable = table.Copy();
                         dataGridView1.DataSource = table;
+                        ApplyColumnLocalization(); // заголовки клонок
 
                         //if (dataGridView1.Columns.Contains("status")) // прибрати колонку статус з відображення
                         //    dataGridView1.Columns["status"].Visible = false;
@@ -67,7 +76,10 @@ namespace КП_Кафедра.Forms
                 }
                 DataService.Teachers = GetTeachersFromGrid();
             }
-            catch (Exception ex) { Toast.Show("ERROR", $"Помилка при завантаженні викладачів: {ex.Message}"); }
+            catch (Exception ex) 
+            {
+                Toast.Show("ERROR", $"Помилка при завантаженні викладачів: {ex.Message}");
+            }
         }
         private void LoadSubjects()
         {
@@ -76,7 +88,11 @@ namespace КП_Кафедра.Forms
                 using (var connection = new SqliteConnection($"Data Source={dbPath}"))
                 {
                     connection.Open();
-                    string query = "SELECT subject_id, subject_name, semester, total_hours FROM subjects";
+                    string query = @"SELECT subject_id,
+                                    subject_name,
+                                    semester,
+                                    total_hours
+                             FROM subjects";
 
                     using (var command = new SqliteCommand(query, connection))
                     using (var reader = command.ExecuteReader())
@@ -85,11 +101,15 @@ namespace КП_Кафедра.Forms
                         table.Load(reader);
                         originalTable = table.Copy();
                         dataGridView1.DataSource = table;
+                        ApplyColumnLocalization();
                     }
                 }
                 DataService.Subjects = GetSubjectsFromGrid();
             }
-            catch (Exception ex) { Toast.Show("ERROR", $"Помилка при завантаженні предметів: {ex.Message}"); }
+            catch (Exception ex) 
+            { 
+                Toast.Show("ERROR", $"Помилка при завантаженні предметів: {ex.Message}"); 
+            }
         }
         private void LoadAssignments()
         {
@@ -98,7 +118,13 @@ namespace КП_Кафедра.Forms
                 using (var connection = new SqliteConnection($"Data Source={dbPath}"))
                 {
                     connection.Open();
-                    string query = @"SELECT a.assignment_id, t.emp_full_name, s.subject_name, l.type_name, a.plan_hours, a.hours_taught
+                    connection.Open();
+                    string query = @"SELECT a.assignment_id,
+                                    t.emp_full_name,
+                                    s.subject_name,
+                                    l.type_name,
+                                    a.plan_hours,
+                                    a.hours_taught
                              FROM assignment a
                              JOIN teacher t ON a.emp_id = t.emp_id
                              JOIN subjects s ON a.subject_id = s.subject_id
@@ -111,6 +137,7 @@ namespace КП_Кафедра.Forms
                         table.Load(reader);
                         originalTable = table.Copy();
                         dataGridView1.DataSource = table;
+                        ApplyColumnLocalization();
                     }
                 }
                 DataService.Assignments = GetAssignmentsFromGrid();
@@ -124,7 +151,11 @@ namespace КП_Кафедра.Forms
                 using (var connection = new SQLiteConnection($"Data Source={dbPath}"))
                 {
                     connection.Open();
-                    string query = "SELECT research_id, research_name, start_date, end_date FROM research";
+                    string query = @"SELECT research_id,
+                                    research_name,
+                                    start_date,
+                                    end_date
+                             FROM research";
 
                     using (var command = new SQLiteCommand(query, connection))
                     using (var reader = command.ExecuteReader())
@@ -133,12 +164,48 @@ namespace КП_Кафедра.Forms
                         table.Load(reader);
                         originalTable = table.Copy();
                         dataGridView1.DataSource = table;
+                        ApplyColumnLocalization();
                     }
                 }
                 DataService.Researches = GetResearchFromGrid();
             }
             catch (Exception ex) { Toast.Show("ERROR", $"Помилка при завантаженні досліджень: {ex.Message}"); }
         }
+        private void LoadParticipation()
+        {
+            try
+            {
+                using (var connection = new SqliteConnection($"Data Source={dbPath}"))
+                {
+                    connection.Open();
+
+                    string query = @"SELECT t.emp_full_name,
+                                    r.research_name,
+                                    r.start_date,
+                                    r.end_date
+                             FROM participation_in_research pir
+                             JOIN teacher t ON pir.emp_id = t.emp_id
+                             JOIN research r ON pir.research_id = r.research_id";
+
+                    using (var command = new SqliteCommand(query, connection))
+                    using (var reader = command.ExecuteReader())
+                    {
+                        DataTable table = new DataTable();
+                        table.Load(reader);
+                        originalTable = table.Copy();
+                        dataGridView1.DataSource = table;
+                        ApplyColumnLocalization();
+                    }
+                }
+
+                DataService.Participations = GetParticipationFromGrid();
+            }
+            catch (Exception ex)
+            {
+                Toast.Show("ERROR", $"Помилка при завантаженні участі у дослідженнях: {ex.Message}");
+            }
+        }
+
 
         public List<Teacher> GetTeachersFromGrid()
         {
@@ -222,7 +289,29 @@ namespace КП_Кафедра.Forms
 
             return researches;
         }
-        
+        public List<Participation> GetParticipationFromGrid()
+        {
+            List<Participation> participations = new List<Participation>();
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                participations.Add(new Participation
+                {
+                    Teacher = new Teacher { FullName = row.Cells["emp_full_name"].Value?.ToString() },
+                    Project = new Research
+                    {
+                        ResearchName = row.Cells["research_name"].Value?.ToString(),
+                        StartDate = DateTime.TryParse(row.Cells["start_date"].Value?.ToString(), out DateTime start) ? start : DateTime.MinValue,
+                        EndDate = DateTime.TryParse(row.Cells["end_date"].Value?.ToString(), out DateTime end) ? end : DateTime.MinValue
+                    }
+                });
+            }
+
+            return participations;
+        }
+
         public void UpdateGrid(List<Teacher> teachers)
         {
             DataTable table = new DataTable();
@@ -237,7 +326,7 @@ namespace КП_Кафедра.Forms
             dataGridView1.DataSource = table;
         }
 
-        private void txtSearch_TextChanged_1(object sender, EventArgs e)
+        private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             try
             {
@@ -293,12 +382,17 @@ namespace КП_Кафедра.Forms
             LoadAssignments();
         }
 
+        private void btnParticipation_Click(object sender, EventArgs e)
+        {
+            LoadParticipation();
+        }
+
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
             LanguageManager.LanguageChanged += ApplyLocalization;
             ApplyLocalization();
-            LoadTeachers();
+            //LoadTeachers();
         }
 
         private void ApplyLocalization()
@@ -311,16 +405,134 @@ namespace КП_Кафедра.Forms
             btnAddTeacher.Text = LanguageManager.GetString("btnAddTeacher");
             btnDeactivateTeacher.Text = LanguageManager.GetString("btnDeactivateTeacher");
             btnUpdateTeacher.Text = LanguageManager.GetString("btnUpdateTeacher");
+            txtName.Text = LanguageManager.GetString("txtName");
+            txtPosition.Text = LanguageManager.GetString("txtPosition");
+            txtPhone.Text = LanguageManager.GetString("txtPhone");
+            txtEmail.Text = LanguageManager.GetString("txtEmail");
+            chkActive.Text = LanguageManager.GetString("chkActive");
+            btnParticipation.Text = LanguageManager.GetString("btnParticipation");
+
+            ApplyColumnLocalization();
+        }
+
+        private void ApplyColumnLocalization()
+        {
+            var columnMap = new Dictionary<string, string>
+            {
+                { "emp_id", "column_emp_id" },
+                { "emp_full_name", "column_emp_full_name" },
+                { "emp_position", "column_emp_position" },
+                { "emp_hire_date", "column_emp_hire_date" },
+                { "phone_number", "column_phone_number" },
+                { "email", "column_email" },
+                { "status", "column_status" },
+
+                { "subject_id", "column_subject_id" },
+                { "subject_name", "column_subject_name" },
+                { "semester", "column_semester" },
+                { "total_hours", "column_total_hours" },
+
+                { "assignment_id", "column_assignment_id" },
+                { "plan_hours", "column_plan_hours" },
+                { "hours_taught", "column_hours_taught" },
+                { "type_name", "column_type_name" },
+
+                { "research_id", "column_research_id" },
+                { "research_name", "column_research_name" },
+                { "start_date", "column_start_date" },
+                { "end_date", "column_end_date" }
+
+            };
+
+            foreach (DataGridViewColumn col in dataGridView1.Columns)
+            {
+                if (columnMap.TryGetValue(col.Name, out string langKey))
+                {
+                    col.HeaderText = LanguageManager.GetString(langKey);
+                }
+            }
+        }
+
+        private void InitializeBoxes()
+        {
+            txtSearch.GotFocus += TxtSearch_GotFocus;
+            txtSearch.LostFocus += TxtSearch_LostFocus;
+            txtSearch.TextChanged += txtSearch_TextChanged;
+
+            txtName.GotFocus += txtName_GotFocus;
+            txtName.LostFocus += txtName_LostFocus;
+            txtName.TextChanged += txtName_TextChanged;
+
+            txtPosition.GotFocus += txtPosition_GotFocus;
+            txtPosition.LostFocus += txtPosition_LostFocus;
+            txtPosition.TextChanged += txtPosition_TextChanged;
+
+            txtPhone.GotFocus += txtPhone_GotFocus;
+            txtPhone.LostFocus += txtPhone_LostFocus;
+            txtPhone.TextChanged += txtPhone_TextChanged;
+
+            txtEmail.GotFocus += txtEmail_GotFocus;
+            txtEmail.LostFocus += txtEmail_LostFocus;
+            txtEmail.TextChanged += txtEmail_TextChanged;
+
+            dataGridView1.CellFormatting += DataGridView1_CellFormatting;
         }
 
         private void txtName_TextChanged(object sender, EventArgs e)
         {
+            string input = txtName.Text.Trim();
+            if (string.IsNullOrEmpty(input) || input == "ПІБ" || input == "Full Name") return;
+            var validPattern = new System.Text.RegularExpressions.Regex(@"^[A-Za-zА-ЯІЇЄҐа-яіїєґ'\-\s]+$");
+            if (!validPattern.IsMatch(input))
+            {
+                Toast.Show("ERROR", "Невірний формат введення ПІБ");
+                txtName.Text = "";
+            }
+        }
 
+        private void txtName_GotFocus(object sender, EventArgs e)
+        {
+            if (txtName.Text == "ПІБ" || txtName.Text == "Full Name")
+            {
+                txtName.Text = "";
+            }
+        }
+
+        private void txtName_LostFocus(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtName.Text))
+            {
+                txtName.Text = LanguageManager.GetString("txtName");
+            }
         }
 
         private void txtPosition_TextChanged(object sender, EventArgs e)
         {
+            string input = txtPosition.Text.Trim();
+            if (string.IsNullOrEmpty(input) || input == "Посада" || input == "Position") return;
 
+            var validPattern = new System.Text.RegularExpressions.Regex(@"^[A-Za-zА-ЯІЇЄҐа-яіїєґ'\-\s]+$");
+            if (!validPattern.IsMatch(input))
+            {
+                Toast.Show("ERROR", "Невірний формат введення Посади");
+                txtPosition.Text = "";
+            }
+        }
+
+        private void txtPosition_GotFocus(object sender, EventArgs e)
+        {
+            if (txtPosition.Text == "Посада" || txtPosition.Text == "Position")
+            {
+                txtPosition.Text = "";
+            }
+        }
+
+        private void txtPosition_LostFocus(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtPosition.Text))
+            {
+                txtPosition.Text = LanguageManager.GetString("txtPosition");
+            }
         }
 
         private void dtpHireDate_ValueChanged(object sender, EventArgs e)
@@ -330,12 +542,71 @@ namespace КП_Кафедра.Forms
 
         private void txtPhone_TextChanged(object sender, EventArgs e)
         {
+            string input = txtPhone.Text.Trim();
+            if (string.IsNullOrEmpty(input) || input == "Телефон" || input == "Phone") return;
 
+            const int maxLength = 15;
+            if (input.Length > maxLength)
+            {
+                Toast.Show("ERROR", $"Номер телефону не може бути довшим за {maxLength} символів.");
+                txtPhone.Text = input.Substring(0, maxLength);
+                txtPhone.SelectionStart = txtPhone.Text.Length;
+                return;
+            }
+            var validPattern = new System.Text.RegularExpressions.Regex(@"^\+[0-9]{1,14}$");
+            if (!validPattern.IsMatch(input))
+            {
+                Toast.Show("ERROR", "Номер телефону має починатися з '+' та містити лише цифри.");
+                txtPhone.Text = "";
+            }
+        }
+
+        private void txtPhone_GotFocus(object sender, EventArgs e)
+        {
+            if (txtPhone.Text == "Телефон" || txtPhone.Text == "Phone")
+            {
+                txtPhone.Text = "";
+            }
+        }
+
+        private void txtPhone_LostFocus(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtPhone.Text))
+            {
+                txtPhone.Text = LanguageManager.GetString("txtPhone");
+            }
         }
 
         private void txtEmail_TextChanged(object sender, EventArgs e)
         {
+            string input = txtEmail.Text.Trim();
+            if (string.IsNullOrEmpty(input)) return;
 
+            string placeholder = LanguageManager.GetString("txtEmail");
+            if (input == placeholder || input == "Email" || input == "Електронна пошта") return;
+
+            var validPattern = new System.Text.RegularExpressions.Regex(@"^[a-zA-Z0-9@._\-]+$");
+            if (!validPattern.IsMatch(input))
+            {
+                Toast.Show("ERROR", "Email має містити лише англійські символи та допустимі знаки.");
+                txtEmail.Text = "";
+            }
+        }
+
+        private void txtEmail_GotFocus(object sender, EventArgs e)
+        {
+            if (txtEmail.Text == "Електронна пошта" || txtEmail.Text == "Email")
+            {
+                txtEmail.Text = "";
+            }
+        }
+
+        private void txtEmail_LostFocus(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtEmail.Text))
+            {
+                txtEmail.Text = LanguageManager.GetString("txtEmail");
+            }
         }
 
         private void chkActive_CheckedChanged(object sender, EventArgs e)
@@ -482,33 +753,26 @@ namespace КП_Кафедра.Forms
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-            if (dataGridView1.CurrentRow == null) return;
+            if (isLoading) return;
 
-            txtName.Text = dataGridView1.CurrentRow.Cells["emp_full_name"].Value?.ToString();
-            txtPosition.Text = dataGridView1.CurrentRow.Cells["emp_position"].Value?.ToString();
-            txtPhone.Text = dataGridView1.CurrentRow.Cells["phone_number"].Value?.ToString();
-            txtEmail.Text = dataGridView1.CurrentRow.Cells["email"].Value?.ToString();
+            if (dataGridView1.CurrentRow == null || dataGridView1.CurrentRow.IsNewRow) return;
 
-            //if (DateTime.TryParse(dataGridView1.CurrentRow.Cells["emp_hire_date"].Value?.ToString(), out DateTime d)) dtpHireDate.Value = d;
-            dtpHireDate.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells["emp_hire_date"].Value.ToString());
+            var row = dataGridView1.CurrentRow;
 
-            int status = Convert.ToInt32(dataGridView1.CurrentRow.Cells["status"].Value);
-            chkActive.Checked = status == 1;
+            txtName.Text = row.Cells["emp_full_name"].Value?.ToString();
+            txtPosition.Text = row.Cells["emp_position"].Value?.ToString();
+            txtPhone.Text = row.Cells["phone_number"].Value?.ToString();
+            txtEmail.Text = row.Cells["email"].Value?.ToString();
+
+            if (DateTime.TryParse(row.Cells["emp_hire_date"].Value?.ToString(), out DateTime hireDate))
+                dtpHireDate.Value = hireDate;
+
+            chkActive.Checked = Convert.ToInt32(row.Cells["status"].Value) == 1;
         }
 
-        private void roundButton3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void roundButton2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void roundButton1_Click(object sender, EventArgs e)
+        private void roundButton4_Click(object sender, EventArgs e)
         {
 
         }

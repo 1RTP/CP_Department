@@ -14,6 +14,7 @@ namespace КП_Кафедра
         public List<Assignment> Assignments { get; set; } = new List<Assignment>();
         public List<LessonType> LessonTypes { get; set; } = new List<LessonType>();
         public List<Research> Researches { get; set; } = new List<Research>();
+        public List<Participation> Participations { get; set; } = new List<Participation>();
 
         public DepartmentData() { }
     }

@@ -88,6 +88,18 @@
     <Compile Include="FormMainMenu.Designer.cs">
       <DependentUpon>FormMainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormAssignment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormAssignment.Designer.cs">
+      <DependentUpon>FormAssignment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormParticipation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormParticipation.Designer.cs">
+      <DependentUpon>FormParticipation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,17 +112,35 @@
     <Compile Include="Forms\FormReportViewer.Designer.cs">
       <DependentUpon>FormReportViewer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormResearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormResearch.Designer.cs">
+      <DependentUpon>FormResearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormSettings.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FormSettings.Designer.cs">
       <DependentUpon>FormSettings.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormTable.cs">
+    <Compile Include="Forms\FormSubject.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormTable.Designer.cs">
-      <DependentUpon>FormTable.cs</DependentUpon>
+    <Compile Include="Forms\FormSubject.Designer.cs">
+      <DependentUpon>FormSubject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormTables.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormTables.Designer.cs">
+      <DependentUpon>FormTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormTeacher.Designer.cs">
+      <DependentUpon>FormTeacher.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ToastForm.cs">
       <SubType>Form</SubType>
@@ -173,8 +203,8 @@
     <EmbeddedResource Include="Forms\FormSettings.resx">
       <DependentUpon>FormSettings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormTable.resx">
-      <DependentUpon>FormTable.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormTables.resx">
+      <DependentUpon>FormTables.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ToastForm.resx">
       <DependentUpon>ToastForm.cs</DependentUpon>

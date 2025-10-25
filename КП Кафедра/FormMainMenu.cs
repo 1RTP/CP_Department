@@ -89,7 +89,7 @@ namespace КП_Кафедра
 
         private void btnHead_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormTable());
+            OpenChildForm(new FormTables());
         }
 
         private void OpenChildForm(Form childForm)

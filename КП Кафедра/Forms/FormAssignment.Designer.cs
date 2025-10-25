@@ -1,6 +1,6 @@
 ﻿namespace КП_Кафедра.Forms
 {
-    partial class FormReportViewer
+    partial class FormAssignment
     {
         /// <summary>
         /// Required designer variable.
@@ -28,19 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // FormReportViewer
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "FormReportViewer";
-            this.Text = "`";
-            this.Load += new System.EventHandler(this.FormReportViewer_Load);
-            this.ResumeLayout(false);
-
+            this.Text = "FormAssignment";
         }
 
         #endregion

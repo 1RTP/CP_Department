@@ -17,7 +17,6 @@ namespace КП_Кафедра.Forms
 {
     public partial class FormReport : Form
     {
-        private Form activeForm = null;
         private string selectedReport = "TeachersReport.frx";
 
         public FormReport()
@@ -62,6 +61,11 @@ namespace КП_Кафедра.Forms
             reportForm.Dock = DockStyle.Fill;
             panel2.Controls.Add(reportForm);
             reportForm.Show();
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

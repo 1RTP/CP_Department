@@ -106,6 +106,15 @@ namespace КП_Кафедра.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Участь у проєктах.
+        /// </summary>
+        internal static string btnParticipation {
+            get {
+                return ResourceManager.GetString("btnParticipation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Проєкти.
         /// </summary>
         internal static string btnResearches {
@@ -160,11 +169,227 @@ namespace КП_Кафедра.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Статус.
+        /// </summary>
+        internal static string chkActive {
+            get {
+                return ResourceManager.GetString("chkActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на ID.
+        /// </summary>
+        internal static string column_assignment_id {
+            get {
+                return ResourceManager.GetString("column_assignment_id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Електронна пошта.
+        /// </summary>
+        internal static string column_email {
+            get {
+                return ResourceManager.GetString("column_email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на ПІБ.
+        /// </summary>
+        internal static string column_emp_full_name {
+            get {
+                return ResourceManager.GetString("column_emp_full_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Дата працевлаштування.
+        /// </summary>
+        internal static string column_emp_hire_date {
+            get {
+                return ResourceManager.GetString("column_emp_hire_date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на ID.
+        /// </summary>
+        internal static string column_emp_id {
+            get {
+                return ResourceManager.GetString("column_emp_id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Посада.
+        /// </summary>
+        internal static string column_emp_position {
+            get {
+                return ResourceManager.GetString("column_emp_position", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Дата завершення.
+        /// </summary>
+        internal static string column_end_date {
+            get {
+                return ResourceManager.GetString("column_end_date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Відпрацьовано годин.
+        /// </summary>
+        internal static string column_hours_taught {
+            get {
+                return ResourceManager.GetString("column_hours_taught", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Телефон.
+        /// </summary>
+        internal static string column_phone_number {
+            get {
+                return ResourceManager.GetString("column_phone_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на План годин.
+        /// </summary>
+        internal static string column_plan_hours {
+            get {
+                return ResourceManager.GetString("column_plan_hours", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на ID.
+        /// </summary>
+        internal static string column_research_id {
+            get {
+                return ResourceManager.GetString("column_research_id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Назва проєкту.
+        /// </summary>
+        internal static string column_research_name {
+            get {
+                return ResourceManager.GetString("column_research_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Семестр.
+        /// </summary>
+        internal static string column_semester {
+            get {
+                return ResourceManager.GetString("column_semester", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Дата початку.
+        /// </summary>
+        internal static string column_start_date {
+            get {
+                return ResourceManager.GetString("column_start_date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Статус.
+        /// </summary>
+        internal static string column_status {
+            get {
+                return ResourceManager.GetString("column_status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на ID.
+        /// </summary>
+        internal static string column_subject_id {
+            get {
+                return ResourceManager.GetString("column_subject_id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Назва предмету.
+        /// </summary>
+        internal static string column_subject_name {
+            get {
+                return ResourceManager.GetString("column_subject_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Загальна кількість годин.
+        /// </summary>
+        internal static string column_total_hours {
+            get {
+                return ResourceManager.GetString("column_total_hours", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Тип заняття.
+        /// </summary>
+        internal static string column_type_name {
+            get {
+                return ResourceManager.GetString("column_type_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Мова застосунку:.
         /// </summary>
         internal static string lbLanguage {
             get {
                 return ResourceManager.GetString("lbLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Електронна пошта.
+        /// </summary>
+        internal static string txtEmail {
+            get {
+                return ResourceManager.GetString("txtEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на ПІБ.
+        /// </summary>
+        internal static string txtName {
+            get {
+                return ResourceManager.GetString("txtName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Телефон.
+        /// </summary>
+        internal static string txtPhone {
+            get {
+                return ResourceManager.GetString("txtPhone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Посада.
+        /// </summary>
+        internal static string txtPosition {
+            get {
+                return ResourceManager.GetString("txtPosition", resourceCulture);
             }
         }
         

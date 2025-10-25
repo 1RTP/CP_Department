@@ -147,13 +147,88 @@
   <data name="lbLanguage" xml:space="preserve">
     <value>Мова застосунку:</value>
   </data>
-  <data name="btnAddTeacher" xml:space="preserve">
-    <value>Додати</value>
-  </data>
   <data name="btnUpdateTeacher" xml:space="preserve">
     <value>Оновити</value>
   </data>
   <data name="btnDeactivateTeacher" xml:space="preserve">
     <value>Деактивувати</value>
+  </data>
+  <data name="txtName" xml:space="preserve">
+    <value>ПІБ</value>
+  </data>
+  <data name="txtPosition" xml:space="preserve">
+    <value>Посада</value>
+  </data>
+  <data name="txtPhone" xml:space="preserve">
+    <value>Телефон</value>
+  </data>
+  <data name="txtEmail" xml:space="preserve">
+    <value>Електронна пошта</value>
+  </data>
+  <data name="btnAddTeacher" xml:space="preserve">
+    <value>Додати</value>
+  </data>
+  <data name="chkActive" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="btnParticipation" xml:space="preserve">
+    <value>Участь у проєктах</value>
+  </data>
+  <data name="column_emp_full_name" xml:space="preserve">
+    <value>ПІБ</value>
+  </data>
+  <data name="column_emp_position" xml:space="preserve">
+    <value>Посада</value>
+  </data>
+  <data name="column_emp_hire_date" xml:space="preserve">
+    <value>Дата працевлаштування</value>
+  </data>
+  <data name="column_phone_number" xml:space="preserve">
+    <value>Телефон</value>
+  </data>
+  <data name="column_email" xml:space="preserve">
+    <value>Електронна пошта</value>
+  </data>
+  <data name="column_status" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="column_emp_id" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="column_subject_id" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="column_subject_name" xml:space="preserve">
+    <value>Назва предмету</value>
+  </data>
+  <data name="column_semester" xml:space="preserve">
+    <value>Семестр</value>
+  </data>
+  <data name="column_total_hours" xml:space="preserve">
+    <value>Загальна кількість годин</value>
+  </data>
+  <data name="column_assignment_id" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="column_plan_hours" xml:space="preserve">
+    <value>План годин</value>
+  </data>
+  <data name="column_hours_taught" xml:space="preserve">
+    <value>Відпрацьовано годин</value>
+  </data>
+  <data name="column_type_name" xml:space="preserve">
+    <value>Тип заняття</value>
+  </data>
+  <data name="column_research_id" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="column_research_name" xml:space="preserve">
+    <value>Назва проєкту</value>
+  </data>
+  <data name="column_start_date" xml:space="preserve">
+    <value>Дата початку</value>
+  </data>
+  <data name="column_end_date" xml:space="preserve">
+    <value>Дата завершення</value>
   </data>
 </root>

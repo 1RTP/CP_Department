@@ -85,33 +85,33 @@ namespace КП_Кафедра
             Assignments = new List<Assignment>(); 
         }
 
-        public string GetShortName() // скорочене ім’я
-        {
-            string[] parts = FullName.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-            if (parts.Length >= 3) return $"{parts[0]} {parts[1][0]}. {parts[2][0]}.";
-            else if (parts.Length == 2) return $"{parts[0]} {parts[1][0]}.";
-            return FullName;
-        }
+        //public string GetShortName() // скорочене ім’я
+        //{
+        //    string[] parts = FullName.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+        //    if (parts.Length >= 3) return $"{parts[0]} {parts[1][0]}. {parts[2][0]}.";
+        //    else if (parts.Length == 2) return $"{parts[0]} {parts[1][0]}.";
+        //    return FullName;
+        //}
 
-        public Assignment AssignSubject(Subject subject, LessonType lessonType, int planHours, int assignmentId) // призначення предмета викладачу
-        {
-            Assignment newAssignment = new Assignment(assignmentId, planHours)
-            {
-                LessonType = lessonType
-            };
-            newAssignment.Subjects.Add(subject);
-            newAssignment.Teachers.Add(this);
-            Assignments.Add(newAssignment);
-            return newAssignment;
-        }
+        //public Assignment AssignSubject(Subject subject, LessonType lessonType, int planHours, int assignmentId) // призначення предмета викладачу
+        //{
+        //    Assignment newAssignment = new Assignment(assignmentId, planHours)
+        //    {
+        //        LessonType = lessonType
+        //    };
+        //    newAssignment.Subjects.Add(subject);
+        //    newAssignment.Teachers.Add(this);
+        //    Assignments.Add(newAssignment);
+        //    return newAssignment;
+        //}
 
-        public Participation JoinResearch(Research r, int participationId) // участь у НДР
-        {
-            Participation p = new Participation(participationId, this, r);
-            Participations.Add(p);
-            r.Participants.Add(p);
-            return p;
-        }
+        //public Participation JoinResearch(Research r, int participationId) // участь у НДР
+        //{
+        //    Participation p = new Participation(participationId, this, r);
+        //    Participations.Add(p);
+        //    r.Participants.Add(p);
+        //    return p;
+        //}
 
         //public string GetInfo()
         //{
@@ -149,11 +149,11 @@ namespace КП_Кафедра
             LessonType = null; 
         }
 
-        public void UpdateHours(int taught) // оновлення відпрацьованих годин
-        {
-            TaughtHours += taught;
-            if (TaughtHours > PlanHours) TaughtHours = PlanHours;
-        }
+        //public void UpdateHours(int taught) // оновлення відпрацьованих годин
+        //{
+        //    TaughtHours += taught;
+        //    if (TaughtHours > PlanHours) TaughtHours = PlanHours;
+        //}
 
         //public string GetInfo()
         //{
@@ -173,17 +173,6 @@ namespace КП_Кафедра
         public Participation() { }
 
         public Participation(int id = 0, Teacher t = null, Research r = null) { ParticipationId = id; Project = r; Teacher = t; }
-
-        public string ParticipationCheck(Teacher t, Research r) // перевірка участі
-        { 
-            if (t != null && r != null) return $"{t.FullName} participates in {r.ResearchName}";
-            return "Invalid participation data";
-        }
-
-        //public string GetInfo()
-        //{
-        //    return $"Participation {ParticipationId}: {Teacher?.FullName} in {Project?.ResearchName}";
-        //}
     }
 
     [Serializable]
@@ -205,18 +194,18 @@ namespace КП_Кафедра
             Participants = new List<Participation>();
         }
 
-        public Participation AddParticipant(Teacher t, int participationId) // додавання викладача до дослідження
-        {
-            Participation p = new Participation(participationId, t, this);
-            Participants.Add(p);
-            t.Participations.Add(p);
-            return p;
-        }
+        //public Participation AddParticipant(Teacher t, int participationId) // додавання викладача до дослідження
+        //{
+        //    Participation p = new Participation(participationId, t, this);
+        //    Participants.Add(p);
+        //    t.Participations.Add(p);
+        //    return p;
+        //}
 
-        public int GetDuration() // тривалість дослідження в днях
-        {
-            return (EndDate - StartDate).Days;
-        }
+        //public int GetDuration() // тривалість дослідження в днях
+        //{
+        //    return (EndDate - StartDate).Days;
+        //}
 
         //public string GetInfo()
         //{
@@ -232,7 +221,7 @@ namespace КП_Кафедра
         static void Main()
         {
             LoggerService.LogInfo("Програма стартувала");
-
+                       
             try
             {
                 string lang = Settings.Default.Language;
