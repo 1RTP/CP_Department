@@ -62,6 +62,7 @@ namespace КП_Кафедра
                     );
 
                     CREATE TABLE IF NOT EXISTS participation_in_research (
+                        participation_id INTEGER PRIMARY KEY AUTOINCREMENT,
                         emp_id INTEGER,
                         research_id INTEGER
                     );

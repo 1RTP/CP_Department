@@ -173,6 +173,16 @@ namespace КП_Кафедра.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_мусор_25 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-мусор-25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_настройки_25 {
             get {
                 object obj = ResourceManager.GetObject("icons8-настройки-25", resourceCulture);

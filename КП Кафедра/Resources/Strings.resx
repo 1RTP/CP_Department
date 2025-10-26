@@ -142,7 +142,7 @@
     <value>Викладачі</value>
   </data>
   <data name="txtSearch" xml:space="preserve">
-    <value>Введіть ім’я</value>
+    <value>Пошук</value>
   </data>
   <data name="lbLanguage" xml:space="preserve">
     <value>Мова застосунку:</value>
@@ -199,7 +199,7 @@
     <value>ID</value>
   </data>
   <data name="column_subject_name" xml:space="preserve">
-    <value>Назва предмету</value>
+    <value>Назва дисципліни</value>
   </data>
   <data name="column_semester" xml:space="preserve">
     <value>Семестр</value>
@@ -211,7 +211,7 @@
     <value>ID</value>
   </data>
   <data name="column_plan_hours" xml:space="preserve">
-    <value>План годин</value>
+    <value>Кількість годин за планом</value>
   </data>
   <data name="column_hours_taught" xml:space="preserve">
     <value>Відпрацьовано годин</value>
@@ -230,5 +230,62 @@
   </data>
   <data name="column_end_date" xml:space="preserve">
     <value>Дата завершення</value>
+  </data>
+  <data name="btnAddSubject" xml:space="preserve">
+    <value>Додати</value>
+  </data>
+  <data name="btnUpdateSubject" xml:space="preserve">
+    <value>Оновити</value>
+  </data>
+  <data name="btnDeleteSubject" xml:space="preserve">
+    <value>Видалити</value>
+  </data>
+  <data name="txtSubjectName" xml:space="preserve">
+    <value>Назва дисципліни</value>
+  </data>
+  <data name="txtSemester" xml:space="preserve">
+    <value>Семестр</value>
+  </data>
+  <data name="txtTotalHours" xml:space="preserve">
+    <value>Загальна кількість годин</value>
+  </data>
+  <data name="txtProjectName" xml:space="preserve">
+    <value>Назва проєкту</value>
+  </data>
+  <data name="btnAddResearch" xml:space="preserve">
+    <value>Додати</value>
+  </data>
+  <data name="btnDeleteResearch" xml:space="preserve">
+    <value>Видалити</value>
+  </data>
+  <data name="btnUpdateResearch" xml:space="preserve">
+    <value>Оновити</value>
+  </data>
+  <data name="btnAddParticipation" xml:space="preserve">
+    <value>Додати</value>
+  </data>
+  <data name="btnUpdateParticipation" xml:space="preserve">
+    <value>Оновити</value>
+  </data>
+  <data name="btnDeleteParticipation" xml:space="preserve">
+    <value>Видалити</value>
+  </data>
+  <data name="txtLessonType" xml:space="preserve">
+    <value>Тип заняття</value>
+  </data>
+  <data name="txtPlanHours" xml:space="preserve">
+    <value>Кількість годин за планом</value>
+  </data>
+  <data name="txtHoursTaught" xml:space="preserve">
+    <value>Відпрацьовано годин</value>
+  </data>
+  <data name="btnAddAssignment" xml:space="preserve">
+    <value>Додати</value>
+  </data>
+  <data name="btnUpdateAssignment" xml:space="preserve">
+    <value>Оновити</value>
+  </data>
+  <data name="btnDeleteAssignment" xml:space="preserve">
+    <value>Видалити</value>
   </data>
 </root>

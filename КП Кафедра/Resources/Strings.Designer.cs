@@ -63,6 +63,42 @@ namespace КП_Кафедра.Resources {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Додати.
         /// </summary>
+        internal static string btnAddAssignment {
+            get {
+                return ResourceManager.GetString("btnAddAssignment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Додати.
+        /// </summary>
+        internal static string btnAddParticipation {
+            get {
+                return ResourceManager.GetString("btnAddParticipation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Додати.
+        /// </summary>
+        internal static string btnAddResearch {
+            get {
+                return ResourceManager.GetString("btnAddResearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Додати.
+        /// </summary>
+        internal static string btnAddSubject {
+            get {
+                return ResourceManager.GetString("btnAddSubject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Додати.
+        /// </summary>
         internal static string btnAddTeacher {
             get {
                 return ResourceManager.GetString("btnAddTeacher", resourceCulture);
@@ -84,6 +120,42 @@ namespace КП_Кафедра.Resources {
         internal static string btnDeactivateTeacher {
             get {
                 return ResourceManager.GetString("btnDeactivateTeacher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Видалити.
+        /// </summary>
+        internal static string btnDeleteAssignment {
+            get {
+                return ResourceManager.GetString("btnDeleteAssignment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Видалити.
+        /// </summary>
+        internal static string btnDeleteParticipation {
+            get {
+                return ResourceManager.GetString("btnDeleteParticipation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Видалити.
+        /// </summary>
+        internal static string btnDeleteResearch {
+            get {
+                return ResourceManager.GetString("btnDeleteResearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Видалити.
+        /// </summary>
+        internal static string btnDeleteSubject {
+            get {
+                return ResourceManager.GetString("btnDeleteSubject", resourceCulture);
             }
         }
         
@@ -156,6 +228,42 @@ namespace КП_Кафедра.Resources {
         internal static string btnTeachers {
             get {
                 return ResourceManager.GetString("btnTeachers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Оновити.
+        /// </summary>
+        internal static string btnUpdateAssignment {
+            get {
+                return ResourceManager.GetString("btnUpdateAssignment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Оновити.
+        /// </summary>
+        internal static string btnUpdateParticipation {
+            get {
+                return ResourceManager.GetString("btnUpdateParticipation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Оновити.
+        /// </summary>
+        internal static string btnUpdateResearch {
+            get {
+                return ResourceManager.GetString("btnUpdateResearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Оновити.
+        /// </summary>
+        internal static string btnUpdateSubject {
+            get {
+                return ResourceManager.GetString("btnUpdateSubject", resourceCulture);
             }
         }
         
@@ -259,7 +367,7 @@ namespace КП_Кафедра.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на План годин.
+        ///   Ищет локализованную строку, похожую на Кількість годин за планом.
         /// </summary>
         internal static string column_plan_hours {
             get {
@@ -322,7 +430,7 @@ namespace КП_Кафедра.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Назва предмету.
+        ///   Ищет локализованную строку, похожую на Назва дисципліни.
         /// </summary>
         internal static string column_subject_name {
             get {
@@ -367,6 +475,24 @@ namespace КП_Кафедра.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Відпрацьовано годин.
+        /// </summary>
+        internal static string txtHoursTaught {
+            get {
+                return ResourceManager.GetString("txtHoursTaught", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Тип заняття.
+        /// </summary>
+        internal static string txtLessonType {
+            get {
+                return ResourceManager.GetString("txtLessonType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на ПІБ.
         /// </summary>
         internal static string txtName {
@@ -385,6 +511,15 @@ namespace КП_Кафедра.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Кількість годин за планом.
+        /// </summary>
+        internal static string txtPlanHours {
+            get {
+                return ResourceManager.GetString("txtPlanHours", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Посада.
         /// </summary>
         internal static string txtPosition {
@@ -394,11 +529,47 @@ namespace КП_Кафедра.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Введіть ім’я.
+        ///   Ищет локализованную строку, похожую на Назва проєкту.
+        /// </summary>
+        internal static string txtProjectName {
+            get {
+                return ResourceManager.GetString("txtProjectName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Пошук.
         /// </summary>
         internal static string txtSearch {
             get {
                 return ResourceManager.GetString("txtSearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Семестр.
+        /// </summary>
+        internal static string txtSemester {
+            get {
+                return ResourceManager.GetString("txtSemester", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Назва дисципліни.
+        /// </summary>
+        internal static string txtSubjectName {
+            get {
+                return ResourceManager.GetString("txtSubjectName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Загальна кількість годин.
+        /// </summary>
+        internal static string txtTotalHours {
+            get {
+                return ResourceManager.GetString("txtTotalHours", resourceCulture);
             }
         }
     }

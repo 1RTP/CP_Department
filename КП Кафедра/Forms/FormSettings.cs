@@ -152,7 +152,11 @@ namespace КП_Кафедра.Forms
                 DataService.Participations = data.Participations ?? new List<Participation>();
 
 
-                if (FormTables.Instance != null) { FormTables.Instance.UpdateGrid(DataService.Teachers); }
+                //if (FormTables.Instance != null) { FormTables.Instance.UpdateGrid(DataService.Teachers); }
+                if (FormTables.Instance != null && FormTables.Instance.activeForm is FormTeacher teacherForm)
+                {
+                    teacherForm.UpdateGrid(DataService.Teachers);
+                }
                 Toast.Show("INFO", $"Дані завантажено з файлу ({currentFormat}).");
                 LoggerService.LogInfo($"Десеріалізовано всі дані з {currentFormat}.");
             }

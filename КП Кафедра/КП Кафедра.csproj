@@ -165,6 +165,7 @@
     <Compile Include="RoundButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <None Include="Resources\icons8-мусор-25.png" />
     <None Include="Resources\icons8-поиск-25.png" />
     <None Include="Resources\icons8-поиск-100.png" />
     <None Include="Resources\icons8-документ-251.png" />
@@ -178,11 +179,26 @@
     <None Include="Resources\icons8-информация-48.png" />
     <None Include="Resources\icons8-главная-50.png" />
     <None Include="Resources\icons8-бизнес-отчет-50.png" />
+    <EmbeddedResource Include="Forms\FormAssignment.resx">
+      <DependentUpon>FormAssignment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormParticipation.resx">
+      <DependentUpon>FormParticipation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormReport.resx">
       <DependentUpon>FormReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormReportViewer.resx">
       <DependentUpon>FormReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormResearch.resx">
+      <DependentUpon>FormResearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSubject.resx">
+      <DependentUpon>FormSubject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormTeacher.resx">
+      <DependentUpon>FormTeacher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Strings.en.resx" />
     <EmbeddedResource Include="Resources\Strings.resx">
