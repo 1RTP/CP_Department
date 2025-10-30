@@ -1,0 +1,1411 @@
+﻿{
+  "Teachers": [
+    {
+      "EmpId": 1,
+      "FullName": "Панас Овчаренко",
+      "Position": "Старший викладач",
+      "HireDate": "2018-01-08T00:00:00",
+      "PhoneNumber": "+380116560234",
+      "Email": "iefymenkoustym@gov.ua",
+      "Status": false,
+      "Participations": null,
+      "Assignments": null
+    },
+    {
+      "EmpId": 2,
+      "FullName": "Камілла Ващук",
+      "Position": "Методист",
+      "HireDate": "2015-12-25T00:00:00",
+      "PhoneNumber": "+380491392884",
+      "Email": "ktokar@haievskyi.org",
+      "Status": false,
+      "Participations": null,
+      "Assignments": null
+    },
+    {
+      "EmpId": 3,
+      "FullName": "Марія Овсієнко",
+      "Position": "Асистент",
+      "HireDate": "2018-02-07T00:00:00",
+      "PhoneNumber": "+380909155143",
+      "Email": "nikoliuksofiia@i.ua",
+      "Status": false,
+      "Participations": null,
+      "Assignments": null
+    },
+    {
+      "EmpId": 4,
+      "FullName": "Валерія Дробович",
+      "Position": "Інженер",
+      "HireDate": "2017-05-12T00:00:00",
+      "PhoneNumber": "+380678181010",
+      "Email": "zhelezniaknastia@meta.ua",
+      "Status": false,
+      "Participations": null,
+      "Assignments": null
+    },
+    {
+      "EmpId": 5,
+      "FullName": "Євгенія Мельниченко",
+      "Position": "Професор",
+      "HireDate": "2014-03-02T00:00:00",
+      "PhoneNumber": "+380505596609",
+      "Email": "vsolomianko@knu.ua",
+      "Status": false,
+      "Participations": null,
+      "Assignments": null
+    },
+    {
+      "EmpId": 6,
+      "FullName": "Андрій Онищенко",
+      "Position": "Доцент",
+      "HireDate": "2016-09-15T00:00:00",
+      "PhoneNumber": "+380737778899",
+      "Email": "onishchenko@gmail.com",
+      "Status": false,
+      "Participations": null,
+      "Assignments": null
+    },
+    {
+      "EmpId": 7,
+      "FullName": "Оксана Черевко",
+      "Position": "Асистент",
+      "HireDate": "2019-11-01T00:00:00",
+      "PhoneNumber": "+380972224567",
+      "Email": "okscher@ukr.net",
+      "Status": false,
+      "Participations": null,
+      "Assignments": null
+    },
+    {
+      "EmpId": 8,
+      "FullName": "Максим Бутко",
+      "Position": "Професор",
+      "HireDate": "2013-07-30T00:00:00",
+      "PhoneNumber": "+380501234567",
+      "Email": "m.butko@univ.kiev.ua",
+      "Status": false,
+      "Participations": null,
+      "Assignments": null
+    },
+    {
+      "EmpId": 9,
+      "FullName": "Ігор Сич",
+      "Position": "Доцент",
+      "HireDate": "2016-04-11T00:00:00",
+      "PhoneNumber": "+380935556677",
+      "Email": "ihor.sych@gmail.com",
+      "Status": false,
+      "Participations": null,
+      "Assignments": null
+    },
+    {
+      "EmpId": 10,
+      "FullName": "Юлія Пилипенко",
+      "Position": "Методист",
+      "HireDate": "2018-06-23T00:00:00",
+      "PhoneNumber": "+380983219876",
+      "Email": "y.pilypenko@edu.ua",
+      "Status": false,
+      "Participations": null,
+      "Assignments": null
+    },
+    {
+      "EmpId": 11,
+      "FullName": "Олег Шевченко",
+      "Position": "Завідувач кафедри",
+      "HireDate": "2012-01-20T00:00:00",
+      "PhoneNumber": "+380500001122",
+      "Email": "shev.oleg@kafedra.edu",
+      "Status": false,
+      "Participations": null,
+      "Assignments": null
+    },
+    {
+      "EmpId": 12,
+      "FullName": "Наталя Король",
+      "Position": "Старший викладач",
+      "HireDate": "2017-10-14T00:00:00",
+      "PhoneNumber": "+380998887766",
+      "Email": "n.korol@edu.ua",
+      "Status": false,
+      "Participations": null,
+      "Assignments": null
+    },
+    {
+      "EmpId": 13,
+      "FullName": "Руслан Коваль",
+      "Position": "Асистент",
+      "HireDate": "2020-02-29T00:00:00",
+      "PhoneNumber": "+380970012345",
+      "Email": "r.koval@kafedra.ua",
+      "Status": false,
+      "Participations": null,
+      "Assignments": null
+    },
+    {
+      "EmpId": 14,
+      "FullName": "Тетяна Бондар",
+      "Position": "Інженер",
+      "HireDate": "2015-09-05T00:00:00",
+      "PhoneNumber": "+380931112233",
+      "Email": "t.bondar@univ.edu",
+      "Status": false,
+      "Participations": null,
+      "Assignments": null
+    },
+    {
+      "EmpId": 15,
+      "FullName": "Сергій Іщенко",
+      "Position": "Доцент",
+      "HireDate": "2014-06-07T00:00:00",
+      "PhoneNumber": "+380955556677",
+      "Email": "s.ishchenko@kafedra.ua",
+      "Status": false,
+      "Participations": null,
+      "Assignments": null
+    },
+    {
+      "EmpId": 16,
+      "FullName": "Лідія Козак",
+      "Position": "Лаборант",
+      "HireDate": "2016-03-08T00:00:00",
+      "PhoneNumber": "+380739876543",
+      "Email": "l.kozak@edu.ua",
+      "Status": false,
+      "Participations": null,
+      "Assignments": null
+    },
+    {
+      "EmpId": 17,
+      "FullName": "Анатолій Білий",
+      "Position": "Професор",
+      "HireDate": "2011-08-19T00:00:00",
+      "PhoneNumber": "+380671112233",
+      "Email": "a.bilyi@kpi.ua",
+      "Status": false,
+      "Participations": null,
+      "Assignments": null
+    },
+    {
+      "EmpId": 18,
+      "FullName": "Ірина Гуменюк",
+      "Position": "Асистент",
+      "HireDate": "2019-04-03T00:00:00",
+      "PhoneNumber": "+380502223344",
+      "Email": "i.humeniuk@edu.ua",
+      "Status": false,
+      "Participations": null,
+      "Assignments": null
+    },
+    {
+      "EmpId": 19,
+      "FullName": "Денис Поліщук",
+      "Position": "Інженер",
+      "HireDate": "2017-12-22T00:00:00",
+      "PhoneNumber": "+380974445566",
+      "Email": "d.polishchuk@kafedra.ua",
+      "Status": false,
+      "Participations": null,
+      "Assignments": null
+    },
+    {
+      "EmpId": 20,
+      "FullName": "Галина Синиця",
+      "Position": "Старший викладач",
+      "HireDate": "2013-11-17T00:00:00",
+      "PhoneNumber": "+380937891234",
+      "Email": "h.synytsia@edu.ua",
+      "Status": false,
+      "Participations": null,
+      "Assignments": null
+    }
+  ],
+  "Subjects": [
+    {
+      "SubjectId": 1,
+      "Name": "Патологічна фізіологія (Медицина)",
+      "Semester": 6,
+      "TotalHours": 120,
+      "Status": true
+    },
+    {
+      "SubjectId": 2,
+      "Name": "Патологічна фізіологія (Медицина, іноземні студенти)",
+      "Semester": 6,
+      "TotalHours": 120,
+      "Status": true
+    },
+    {
+      "SubjectId": 3,
+      "Name": "Патологічна фізіологія (Стоматологія, 2 курс)",
+      "Semester": 4,
+      "TotalHours": 90,
+      "Status": true
+    },
+    {
+      "SubjectId": 4,
+      "Name": "Патологічна фізіологія (Стоматологія, 3 курс)",
+      "Semester": 6,
+      "TotalHours": 90,
+      "Status": true
+    },
+    {
+      "SubjectId": 5,
+      "Name": "Патологічна фізіологія (Лабораторна діагностика, 2 курс)",
+      "Semester": 4,
+      "TotalHours": 80,
+      "Status": true
+    },
+    {
+      "SubjectId": 6,
+      "Name": "Патологічна фізіологія (Лабораторна діагностика, 3 курс)",
+      "Semester": 6,
+      "TotalHours": 80,
+      "Status": true
+    },
+    {
+      "SubjectId": 7,
+      "Name": "Патофізіологія з особливостями дитячого віку (Педіатрія)",
+      "Semester": 6,
+      "TotalHours": 100,
+      "Status": true
+    },
+    {
+      "SubjectId": 8,
+      "Name": "Нормальна фізіологія людини та патологічна фізіологія (Фізична терапія)",
+      "Semester": 4,
+      "TotalHours": 110,
+      "Status": true
+    },
+    {
+      "SubjectId": 9,
+      "Name": "Патоморфологія та патофізіологія (Сестринська справа)",
+      "Semester": 4,
+      "TotalHours": 90,
+      "Status": true
+    },
+    {
+      "SubjectId": 10,
+      "Name": "Патоморфологія та патофізіологія (Сестринська справа, іноземці)",
+      "Semester": 4,
+      "TotalHours": 90,
+      "Status": true
+    },
+    {
+      "SubjectId": 11,
+      "Name": "Клінічна патофізіологія (Медицина, 4 курс)",
+      "Semester": 8,
+      "TotalHours": 100,
+      "Status": true
+    },
+    {
+      "SubjectId": 12,
+      "Name": "Клінічна патофізіологія (Стоматологія, 4 курс)",
+      "Semester": 8,
+      "TotalHours": 100,
+      "Status": true
+    },
+    {
+      "SubjectId": 13,
+      "Name": "Клінічна патофізіологія (Медсестринство, заочна форма)",
+      "Semester": 2,
+      "TotalHours": 60,
+      "Status": true
+    },
+    {
+      "SubjectId": 14,
+      "Name": "Патофізіологія англійською (Stomatology, 3 курс)",
+      "Semester": 6,
+      "TotalHours": 90,
+      "Status": true
+    },
+    {
+      "SubjectId": 15,
+      "Name": "Патофізіологія англійською (Medicine, 3 курс)",
+      "Semester": 6,
+      "TotalHours": 120,
+      "Status": true
+    }
+  ],
+  "Assignments": [
+    {
+      "AssignmentId": 1,
+      "PlanHours": 40,
+      "TaughtHours": 30,
+      "HireDate": "0001-01-01T00:00:00",
+      "Status": true,
+      "Teachers": [
+        {
+          "EmpId": 0,
+          "FullName": "Панас Овчаренко",
+          "Position": null,
+          "HireDate": "0001-01-01T00:00:00",
+          "PhoneNumber": null,
+          "Email": null,
+          "Status": false,
+          "Participations": null,
+          "Assignments": null
+        }
+      ],
+      "Subjects": [
+        {
+          "SubjectId": 0,
+          "Name": "Патологічна фізіологія (Медицина)",
+          "Semester": 0,
+          "TotalHours": 0,
+          "Status": false
+        }
+      ],
+      "LessonType": {
+        "LessonTypeId": 0,
+        "TypeName": "Лекція"
+      }
+    },
+    {
+      "AssignmentId": 2,
+      "PlanHours": 30,
+      "TaughtHours": 28,
+      "HireDate": "0001-01-01T00:00:00",
+      "Status": true,
+      "Teachers": [
+        {
+          "EmpId": 0,
+          "FullName": "Панас Овчаренко",
+          "Position": null,
+          "HireDate": "0001-01-01T00:00:00",
+          "PhoneNumber": null,
+          "Email": null,
+          "Status": false,
+          "Participations": null,
+          "Assignments": null
+        }
+      ],
+      "Subjects": [
+        {
+          "SubjectId": 0,
+          "Name": "Патологічна фізіологія (Медицина, іноземні студенти)",
+          "Semester": 0,
+          "TotalHours": 0,
+          "Status": false
+        }
+      ],
+      "LessonType": {
+        "LessonTypeId": 0,
+        "TypeName": "Практичне заняття"
+      }
+    },
+    {
+      "AssignmentId": 3,
+      "PlanHours": 45,
+      "TaughtHours": 45,
+      "HireDate": "0001-01-01T00:00:00",
+      "Status": true,
+      "Teachers": [
+        {
+          "EmpId": 0,
+          "FullName": "Камілла Ващук",
+          "Position": null,
+          "HireDate": "0001-01-01T00:00:00",
+          "PhoneNumber": null,
+          "Email": null,
+          "Status": false,
+          "Participations": null,
+          "Assignments": null
+        }
+      ],
+      "Subjects": [
+        {
+          "SubjectId": 0,
+          "Name": "Патологічна фізіологія (Стоматологія, 2 курс)",
+          "Semester": 0,
+          "TotalHours": 0,
+          "Status": false
+        }
+      ],
+      "LessonType": {
+        "LessonTypeId": 0,
+        "TypeName": "Лабораторне заняття"
+      }
+    },
+    {
+      "AssignmentId": 4,
+      "PlanHours": 35,
+      "TaughtHours": 32,
+      "HireDate": "0001-01-01T00:00:00",
+      "Status": true,
+      "Teachers": [
+        {
+          "EmpId": 0,
+          "FullName": "Камілла Ващук",
+          "Position": null,
+          "HireDate": "0001-01-01T00:00:00",
+          "PhoneNumber": null,
+          "Email": null,
+          "Status": false,
+          "Participations": null,
+          "Assignments": null
+        }
+      ],
+      "Subjects": [
+        {
+          "SubjectId": 0,
+          "Name": "Патологічна фізіологія (Стоматологія, 3 курс)",
+          "Semester": 0,
+          "TotalHours": 0,
+          "Status": false
+        }
+      ],
+      "LessonType": {
+        "LessonTypeId": 0,
+        "TypeName": "Лекція"
+      }
+    },
+    {
+      "AssignmentId": 5,
+      "PlanHours": 25,
+      "TaughtHours": 20,
+      "HireDate": "0001-01-01T00:00:00",
+      "Status": true,
+      "Teachers": [
+        {
+          "EmpId": 0,
+          "FullName": "Марія Овсієнко",
+          "Position": null,
+          "HireDate": "0001-01-01T00:00:00",
+          "PhoneNumber": null,
+          "Email": null,
+          "Status": false,
+          "Participations": null,
+          "Assignments": null
+        }
+      ],
+      "Subjects": [
+        {
+          "SubjectId": 0,
+          "Name": "Патологічна фізіологія (Лабораторна діагностика, 2 курс)",
+          "Semester": 0,
+          "TotalHours": 0,
+          "Status": false
+        }
+      ],
+      "LessonType": {
+        "LessonTypeId": 0,
+        "TypeName": "Практичне заняття"
+      }
+    },
+    {
+      "AssignmentId": 6,
+      "PlanHours": 50,
+      "TaughtHours": 40,
+      "HireDate": "0001-01-01T00:00:00",
+      "Status": true,
+      "Teachers": [
+        {
+          "EmpId": 0,
+          "FullName": "Марія Овсієнко",
+          "Position": null,
+          "HireDate": "0001-01-01T00:00:00",
+          "PhoneNumber": null,
+          "Email": null,
+          "Status": false,
+          "Participations": null,
+          "Assignments": null
+        }
+      ],
+      "Subjects": [
+        {
+          "SubjectId": 0,
+          "Name": "Патологічна фізіологія (Лабораторна діагностика, 3 курс)",
+          "Semester": 0,
+          "TotalHours": 0,
+          "Status": false
+        }
+      ],
+      "LessonType": {
+        "LessonTypeId": 0,
+        "TypeName": "Лабораторне заняття"
+      }
+    },
+    {
+      "AssignmentId": 7,
+      "PlanHours": 60,
+      "TaughtHours": 60,
+      "HireDate": "0001-01-01T00:00:00",
+      "Status": true,
+      "Teachers": [
+        {
+          "EmpId": 0,
+          "FullName": "Валерія Дробович",
+          "Position": null,
+          "HireDate": "0001-01-01T00:00:00",
+          "PhoneNumber": null,
+          "Email": null,
+          "Status": false,
+          "Participations": null,
+          "Assignments": null
+        }
+      ],
+      "Subjects": [
+        {
+          "SubjectId": 0,
+          "Name": "Патофізіологія з особливостями дитячого віку (Педіатрія)",
+          "Semester": 0,
+          "TotalHours": 0,
+          "Status": false
+        }
+      ],
+      "LessonType": {
+        "LessonTypeId": 0,
+        "TypeName": "Лекція"
+      }
+    },
+    {
+      "AssignmentId": 8,
+      "PlanHours": 30,
+      "TaughtHours": 25,
+      "HireDate": "0001-01-01T00:00:00",
+      "Status": true,
+      "Teachers": [
+        {
+          "EmpId": 0,
+          "FullName": "Євгенія Мельниченко",
+          "Position": null,
+          "HireDate": "0001-01-01T00:00:00",
+          "PhoneNumber": null,
+          "Email": null,
+          "Status": false,
+          "Participations": null,
+          "Assignments": null
+        }
+      ],
+      "Subjects": [
+        {
+          "SubjectId": 0,
+          "Name": "Нормальна фізіологія людини та патологічна фізіологія (Фізична терапія)",
+          "Semester": 0,
+          "TotalHours": 0,
+          "Status": false
+        }
+      ],
+      "LessonType": {
+        "LessonTypeId": 0,
+        "TypeName": "Семінар"
+      }
+    },
+    {
+      "AssignmentId": 9,
+      "PlanHours": 40,
+      "TaughtHours": 30,
+      "HireDate": "0001-01-01T00:00:00",
+      "Status": true,
+      "Teachers": [
+        {
+          "EmpId": 0,
+          "FullName": "Андрій Онищенко",
+          "Position": null,
+          "HireDate": "0001-01-01T00:00:00",
+          "PhoneNumber": null,
+          "Email": null,
+          "Status": false,
+          "Participations": null,
+          "Assignments": null
+        }
+      ],
+      "Subjects": [
+        {
+          "SubjectId": 0,
+          "Name": "Патоморфологія та патофізіологія (Сестринська справа)",
+          "Semester": 0,
+          "TotalHours": 0,
+          "Status": false
+        }
+      ],
+      "LessonType": {
+        "LessonTypeId": 0,
+        "TypeName": "Практичне заняття"
+      }
+    },
+    {
+      "AssignmentId": 10,
+      "PlanHours": 45,
+      "TaughtHours": 45,
+      "HireDate": "0001-01-01T00:00:00",
+      "Status": true,
+      "Teachers": [
+        {
+          "EmpId": 0,
+          "FullName": "Оксана Черевко",
+          "Position": null,
+          "HireDate": "0001-01-01T00:00:00",
+          "PhoneNumber": null,
+          "Email": null,
+          "Status": false,
+          "Participations": null,
+          "Assignments": null
+        }
+      ],
+      "Subjects": [
+        {
+          "SubjectId": 0,
+          "Name": "Патоморфологія та патофізіологія (Сестринська справа, іноземці)",
+          "Semester": 0,
+          "TotalHours": 0,
+          "Status": false
+        }
+      ],
+      "LessonType": {
+        "LessonTypeId": 0,
+        "TypeName": "Лекція"
+      }
+    },
+    {
+      "AssignmentId": 11,
+      "PlanHours": 35,
+      "TaughtHours": 20,
+      "HireDate": "0001-01-01T00:00:00",
+      "Status": true,
+      "Teachers": [
+        {
+          "EmpId": 0,
+          "FullName": "Максим Бутко",
+          "Position": null,
+          "HireDate": "0001-01-01T00:00:00",
+          "PhoneNumber": null,
+          "Email": null,
+          "Status": false,
+          "Participations": null,
+          "Assignments": null
+        }
+      ],
+      "Subjects": [
+        {
+          "SubjectId": 0,
+          "Name": "Клінічна патофізіологія (Медицина, 4 курс)",
+          "Semester": 0,
+          "TotalHours": 0,
+          "Status": false
+        }
+      ],
+      "LessonType": {
+        "LessonTypeId": 0,
+        "TypeName": "Лабораторне заняття"
+      }
+    },
+    {
+      "AssignmentId": 12,
+      "PlanHours": 50,
+      "TaughtHours": 48,
+      "HireDate": "0001-01-01T00:00:00",
+      "Status": true,
+      "Teachers": [
+        {
+          "EmpId": 0,
+          "FullName": "Ігор Сич",
+          "Position": null,
+          "HireDate": "0001-01-01T00:00:00",
+          "PhoneNumber": null,
+          "Email": null,
+          "Status": false,
+          "Participations": null,
+          "Assignments": null
+        }
+      ],
+      "Subjects": [
+        {
+          "SubjectId": 0,
+          "Name": "Клінічна патофізіологія (Стоматологія, 4 курс)",
+          "Semester": 0,
+          "TotalHours": 0,
+          "Status": false
+        }
+      ],
+      "LessonType": {
+        "LessonTypeId": 0,
+        "TypeName": "Лекція"
+      }
+    },
+    {
+      "AssignmentId": 13,
+      "PlanHours": 30,
+      "TaughtHours": 30,
+      "HireDate": "0001-01-01T00:00:00",
+      "Status": true,
+      "Teachers": [
+        {
+          "EmpId": 0,
+          "FullName": "Юлія Пилипенко",
+          "Position": null,
+          "HireDate": "0001-01-01T00:00:00",
+          "PhoneNumber": null,
+          "Email": null,
+          "Status": false,
+          "Participations": null,
+          "Assignments": null
+        }
+      ],
+      "Subjects": [
+        {
+          "SubjectId": 0,
+          "Name": "Клінічна патофізіологія (Медсестринство, заочна форма)",
+          "Semester": 0,
+          "TotalHours": 0,
+          "Status": false
+        }
+      ],
+      "LessonType": {
+        "LessonTypeId": 0,
+        "TypeName": "Практичне заняття"
+      }
+    },
+    {
+      "AssignmentId": 14,
+      "PlanHours": 40,
+      "TaughtHours": 35,
+      "HireDate": "0001-01-01T00:00:00",
+      "Status": true,
+      "Teachers": [
+        {
+          "EmpId": 0,
+          "FullName": "Олег Шевченко",
+          "Position": null,
+          "HireDate": "0001-01-01T00:00:00",
+          "PhoneNumber": null,
+          "Email": null,
+          "Status": false,
+          "Participations": null,
+          "Assignments": null
+        }
+      ],
+      "Subjects": [
+        {
+          "SubjectId": 0,
+          "Name": "Патофізіологія англійською (Stomatology, 3 курс)",
+          "Semester": 0,
+          "TotalHours": 0,
+          "Status": false
+        }
+      ],
+      "LessonType": {
+        "LessonTypeId": 0,
+        "TypeName": "Семінар"
+      }
+    },
+    {
+      "AssignmentId": 15,
+      "PlanHours": 60,
+      "TaughtHours": 50,
+      "HireDate": "0001-01-01T00:00:00",
+      "Status": true,
+      "Teachers": [
+        {
+          "EmpId": 0,
+          "FullName": "Наталя Король",
+          "Position": null,
+          "HireDate": "0001-01-01T00:00:00",
+          "PhoneNumber": null,
+          "Email": null,
+          "Status": false,
+          "Participations": null,
+          "Assignments": null
+        }
+      ],
+      "Subjects": [
+        {
+          "SubjectId": 0,
+          "Name": "Патофізіологія англійською (Medicine, 3 курс)",
+          "Semester": 0,
+          "TotalHours": 0,
+          "Status": false
+        }
+      ],
+      "LessonType": {
+        "LessonTypeId": 0,
+        "TypeName": "Лекція"
+      }
+    },
+    {
+      "AssignmentId": 16,
+      "PlanHours": 40,
+      "TaughtHours": 38,
+      "HireDate": "0001-01-01T00:00:00",
+      "Status": true,
+      "Teachers": [
+        {
+          "EmpId": 0,
+          "FullName": "Руслан Коваль",
+          "Position": null,
+          "HireDate": "0001-01-01T00:00:00",
+          "PhoneNumber": null,
+          "Email": null,
+          "Status": false,
+          "Participations": null,
+          "Assignments": null
+        }
+      ],
+      "Subjects": [
+        {
+          "SubjectId": 0,
+          "Name": "Патологічна фізіологія (Медицина)",
+          "Semester": 0,
+          "TotalHours": 0,
+          "Status": false
+        }
+      ],
+      "LessonType": {
+        "LessonTypeId": 0,
+        "TypeName": "Практичне заняття"
+      }
+    },
+    {
+      "AssignmentId": 17,
+      "PlanHours": 50,
+      "TaughtHours": 47,
+      "HireDate": "0001-01-01T00:00:00",
+      "Status": true,
+      "Teachers": [
+        {
+          "EmpId": 0,
+          "FullName": "Тетяна Бондар",
+          "Position": null,
+          "HireDate": "0001-01-01T00:00:00",
+          "PhoneNumber": null,
+          "Email": null,
+          "Status": false,
+          "Participations": null,
+          "Assignments": null
+        }
+      ],
+      "Subjects": [
+        {
+          "SubjectId": 0,
+          "Name": "Патологічна фізіологія (Стоматологія, 2 курс)",
+          "Semester": 0,
+          "TotalHours": 0,
+          "Status": false
+        }
+      ],
+      "LessonType": {
+        "LessonTypeId": 0,
+        "TypeName": "Лабораторне заняття"
+      }
+    },
+    {
+      "AssignmentId": 18,
+      "PlanHours": 30,
+      "TaughtHours": 28,
+      "HireDate": "0001-01-01T00:00:00",
+      "Status": true,
+      "Teachers": [
+        {
+          "EmpId": 0,
+          "FullName": "Сергій Іщенко",
+          "Position": null,
+          "HireDate": "0001-01-01T00:00:00",
+          "PhoneNumber": null,
+          "Email": null,
+          "Status": false,
+          "Participations": null,
+          "Assignments": null
+        }
+      ],
+      "Subjects": [
+        {
+          "SubjectId": 0,
+          "Name": "Патологічна фізіологія (Лабораторна діагностика, 2 курс)",
+          "Semester": 0,
+          "TotalHours": 0,
+          "Status": false
+        }
+      ],
+      "LessonType": {
+        "LessonTypeId": 0,
+        "TypeName": "Лекція"
+      }
+    },
+    {
+      "AssignmentId": 19,
+      "PlanHours": 25,
+      "TaughtHours": 24,
+      "HireDate": "0001-01-01T00:00:00",
+      "Status": true,
+      "Teachers": [
+        {
+          "EmpId": 0,
+          "FullName": "Панас Овчаренко",
+          "Position": null,
+          "HireDate": "0001-01-01T00:00:00",
+          "PhoneNumber": null,
+          "Email": null,
+          "Status": false,
+          "Participations": null,
+          "Assignments": null
+        }
+      ],
+      "Subjects": [
+        {
+          "SubjectId": 0,
+          "Name": "Патологічна фізіологія (Лабораторна діагностика, 3 курс)",
+          "Semester": 0,
+          "TotalHours": 0,
+          "Status": false
+        }
+      ],
+      "LessonType": {
+        "LessonTypeId": 0,
+        "TypeName": "Семінар"
+      }
+    },
+    {
+      "AssignmentId": 20,
+      "PlanHours": 45,
+      "TaughtHours": 42,
+      "HireDate": "0001-01-01T00:00:00",
+      "Status": true,
+      "Teachers": [
+        {
+          "EmpId": 0,
+          "FullName": "Камілла Ващук",
+          "Position": null,
+          "HireDate": "0001-01-01T00:00:00",
+          "PhoneNumber": null,
+          "Email": null,
+          "Status": false,
+          "Participations": null,
+          "Assignments": null
+        }
+      ],
+      "Subjects": [
+        {
+          "SubjectId": 0,
+          "Name": "Патофізіологія з особливостями дитячого віку (Педіатрія)",
+          "Semester": 0,
+          "TotalHours": 0,
+          "Status": false
+        }
+      ],
+      "LessonType": {
+        "LessonTypeId": 0,
+        "TypeName": "Практичне заняття"
+      }
+    }
+  ],
+  "LessonTypes": [],
+  "Researches": [
+    {
+      "ResearchId": 1,
+      "ResearchName": "Механізми хронічного запалення при автоімунних процесах",
+      "StartDate": "2021-01-10T00:00:00",
+      "EndDate": "2023-12-20T00:00:00",
+      "Participants": []
+    },
+    {
+      "ResearchId": 2,
+      "ResearchName": "Патофізіологія стресу та депресивних розладів",
+      "StartDate": "2020-09-01T00:00:00",
+      "EndDate": "2022-09-01T00:00:00",
+      "Participants": []
+    },
+    {
+      "ResearchId": 3,
+      "ResearchName": "Вплив запалення на серцево-судинну систему",
+      "StartDate": "2022-02-15T00:00:00",
+      "EndDate": "0001-01-01T00:00:00",
+      "Participants": []
+    },
+    {
+      "ResearchId": 4,
+      "ResearchName": "Порушення функцій травної системи при метаболічному синдромі",
+      "StartDate": "2021-05-01T00:00:00",
+      "EndDate": "2024-01-01T00:00:00",
+      "Participants": []
+    },
+    {
+      "ResearchId": 5,
+      "ResearchName": "Нейроендокринна регуляція в умовах гіпоксії",
+      "StartDate": "2019-03-20T00:00:00",
+      "EndDate": "2021-03-20T00:00:00",
+      "Participants": []
+    },
+    {
+      "ResearchId": 6,
+      "ResearchName": "Дослідження системи мати-плацента-плід при токсичному впливі",
+      "StartDate": "2023-06-01T00:00:00",
+      "EndDate": "0001-01-01T00:00:00",
+      "Participants": []
+    },
+    {
+      "ResearchId": 7,
+      "ResearchName": "Хронічне запалення у патології репродуктивної системи",
+      "StartDate": "2020-01-01T00:00:00",
+      "EndDate": "2022-06-01T00:00:00",
+      "Participants": []
+    },
+    {
+      "ResearchId": 8,
+      "ResearchName": "Імунопатогенез уражень сечостатевої системи",
+      "StartDate": "2022-08-01T00:00:00",
+      "EndDate": "0001-01-01T00:00:00",
+      "Participants": []
+    }
+  ],
+  "Participations": [
+    {
+      "ParticipationId": 0,
+      "Project": {
+        "ResearchId": 0,
+        "ResearchName": "Механізми хронічного запалення при автоімунних процесах",
+        "StartDate": "2021-01-10T00:00:00",
+        "EndDate": "2023-12-20T00:00:00",
+        "Participants": null
+      },
+      "Teacher": {
+        "EmpId": 0,
+        "FullName": "Панас Овчаренко",
+        "Position": null,
+        "HireDate": "0001-01-01T00:00:00",
+        "PhoneNumber": null,
+        "Email": null,
+        "Status": false,
+        "Participations": null,
+        "Assignments": null
+      }
+    },
+    {
+      "ParticipationId": 0,
+      "Project": {
+        "ResearchId": 0,
+        "ResearchName": "Патофізіологія стресу та депресивних розладів",
+        "StartDate": "2020-09-01T00:00:00",
+        "EndDate": "2022-09-01T00:00:00",
+        "Participants": null
+      },
+      "Teacher": {
+        "EmpId": 0,
+        "FullName": "Камілла Ващук",
+        "Position": null,
+        "HireDate": "0001-01-01T00:00:00",
+        "PhoneNumber": null,
+        "Email": null,
+        "Status": false,
+        "Participations": null,
+        "Assignments": null
+      }
+    },
+    {
+      "ParticipationId": 0,
+      "Project": {
+        "ResearchId": 0,
+        "ResearchName": "Вплив запалення на серцево-судинну систему",
+        "StartDate": "2022-02-15T00:00:00",
+        "EndDate": "0001-01-01T00:00:00",
+        "Participants": null
+      },
+      "Teacher": {
+        "EmpId": 0,
+        "FullName": "Марія Овсієнко",
+        "Position": null,
+        "HireDate": "0001-01-01T00:00:00",
+        "PhoneNumber": null,
+        "Email": null,
+        "Status": false,
+        "Participations": null,
+        "Assignments": null
+      }
+    },
+    {
+      "ParticipationId": 0,
+      "Project": {
+        "ResearchId": 0,
+        "ResearchName": "Порушення функцій травної системи при метаболічному синдромі",
+        "StartDate": "2021-05-01T00:00:00",
+        "EndDate": "2024-01-01T00:00:00",
+        "Participants": null
+      },
+      "Teacher": {
+        "EmpId": 0,
+        "FullName": "Валерія Дробович",
+        "Position": null,
+        "HireDate": "0001-01-01T00:00:00",
+        "PhoneNumber": null,
+        "Email": null,
+        "Status": false,
+        "Participations": null,
+        "Assignments": null
+      }
+    },
+    {
+      "ParticipationId": 0,
+      "Project": {
+        "ResearchId": 0,
+        "ResearchName": "Нейроендокринна регуляція в умовах гіпоксії",
+        "StartDate": "2019-03-20T00:00:00",
+        "EndDate": "2021-03-20T00:00:00",
+        "Participants": null
+      },
+      "Teacher": {
+        "EmpId": 0,
+        "FullName": "Євгенія Мельниченко",
+        "Position": null,
+        "HireDate": "0001-01-01T00:00:00",
+        "PhoneNumber": null,
+        "Email": null,
+        "Status": false,
+        "Participations": null,
+        "Assignments": null
+      }
+    },
+    {
+      "ParticipationId": 0,
+      "Project": {
+        "ResearchId": 0,
+        "ResearchName": "Дослідження системи мати-плацента-плід при токсичному впливі",
+        "StartDate": "2023-06-01T00:00:00",
+        "EndDate": "0001-01-01T00:00:00",
+        "Participants": null
+      },
+      "Teacher": {
+        "EmpId": 0,
+        "FullName": "Андрій Онищенко",
+        "Position": null,
+        "HireDate": "0001-01-01T00:00:00",
+        "PhoneNumber": null,
+        "Email": null,
+        "Status": false,
+        "Participations": null,
+        "Assignments": null
+      }
+    },
+    {
+      "ParticipationId": 0,
+      "Project": {
+        "ResearchId": 0,
+        "ResearchName": "Хронічне запалення у патології репродуктивної системи",
+        "StartDate": "2020-01-01T00:00:00",
+        "EndDate": "2022-06-01T00:00:00",
+        "Participants": null
+      },
+      "Teacher": {
+        "EmpId": 0,
+        "FullName": "Оксана Черевко",
+        "Position": null,
+        "HireDate": "0001-01-01T00:00:00",
+        "PhoneNumber": null,
+        "Email": null,
+        "Status": false,
+        "Participations": null,
+        "Assignments": null
+      }
+    },
+    {
+      "ParticipationId": 0,
+      "Project": {
+        "ResearchId": 0,
+        "ResearchName": "Імунопатогенез уражень сечостатевої системи",
+        "StartDate": "2022-08-01T00:00:00",
+        "EndDate": "0001-01-01T00:00:00",
+        "Participants": null
+      },
+      "Teacher": {
+        "EmpId": 0,
+        "FullName": "Максим Бутко",
+        "Position": null,
+        "HireDate": "0001-01-01T00:00:00",
+        "PhoneNumber": null,
+        "Email": null,
+        "Status": false,
+        "Participations": null,
+        "Assignments": null
+      }
+    },
+    {
+      "ParticipationId": 0,
+      "Project": {
+        "ResearchId": 0,
+        "ResearchName": "Вплив запалення на серцево-судинну систему",
+        "StartDate": "2022-02-15T00:00:00",
+        "EndDate": "0001-01-01T00:00:00",
+        "Participants": null
+      },
+      "Teacher": {
+        "EmpId": 0,
+        "FullName": "Камілла Ващук",
+        "Position": null,
+        "HireDate": "0001-01-01T00:00:00",
+        "PhoneNumber": null,
+        "Email": null,
+        "Status": false,
+        "Participations": null,
+        "Assignments": null
+      }
+    },
+    {
+      "ParticipationId": 0,
+      "Project": {
+        "ResearchId": 0,
+        "ResearchName": "Нейроендокринна регуляція в умовах гіпоксії",
+        "StartDate": "2019-03-20T00:00:00",
+        "EndDate": "2021-03-20T00:00:00",
+        "Participants": null
+      },
+      "Teacher": {
+        "EmpId": 0,
+        "FullName": "Марія Овсієнко",
+        "Position": null,
+        "HireDate": "0001-01-01T00:00:00",
+        "PhoneNumber": null,
+        "Email": null,
+        "Status": false,
+        "Participations": null,
+        "Assignments": null
+      }
+    },
+    {
+      "ParticipationId": 0,
+      "Project": {
+        "ResearchId": 0,
+        "ResearchName": "Механізми хронічного запалення при автоімунних процесах",
+        "StartDate": "2021-01-10T00:00:00",
+        "EndDate": "2023-12-20T00:00:00",
+        "Participants": null
+      },
+      "Teacher": {
+        "EmpId": 0,
+        "FullName": "Валерія Дробович",
+        "Position": null,
+        "HireDate": "0001-01-01T00:00:00",
+        "PhoneNumber": null,
+        "Email": null,
+        "Status": false,
+        "Participations": null,
+        "Assignments": null
+      }
+    },
+    {
+      "ParticipationId": 0,
+      "Project": {
+        "ResearchId": 0,
+        "ResearchName": "Патофізіологія стресу та депресивних розладів",
+        "StartDate": "2020-09-01T00:00:00",
+        "EndDate": "2022-09-01T00:00:00",
+        "Participants": null
+      },
+      "Teacher": {
+        "EmpId": 0,
+        "FullName": "Євгенія Мельниченко",
+        "Position": null,
+        "HireDate": "0001-01-01T00:00:00",
+        "PhoneNumber": null,
+        "Email": null,
+        "Status": false,
+        "Participations": null,
+        "Assignments": null
+      }
+    },
+    {
+      "ParticipationId": 0,
+      "Project": {
+        "ResearchId": 0,
+        "ResearchName": "Порушення функцій травної системи при метаболічному синдромі",
+        "StartDate": "2021-05-01T00:00:00",
+        "EndDate": "2024-01-01T00:00:00",
+        "Participants": null
+      },
+      "Teacher": {
+        "EmpId": 0,
+        "FullName": "Андрій Онищенко",
+        "Position": null,
+        "HireDate": "0001-01-01T00:00:00",
+        "PhoneNumber": null,
+        "Email": null,
+        "Status": false,
+        "Participations": null,
+        "Assignments": null
+      }
+    },
+    {
+      "ParticipationId": 0,
+      "Project": {
+        "ResearchId": 0,
+        "ResearchName": "Дослідження системи мати-плацента-плід при токсичному впливі",
+        "StartDate": "2023-06-01T00:00:00",
+        "EndDate": "0001-01-01T00:00:00",
+        "Participants": null
+      },
+      "Teacher": {
+        "EmpId": 0,
+        "FullName": "Оксана Черевко",
+        "Position": null,
+        "HireDate": "0001-01-01T00:00:00",
+        "PhoneNumber": null,
+        "Email": null,
+        "Status": false,
+        "Participations": null,
+        "Assignments": null
+      }
+    },
+    {
+      "ParticipationId": 0,
+      "Project": {
+        "ResearchId": 0,
+        "ResearchName": "Механізми хронічного запалення при автоімунних процесах",
+        "StartDate": "2021-01-10T00:00:00",
+        "EndDate": "2023-12-20T00:00:00",
+        "Participants": null
+      },
+      "Teacher": {
+        "EmpId": 0,
+        "FullName": "Максим Бутко",
+        "Position": null,
+        "HireDate": "0001-01-01T00:00:00",
+        "PhoneNumber": null,
+        "Email": null,
+        "Status": false,
+        "Participations": null,
+        "Assignments": null
+      }
+    },
+    {
+      "ParticipationId": 0,
+      "Project": {
+        "ResearchId": 0,
+        "ResearchName": "Хронічне запалення у патології репродуктивної системи",
+        "StartDate": "2020-01-01T00:00:00",
+        "EndDate": "2022-06-01T00:00:00",
+        "Participants": null
+      },
+      "Teacher": {
+        "EmpId": 0,
+        "FullName": "Ігор Сич",
+        "Position": null,
+        "HireDate": "0001-01-01T00:00:00",
+        "PhoneNumber": null,
+        "Email": null,
+        "Status": false,
+        "Participations": null,
+        "Assignments": null
+      }
+    },
+    {
+      "ParticipationId": 0,
+      "Project": {
+        "ResearchId": 0,
+        "ResearchName": "Імунопатогенез уражень сечостатевої системи",
+        "StartDate": "2022-08-01T00:00:00",
+        "EndDate": "0001-01-01T00:00:00",
+        "Participants": null
+      },
+      "Teacher": {
+        "EmpId": 0,
+        "FullName": "Юлія Пилипенко",
+        "Position": null,
+        "HireDate": "0001-01-01T00:00:00",
+        "PhoneNumber": null,
+        "Email": null,
+        "Status": false,
+        "Participations": null,
+        "Assignments": null
+      }
+    }
+  ]
+}

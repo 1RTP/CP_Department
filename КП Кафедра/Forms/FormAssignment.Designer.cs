@@ -68,9 +68,9 @@
             this.panel10.Controls.Add(this.txtSubjectName);
             this.panel10.Controls.Add(this.txtName);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel10.Location = new System.Drawing.Point(821, 0);
+            this.panel10.Location = new System.Drawing.Point(756, 0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(332, 647);
+            this.panel10.Size = new System.Drawing.Size(332, 652);
             this.panel10.TabIndex = 17;
             // 
             // btnClear
@@ -302,7 +302,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(814, 647);
+            this.dataGridView1.Size = new System.Drawing.Size(749, 652);
             this.dataGridView1.TabIndex = 16;
             // 
             // FormAssignment
@@ -310,7 +310,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
-            this.ClientSize = new System.Drawing.Size(1153, 647);
+            this.ClientSize = new System.Drawing.Size(1088, 652);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.dataGridView1);
             this.Name = "FormAssignment";

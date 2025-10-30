@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="10/21/2025 10:04:56" ReportInfo.Modified="10/21/2025 15:38:27" ReportInfo.CreatorVersion="2026.1.2.0">
+  <Dictionary>
+    <XmlDataConnection Name="Connection" ConnectionString="rijcmlqpjHWVazDtLLzphTxxcfEaXe8NDHwD9IjsAGywPgdJNq3HFCYWbGnMHn3glfHDEhDnF2e1DNpLOTjPtIMiZSm7sSkpmUWIw97LKq8BwDOZqFviKjibOTiKpR+lJX6Y4bk">
+      <TableDataSource Name="Research" DataType="System.Int32" Enabled="true" TableName="Research">
+        <Column Name="ResearchId" Enabled="false" DataType="System.String"/>
+        <Column Name="ResearchName" DataType="System.String"/>
+        <Column Name="StartDate" DataType="System.String"/>
+        <Column Name="EndDate" DataType="System.String"/>
+        <Column Name="Participants" Enabled="false" DataType="System.String"/>
+        <Column Name="Researches_Id" Enabled="false" DataType="System.Int32"/>
+      </TableDataSource>
+    </XmlDataConnection>
+    <Relation Name="Teachers_Teacher" ParentDataSource="null" ChildDataSource="null" ParentColumns="Teachers_Id" ChildColumns="Teachers_Id" Enabled="true"/>
+    <Relation Name="Subjects_Subject" ParentDataSource="null" ChildDataSource="null" ParentColumns="Subjects_Id" ChildColumns="Subjects_Id" Enabled="true"/>
+    <Relation Name="Assignment_Subjects" ParentDataSource="null" ChildDataSource="null" ParentColumns="Assignment_Id" ChildColumns="Assignment_Id" Enabled="true"/>
+    <Relation Name="Assignments_Assignment" ParentDataSource="null" ChildDataSource="null" ParentColumns="Assignments_Id" ChildColumns="Assignments_Id" Enabled="true"/>
+    <Relation Name="DepartmentData_Teachers" ParentDataSource="null" ChildDataSource="null" ParentColumns="DepartmentData_Id" ChildColumns="DepartmentData_Id" Enabled="true"/>
+    <Relation Name="Assignment_Subjects" ParentDataSource="null" ChildDataSource="null" ParentColumns="Assignment_Id" ChildColumns="Assignment_Id" Enabled="true"/>
+    <Relation Name="Assignments_Assignment" ParentDataSource="null" ChildDataSource="null" ParentColumns="Assignments_Id" ChildColumns="Assignments_Id" Enabled="true"/>
+    <Relation Name="Assignment_Subjects" ParentDataSource="null" ChildDataSource="null" ParentColumns="Assignment_Id" ChildColumns="Assignment_Id" Enabled="true"/>
+    <Relation Name="Assignments_Assignment" ParentDataSource="null" ChildDataSource="null" ParentColumns="Assignments_Id" ChildColumns="Assignments_Id" Enabled="true"/>
+    <Relation Name="Subjects_Subject" ParentDataSource="null" ChildDataSource="null" ParentColumns="Subjects_Id" ChildColumns="Subjects_Id" Enabled="true"/>
+    <Relation Name="Assignment_Subjects" ParentDataSource="null" ChildDataSource="null" ParentColumns="Assignment_Id" ChildColumns="Assignment_Id" Enabled="true"/>
+    <Relation Name="Assignment_LessonType" ParentDataSource="null" ChildDataSource="null" ParentColumns="Assignment_Id" ChildColumns="Assignment_Id" Enabled="true"/>
+    <Relation Name="Assignments_Assignment" ParentDataSource="null" ChildDataSource="null" ParentColumns="Assignments_Id" ChildColumns="Assignments_Id" Enabled="true"/>
+    <Relation Name="DepartmentData_Teachers" ParentDataSource="null" ChildDataSource="null" ParentColumns="DepartmentData_Id" ChildColumns="DepartmentData_Id" Enabled="true"/>
+    <Relation Name="DepartmentData_Assignments" ParentDataSource="null" ChildDataSource="null" ParentColumns="DepartmentData_Id" ChildColumns="DepartmentData_Id" Enabled="true"/>
+    <Relation Name="Researches_Research" ParentDataSource="null" ChildDataSource="Research" ParentColumns="Researches_Id" ChildColumns="Researches_Id" Enabled="true"/>
+    <Relation Name="DepartmentData_Researches" ParentDataSource="null" ChildDataSource="null" ParentColumns="DepartmentData_Id" ChildColumns="DepartmentData_Id" Enabled="true"/>
+    <Relation Name="Researches_Research" ParentDataSource="null" ChildDataSource="null" ParentColumns="Researches_Id" ChildColumns="Researches_Id" Enabled="true"/>
+    <Relation Name="Researches_Research" ParentDataSource="null" ChildDataSource="Research" ParentColumns="Researches_Id" ChildColumns="Researches_Id" Enabled="true"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="113.4">
+      <TextObject Name="Text2" Left="-9450" Top="-9450" Width="94.5" Height="18.9" Text="Researches" Font="Arial, 10pt"/>
+      <TextObject Name="Text3" Left="321.3" Top="18.9" Width="94.5" Height="18.9" Text="Список НДР" HorzAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="116.6" Width="718.2" Height="18.9">
+      <TextObject Name="Text4" Left="37.8" Width="396.9" Height="18.9" Border.Lines="All" Border.Width="1.5" Text="Назва НДР" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text5" Left="434.7" Width="122.85" Height="18.9" Border.Lines="All" Border.Width="1.5" Text="Дата початку" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text6" Left="557.55" Width="122.85" Height="18.9" Border.Lines="All" Border.Width="1.5" Text="Дата завершення" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text11" Width="37.8" Height="18.9" Border.Lines="All" Border.Width="1.5" Text="№" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="138.7" Width="718.2" Height="18.9" DataSource="Research">
+      <TextObject Name="Text9" Left="434.7" Width="122.85" Height="18.9" Border.Lines="All" Border.Width="1.5" Text="[Research.StartDate]" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text10" Left="557.55" Width="122.85" Height="18.9" Border.Lines="All" Border.Width="1.5" Text="[Research.EndDate]" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text12" Width="37.8" Height="18.9" Border.Lines="All" Border.Width="1.5" Text="[Row#]" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text8" Left="37.8" Width="396.9" Height="18.9" Border.Lines="All" Border.Width="1.5" Text="[Research.ResearchName]" Font="Times New Roman, 9pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="160.8" Width="718.2" Height="18.9"/>
+  </ReportPage>
+</Report>

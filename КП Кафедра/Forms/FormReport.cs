@@ -18,10 +18,15 @@ namespace КП_Кафедра.Forms
     public partial class FormReport : Form
     {
         private string selectedReport = "TeachersReport.frx";
+        private readonly string reportsFolderPath;
 
         public FormReport()
         {
             InitializeComponent();
+
+            string exeDir = AppDomain.CurrentDomain.BaseDirectory;
+            string projectRoot = Path.GetFullPath(Path.Combine(exeDir, "..", ".."));
+            reportsFolderPath = Path.Combine(projectRoot, "Reports");
         }
 
         private void FormReport_Load(object sender, EventArgs e)
@@ -33,6 +38,8 @@ namespace КП_Кафедра.Forms
 
             rbTeachersReport.Checked = true;
             selectedReport = "TeachersReport.frx";
+
+
         }
 
         private void RadioButtons_CheckedChanged(object sender, EventArgs e)

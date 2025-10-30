@@ -20,12 +20,16 @@ namespace КП_Кафедра.Forms
     {
         private string currentFormat = "XML"; // формат за замовчуванням
         private bool isInitializing = true;
-        private string dataFolder = Path.Combine(Application.StartupPath, "Data");
+        //private string dataFolder = Path.Combine(Application.StartupPath, "Data");
+        private readonly string dataFolder;
 
         public FormSettings()
         {
             InitializeComponent();
-            //UpdateButtonStates();
+
+            string exeDir = AppDomain.CurrentDomain.BaseDirectory;
+            string projectRoot = Path.GetFullPath(Path.Combine(exeDir, "..", ".."));
+            dataFolder = Path.Combine(projectRoot, "Data");
 
             LanguageManager.LanguageChanged += ApplyLocalization;
         }

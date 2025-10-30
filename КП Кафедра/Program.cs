@@ -156,8 +156,14 @@ namespace КП_Кафедра
                 string culture = lang == "English" ? "en" : "uk";
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo(culture);
 
-                string dbPath = "Data/department.db";
-                string sqlInitFile = "Data/init_data.sql";
+                //string dbPath = "Data/department.db";
+                //string sqlInitFile = "Data/init_data.sql";
+
+                string exeDir = AppDomain.CurrentDomain.BaseDirectory;
+                string projectRoot = Path.GetFullPath(Path.Combine(exeDir, "..", ".."));
+                string dbPath = Path.Combine(projectRoot, "Data", "department.db");
+                string sqlInitFile = Path.Combine(projectRoot, "Data", "init_data.sql");
+
                 DatabaseSQL.Initialize(dbPath, sqlInitFile);
 
                 Application.EnableVisualStyles();

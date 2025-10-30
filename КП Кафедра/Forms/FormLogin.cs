@@ -20,11 +20,16 @@ namespace КП_Кафедра.Forms
 {
     public partial class FormLogin : Form
     {
-        private string filePath = "Data/admin.json";
+        private readonly string filePath;
 
         public FormLogin()
         {
             InitializeComponent();
+
+            string exeDir = AppDomain.CurrentDomain.BaseDirectory;
+            string projectRoot = Path.GetFullPath(Path.Combine(exeDir, "..", ".."));
+            filePath = Path.Combine(projectRoot, "Data", "admin.json");
+
             InitializeBoxes();
         }
 

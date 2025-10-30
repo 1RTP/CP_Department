@@ -18,11 +18,16 @@ namespace КП_Кафедра.Forms
     {
         private DataTable originalTable;
         private bool isLoading = false;
-        private string dbPath = "Data/department.db";
+        private readonly string dbPath;
 
         public FormTeacher()
         {
             InitializeComponent();
+
+            string exeDir = AppDomain.CurrentDomain.BaseDirectory;
+            string projectRoot = Path.GetFullPath(Path.Combine(exeDir, "..", ".."));
+            dbPath = Path.Combine(projectRoot, "Data", "department.db");
+
             InitializeBoxes();
             dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
         }

@@ -17,12 +17,17 @@ namespace КП_Кафедра.Forms
     public partial class FormReportViewer : Form
     {
         private string _reportFile; 
-        private PreviewControl pc; 
+        private PreviewControl pc;
+
+        private readonly string projectRoot;
 
         public FormReportViewer(string reportFile)
         {
             InitializeComponent();
             _reportFile = reportFile;
+
+            string exeDir = AppDomain.CurrentDomain.BaseDirectory;
+            projectRoot = Path.GetFullPath(Path.Combine(exeDir, "..", ".."));
         }
 
         private void FormReportViewer_Load(object sender, EventArgs e)
@@ -32,14 +37,15 @@ namespace КП_Кафедра.Forms
                 pc = new PreviewControl { Dock = DockStyle.Fill };
                 this.Controls.Add(pc);
 
-                string reportPath = Path.Combine(Application.StartupPath, "Reports", _reportFile);
+                string reportPath = Path.Combine(projectRoot, "Reports", _reportFile);
 
                 if (!File.Exists(reportPath))
                 {
                     Toast.Show("ERROR", $"Шаблон звіту не знайдено!{reportPath}"); return;
                 }
 
-                string xmlPath = Path.Combine(Application.StartupPath, "Data", "department.xml");
+                string xmlPath = Path.Combine(projectRoot, "Data", "department.xml");
+
                 if (!File.Exists(xmlPath))
                 {
                     Toast.Show("ERROR", $"Файл даних не знайдено!{xmlPath}");

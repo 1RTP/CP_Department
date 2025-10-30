@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="10/21/2025 10:04:26" ReportInfo.Modified="10/21/2025 14:57:31" ReportInfo.CreatorVersion="2026.1.2.0">
+  <Dictionary>
+    <XmlDataConnection Name="Connection" ConnectionString="rijcmlqpjHWVazDtLLzphTxxcfEaXe8NDHwD9IjsAGywPgdJNq3HFCYWbGnMHn3glfHDEhDnF2e1DNpLOTjPtIMiZSm7sSkpmUWIw97LKq8BwDOZqHq+M9czdWMGHQoNacKEwP/">
+      <TableDataSource Name="Subject" DataType="System.Int32" Enabled="true" TableName="Subject">
+        <Column Name="SubjectId" Enabled="false" DataType="System.String"/>
+        <Column Name="Name" DataType="System.String"/>
+        <Column Name="Semester" DataType="System.String"/>
+        <Column Name="TotalHours" DataType="System.String"/>
+        <Column Name="Status" Enabled="false" DataType="System.String"/>
+        <Column Name="Subjects_Id" Enabled="false" DataType="System.Int32"/>
+      </TableDataSource>
+    </XmlDataConnection>
+    <Relation Name="Teachers_Teacher" ParentDataSource="null" ChildDataSource="null" ParentColumns="Teachers_Id" ChildColumns="Teachers_Id" Enabled="true"/>
+    <Relation Name="Subjects_Subject" ParentDataSource="null" ChildDataSource="Subject" ParentColumns="Subjects_Id" ChildColumns="Subjects_Id" Enabled="true"/>
+    <Relation Name="Assignment_Subjects" ParentDataSource="null" ChildDataSource="null" ParentColumns="Assignment_Id" ChildColumns="Assignment_Id" Enabled="true"/>
+    <Relation Name="Assignments_Assignment" ParentDataSource="null" ChildDataSource="null" ParentColumns="Assignments_Id" ChildColumns="Assignments_Id" Enabled="true"/>
+    <Relation Name="DepartmentData_Teachers" ParentDataSource="null" ChildDataSource="null" ParentColumns="DepartmentData_Id" ChildColumns="DepartmentData_Id" Enabled="true"/>
+    <Relation Name="Assignment_Subjects" ParentDataSource="null" ChildDataSource="null" ParentColumns="Assignment_Id" ChildColumns="Assignment_Id" Enabled="true"/>
+    <Relation Name="Assignments_Assignment" ParentDataSource="null" ChildDataSource="null" ParentColumns="Assignments_Id" ChildColumns="Assignments_Id" Enabled="true"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="103.95">
+      <TextObject Name="Text2" Left="292.95" Top="18.9" Width="160.65" Height="18.9" Text="Список дисциплін" HorzAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="107.15" Width="718.2" Height="18.9">
+      <TextObject Name="Text3" Left="37.8" Width="396.9" Height="18.9" Border.Lines="All" Border.Width="1.5" Text="Назва дисципліни" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text4" Width="37.8" Height="18.9" Border.Lines="All" Border.Width="1.5" Text="№" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text9" Left="500.85" Width="179.55" Height="18.9" Border.Lines="All" Border.Width="1.5" Text="Кількість годин за планом" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text7" Left="434.7" Width="66.15" Height="18.9" Border.Lines="All" Border.Width="1.5" Text="Семестр" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="129.25" Width="718.2" Height="18.9" DataSource="Subject">
+      <TextObject Name="Text5" Width="37.8" Height="18.9" Border.Lines="All" Border.Width="1.5" Text="[Row#]" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text6" Left="37.8" Width="396.9" Height="18.9" Border.Lines="All" Border.Width="1.5" Text="[Subject.Name]" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text10" Left="500.85" Width="179.55" Height="18.9" Border.Lines="All" Border.Width="1.5" Text="[Subject.TotalHours]" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text8" Left="434.7" Width="66.15" Height="18.9" Border.Lines="All" Border.Width="1.5" Text="[Subject.Semester]" Font="Times New Roman, 9pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="151.35" Width="718.2" Height="18.9"/>
+  </ReportPage>
+</Report>

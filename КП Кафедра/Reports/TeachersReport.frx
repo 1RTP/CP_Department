@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="10/21/2025 10:04:01" ReportInfo.Modified="10/21/2025 14:56:40" ReportInfo.CreatorVersion="2026.1.2.0">
+  <Dictionary>
+    <XmlDataConnection Name="Connection" ConnectionString="rijcmlqpjHWVazDtLLzphTxxcfEaXe8NDHwD9IjsAGywPgdJNq3HFCYWbGnMHn3glfHDEhDnF2e1DNpLOTjPtIMiZSm7sSkpmUWIw97LKq8BwDOZqGMcWMRwv2cWifK60S5aFWu">
+      <TableDataSource Name="Teacher" DataType="System.Int32" Enabled="true" TableName="Teacher">
+        <Column Name="EmpId" Enabled="false" DataType="System.String"/>
+        <Column Name="FullName" DataType="System.String"/>
+        <Column Name="Position" DataType="System.String"/>
+        <Column Name="HireDate" DataType="System.String"/>
+        <Column Name="PhoneNumber" DataType="System.String"/>
+        <Column Name="Email" DataType="System.String"/>
+        <Column Name="Status" Enabled="false" DataType="System.String"/>
+        <Column Name="Teachers_Id" Enabled="false" DataType="System.Int32"/>
+      </TableDataSource>
+    </XmlDataConnection>
+    <Relation Name="Teachers_Teacher" ParentDataSource="null" ChildDataSource="Teacher" ParentColumns="Teachers_Id" ChildColumns="Teachers_Id" Enabled="true"/>
+    <Relation Name="Subjects_Subject" ParentDataSource="null" ChildDataSource="null" ParentColumns="Subjects_Id" ChildColumns="Subjects_Id" Enabled="true"/>
+    <Relation Name="Assignment_Subjects" ParentDataSource="null" ChildDataSource="null" ParentColumns="Assignment_Id" ChildColumns="Assignment_Id" Enabled="true"/>
+    <Relation Name="Assignments_Assignment" ParentDataSource="null" ChildDataSource="null" ParentColumns="Assignments_Id" ChildColumns="Assignments_Id" Enabled="true"/>
+    <Relation Name="DepartmentData_Teachers" ParentDataSource="null" ChildDataSource="null" ParentColumns="DepartmentData_Id" ChildColumns="DepartmentData_Id" Enabled="true"/>
+    <Relation Name="DepartmentData_Subjects" ParentDataSource="null" ChildDataSource="null" ParentColumns="DepartmentData_Id" ChildColumns="DepartmentData_Id" Enabled="true"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="75.6">
+      <TextObject Name="Text2" Left="283.5" Top="18.9" Width="132.3" Height="18.9" Text="Список викладачів" HorzAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="78.8" Width="718.2" Height="37.8">
+      <TextObject Name="Text6" Left="170.1" Width="122.85" Height="37.8" Border.Lines="All" Border.Width="2" Text="Посада" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text9" Left="292.95" Width="122.85" Height="37.8" Border.Lines="All" Border.Width="2" Text="Дата прийняття на роботу" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text11" Left="415.8" Width="113.4" Height="37.8" Border.Lines="All" Border.Width="2" Text="Номер телефону" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text15" Width="37.8" Height="37.8" Border.Lines="All" Border.Width="2" Text="№" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text13" Left="529.2" Width="179.55" Height="37.8" Border.Lines="All" Border.Width="2" Text="Електронна пошта" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text5" Left="37.8" Width="132.3" Height="37.8" Border.Lines="All" Border.Width="2" Text="ПІБ" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="119.8" Width="718.2" Height="18.9" DataSource="Teacher">
+      <TextObject Name="Text7" Left="37.8" Width="132.3" Height="18.9" Border.Lines="All" Border.Width="2" Text="[Teacher.FullName]" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text8" Left="170.1" Width="122.85" Height="18.9" Border.Lines="All" Border.Width="2" Text="[Teacher.Position]" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text10" Left="292.95" Width="122.85" Height="18.9" Border.Lines="All" Border.Width="2" Text="[Teacher.HireDate]" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text12" Left="415.8" Width="113.4" Height="18.9" Border.Lines="All" Border.Width="2" Text="[Teacher.PhoneNumber]" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text14" Left="529.2" Width="179.55" Height="18.9" Border.Lines="All" Border.Width="2" Text="[Teacher.Email]" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text16" Width="37.8" Height="18.9" Border.Lines="All" Border.Width="2" Text="[Row#]" Font="Times New Roman, 9pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="141.9" Width="718.2" Height="18.9"/>
+  </ReportPage>
+</Report>
