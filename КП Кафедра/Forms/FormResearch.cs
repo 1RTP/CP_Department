@@ -38,9 +38,10 @@ namespace КП_Кафедра.Forms
             }
             catch (Exception ex)
             {
-                LoggerService.LogError($"Помилка при завантаженні досліджень: {ex.Message}");
+                LoggerService.LogError($"Помилка при завантаженні проєктів (FormResearch_Load): {ex.Message}");
             }
         }
+
         public bool HasDataTable()
         {
             return dataGridView1?.DataSource is DataTable;
@@ -80,7 +81,8 @@ namespace КП_Кафедра.Forms
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", $"Помилка в Search(): {ex.Message}");
+                Toast.Show("ERROR", $"Помилка в Search()");
+                LoggerService.LogError($"Помилка в Search(): {ex.Message}");
             }
         }
 
@@ -92,11 +94,7 @@ namespace КП_Кафедра.Forms
                 using (var connection = new SQLiteConnection($"Data Source={dbPath}"))
                 {
                     connection.Open();
-                    string query = @"SELECT research_id,
-                                    research_name,
-                                    start_date,
-                                    end_date
-                             FROM research";
+                    string query = @"SELECT research_id, research_name, start_date, end_date FROM research";
 
                     using (var command = new SQLiteCommand(query, connection))
                     using (var reader = command.ExecuteReader())
@@ -110,7 +108,11 @@ namespace КП_Кафедра.Forms
                 }
                 DataService.Researches = GetResearchFromGrid();
             }
-            catch (Exception ex) { Toast.Show("ERROR", $"Помилка при завантаженні досліджень: {ex.Message}"); }
+            catch (Exception ex) 
+            { 
+                Toast.Show("ERROR", "Помилка при завантаженні проєктів");
+                LoggerService.LogError($"Помилка при завантаженні проєктів (LoadResearch): {ex.Message}");
+            }
         }
 
         public List<Research> GetResearchFromGrid()
@@ -214,8 +216,7 @@ namespace КП_Кафедра.Forms
                 using (var connection = new SQLiteConnection($"Data Source={dbPath}"))
                 {
                     connection.Open();
-                    string query = @"INSERT INTO research (research_name, start_date, end_date)
-                                     VALUES (@name, @start, @end)";
+                    string query = @"INSERT INTO research (research_name, start_date, end_date) VALUES (@name, @start, @end)";
                     using (var cmd = new SQLiteCommand(query, connection))
                     {
                         cmd.Parameters.AddWithValue("@name", txtProjectName.Text.Trim());
@@ -229,7 +230,8 @@ namespace КП_Кафедра.Forms
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", $"Помилка при додаванні: {ex.Message}");
+                Toast.Show("ERROR", "Помилка при додаванні");
+                LoggerService.LogError($"Помилка при додаванні: {ex.Message}");
             }
         }
 
@@ -243,9 +245,7 @@ namespace КП_Кафедра.Forms
                 using (var connection = new SQLiteConnection($"Data Source={dbPath}"))
                 {
                     connection.Open();
-                    string query = @"UPDATE research
-                                     SET research_name=@name, start_date=@start, end_date=@end
-                                     WHERE research_id=@id";
+                    string query = @"UPDATE research SET research_name=@name, start_date=@start, end_date=@end WHERE research_id=@id";
                     using (var cmd = new SQLiteCommand(query, connection))
                     {
                         cmd.Parameters.AddWithValue("@name", txtProjectName.Text.Trim());
@@ -260,7 +260,8 @@ namespace КП_Кафедра.Forms
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", $"Помилка при оновленні: {ex.Message}");
+                Toast.Show("ERROR", "Помилка при оновленні");
+                LoggerService.LogError($"Помилка при оновленні: {ex.Message}");
             }
         }
 
@@ -269,7 +270,7 @@ namespace КП_Кафедра.Forms
             if (dataGridView1.CurrentRow == null) return;
             int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["research_id"].Value);
 
-            var result = MessageBox.Show("Ви впевнені, що хочете видалити це дослідження?", "Підтвердження", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var result = MessageBox.Show("Ви впевнені, що хочете видалити цей проєкт?", "Підтвердження", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No) return;
 
             try
@@ -289,7 +290,8 @@ namespace КП_Кафедра.Forms
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", $"Помилка при видаленні: {ex.Message}");
+                Toast.Show("ERROR", "Помилка при видаленні");
+                LoggerService.LogError($"Помилка при видаленні: {ex.Message}");
             }
         }
 

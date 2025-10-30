@@ -58,7 +58,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1232, 102);
+            this.panel1.Size = new System.Drawing.Size(870, 108);
             this.panel1.TabIndex = 12;
             // 
             // btnParticipation
@@ -71,10 +71,11 @@
             this.btnParticipation.BorderSize = 0;
             this.btnParticipation.FlatAppearance.BorderSize = 0;
             this.btnParticipation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnParticipation.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnParticipation.ForeColor = System.Drawing.Color.White;
-            this.btnParticipation.Location = new System.Drawing.Point(706, 48);
+            this.btnParticipation.Location = new System.Drawing.Point(584, 58);
             this.btnParticipation.Name = "btnParticipation";
-            this.btnParticipation.Size = new System.Drawing.Size(187, 32);
+            this.btnParticipation.Size = new System.Drawing.Size(156, 32);
             this.btnParticipation.TabIndex = 32;
             this.btnParticipation.Text = "Участь у проєктах";
             this.btnParticipation.TextColor = System.Drawing.Color.White;
@@ -91,8 +92,9 @@
             this.btnAssignments.BorderSize = 0;
             this.btnAssignments.FlatAppearance.BorderSize = 0;
             this.btnAssignments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAssignments.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnAssignments.ForeColor = System.Drawing.Color.White;
-            this.btnAssignments.Location = new System.Drawing.Point(588, 48);
+            this.btnAssignments.Location = new System.Drawing.Point(746, 58);
             this.btnAssignments.Name = "btnAssignments";
             this.btnAssignments.Size = new System.Drawing.Size(112, 32);
             this.btnAssignments.TabIndex = 28;
@@ -111,8 +113,9 @@
             this.btnTeachers.BorderSize = 0;
             this.btnTeachers.FlatAppearance.BorderSize = 0;
             this.btnTeachers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTeachers.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnTeachers.ForeColor = System.Drawing.Color.White;
-            this.btnTeachers.Location = new System.Drawing.Point(479, 48);
+            this.btnTeachers.Location = new System.Drawing.Point(260, 58);
             this.btnTeachers.Name = "btnTeachers";
             this.btnTeachers.Size = new System.Drawing.Size(102, 32);
             this.btnTeachers.TabIndex = 29;
@@ -131,8 +134,9 @@
             this.btnSubjects.BorderSize = 0;
             this.btnSubjects.FlatAppearance.BorderSize = 0;
             this.btnSubjects.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubjects.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnSubjects.ForeColor = System.Drawing.Color.White;
-            this.btnSubjects.Location = new System.Drawing.Point(371, 48);
+            this.btnSubjects.Location = new System.Drawing.Point(368, 58);
             this.btnSubjects.Name = "btnSubjects";
             this.btnSubjects.Size = new System.Drawing.Size(102, 32);
             this.btnSubjects.TabIndex = 30;
@@ -151,8 +155,9 @@
             this.btnResearches.BorderSize = 0;
             this.btnResearches.FlatAppearance.BorderSize = 0;
             this.btnResearches.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnResearches.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnResearches.ForeColor = System.Drawing.Color.White;
-            this.btnResearches.Location = new System.Drawing.Point(263, 48);
+            this.btnResearches.Location = new System.Drawing.Point(476, 58);
             this.btnResearches.Name = "btnResearches";
             this.btnResearches.Size = new System.Drawing.Size(102, 32);
             this.btnResearches.TabIndex = 31;
@@ -164,9 +169,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::КП_Кафедра.Properties.Resources.icons8_поиск_25;
-            this.pictureBox1.Location = new System.Drawing.Point(13, 55);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 58);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox1.Size = new System.Drawing.Size(26, 27);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
@@ -174,7 +179,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(45, 75);
+            this.panel2.Location = new System.Drawing.Point(45, 81);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 2);
@@ -186,7 +191,7 @@
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSearch.Font = new System.Drawing.Font("Arial", 8.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txtSearch.ForeColor = System.Drawing.Color.White;
-            this.txtSearch.Location = new System.Drawing.Point(45, 57);
+            this.txtSearch.Location = new System.Drawing.Point(45, 64);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(200, 17);
@@ -197,20 +202,22 @@
             // contentPanel
             // 
             this.contentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.contentPanel.Location = new System.Drawing.Point(0, 102);
+            this.contentPanel.Location = new System.Drawing.Point(0, 108);
             this.contentPanel.Name = "contentPanel";
-            this.contentPanel.Size = new System.Drawing.Size(1232, 820);
+            this.contentPanel.Size = new System.Drawing.Size(870, 483);
             this.contentPanel.TabIndex = 13;
             // 
             // FormTables
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
-            this.ClientSize = new System.Drawing.Size(1232, 922);
+            this.ClientSize = new System.Drawing.Size(870, 591);
             this.Controls.Add(this.contentPanel);
             this.Controls.Add(this.panel1);
+            this.Font = new System.Drawing.Font("Arial", 8.8F);
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(888, 600);
             this.Name = "FormTables";
             this.Text = "FormTable";
             this.Load += new System.EventHandler(this.FormTables_Load);

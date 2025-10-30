@@ -32,18 +32,19 @@
             this.cmbLanguage = new System.Windows.Forms.ComboBox();
             this.lbLanguage = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnLoad = new КП_Кафедра.RoundButton();
-            this.btnSave = new КП_Кафедра.RoundButton();
+            this.label1 = new System.Windows.Forms.Label();
             this.rbBIN = new System.Windows.Forms.RadioButton();
             this.rbXML = new System.Windows.Forms.RadioButton();
             this.rbJSON = new System.Windows.Forms.RadioButton();
+            this.btnLoad = new КП_Кафедра.RoundButton();
+            this.btnSave = new КП_Кафедра.RoundButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmbLanguage
             // 
             this.cmbLanguage.FormattingEnabled = true;
-            this.cmbLanguage.Location = new System.Drawing.Point(170, 14);
+            this.cmbLanguage.Location = new System.Drawing.Point(20, 47);
             this.cmbLanguage.Margin = new System.Windows.Forms.Padding(4);
             this.cmbLanguage.Name = "cmbLanguage";
             this.cmbLanguage.Size = new System.Drawing.Size(160, 24);
@@ -53,12 +54,12 @@
             // lbLanguage
             // 
             this.lbLanguage.AutoSize = true;
-            this.lbLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbLanguage.Font = new System.Drawing.Font("Arial", 8.8F);
             this.lbLanguage.ForeColor = System.Drawing.Color.White;
             this.lbLanguage.Location = new System.Drawing.Point(17, 16);
             this.lbLanguage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbLanguage.Name = "lbLanguage";
-            this.lbLanguage.Size = new System.Drawing.Size(123, 17);
+            this.lbLanguage.Size = new System.Drawing.Size(126, 17);
             this.lbLanguage.TabIndex = 13;
             this.lbLanguage.Text = "Мова застосунку:";
             // 
@@ -68,6 +69,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnLoad);
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Controls.Add(this.cmbLanguage);
@@ -81,6 +83,64 @@
             this.panel1.Size = new System.Drawing.Size(1043, 528);
             this.panel1.TabIndex = 14;
             // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 8.8F);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(17, 451);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(365, 17);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "Завантаження та збереження даних у різні формати:";
+            // 
+            // rbBIN
+            // 
+            this.rbBIN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.rbBIN.AutoSize = true;
+            this.rbBIN.Font = new System.Drawing.Font("Arial", 8.8F);
+            this.rbBIN.ForeColor = System.Drawing.Color.White;
+            this.rbBIN.Location = new System.Drawing.Point(170, 490);
+            this.rbBIN.Name = "rbBIN";
+            this.rbBIN.Size = new System.Drawing.Size(52, 21);
+            this.rbBIN.TabIndex = 17;
+            this.rbBIN.TabStop = true;
+            this.rbBIN.Text = "BIN";
+            this.rbBIN.UseVisualStyleBackColor = true;
+            this.rbBIN.CheckedChanged += new System.EventHandler(this.rbBIN_CheckedChanged);
+            // 
+            // rbXML
+            // 
+            this.rbXML.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.rbXML.AutoSize = true;
+            this.rbXML.Font = new System.Drawing.Font("Arial", 8.8F);
+            this.rbXML.ForeColor = System.Drawing.Color.White;
+            this.rbXML.Location = new System.Drawing.Point(20, 490);
+            this.rbXML.Name = "rbXML";
+            this.rbXML.Size = new System.Drawing.Size(57, 21);
+            this.rbXML.TabIndex = 15;
+            this.rbXML.TabStop = true;
+            this.rbXML.Text = "XML";
+            this.rbXML.UseVisualStyleBackColor = true;
+            this.rbXML.CheckedChanged += new System.EventHandler(this.rbXML_CheckedChanged);
+            // 
+            // rbJSON
+            // 
+            this.rbJSON.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.rbJSON.AutoSize = true;
+            this.rbJSON.Font = new System.Drawing.Font("Arial", 8.8F);
+            this.rbJSON.ForeColor = System.Drawing.Color.White;
+            this.rbJSON.Location = new System.Drawing.Point(89, 490);
+            this.rbJSON.Name = "rbJSON";
+            this.rbJSON.Size = new System.Drawing.Size(68, 21);
+            this.rbJSON.TabIndex = 16;
+            this.rbJSON.TabStop = true;
+            this.rbJSON.Text = "JSON";
+            this.rbJSON.UseVisualStyleBackColor = true;
+            this.rbJSON.CheckedChanged += new System.EventHandler(this.rbJSON_CheckedChanged);
+            // 
             // btnLoad
             // 
             this.btnLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -91,8 +151,9 @@
             this.btnLoad.BorderSize = 0;
             this.btnLoad.FlatAppearance.BorderSize = 0;
             this.btnLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoad.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnLoad.ForeColor = System.Drawing.Color.White;
-            this.btnLoad.Location = new System.Drawing.Point(371, 485);
+            this.btnLoad.Location = new System.Drawing.Point(242, 485);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(128, 32);
             this.btnLoad.TabIndex = 29;
@@ -111,8 +172,9 @@
             this.btnSave.BorderSize = 0;
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(237, 485);
+            this.btnSave.Location = new System.Drawing.Point(376, 485);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(128, 32);
             this.btnSave.TabIndex = 30;
@@ -120,48 +182,6 @@
             this.btnSave.TextColor = System.Drawing.Color.White;
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // rbBIN
-            // 
-            this.rbBIN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.rbBIN.AutoSize = true;
-            this.rbBIN.ForeColor = System.Drawing.Color.White;
-            this.rbBIN.Location = new System.Drawing.Point(170, 491);
-            this.rbBIN.Name = "rbBIN";
-            this.rbBIN.Size = new System.Drawing.Size(50, 20);
-            this.rbBIN.TabIndex = 17;
-            this.rbBIN.TabStop = true;
-            this.rbBIN.Text = "BIN";
-            this.rbBIN.UseVisualStyleBackColor = true;
-            this.rbBIN.CheckedChanged += new System.EventHandler(this.rbBIN_CheckedChanged);
-            // 
-            // rbXML
-            // 
-            this.rbXML.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.rbXML.AutoSize = true;
-            this.rbXML.ForeColor = System.Drawing.Color.White;
-            this.rbXML.Location = new System.Drawing.Point(17, 491);
-            this.rbXML.Name = "rbXML";
-            this.rbXML.Size = new System.Drawing.Size(54, 20);
-            this.rbXML.TabIndex = 15;
-            this.rbXML.TabStop = true;
-            this.rbXML.Text = "XML";
-            this.rbXML.UseVisualStyleBackColor = true;
-            this.rbXML.CheckedChanged += new System.EventHandler(this.rbXML_CheckedChanged);
-            // 
-            // rbJSON
-            // 
-            this.rbJSON.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.rbJSON.AutoSize = true;
-            this.rbJSON.ForeColor = System.Drawing.Color.White;
-            this.rbJSON.Location = new System.Drawing.Point(89, 491);
-            this.rbJSON.Name = "rbJSON";
-            this.rbJSON.Size = new System.Drawing.Size(64, 20);
-            this.rbJSON.TabIndex = 16;
-            this.rbJSON.TabStop = true;
-            this.rbJSON.Text = "JSON";
-            this.rbJSON.UseVisualStyleBackColor = true;
-            this.rbJSON.CheckedChanged += new System.EventHandler(this.rbJSON_CheckedChanged);
             // 
             // FormSettings
             // 
@@ -189,5 +209,6 @@
         private System.Windows.Forms.RadioButton rbBIN;
         private RoundButton btnLoad;
         private RoundButton btnSave;
+        private System.Windows.Forms.Label label1;
     }
 }

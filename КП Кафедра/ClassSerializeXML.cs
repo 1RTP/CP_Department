@@ -22,31 +22,31 @@ namespace КП_Кафедра
         [XmlElement] public bool Status { get; set; }
         public TeacherDto() { }
 
-        public static TeacherDto FromTeacher(Teacher t)
-        {
-            return new TeacherDto
-            {
-                EmpId = t.EmpId,
-                FullName = t.FullName,
-                Position = t.Position,
-                HireDate = t.HireDate,
-                PhoneNumber = t.PhoneNumber,
-                Email = t.Email,
-                Status = t.Status
-            };
-        }
+        //public static TeacherDto FromTeacher(Teacher t)
+        //{
+        //    return new TeacherDto
+        //    {
+        //        EmpId = t.EmpId,
+        //        FullName = t.FullName,
+        //        Position = t.Position,
+        //        HireDate = t.HireDate,
+        //        PhoneNumber = t.PhoneNumber,
+        //        Email = t.Email,
+        //        Status = t.Status
+        //    };
+        //}
 
-        public Teacher ToTeacher()
-        {
-            var t = new Teacher(EmpId, FullName)
-            {
-                Position = Position,
-                HireDate = HireDate,
-                PhoneNumber = PhoneNumber,
-                Email = Email,
-                Status = Status
-            };
-            return t;
-        }
+        //public Teacher ToTeacher()
+        //{
+        //    var t = new Teacher(EmpId, FullName)
+        //    {
+        //        Position = Position,
+        //        HireDate = HireDate,
+        //        PhoneNumber = PhoneNumber,
+        //        Email = Email,
+        //        Status = Status
+        //    };
+        //    return t;
+        //}
     }
 }

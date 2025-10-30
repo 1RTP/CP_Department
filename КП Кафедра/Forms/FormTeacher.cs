@@ -36,7 +36,7 @@ namespace КП_Кафедра.Forms
                 isLoading = false;
 
             }
-            catch (Exception ex) { LoggerService.LogError($"Помилка при завантаженні даних: {ex.Message}"); }
+            catch (Exception ex) { LoggerService.LogError($"Помилка при завантаженні викладачів (FormTeacher_Load): {ex.Message}"); }
         }
 
         public bool HasDataTable()
@@ -78,7 +78,8 @@ namespace КП_Кафедра.Forms
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", $"Помилка в Search(): {ex.Message}");
+                Toast.Show("ERROR", $"Помилка в Search()");
+                LoggerService.LogError($"Помилка в Search(): {ex.Message}");
             }
         }
 
@@ -90,15 +91,8 @@ namespace КП_Кафедра.Forms
                 using (var connection = new SqliteConnection($"Data Source={dbPath}"))
                 {
                     connection.Open();
-                    string query = @"SELECT emp_id,
-                                emp_full_name,
-                                emp_position,
-                                emp_hire_date,
-                                phone_number,
-                                email,
-                                status
-                            FROM teacher
-                            ORDER BY status DESC, emp_full_name ASC";
+                    string query = @"SELECT emp_id, emp_full_name, emp_position, emp_hire_date, phone_number, email, status FROM teacher
+                                ORDER BY status DESC, emp_id ASC";
 
                     using (var command = new SqliteCommand(query, connection))
                     using (var reader = command.ExecuteReader())
@@ -117,7 +111,8 @@ namespace КП_Кафедра.Forms
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", $"Помилка при завантаженні викладачів: {ex.Message}");
+                Toast.Show("ERROR", "Помилка при завантаженні викладачів");
+                LoggerService.LogError($"Помилка при завантаженні викладачів (LoadTeachers): {ex.Message}");
             }
         }
 
@@ -164,7 +159,7 @@ namespace КП_Кафедра.Forms
         private void txtName_TextChanged(object sender, EventArgs e)
         {
             string input = txtName.Text.Trim();
-            if (string.IsNullOrEmpty(input) || input == "ПІБ" || input == "Full Name") return;
+            if (string.IsNullOrEmpty(input) || input == "ПІБ" || input == "Full name") return;
             var validPattern = new System.Text.RegularExpressions.Regex(@"^[A-Za-zА-ЯІЇЄҐа-яіїєґ'\-\s]+$");
             if (!validPattern.IsMatch(input))
             {
@@ -175,7 +170,7 @@ namespace КП_Кафедра.Forms
 
         private void txtName_GotFocus(object sender, EventArgs e)
         {
-            if (txtName.Text == "ПІБ" || txtName.Text == "Full Name")
+            if (txtName.Text == "ПІБ" || txtName.Text == "Full name")
             {
                 txtName.Text = "";
             }
@@ -193,7 +188,6 @@ namespace КП_Кафедра.Forms
         {
             string input = txtPosition.Text.Trim();
             if (string.IsNullOrEmpty(input) || input == "Посада" || input == "Position") return;
-
             var validPattern = new System.Text.RegularExpressions.Regex(@"^[A-Za-zА-ЯІЇЄҐа-яіїєґ'\-\s]+$");
             if (!validPattern.IsMatch(input))
             {
@@ -324,7 +318,11 @@ namespace КП_Кафедра.Forms
                 LoadTeachers();
                 Toast.Show("SUCCESS", "Викладача додано успішно!");
             }
-            catch (Exception ex) { Toast.Show("ERROR", $"Помилка при додаванні: {ex.Message}"); }
+            catch (Exception ex) 
+            { 
+                Toast.Show("ERROR", "Помилка при додаванні");
+                LoggerService.LogError($"Помилка при додаванні: {ex.Message}");
+            }
         }
 
         private void btnUpdateTeacher_Click(object sender, EventArgs e)
@@ -338,14 +336,8 @@ namespace КП_Кафедра.Forms
                 using (var connection = new SqliteConnection($"Data Source={dbPath}"))
                 {
                     connection.Open();
-                    string query = @"UPDATE teacher SET
-                    emp_full_name = @name,
-                    emp_position = @position,
-                    emp_hire_date = @hireDate,
-                    phone_number = @phone,
-                    email = @mail,
-                    status = @status
-                WHERE emp_id = @id";
+                    string query = @"UPDATE teacher SET emp_full_name = @name, emp_position = @position, emp_hire_date = @hireDate,
+                           phone_number = @phone, email = @mail, status = @status WHERE emp_id = @id";
 
                     using (var cmd = new SqliteCommand(query, connection))
                     {
@@ -362,7 +354,11 @@ namespace КП_Кафедра.Forms
                 LoadTeachers();
                 Toast.Show("SUCCESS", "Дані викладача оновлено успішно!");
             }
-            catch (Exception ex) { Toast.Show("ERROR", $"Помилка при оновленні: {ex.Message}"); }
+            catch (Exception ex) 
+            { 
+                Toast.Show("ERROR", "Помилка при оновленні");
+                LoggerService.LogError($"Помилка при оновленні: {ex.Message}");
+            }
         }
 
         private void btnDeactivateTeacher_Click(object sender, EventArgs e)
@@ -386,7 +382,11 @@ namespace КП_Кафедра.Forms
                 LoadTeachers();
                 Toast.Show("SUCCESS", "Викладача деактивовано.");
             }
-            catch (Exception ex) { Toast.Show("ERROR", $"Помилка при деактивації: {ex.Message}"); }
+            catch (Exception ex) 
+            { 
+                Toast.Show("ERROR", "Помилка при деактивації");
+                LoggerService.LogError($"Помилка при деактивації: {ex.Message}");
+            }
         }
 
         private void btnDeleteTeacher_Click(object sender, EventArgs e) // повне видалення викладача
@@ -411,7 +411,11 @@ namespace КП_Кафедра.Forms
                 LoadTeachers();
                 Toast.Show("SUCCESS", "Викладача повністю видалено!");
             }
-            catch (Exception ex) { Toast.Show("ERROR", $"Помилка при видаленні: {ex.Message}"); }
+            catch (Exception ex) 
+            { 
+                Toast.Show("ERROR", "Помилка при видаленні");
+                LoggerService.LogError($"Помилка при видаленні: {ex.Message}");
+            }
         }
 
         protected override void OnLoad(EventArgs e)

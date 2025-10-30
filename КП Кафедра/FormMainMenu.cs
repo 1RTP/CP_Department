@@ -5,16 +5,17 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SQLite;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using КП_Кафедра.Forms;
 using КП_Кафедра.Properties;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using static КП_Кафедра.ToastForm;
-using System.Globalization;
-using System.Threading;
 
 
 namespace КП_Кафедра
@@ -26,9 +27,12 @@ namespace КП_Кафедра
         private Boolean showPanel = false;
         private Boolean showPanel2 = false;
 
-        public FormMainMenu()
+        public FormMainMenu(string userName, string userEmail)
         {
             InitializeComponent();
+            lblUserName.Text = userName;
+            lblUserEmail.Text = userEmail;
+            this.FormClosed += FormMainMenu_FormClosed;
         }
 
         private void FormMainMenu_Load(object sender, EventArgs e)
@@ -38,6 +42,11 @@ namespace КП_Кафедра
                 tooglePanels();
             }
             catch (Exception ex) { LoggerService.LogError($"Помилка при завантаженні даних: {ex.Message}"); }
+        }
+
+        private void FormMainMenu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
 
         private void domainUpDown1_SelectedItemChanged(object sender, EventArgs e)
@@ -70,7 +79,7 @@ namespace КП_Кафедра
         {
             if (showPanel)
             {
-                panel4.Height = 96;
+                panel4.Height = 123;
             }
             else
             {
@@ -79,7 +88,7 @@ namespace КП_Кафедра
 
             if (showPanel2)
             {
-                panel5.Height = 64;
+                panel5.Height = 82;
             }
             else
             {

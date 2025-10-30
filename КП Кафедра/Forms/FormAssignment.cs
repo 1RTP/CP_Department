@@ -40,7 +40,7 @@ namespace КП_Кафедра.Forms
             }
             catch (Exception ex)
             {
-                LoggerService.LogError($"Помилка при завантаженні призначень: {ex.Message}");
+                LoggerService.LogError($"Помилка при завантаженні призначень (FormAssignment_Load): {ex.Message}");
             }
         }
 
@@ -84,6 +84,7 @@ namespace КП_Кафедра.Forms
             catch (Exception ex)
             {
                 Toast.Show("ERROR", $"Помилка в Search(): {ex.Message}");
+                LoggerService.LogError($"Помилка в Search(): {ex.Message}");
             }
         }
 
@@ -96,13 +97,7 @@ namespace КП_Кафедра.Forms
                 {
                     connection.Open();
                     connection.Open();
-                    string query = @"SELECT a.assignment_id,
-                                    t.emp_full_name,
-                                    s.subject_name,
-                                    l.type_name,
-                                    a.plan_hours,
-                                    a.hours_taught
-                             FROM assignment a
+                    string query = @"SELECT a.assignment_id, t.emp_full_name, s.subject_name, l.type_name, a.plan_hours, a.hours_taught FROM assignment a
                              JOIN teacher t ON a.emp_id = t.emp_id
                              JOIN subjects s ON a.subject_id = s.subject_id
                              JOIN lesson_type l ON a.lesson_type_id = l.lesson_type_id";
@@ -119,7 +114,11 @@ namespace КП_Кафедра.Forms
                 }
                 DataService.Assignments = GetAssignmentsFromGrid();
             }
-            catch (Exception ex) { Toast.Show("ERROR", $"Помилка при завантаженні призначень: {ex.Message}"); }
+            catch (Exception ex) 
+            { 
+                Toast.Show("ERROR", "Помилка при завантаженні призначень");
+                LoggerService.LogError($"Помилка при завантаженні призначень (LoadAssignments): {ex.Message}");
+            }
         }
 
         public List<Assignment> GetAssignmentsFromGrid()
@@ -207,8 +206,7 @@ namespace КП_Кафедра.Forms
                         return;
                     }
 
-                    string sql = @"INSERT INTO assignment (emp_id, subject_id, lesson_type_id, plan_hours, hours_taught)
-                                   VALUES (@emp, @subj, @type, @plan, @taught)";
+                    string sql = @"INSERT INTO assignment (emp_id, subject_id, lesson_type_id, plan_hours, hours_taught) VALUES (@emp, @subj, @type, @plan, @taught)";
                     using (var cmd = new SqliteCommand(sql, con))
                     {
                         cmd.Parameters.AddWithValue("@emp", empId);
@@ -225,7 +223,8 @@ namespace КП_Кафедра.Forms
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", $"Помилка при додаванні: {ex.Message}");
+                Toast.Show("ERROR", "Помилка при додаванні");
+                LoggerService.LogError($"Помилка при додаванні: {ex.Message}");
             }
         }
 
@@ -249,10 +248,7 @@ namespace КП_Кафедра.Forms
                         return;
                     }
 
-                    string sql = @"UPDATE assignment
-                                   SET emp_id=@emp, subject_id=@subj, lesson_type_id=@type,
-                                       plan_hours=@plan, hours_taught=@taught
-                                   WHERE assignment_id=@id";
+                    string sql = @"UPDATE assignment SET emp_id=@emp, subject_id=@subj, lesson_type_id=@type, plan_hours=@plan, hours_taught=@taught WHERE assignment_id=@id";
                     using (var cmd = new SqliteCommand(sql, con))
                     {
                         cmd.Parameters.AddWithValue("@emp", empId);
@@ -270,7 +266,8 @@ namespace КП_Кафедра.Forms
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", $"Помилка при оновленні: {ex.Message}");
+                Toast.Show("ERROR", "Помилка при оновленні");
+                LoggerService.LogError($"Помилка при оновленні: {ex.Message}");
             }
         }
 
@@ -299,7 +296,8 @@ namespace КП_Кафедра.Forms
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", $"Помилка при видаленні: {ex.Message}");
+                Toast.Show("ERROR", "Помилка при видаленні");
+                LoggerService.LogError($"Помилка при видаленні: {ex.Message}");
             }
         }
 
@@ -476,8 +474,7 @@ namespace КП_Кафедра.Forms
 
             string input = txtPlanHours.Text.Trim();
 
-            if (string.IsNullOrEmpty(input) ||
-                input == LanguageManager.GetString("txtPlanHours") ||
+            if (string.IsNullOrEmpty(input) || input == LanguageManager.GetString("txtPlanHours") ||
                 input == "Кількість годин за планом" || input == "Plan hours")
                 return;
 
@@ -504,11 +501,9 @@ namespace КП_Кафедра.Forms
         private void txtHoursTaught_TextChanged(object sender, EventArgs e)
         {
             if (isLoading) return;
-
             string input = txtHoursTaught.Text.Trim();
 
-            if (string.IsNullOrEmpty(input) ||
-                input == LanguageManager.GetString("txtTotalHours") ||
+            if (string.IsNullOrEmpty(input) || input == LanguageManager.GetString("txtTotalHours") ||
                 input == "Відпрацьовано годин" || input == "Hours taught")
                 return;
 

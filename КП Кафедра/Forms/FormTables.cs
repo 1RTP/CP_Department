@@ -18,7 +18,6 @@ namespace КП_Кафедра.Forms
 {
     public partial class FormTables : Form
     {
-        //private Form activeForm = null;
         public Form activeForm { get; private set; }
         private bool isLoading = false;
         public static FormTables Instance { get; private set; }

@@ -58,7 +58,7 @@
             this.panel10.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel10.Location = new System.Drawing.Point(723, 0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(332, 642);
+            this.panel10.Size = new System.Drawing.Size(332, 682);
             this.panel10.TabIndex = 17;
             // 
             // btnClear
@@ -71,10 +71,10 @@
             this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Image = global::КП_Кафедра.Properties.Resources.icons8_мусор_25;
-            this.btnClear.Location = new System.Drawing.Point(278, 129);
+            this.btnClear.Image = global::КП_Кафедра.Properties.Resources.icons8_мусор_20;
+            this.btnClear.Location = new System.Drawing.Point(278, 135);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(41, 38);
+            this.btnClear.Size = new System.Drawing.Size(41, 40);
             this.btnClear.TabIndex = 34;
             this.btnClear.TextColor = System.Drawing.Color.White;
             this.btnClear.UseVisualStyleBackColor = false;
@@ -89,8 +89,9 @@
             this.btnDeleteResearch.BorderSize = 0;
             this.btnDeleteResearch.FlatAppearance.BorderSize = 0;
             this.btnDeleteResearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteResearch.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnDeleteResearch.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteResearch.Location = new System.Drawing.Point(209, 179);
+            this.btnDeleteResearch.Location = new System.Drawing.Point(209, 182);
             this.btnDeleteResearch.Name = "btnDeleteResearch";
             this.btnDeleteResearch.Size = new System.Drawing.Size(110, 32);
             this.btnDeleteResearch.TabIndex = 33;
@@ -110,8 +111,9 @@
             this.btnUpdateResearch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumSlateBlue;
             this.btnUpdateResearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSlateBlue;
             this.btnUpdateResearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateResearch.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnUpdateResearch.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateResearch.Location = new System.Drawing.Point(110, 179);
+            this.btnUpdateResearch.Location = new System.Drawing.Point(110, 182);
             this.btnUpdateResearch.Name = "btnUpdateResearch";
             this.btnUpdateResearch.Size = new System.Drawing.Size(93, 32);
             this.btnUpdateResearch.TabIndex = 32;
@@ -131,8 +133,9 @@
             this.btnAddResearch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(130)))), ((int)(((byte)(26)))));
             this.btnAddResearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(130)))), ((int)(((byte)(26)))));
             this.btnAddResearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddResearch.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnAddResearch.ForeColor = System.Drawing.Color.White;
-            this.btnAddResearch.Location = new System.Drawing.Point(14, 179);
+            this.btnAddResearch.Location = new System.Drawing.Point(14, 182);
             this.btnAddResearch.Name = "btnAddResearch";
             this.btnAddResearch.Size = new System.Drawing.Size(90, 32);
             this.btnAddResearch.TabIndex = 31;
@@ -143,15 +146,15 @@
             // 
             // dtpEndDate
             // 
-            this.dtpEndDate.Location = new System.Drawing.Point(14, 96);
+            this.dtpEndDate.Location = new System.Drawing.Point(14, 102);
             this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(306, 22);
+            this.dtpEndDate.Size = new System.Drawing.Size(306, 24);
             this.dtpEndDate.TabIndex = 25;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Location = new System.Drawing.Point(15, 32);
+            this.panel3.Location = new System.Drawing.Point(15, 34);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(306, 2);
@@ -159,19 +162,20 @@
             // 
             // dtpStartDate
             // 
-            this.dtpStartDate.Location = new System.Drawing.Point(14, 57);
+            this.dtpStartDate.Location = new System.Drawing.Point(14, 61);
             this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(306, 22);
+            this.dtpStartDate.Size = new System.Drawing.Size(306, 24);
             this.dtpStartDate.TabIndex = 2;
             // 
             // txtProjectName
             // 
             this.txtProjectName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
             this.txtProjectName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtProjectName.Font = new System.Drawing.Font("Arial", 8.8F);
             this.txtProjectName.ForeColor = System.Drawing.Color.White;
-            this.txtProjectName.Location = new System.Drawing.Point(15, 16);
+            this.txtProjectName.Location = new System.Drawing.Point(15, 17);
             this.txtProjectName.Name = "txtProjectName";
-            this.txtProjectName.Size = new System.Drawing.Size(306, 15);
+            this.txtProjectName.Size = new System.Drawing.Size(306, 17);
             this.txtProjectName.TabIndex = 0;
             this.txtProjectName.Text = "Назва проєкту";
             this.txtProjectName.TextChanged += new System.EventHandler(this.txtProjectName_TextChanged);
@@ -189,7 +193,7 @@
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 8.8F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(148)))), ((int)(((byte)(152)))));
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -198,7 +202,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 8.8F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -212,16 +216,18 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(713, 642);
+            this.dataGridView1.Size = new System.Drawing.Size(713, 682);
             this.dataGridView1.TabIndex = 16;
             // 
             // FormResearch
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1055, 642);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+            this.ClientSize = new System.Drawing.Size(1055, 682);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.dataGridView1);
+            this.Font = new System.Drawing.Font("Arial", 8.8F);
             this.Name = "FormResearch";
             this.Text = "FormResearch";
             this.Load += new System.EventHandler(this.FormResearch_Load);

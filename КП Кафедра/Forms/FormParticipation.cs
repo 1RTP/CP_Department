@@ -96,7 +96,8 @@ namespace КП_Кафедра.Forms
                 {
                     connection.Open();
 
-                    string query = @"SELECT t.emp_full_name,
+                    string query = @"SELECT pir.participation_id,
+                                    t.emp_full_name,
                                     r.research_name,
                                     r.start_date,
                                     r.end_date
@@ -228,15 +229,13 @@ namespace КП_Кафедра.Forms
         private void txtBox_GotFocus(object sender, EventArgs e)
         {
             TextBox box = sender as TextBox;
-            if (box.Text == LanguageManager.GetString(box.Name))
-                box.Text = "";
+            if (box.Text == LanguageManager.GetString(box.Name)) box.Text = "";
         }
 
         private void txtBox_LostFocus(object sender, EventArgs e)
         {
             TextBox box = sender as TextBox;
-            if (string.IsNullOrWhiteSpace(box.Text))
-                box.Text = LanguageManager.GetString(box.Name);
+            if (string.IsNullOrWhiteSpace(box.Text)) box.Text = LanguageManager.GetString(box.Name);
         }
 
         private void btnAddParticipation_Click(object sender, EventArgs e)
@@ -293,9 +292,7 @@ namespace КП_Кафедра.Forms
                         return;
                     }
 
-                    string query = @"UPDATE participation_in_research
-                                     SET emp_id=@emp, research_id=@res
-                                     WHERE participation_id=@id";
+                    string query = @"UPDATE participation_in_research SET emp_id=@emp, research_id=@res WHERE participation_id=@id";
                     using (var cmd = new SqliteCommand(query, connection))
                     {
                         cmd.Parameters.AddWithValue("@emp", empId);

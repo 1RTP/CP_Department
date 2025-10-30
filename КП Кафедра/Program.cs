@@ -1,18 +1,19 @@
 ﻿using NLog;
+using SerializerLib;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Xml.Serialization;
-using static КП_Кафедра.ToastForm;
 using System.Data;
 using System.Data.SQLite;
 using System.Globalization;
+using System.IO;
+using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Xml.Serialization;
+using КП_Кафедра.Forms;
 using КП_Кафедра.Properties;
-using SerializerLib;
+using static КП_Кафедра.ToastForm;
 
 namespace КП_Кафедра
 {
@@ -36,10 +37,6 @@ namespace КП_Кафедра
             Status = st; 
         }
 
-        //public string GetInfo()
-        //{
-        //    return $"Subject: {Name}, Semester: {Semester}, Hours: {TotalHours}, Active: {Status}";
-        //}
     }
 
     [Serializable]
@@ -51,10 +48,6 @@ namespace КП_Кафедра
         public LessonType() { }
         public LessonType(int id = 0, string typeName = "") { LessonTypeId = id; TypeName = typeName; }
 
-        //public string GetInfo()
-        //{
-        //    return $"Lesson Type: {TypeName}";
-        //}
     }
 
     [Serializable]
@@ -85,39 +78,6 @@ namespace КП_Кафедра
             Assignments = new List<Assignment>(); 
         }
 
-        //public string GetShortName() // скорочене ім’я
-        //{
-        //    string[] parts = FullName.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-        //    if (parts.Length >= 3) return $"{parts[0]} {parts[1][0]}. {parts[2][0]}.";
-        //    else if (parts.Length == 2) return $"{parts[0]} {parts[1][0]}.";
-        //    return FullName;
-        //}
-
-        //public Assignment AssignSubject(Subject subject, LessonType lessonType, int planHours, int assignmentId) // призначення предмета викладачу
-        //{
-        //    Assignment newAssignment = new Assignment(assignmentId, planHours)
-        //    {
-        //        LessonType = lessonType
-        //    };
-        //    newAssignment.Subjects.Add(subject);
-        //    newAssignment.Teachers.Add(this);
-        //    Assignments.Add(newAssignment);
-        //    return newAssignment;
-        //}
-
-        //public Participation JoinResearch(Research r, int participationId) // участь у НДР
-        //{
-        //    Participation p = new Participation(participationId, this, r);
-        //    Participations.Add(p);
-        //    r.Participants.Add(p);
-        //    return p;
-        //}
-
-        //public string GetInfo()
-        //{
-        //    string hireDateText = HireDate == DateTime.MinValue ? "Not set" : HireDate.ToString("dd.MM.yyyy");
-        //    return $"Teacher: {FullName}, Position: {Position}, Hire Date: {hireDateText}, Phone: {PhoneNumber}, Email: {Email}, Active: {Status}";
-        //}
     }
 
     [Serializable]
@@ -148,18 +108,6 @@ namespace КП_Кафедра
             Subjects = new List<Subject>(); 
             LessonType = null; 
         }
-
-        //public void UpdateHours(int taught) // оновлення відпрацьованих годин
-        //{
-        //    TaughtHours += taught;
-        //    if (TaughtHours > PlanHours) TaughtHours = PlanHours;
-        //}
-
-        //public string GetInfo()
-        //{
-        //    string hireDateText = HireDate == DateTime.MinValue ? "Not set" : HireDate.ToString("dd.MM.yyyy");
-        //    return $"Assignment {AssignmentId}: Plan {PlanHours}, Done {TaughtHours}, Hire Date: {hireDateText}, Lesson: {LessonType?.TypeName}";
-        //}
     }
 
     [Serializable]
@@ -193,26 +141,6 @@ namespace КП_Кафедра
             EndDate = end ?? DateTime.MinValue;
             Participants = new List<Participation>();
         }
-
-        //public Participation AddParticipant(Teacher t, int participationId) // додавання викладача до дослідження
-        //{
-        //    Participation p = new Participation(participationId, t, this);
-        //    Participants.Add(p);
-        //    t.Participations.Add(p);
-        //    return p;
-        //}
-
-        //public int GetDuration() // тривалість дослідження в днях
-        //{
-        //    return (EndDate - StartDate).Days;
-        //}
-
-        //public string GetInfo()
-        //{
-        //    string startDateText = StartDate == DateTime.MinValue ? "Not set" : StartDate.ToString("dd.MM.yyyy");
-        //    string endDateText = EndDate == DateTime.MinValue ? "Not set" : EndDate.ToString("dd.MM.yyyy");
-        //    return $"Research: {ResearchName}, Start: {startDateText}, End: {endDateText}, Participants: {Participants.Count}";
-        //}
     }
 
     internal static class Program
@@ -234,7 +162,8 @@ namespace КП_Кафедра
 
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new FormMainMenu()); 
+                Application.Run(new FormMainMenu("Name", "admin@gmail.com"));
+                //Application.Run(new FormLogin());
             }
             catch (Exception ex)
             {

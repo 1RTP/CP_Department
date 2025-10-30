@@ -50,7 +50,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 102);
+            this.panel1.Size = new System.Drawing.Size(800, 108);
             this.panel1.TabIndex = 14;
             // 
             // btnReport
@@ -63,8 +63,9 @@
             this.btnReport.BorderSize = 0;
             this.btnReport.FlatAppearance.BorderSize = 0;
             this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReport.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnReport.ForeColor = System.Drawing.Color.White;
-            this.btnReport.Location = new System.Drawing.Point(504, 9);
+            this.btnReport.Location = new System.Drawing.Point(507, 10);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(114, 32);
             this.btnReport.TabIndex = 30;
@@ -76,10 +77,11 @@
             // rbAssignmentsReport
             // 
             this.rbAssignmentsReport.AutoSize = true;
+            this.rbAssignmentsReport.Font = new System.Drawing.Font("Arial", 8.8F);
             this.rbAssignmentsReport.ForeColor = System.Drawing.Color.White;
-            this.rbAssignmentsReport.Location = new System.Drawing.Point(371, 15);
+            this.rbAssignmentsReport.Location = new System.Drawing.Point(371, 16);
             this.rbAssignmentsReport.Name = "rbAssignmentsReport";
-            this.rbAssignmentsReport.Size = new System.Drawing.Size(117, 20);
+            this.rbAssignmentsReport.Size = new System.Drawing.Size(118, 21);
             this.rbAssignmentsReport.TabIndex = 23;
             this.rbAssignmentsReport.TabStop = true;
             this.rbAssignmentsReport.Text = "Призначення";
@@ -88,10 +90,11 @@
             // rbResearchReport
             // 
             this.rbResearchReport.AutoSize = true;
+            this.rbResearchReport.Font = new System.Drawing.Font("Arial", 8.8F);
             this.rbResearchReport.ForeColor = System.Drawing.Color.White;
-            this.rbResearchReport.Location = new System.Drawing.Point(267, 15);
+            this.rbResearchReport.Location = new System.Drawing.Point(267, 16);
             this.rbResearchReport.Name = "rbResearchReport";
-            this.rbResearchReport.Size = new System.Drawing.Size(84, 20);
+            this.rbResearchReport.Size = new System.Drawing.Size(85, 21);
             this.rbResearchReport.TabIndex = 22;
             this.rbResearchReport.TabStop = true;
             this.rbResearchReport.Text = "Проєкти";
@@ -100,10 +103,11 @@
             // rbSubjectsReport
             // 
             this.rbSubjectsReport.AutoSize = true;
+            this.rbSubjectsReport.Font = new System.Drawing.Font("Arial", 8.8F);
             this.rbSubjectsReport.ForeColor = System.Drawing.Color.White;
-            this.rbSubjectsReport.Location = new System.Drawing.Point(140, 15);
+            this.rbSubjectsReport.Location = new System.Drawing.Point(140, 16);
             this.rbSubjectsReport.Name = "rbSubjectsReport";
-            this.rbSubjectsReport.Size = new System.Drawing.Size(103, 20);
+            this.rbSubjectsReport.Size = new System.Drawing.Size(107, 21);
             this.rbSubjectsReport.TabIndex = 21;
             this.rbSubjectsReport.TabStop = true;
             this.rbSubjectsReport.Text = "Дисципліни";
@@ -112,10 +116,11 @@
             // rbTeachersReport
             // 
             this.rbTeachersReport.AutoSize = true;
+            this.rbTeachersReport.Font = new System.Drawing.Font("Arial", 8.8F);
             this.rbTeachersReport.ForeColor = System.Drawing.Color.White;
-            this.rbTeachersReport.Location = new System.Drawing.Point(22, 15);
+            this.rbTeachersReport.Location = new System.Drawing.Point(22, 16);
             this.rbTeachersReport.Name = "rbTeachersReport";
-            this.rbTeachersReport.Size = new System.Drawing.Size(95, 20);
+            this.rbTeachersReport.Size = new System.Drawing.Size(98, 21);
             this.rbTeachersReport.TabIndex = 20;
             this.rbTeachersReport.TabStop = true;
             this.rbTeachersReport.Text = "Викладачі";
@@ -126,18 +131,19 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(148)))), ((int)(((byte)(152)))));
-            this.panel2.Location = new System.Drawing.Point(0, 102);
+            this.panel2.Location = new System.Drawing.Point(0, 108);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 348);
+            this.panel2.Size = new System.Drawing.Size(800, 370);
             this.panel2.TabIndex = 15;
             // 
             // FormReport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 478);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Font = new System.Drawing.Font("Arial", 8.8F);
             this.Name = "FormReport";
             this.Text = "FormReport";
             this.Load += new System.EventHandler(this.FormReport_Load);

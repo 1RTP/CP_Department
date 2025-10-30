@@ -358,6 +358,15 @@ namespace КП_Кафедра.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на ID.
+        /// </summary>
+        internal static string column_participation_id {
+            get {
+                return ResourceManager.GetString("column_participation_id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Телефон.
         /// </summary>
         internal static string column_phone_number {
@@ -457,6 +466,15 @@ namespace КП_Кафедра.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Завантаження та збереження даних у різних форматах:.
+        /// </summary>
+        internal static string label1 {
+            get {
+                return ResourceManager.GetString("label1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Мова застосунку:.
         /// </summary>
         internal static string lbLanguage {
@@ -498,6 +516,15 @@ namespace КП_Кафедра.Resources {
         internal static string txtName {
             get {
                 return ResourceManager.GetString("txtName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Пароль.
+        /// </summary>
+        internal static string txtPassword {
+            get {
+                return ResourceManager.GetString("txtPassword", resourceCulture);
             }
         }
         

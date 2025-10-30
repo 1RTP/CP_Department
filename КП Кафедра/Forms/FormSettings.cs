@@ -54,37 +54,6 @@ namespace КП_Кафедра.Forms
             LoggerService.LogInfo("Папка Data перевірена/створена.");
         }
 
-        //private void UpdateButtonStates()
-        //{
-        //    btnXml.BackColor = currentFormat == "XML" ? Color.LightGreen : SystemColors.Control;
-        //    btnJson.BackColor = currentFormat == "JSON" ? Color.LightGreen : SystemColors.Control;
-        //    btnBin.BackColor = currentFormat == "BIN" ? Color.LightGreen : SystemColors.Control;
-        //}
-
-        //private void btnXml_Click(object sender, EventArgs e)
-        //{
-        //    currentFormat = "XML";
-        //    LoggerService.LogInfo("Обрано формат XML.");
-        //    Toast.Show("INFO", $"Обрано формат XML.");
-        //    UpdateButtonStates();
-        //}
-
-        //private void btnJson_Click(object sender, EventArgs e)
-        //{
-        //    currentFormat = "JSON";
-        //    LoggerService.LogInfo("Обрано формат JSON.");
-        //    Toast.Show("INFO", $"Обрано формат JSON.");
-        //    UpdateButtonStates();
-        //}
-
-        //private void btnBin_Click(object sender, EventArgs e)
-        //{
-        //    currentFormat = "BIN";
-        //    LoggerService.LogInfo("Обрано формат BIN.");
-        //    Toast.Show("INFO", $"Обрано формат BIN.");
-        //    UpdateButtonStates();
-        //}
-
         private string GetFilePath(string entityName, string format)
         {
             Directory.CreateDirectory(dataFolder); // створюємо папку
@@ -129,13 +98,13 @@ namespace КП_Кафедра.Forms
                     Participations = DataService.Participations
                 };
                 SaveAllData(data, currentFormat);
-                Toast.Show("SUCCESS", $"Дані збережено ({currentFormat}).");
+                Toast.Show("SUCCESS", $"Дані збережено у форматі {currentFormat}.");
                 LoggerService.LogInfo($"Дані успішно збережено у форматі {currentFormat}");
             }
             catch (Exception ex)
             {
-                LoggerService.LogError($"Помилка при збереженні ({currentFormat}): {ex.Message}");
-                Toast.Show("ERROR", $"Помилка при збереженні ({currentFormat}).");
+                LoggerService.LogError($"Помилка при збереженні у формат {currentFormat}: {ex.Message}");
+                Toast.Show("ERROR", $"Помилка при збереженні у формат {currentFormat}.");
             }
         }
 
@@ -151,19 +120,17 @@ namespace КП_Кафедра.Forms
                 DataService.Researches = data.Researches ?? new List<Research>();
                 DataService.Participations = data.Participations ?? new List<Participation>();
 
-
-                //if (FormTables.Instance != null) { FormTables.Instance.UpdateGrid(DataService.Teachers); }
                 if (FormTables.Instance != null && FormTables.Instance.activeForm is FormTeacher teacherForm)
                 {
                     teacherForm.UpdateGrid(DataService.Teachers);
                 }
-                Toast.Show("INFO", $"Дані завантажено з файлу ({currentFormat}).");
+                Toast.Show("INFO", $"Дані завантажено з файлу у форматі{currentFormat}.");
                 LoggerService.LogInfo($"Десеріалізовано всі дані з {currentFormat}.");
             }
             catch (Exception ex)
             {
-                LoggerService.LogError($"Помилка при завантаженні ({currentFormat}): {ex.Message}");
-                Toast.Show("ERROR", $"Помилка при завантаженні ({currentFormat}).");
+                LoggerService.LogError($"Помилка при завантаженні у формат {currentFormat}: {ex.Message}");
+                Toast.Show("ERROR", $"Помилка при завантаженні у формат {currentFormat}.");
             }
         }
 
@@ -182,6 +149,7 @@ namespace КП_Кафедра.Forms
             btnSave.Text = LanguageManager.GetString("btnSave");
             btnLoad.Text = LanguageManager.GetString("btnLoad");
             lbLanguage.Text = LanguageManager.GetString("lbLanguage");
+            label1.Text = LanguageManager.GetString("label1");
         }
 
         private void rbXML_CheckedChanged(object sender, EventArgs e)

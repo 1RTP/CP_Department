@@ -83,8 +83,8 @@
             this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Image = global::КП_Кафедра.Properties.Resources.icons8_мусор_25;
-            this.btnClear.Location = new System.Drawing.Point(279, 223);
+            this.btnClear.Image = global::КП_Кафедра.Properties.Resources.icons8_мусор_20;
+            this.btnClear.Location = new System.Drawing.Point(279, 227);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(41, 38);
             this.btnClear.TabIndex = 38;
@@ -101,6 +101,7 @@
             this.btnDeleteAssignment.BorderSize = 0;
             this.btnDeleteAssignment.FlatAppearance.BorderSize = 0;
             this.btnDeleteAssignment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteAssignment.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnDeleteAssignment.ForeColor = System.Drawing.Color.White;
             this.btnDeleteAssignment.Location = new System.Drawing.Point(211, 271);
             this.btnDeleteAssignment.Name = "btnDeleteAssignment";
@@ -122,6 +123,7 @@
             this.btnUpdateAssignment.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumSlateBlue;
             this.btnUpdateAssignment.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSlateBlue;
             this.btnUpdateAssignment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateAssignment.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnUpdateAssignment.ForeColor = System.Drawing.Color.White;
             this.btnUpdateAssignment.Location = new System.Drawing.Point(111, 271);
             this.btnUpdateAssignment.Name = "btnUpdateAssignment";
@@ -143,6 +145,7 @@
             this.btnAddAssignment.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(130)))), ((int)(((byte)(26)))));
             this.btnAddAssignment.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(130)))), ((int)(((byte)(26)))));
             this.btnAddAssignment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddAssignment.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnAddAssignment.ForeColor = System.Drawing.Color.White;
             this.btnAddAssignment.Location = new System.Drawing.Point(16, 271);
             this.btnAddAssignment.Name = "btnAddAssignment";
@@ -166,10 +169,11 @@
             // 
             this.txtLessonType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
             this.txtLessonType.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtLessonType.Font = new System.Drawing.Font("Arial", 8.8F);
             this.txtLessonType.ForeColor = System.Drawing.Color.White;
             this.txtLessonType.Location = new System.Drawing.Point(16, 111);
             this.txtLessonType.Name = "txtLessonType";
-            this.txtLessonType.Size = new System.Drawing.Size(306, 15);
+            this.txtLessonType.Size = new System.Drawing.Size(306, 17);
             this.txtLessonType.TabIndex = 28;
             this.txtLessonType.Text = "Тип заняття";
             this.txtLessonType.TextChanged += new System.EventHandler(this.txtLessonType_TextChanged);
@@ -214,10 +218,11 @@
             // 
             this.txtHoursTaught.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
             this.txtHoursTaught.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtHoursTaught.Font = new System.Drawing.Font("Arial", 8.8F);
             this.txtHoursTaught.ForeColor = System.Drawing.Color.White;
             this.txtHoursTaught.Location = new System.Drawing.Point(15, 198);
             this.txtHoursTaught.Name = "txtHoursTaught";
-            this.txtHoursTaught.Size = new System.Drawing.Size(306, 15);
+            this.txtHoursTaught.Size = new System.Drawing.Size(306, 17);
             this.txtHoursTaught.TabIndex = 4;
             this.txtHoursTaught.Text = "Відпрацьовано годин";
             this.txtHoursTaught.TextChanged += new System.EventHandler(this.txtHoursTaught_TextChanged);
@@ -226,10 +231,11 @@
             // 
             this.txtPlanHours.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
             this.txtPlanHours.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPlanHours.Font = new System.Drawing.Font("Arial", 8.8F);
             this.txtPlanHours.ForeColor = System.Drawing.Color.White;
             this.txtPlanHours.Location = new System.Drawing.Point(15, 154);
             this.txtPlanHours.Name = "txtPlanHours";
-            this.txtPlanHours.Size = new System.Drawing.Size(306, 15);
+            this.txtPlanHours.Size = new System.Drawing.Size(306, 17);
             this.txtPlanHours.TabIndex = 3;
             this.txtPlanHours.Text = "Кількість годин за планом";
             this.txtPlanHours.TextChanged += new System.EventHandler(this.txtPlanHours_TextChanged);
@@ -238,10 +244,11 @@
             // 
             this.txtSubjectName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
             this.txtSubjectName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSubjectName.Font = new System.Drawing.Font("Arial", 8.8F);
             this.txtSubjectName.ForeColor = System.Drawing.Color.White;
             this.txtSubjectName.Location = new System.Drawing.Point(16, 64);
             this.txtSubjectName.Name = "txtSubjectName";
-            this.txtSubjectName.Size = new System.Drawing.Size(306, 15);
+            this.txtSubjectName.Size = new System.Drawing.Size(306, 17);
             this.txtSubjectName.TabIndex = 1;
             this.txtSubjectName.Text = "Назва дисципліни";
             this.txtSubjectName.TextChanged += new System.EventHandler(this.txtSubjectName_TextChanged);
@@ -250,10 +257,11 @@
             // 
             this.txtName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
             this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtName.Font = new System.Drawing.Font("Arial", 8.8F);
             this.txtName.ForeColor = System.Drawing.Color.White;
             this.txtName.Location = new System.Drawing.Point(15, 16);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(306, 15);
+            this.txtName.Size = new System.Drawing.Size(306, 17);
             this.txtName.TabIndex = 0;
             this.txtName.Text = "ПІБ";
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
@@ -301,6 +309,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
             this.ClientSize = new System.Drawing.Size(1153, 647);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.dataGridView1);

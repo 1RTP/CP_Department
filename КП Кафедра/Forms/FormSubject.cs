@@ -38,7 +38,7 @@ namespace КП_Кафедра.Forms
             }
             catch (Exception ex)
             {
-                LoggerService.LogError($"Помилка при завантаженні предметів: {ex.Message}");
+                LoggerService.LogError($"Помилка при завантаженні предметів (FormSubject_Load): {ex.Message}");
             }
         }
 
@@ -93,11 +93,7 @@ namespace КП_Кафедра.Forms
                 using (var connection = new SqliteConnection($"Data Source={dbPath}"))
                 {
                     connection.Open();
-                    string query = @"SELECT subject_id,
-                                    subject_name,
-                                    semester,
-                                    total_hours
-                             FROM subjects";
+                    string query = @"SELECT subject_id, subject_name, semester, total_hours FROM subjects";
 
                     using (var command = new SqliteCommand(query, connection))
                     using (var reader = command.ExecuteReader())
@@ -113,7 +109,8 @@ namespace КП_Кафедра.Forms
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", $"Помилка при завантаженні предметів: {ex.Message}");
+                Toast.Show("ERROR", "Помилка при завантаженні дисциплін");
+                LoggerService.LogError($"Помилка при завантаженні дисциплін (LoadSubjects): {ex.Message}");
             }
         }
 
@@ -226,8 +223,7 @@ namespace КП_Кафедра.Forms
 
             string input = txtSemester.Text.Trim();
 
-            if (string.IsNullOrEmpty(input) ||
-                input == LanguageManager.GetString("txtSemester") ||
+            if (string.IsNullOrEmpty(input) || input == LanguageManager.GetString("txtSemester") ||
                 input == "Семестр" || input == "Semester")
                 return;
 
@@ -241,15 +237,13 @@ namespace КП_Кафедра.Forms
 
         private void txtSemester_GotFocus(object sender, EventArgs e)
         {
-            if (txtSemester.Text == "Семестр" || txtSemester.Text == "Semester" ||
-                txtSemester.Text == LanguageManager.GetString("txtSemester"))
+            if (txtSemester.Text == "Семестр" || txtSemester.Text == "Semester" || txtSemester.Text == LanguageManager.GetString("txtSemester"))
                 txtSemester.Text = "";
         }
 
         private void txtSemester_LostFocus(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtSemester.Text))
-                txtSemester.Text = LanguageManager.GetString("txtSemester");
+            if (string.IsNullOrWhiteSpace(txtSemester.Text)) txtSemester.Text = LanguageManager.GetString("txtSemester");
         }
 
         private void txtTotalHours_TextChanged(object sender, EventArgs e)
@@ -258,8 +252,7 @@ namespace КП_Кафедра.Forms
 
             string input = txtTotalHours.Text.Trim();
 
-            if (string.IsNullOrEmpty(input) ||
-                input == LanguageManager.GetString("txtTotalHours") ||
+            if (string.IsNullOrEmpty(input) || input == LanguageManager.GetString("txtTotalHours") ||
                 input == "Загальна кількість годин" || input == "Total hours")
                 return;
 
@@ -323,9 +316,13 @@ namespace КП_Кафедра.Forms
                     }
                 }
                 LoadSubjects();
-                Toast.Show("SUCCESS", "Предмет додано успішно!");
+                Toast.Show("SUCCESS", "Дисципліну додано успішно!");
             }
-            catch (Exception ex) { Toast.Show("ERROR", $"Помилка при додаванні: {ex.Message}"); }
+            catch (Exception ex) 
+            { 
+                Toast.Show("ERROR", "Помилка при додаванні");
+                LoggerService.LogError($"Помилка при додаванні: {ex.Message}");
+            }
         }
 
         private void btnUpdateSubject_Click(object sender, EventArgs e)
@@ -359,7 +356,7 @@ namespace КП_Кафедра.Forms
             if (dataGridView1.CurrentRow == null) return;
 
             int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["subject_id"].Value);
-            var result = MessageBox.Show("Ви впевнені, що хочете видалити цей предмет?", "Підтвердження", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var result = MessageBox.Show("Ви впевнені, що хочете видалити цю дисципліну?", "Підтвердження", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No) return;
 
             try
@@ -377,7 +374,11 @@ namespace КП_Кафедра.Forms
                 LoadSubjects();
                 Toast.Show("SUCCESS", "Предмет видалено!");
             }
-            catch (Exception ex) { Toast.Show("ERROR", $"Помилка при видаленні: {ex.Message}"); }
+            catch (Exception ex) 
+            {
+                Toast.Show("ERROR", "Помилка при видаленні");
+                LoggerService.LogError($"Помилка при завантаженні даних: {ex.Message}");
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
