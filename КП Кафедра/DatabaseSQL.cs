@@ -23,10 +23,16 @@ namespace КП_Кафедра
             {
                 connection.Open();
                 string createTables = @"
+                    CREATE TABLE IF NOT EXISTS specialty (
+                        specialty_id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        specialty_name TEXT NOT NULL UNIQUE
+                    );
+
                     CREATE TABLE IF NOT EXISTS teacher (
                         emp_id INTEGER PRIMARY KEY AUTOINCREMENT,
                         emp_full_name TEXT,
                         emp_position TEXT,
+                        specialty_id INTEGER REFERENCES specialty(specialty_id),
                         emp_hire_date TEXT,
                         phone_number TEXT,
                         email TEXT,
@@ -36,6 +42,7 @@ namespace КП_Кафедра
                     CREATE TABLE IF NOT EXISTS subjects (
                         subject_id INTEGER PRIMARY KEY AUTOINCREMENT,
                         subject_name TEXT,
+                        specialty_id INTEGER REFERENCES specialty(specialty_id),
                         semester INTEGER,
                         total_hours INTEGER
                     );
@@ -47,9 +54,9 @@ namespace КП_Кафедра
 
                     CREATE TABLE IF NOT EXISTS assignment (
                         assignment_id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        emp_id INTEGER,
-                        subject_id INTEGER,
-                        lesson_type_id INTEGER,
+                        emp_id INTEGER REFERENCES teacher(emp_id),
+                        subject_id INTEGER REFERENCES subjects(subject_id),
+                        lesson_type_id INTEGER REFERENCES lesson_type(lesson_type_id),
                         plan_hours INTEGER,
                         hours_taught INTEGER
                     );
@@ -57,17 +64,17 @@ namespace КП_Кафедра
                     CREATE TABLE IF NOT EXISTS research (
                         research_id INTEGER PRIMARY KEY AUTOINCREMENT,
                         research_name TEXT,
+                        specialty_id INTEGER REFERENCES specialty(specialty_id),
                         start_date TEXT,
                         end_date TEXT
                     );
 
                     CREATE TABLE IF NOT EXISTS participation_in_research (
                         participation_id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        emp_id INTEGER,
-                        research_id INTEGER
-                    );
-                ";
-
+                        emp_id INTEGER NOT NULL REFERENCES teacher(emp_id),
+                        research_id INTEGER NOT NULL REFERENCES research(research_id),
+                        specialty_id INTEGER NULL REFERENCES specialty(specialty_id)
+                    );";
                 using (var cmd = new SqliteCommand(createTables, connection)) cmd.ExecuteNonQuery();
 
                 string checkColumn = "PRAGMA table_info(teacher);";
@@ -93,7 +100,6 @@ namespace КП_Кафедра
                         LoggerService.LogInfo("Колонку status додано до таблиці teacher.");
                     }
                 }
-
 
                 string checkData = "SELECT COUNT(*) FROM teacher;";
                 using (var cmd = new SqliteCommand(checkData, connection))

@@ -20,6 +20,10 @@ namespace КП_Кафедра
         [XmlElement] public string PhoneNumber { get; set; }
         [XmlElement] public string Email { get; set; }
         [XmlElement] public bool Status { get; set; }
+
+        [XmlElement] public int SpecialtyId { get; set; }
+        [XmlElement] public string SpecialtyName { get; set; }
+
         public TeacherDto() { }
 
         

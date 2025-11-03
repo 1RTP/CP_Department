@@ -64,7 +64,7 @@ namespace КП_Кафедра.Forms
                 if (!(dataGridView1?.DataSource is DataTable dt)) return;
                 string safe = query.Replace("'", "''");
 
-                var columnsToSearch = new[] { "emp_full_name", "emp_position", "email" }; // колонки для пошуку
+                var columnsToSearch = new[] { "emp_full_name", "emp_position", "email", "specialty_name" }; // колонки для пошуку
 
                 var parts = new List<string>();
                 foreach (var col in columnsToSearch)
@@ -96,22 +96,78 @@ namespace КП_Кафедра.Forms
                 using (var connection = new SqliteConnection($"Data Source={dbPath}"))
                 {
                     connection.Open();
-                    string query = @"SELECT emp_id, emp_full_name, emp_position, emp_hire_date, phone_number, email, status FROM teacher
-                                ORDER BY status DESC, emp_id ASC";
+                    string query = @"
+                SELECT 
+                    t.emp_id,
+                    t.emp_full_name,
+                    t.emp_position,
+                    t.emp_hire_date,
+                    t.phone_number,
+                    t.email,
+                    t.status,
+                    s.specialty_id,
+                    s.specialty_name
+                FROM teacher t
+                LEFT JOIN specialty s ON t.specialty_id = s.specialty_id
+                ORDER BY t.status DESC, t.emp_id ASC;
+            ";
+
+                    DataTable table = new DataTable();
+                    table.Columns.Add("emp_id", typeof(int));
+                    table.Columns.Add("emp_full_name", typeof(string));
+                    table.Columns.Add("specialty_name", typeof(string));
+                    table.Columns.Add("emp_position", typeof(string));
+                    table.Columns.Add("emp_hire_date", typeof(string));
+                    table.Columns.Add("phone_number", typeof(string));
+                    table.Columns.Add("email", typeof(string));
+                    table.Columns.Add("status", typeof(int));
 
                     using (var command = new SqliteCommand(query, connection))
                     using (var reader = command.ExecuteReader())
                     {
-                        DataTable table = new DataTable();
-                        table.Load(reader);
-                        originalTable = table.Copy();
-                        dataGridView1.DataSource = table;
-                        ApplyColumnLocalization(); // заголовки клонок
+                        while (reader.Read())
+                        {
+                            Specialty specialty = new Specialty
+                            {
+                                SpecialtyId = reader["specialty_id"] != DBNull.Value ? Convert.ToInt32(reader["specialty_id"]) : 0,
+                                SpecialtyName = reader["specialty_name"] != DBNull.Value ? reader["specialty_name"].ToString() : ""
+                            };
 
-                        //if (dataGridView1.Columns.Contains("status")) // прибрати колонку статус з відображення
-                        //    dataGridView1.Columns["status"].Visible = false;
+                            table.Rows.Add(
+                                Convert.ToInt32(reader["emp_id"]),
+                                reader["emp_full_name"]?.ToString(),
+                                reader["specialty_name"] is DBNull ? null : reader["specialty_name"].ToString(),
+                                reader["emp_position"]?.ToString(),
+                                reader["emp_hire_date"]?.ToString(),
+                                reader["phone_number"]?.ToString(),
+                                reader["email"]?.ToString(),
+                                reader["status"] == DBNull.Value ? 0 : Convert.ToInt32(reader["status"])
+                            );
+                        }
+                    }
+
+                    originalTable = table.Copy();
+                    dataGridView1.DataSource = table;
+                    ApplyColumnLocalization();
+
+                    //if (dataGridView1.Columns.Contains("status")) // прибрати колонку статус з відображення
+                    //    dataGridView1.Columns["status"].Visible = false;
+
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        if (row.Cells["status"].Value != null && row.Cells["status"].Value.ToString() == "0")
+                        {
+                            row.DefaultCellStyle.BackColor = Color.LightGray;
+                            row.DefaultCellStyle.ForeColor = Color.DimGray;
+                        }
+                        else
+                        {
+                            row.DefaultCellStyle.BackColor = Color.White;
+                            row.DefaultCellStyle.ForeColor = Color.Black;
+                        }
                     }
                 }
+
                 DataService.Teachers = GetTeachersFromGrid();
             }
             catch (Exception ex)
@@ -133,6 +189,7 @@ namespace КП_Кафедра.Forms
                 {
                     EmpId = Convert.ToInt32(row.Cells["emp_id"].Value),
                     FullName = row.Cells["emp_full_name"].Value?.ToString(),
+                    Specialty = new Specialty { SpecialtyName = row.Cells["specialty_name"].Value?.ToString() },
                     Position = row.Cells["emp_position"].Value?.ToString(),
                     HireDate = DateTime.TryParse(row.Cells["emp_hire_date"].Value?.ToString(), out DateTime hireDate) ? hireDate : DateTime.MinValue,
                     PhoneNumber = row.Cells["phone_number"].Value?.ToString(),
@@ -147,6 +204,10 @@ namespace КП_Кафедра.Forms
             txtName.GotFocus += txtName_GotFocus;
             txtName.LostFocus += txtName_LostFocus;
             txtName.TextChanged += txtName_TextChanged;
+
+            txtSpecialty.GotFocus += txtSpecialty_GotFocus;
+            txtSpecialty.LostFocus += txtSpecialty_LostFocus;
+            txtSpecialty.TextChanged += txtSpecialty_TextChanged;
 
             txtPosition.GotFocus += txtPosition_GotFocus;
             txtPosition.LostFocus += txtPosition_LostFocus;
@@ -186,6 +247,34 @@ namespace КП_Кафедра.Forms
             if (string.IsNullOrWhiteSpace(txtName.Text))
             {
                 txtName.Text = LanguageManager.GetString("txtName");
+            }
+        }
+
+        private void txtSpecialty_TextChanged(object sender, EventArgs e)
+        {
+            string input = txtSpecialty.Text.Trim();
+            if (string.IsNullOrEmpty(input) || input == "Спеціальність" || input == "Specialty") return;
+            var validPattern = new System.Text.RegularExpressions.Regex(@"^[A-Za-zА-ЯІЇЄҐа-яіїєґ'\-\s]+$");
+            if (!validPattern.IsMatch(input))
+            {
+                Toast.Show("ERROR", "Невірний формат введення Спеціальності");
+                txtSpecialty.Text = "";
+            }
+        }
+
+        private void txtSpecialty_GotFocus(object sender, EventArgs e)
+        {
+            if (txtSpecialty.Text == "Спеціальність" || txtSpecialty.Text == "Specialty")
+            {
+                txtSpecialty.Text = "";
+            }
+        }
+
+        private void txtSpecialty_LostFocus(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtSpecialty.Text))
+            {
+                txtSpecialty.Text = LanguageManager.GetString("txtSpecialty");
             }
         }
 
@@ -309,7 +398,37 @@ namespace КП_Кафедра.Forms
                 using (var connection = new SqliteConnection($"Data Source={dbPath}"))
                 {
                     connection.Open();
-                    string query = @"INSERT INTO teacher (emp_full_name, emp_position, emp_hire_date, phone_number, email, status) VALUES (@name, @position, @hireDate, @phone, @mail, 1)";
+
+                    int specialtyId = 0;
+                    string specialtyName = txtSpecialty.Text.Trim();
+
+                    if (!string.IsNullOrEmpty(specialtyName))
+                    {
+                        string findQuery = "SELECT specialty_id FROM specialty WHERE specialty_name = @name LIMIT 1";
+                        using (var findCmd = new SqliteCommand(findQuery, connection))
+                        {
+                            findCmd.Parameters.AddWithValue("@name", specialtyName);
+                            object result = findCmd.ExecuteScalar();
+
+                            if (result != null) { specialtyId = Convert.ToInt32(result); }
+                            else
+                            {
+                                string insertSpec = "INSERT INTO specialty (specialty_name) VALUES (@name)";
+                                using (var insertCmd = new SqliteCommand(insertSpec, connection))
+                                {
+                                    insertCmd.Parameters.AddWithValue("@name", specialtyName);
+                                    insertCmd.ExecuteNonQuery();
+                                }
+                                string getId = "SELECT last_insert_rowid()";
+                                using (var getCmd = new SqliteCommand(getId, connection))
+                                {
+                                    specialtyId = Convert.ToInt32(getCmd.ExecuteScalar());
+                                }
+                            }
+                        }
+                    }
+                    string query = @" INSERT INTO teacher (emp_full_name, emp_position, emp_hire_date, phone_number, email, status, specialty_id) VALUES (@name, @position, @hireDate, @phone, @mail, 1, @specialtyId)";
+
                     using (var cmd = new SqliteCommand(query, connection))
                     {
                         cmd.Parameters.AddWithValue("@name", txtName.Text.Trim());
@@ -317,16 +436,18 @@ namespace КП_Кафедра.Forms
                         cmd.Parameters.AddWithValue("@hireDate", dtpHireDate.Value.ToString("yyyy-MM-dd"));
                         cmd.Parameters.AddWithValue("@phone", txtPhone.Text.Trim());
                         cmd.Parameters.AddWithValue("@mail", txtEmail.Text.Trim());
+                        cmd.Parameters.AddWithValue("@specialtyId", specialtyId);
                         cmd.ExecuteNonQuery();
                     }
                 }
+
                 LoadTeachers();
                 Toast.Show("SUCCESS", "Викладача додано успішно!");
             }
-            catch (Exception ex) 
-            { 
-                Toast.Show("ERROR", "Помилка при додаванні");
-                LoggerService.LogError($"Помилка при додаванні: {ex.Message}");
+            catch (Exception ex)
+            {
+                Toast.Show("ERROR", "Помилка при додаванні викладача");
+                LoggerService.LogError($"Помилка при додаванні викладача: {ex.Message}");
             }
         }
 
@@ -341,8 +462,45 @@ namespace КП_Кафедра.Forms
                 using (var connection = new SqliteConnection($"Data Source={dbPath}"))
                 {
                     connection.Open();
-                    string query = @"UPDATE teacher SET emp_full_name = @name, emp_position = @position, emp_hire_date = @hireDate,
-                           phone_number = @phone, email = @mail, status = @status WHERE emp_id = @id";
+
+                    int specialtyId = 0;
+                    string specialtyName = txtSpecialty.Text.Trim();
+
+                    if (!string.IsNullOrEmpty(specialtyName))
+                    {
+                        string findQuery = "SELECT specialty_id FROM specialty WHERE specialty_name = @name LIMIT 1";
+                        using (var findCmd = new SqliteCommand(findQuery, connection))
+                        {
+                            findCmd.Parameters.AddWithValue("@name", specialtyName);
+                            object result = findCmd.ExecuteScalar();
+
+                            if (result != null) { specialtyId = Convert.ToInt32(result); }
+                            else
+                            {
+                                string insertSpec = "INSERT INTO specialty (specialty_name) VALUES (@name)";
+                                using (var insertCmd = new SqliteCommand(insertSpec, connection))
+                                {
+                                    insertCmd.Parameters.AddWithValue("@name", specialtyName);
+                                    insertCmd.ExecuteNonQuery();
+                                }
+
+                                string getId = "SELECT last_insert_rowid()";
+                                using (var getCmd = new SqliteCommand(getId, connection))
+                                {
+                                    specialtyId = Convert.ToInt32(getCmd.ExecuteScalar());
+                                }
+                            }
+                        }
+                    }
+                    string query = @"UPDATE teacher 
+                        SET emp_full_name = @name,
+                            emp_position = @position,
+                            emp_hire_date = @hireDate,
+                            phone_number = @phone,
+                            email = @mail,
+                            status = @status,
+                            specialty_id = @specialtyId
+                        WHERE emp_id = @id";
 
                     using (var cmd = new SqliteCommand(query, connection))
                     {
@@ -352,17 +510,19 @@ namespace КП_Кафедра.Forms
                         cmd.Parameters.AddWithValue("@phone", txtPhone.Text.Trim());
                         cmd.Parameters.AddWithValue("@mail", txtEmail.Text.Trim());
                         cmd.Parameters.AddWithValue("@status", chkActive.Checked ? 1 : 0);
+                        cmd.Parameters.AddWithValue("@specialtyId", specialtyId);
                         cmd.Parameters.AddWithValue("@id", id);
                         cmd.ExecuteNonQuery();
                     }
                 }
+
                 LoadTeachers();
                 Toast.Show("SUCCESS", "Дані викладача оновлено успішно!");
             }
-            catch (Exception ex) 
-            { 
-                Toast.Show("ERROR", "Помилка при оновленні");
-                LoggerService.LogError($"Помилка при оновленні: {ex.Message}");
+            catch (Exception ex)
+            {
+                Toast.Show("ERROR", "Помилка при оновленні даних викладача");
+                LoggerService.LogError($"Помилка при оновленні даних викладача: {ex.Message}");
             }
         }
 
@@ -436,6 +596,7 @@ namespace КП_Кафедра.Forms
             btnDeactivateTeacher.Text = LanguageManager.GetString("btnDeactivateTeacher");
             btnUpdateTeacher.Text = LanguageManager.GetString("btnUpdateTeacher");
             txtName.Text = LanguageManager.GetString("txtName");
+            txtSpecialty.Text = LanguageManager.GetString("txtSpecialty");
             txtPosition.Text = LanguageManager.GetString("txtPosition");
             txtPhone.Text = LanguageManager.GetString("txtPhone");
             txtEmail.Text = LanguageManager.GetString("txtEmail");
@@ -451,6 +612,7 @@ namespace КП_Кафедра.Forms
             {
                 { "emp_id", "column_emp_id" },
                 { "emp_full_name", "column_emp_full_name" },
+                { "specialty_name", "column_specialty_name" },
                 { "emp_position", "column_emp_position" },
                 { "emp_hire_date", "column_emp_hire_date" },
                 { "phone_number", "column_phone_number" },
@@ -470,15 +632,13 @@ namespace КП_Кафедра.Forms
 
         public void UpdateGrid(List<Teacher> teachers)
         {
-            DataTable table = new DataTable();
-            table.Columns.Add("emp_id", typeof(int));
-            table.Columns.Add("emp_full_name", typeof(string));
-            table.Columns.Add("emp_position", typeof(string));
-            table.Columns.Add("emp_hire_date", typeof(DateTime));
-            table.Columns.Add("phone_number", typeof(string));
-            table.Columns.Add("email", typeof(string));
+            if (originalTable == null) return;
 
-            foreach (var t in teachers) table.Rows.Add(t.EmpId, t.FullName, t.Position, t.HireDate, t.PhoneNumber, t.Email);
+            DataTable table = originalTable.Clone();
+            foreach (var t in teachers)
+            {
+                table.Rows.Add( t.EmpId, t.FullName, t.Specialty?.SpecialtyName ?? "", t.Position, t.HireDate, t.PhoneNumber, t.Email, 1 );
+            }
 
             dataGridView1.DataSource = table;
         }
@@ -496,6 +656,7 @@ namespace КП_Кафедра.Forms
             var row = dataGridView1.CurrentRow;
 
             txtName.Text = row.Cells["emp_full_name"].Value?.ToString() ?? LanguageManager.GetString("txtName");
+            txtSpecialty.Text = row.Cells["specialty_name"].Value?.ToString() ?? "";
             txtPosition.Text = row.Cells["emp_position"].Value?.ToString() ?? LanguageManager.GetString("txtPosition");
             txtPhone.Text = row.Cells["phone_number"].Value?.ToString() ?? LanguageManager.GetString("txtPhone");
             txtEmail.Text = row.Cells["email"].Value?.ToString() ?? LanguageManager.GetString("txtEmail");
@@ -507,15 +668,13 @@ namespace КП_Кафедра.Forms
             {
                 chkActive.Checked = status == 1;
             }
-            else
-            {
-                chkActive.Checked = false;
-            }
+            else { chkActive.Checked = false; }
         }
 
         private void ClearInputFields()
         {
-            txtName.Text = LanguageManager.GetString("txtName"); 
+            txtName.Text = LanguageManager.GetString("txtName");
+            txtSpecialty.Text = LanguageManager.GetString("txtSpecialty");
             txtPosition.Text = LanguageManager.GetString("txtPosition");
             txtPhone.Text = LanguageManager.GetString("txtPhone");
             txtEmail.Text = LanguageManager.GetString("txtEmail");

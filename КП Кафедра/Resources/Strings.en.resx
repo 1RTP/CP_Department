@@ -297,4 +297,13 @@
   <data name="txtPassword" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="column_specialty_name" xml:space="preserve">
+    <value>Specialty</value>
+  </data>
+  <data name="txtSpecialty" xml:space="preserve">
+    <value>Specialty</value>
+  </data>
+  <data name="column_specialty" xml:space="preserve">
+    <value>Specialty</value>
+  </data>
 </root>

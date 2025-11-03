@@ -18,25 +18,17 @@ using static КП_Кафедра.ToastForm;
 namespace КП_Кафедра
 {
     [Serializable]
-    public class Subject
+    public class Specialty
     {
-        public int SubjectId { get; set; }
-        public string Name { get; set; }
-        public int Semester { get; set; }
-        public int TotalHours { get; set; }
-        public bool Status { get; set; }
+        public int SpecialtyId { get; set; }
+        public string SpecialtyName { get; set; }
 
-        public Subject() { }
-
-        public Subject(int id = 0, string name = "", int sem = 0, int hours = 0, bool st = true) 
-        { 
-            SubjectId = id; 
-            Name = name; 
-            Semester = sem; 
-            TotalHours = hours; 
-            Status = st; 
+        public Specialty() { }
+        public Specialty(int id = 0, string name = "")
+        {
+            SpecialtyId = id;
+            SpecialtyName = name;
         }
-
     }
 
     [Serializable]
@@ -46,8 +38,34 @@ namespace КП_Кафедра
         public string TypeName { get; set; }
 
         public LessonType() { }
-        public LessonType(int id = 0, string typeName = "") { LessonTypeId = id; TypeName = typeName; }
+        public LessonType(int id = 0, string typeName = "")
+        {
+            LessonTypeId = id;
+            TypeName = typeName;
+        }
+    }
 
+    [Serializable]
+    public class Subject
+    {
+        public int SubjectId { get; set; }
+        public string Name { get; set; }
+        public int Semester { get; set; }
+        public int TotalHours { get; set; }
+        public bool Status { get; set; }
+        public Specialty Specialty { get; set; }
+
+        public Subject() { }
+
+        public Subject(int id = 0, string name = "", int sem = 0, int hours = 0, bool st = true)
+        {
+            SubjectId = id;
+            Name = name;
+            Semester = sem;
+            TotalHours = hours;
+            Status = st;
+            Specialty = new Specialty();
+        }
     }
 
     [Serializable]
@@ -60,67 +78,30 @@ namespace КП_Кафедра
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public bool Status { get; set; }
-
-        public Teacher() { }
+        public Specialty Specialty { get; set; }
         public List<Participation> Participations { get; set; }
         public List<Assignment> Assignments { get; set; }
 
-        public Teacher(int id = 0, string name = "") 
-        { 
-            EmpId = id; 
-            FullName = name; 
-            Position = ""; 
-            HireDate = DateTime.MinValue; // DateTime.MinValue - дата ще не задана, DateTime.Now - поточна дата 
-            PhoneNumber = ""; 
-            Email = "";
-            Status = true; 
+        public Teacher()
+        {
             Participations = new List<Participation>();
-            Assignments = new List<Assignment>(); 
+            Assignments = new List<Assignment>();
+            Specialty = new Specialty();
         }
 
-    }
-
-    [Serializable]
-    public class Assignment
-    {
-        public int AssignmentId { get; set; }
-        public int PlanHours { get; set; }
-        public int TaughtHours { get; set; }
-        public DateTime HireDate { get; set; }
-        public bool Status { get; set; }
-
-        [XmlIgnore]
-        public List<Teacher> Teachers { get; set; } 
-
-        public Assignment() { }
-
-        public List<Subject> Subjects { get; set; }
-        public LessonType LessonType { get; set; }
-
-        public Assignment(int id = 0, int plan = 0) 
-        { 
-            AssignmentId = id; 
-            PlanHours = plan; 
-            TaughtHours = 0;
+        public Teacher(int id = 0, string name = "")
+        {
+            EmpId = id;
+            FullName = name;
+            Position = "";
             HireDate = DateTime.MinValue;
-            Status = true; 
-            Teachers = new List<Teacher>(); 
-            Subjects = new List<Subject>(); 
-            LessonType = null; 
+            PhoneNumber = "";
+            Email = "";
+            Status = true;
+            Participations = new List<Participation>();
+            Assignments = new List<Assignment>();
+            Specialty = new Specialty();
         }
-    }
-
-    [Serializable]
-    public class Participation
-    {
-        public int ParticipationId { get; set; }
-        public Research Project { get; set; }
-
-        [XmlIgnore]
-        public Teacher Teacher { get; set; }
-        public Participation() { }
-
-        public Participation(int id = 0, Teacher t = null, Research r = null) { ParticipationId = id; Project = r; Teacher = t; }
     }
 
     [Serializable]
@@ -131,8 +112,14 @@ namespace КП_Кафедра
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public List<Participation> Participants { get; set; }
+        public Specialty Specialty { get; set; }
 
-        public Research() { }
+        public Research()
+        {
+            Participants = new List<Participation>();
+            Specialty = new Specialty();
+        }
+
         public Research(int id = 0, string name = "", DateTime? start = null, DateTime? end = null)
         {
             ResearchId = id;
@@ -140,6 +127,64 @@ namespace КП_Кафедра
             StartDate = start ?? DateTime.MinValue;
             EndDate = end ?? DateTime.MinValue;
             Participants = new List<Participation>();
+            Specialty = new Specialty();
+        }
+    }
+
+    [Serializable]
+    public class Participation
+    {
+        public int ParticipationId { get; set; }
+        public Research Project { get; set; }
+        public Teacher Teacher { get; set; }
+        public Specialty Specialty { get; set; }
+
+        public Participation()
+        {
+            Project = new Research();
+            Teacher = new Teacher();
+            Specialty = new Specialty();
+        }
+
+        public Participation(int id = 0, Teacher t = null, Research r = null)
+        {
+            ParticipationId = id;
+            Teacher = t ?? new Teacher();
+            Project = r ?? new Research();
+            Specialty = new Specialty();
+        }
+    }
+
+    [Serializable]
+    public class Assignment
+    {
+        public int AssignmentId { get; set; }
+        public int PlanHours { get; set; }
+        public int TaughtHours { get; set; }
+        public bool Status { get; set; }
+        public Teacher Teacher { get; set; }
+        public Subject Subject { get; set; }
+        public LessonType LessonType { get; set; }
+        public Specialty Specialty { get; set; }
+
+        public Assignment()
+        {
+            Teacher = new Teacher();
+            Subject = new Subject();
+            LessonType = new LessonType();
+            Specialty = new Specialty();
+        }
+
+        public Assignment(int id = 0, int plan = 0)
+        {
+            AssignmentId = id;
+            PlanHours = plan;
+            TaughtHours = 0;
+            Status = true;
+            Teacher = new Teacher();
+            Subject = new Subject();
+            LessonType = new LessonType();
+            Specialty = new Specialty();
         }
     }
 
@@ -155,9 +200,6 @@ namespace КП_Кафедра
                 string lang = Settings.Default.Language;
                 string culture = lang == "English" ? "en" : "uk";
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo(culture);
-
-                //string dbPath = "Data/department.db";
-                //string sqlInitFile = "Data/init_data.sql";
 
                 string exeDir = AppDomain.CurrentDomain.BaseDirectory;
                 string projectRoot = Path.GetFullPath(Path.Combine(exeDir, "..", ".."));

@@ -9,6 +9,12 @@
       <PhoneNumber>+380116560234</PhoneNumber>
       <Email>iefymenkoustym@gov.ua</Email>
       <Status>false</Status>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+        <SpecialtyName>Медицина</SpecialtyName>
+      </Specialty>
+      <Participations />
+      <Assignments />
     </Teacher>
     <Teacher>
       <EmpId>2</EmpId>
@@ -18,6 +24,12 @@
       <PhoneNumber>+380491392884</PhoneNumber>
       <Email>ktokar@haievskyi.org</Email>
       <Status>false</Status>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+        <SpecialtyName>Медицина</SpecialtyName>
+      </Specialty>
+      <Participations />
+      <Assignments />
     </Teacher>
     <Teacher>
       <EmpId>3</EmpId>
@@ -27,6 +39,12 @@
       <PhoneNumber>+380909155143</PhoneNumber>
       <Email>nikoliuksofiia@i.ua</Email>
       <Status>false</Status>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+        <SpecialtyName>Лабораторна діагностика</SpecialtyName>
+      </Specialty>
+      <Participations />
+      <Assignments />
     </Teacher>
     <Teacher>
       <EmpId>4</EmpId>
@@ -36,6 +54,12 @@
       <PhoneNumber>+380678181010</PhoneNumber>
       <Email>zhelezniaknastia@meta.ua</Email>
       <Status>false</Status>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+        <SpecialtyName>Лабораторна діагностика</SpecialtyName>
+      </Specialty>
+      <Participations />
+      <Assignments />
     </Teacher>
     <Teacher>
       <EmpId>5</EmpId>
@@ -45,6 +69,12 @@
       <PhoneNumber>+380505596609</PhoneNumber>
       <Email>vsolomianko@knu.ua</Email>
       <Status>false</Status>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+        <SpecialtyName>Медицина</SpecialtyName>
+      </Specialty>
+      <Participations />
+      <Assignments />
     </Teacher>
     <Teacher>
       <EmpId>6</EmpId>
@@ -54,6 +84,12 @@
       <PhoneNumber>+380737778899</PhoneNumber>
       <Email>onishchenko@gmail.com</Email>
       <Status>false</Status>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+        <SpecialtyName>Медицина</SpecialtyName>
+      </Specialty>
+      <Participations />
+      <Assignments />
     </Teacher>
     <Teacher>
       <EmpId>7</EmpId>
@@ -63,6 +99,12 @@
       <PhoneNumber>+380972224567</PhoneNumber>
       <Email>okscher@ukr.net</Email>
       <Status>false</Status>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+        <SpecialtyName>Стоматологія</SpecialtyName>
+      </Specialty>
+      <Participations />
+      <Assignments />
     </Teacher>
     <Teacher>
       <EmpId>8</EmpId>
@@ -72,6 +114,12 @@
       <PhoneNumber>+380501234567</PhoneNumber>
       <Email>m.butko@univ.kiev.ua</Email>
       <Status>false</Status>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+        <SpecialtyName>Медицина</SpecialtyName>
+      </Specialty>
+      <Participations />
+      <Assignments />
     </Teacher>
     <Teacher>
       <EmpId>9</EmpId>
@@ -81,6 +129,12 @@
       <PhoneNumber>+380935556677</PhoneNumber>
       <Email>ihor.sych@gmail.com</Email>
       <Status>false</Status>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+        <SpecialtyName>Медицина</SpecialtyName>
+      </Specialty>
+      <Participations />
+      <Assignments />
     </Teacher>
     <Teacher>
       <EmpId>10</EmpId>
@@ -90,6 +144,12 @@
       <PhoneNumber>+380983219876</PhoneNumber>
       <Email>y.pilypenko@edu.ua</Email>
       <Status>false</Status>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+        <SpecialtyName>Медицина</SpecialtyName>
+      </Specialty>
+      <Participations />
+      <Assignments />
     </Teacher>
     <Teacher>
       <EmpId>11</EmpId>
@@ -99,6 +159,12 @@
       <PhoneNumber>+380500001122</PhoneNumber>
       <Email>shev.oleg@kafedra.edu</Email>
       <Status>false</Status>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+        <SpecialtyName>Медицина</SpecialtyName>
+      </Specialty>
+      <Participations />
+      <Assignments />
     </Teacher>
     <Teacher>
       <EmpId>12</EmpId>
@@ -108,6 +174,12 @@
       <PhoneNumber>+380998887766</PhoneNumber>
       <Email>n.korol@edu.ua</Email>
       <Status>false</Status>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+        <SpecialtyName>Медицина</SpecialtyName>
+      </Specialty>
+      <Participations />
+      <Assignments />
     </Teacher>
     <Teacher>
       <EmpId>13</EmpId>
@@ -117,6 +189,12 @@
       <PhoneNumber>+380970012345</PhoneNumber>
       <Email>r.koval@kafedra.ua</Email>
       <Status>false</Status>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+        <SpecialtyName>Стоматологія</SpecialtyName>
+      </Specialty>
+      <Participations />
+      <Assignments />
     </Teacher>
     <Teacher>
       <EmpId>14</EmpId>
@@ -126,6 +204,12 @@
       <PhoneNumber>+380931112233</PhoneNumber>
       <Email>t.bondar@univ.edu</Email>
       <Status>false</Status>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+        <SpecialtyName>Лабораторна діагностика</SpecialtyName>
+      </Specialty>
+      <Participations />
+      <Assignments />
     </Teacher>
     <Teacher>
       <EmpId>15</EmpId>
@@ -135,6 +219,12 @@
       <PhoneNumber>+380955556677</PhoneNumber>
       <Email>s.ishchenko@kafedra.ua</Email>
       <Status>false</Status>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+        <SpecialtyName>Медицина</SpecialtyName>
+      </Specialty>
+      <Participations />
+      <Assignments />
     </Teacher>
     <Teacher>
       <EmpId>16</EmpId>
@@ -144,6 +234,12 @@
       <PhoneNumber>+380739876543</PhoneNumber>
       <Email>l.kozak@edu.ua</Email>
       <Status>false</Status>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+        <SpecialtyName>Сестринська справа</SpecialtyName>
+      </Specialty>
+      <Participations />
+      <Assignments />
     </Teacher>
     <Teacher>
       <EmpId>17</EmpId>
@@ -153,6 +249,12 @@
       <PhoneNumber>+380671112233</PhoneNumber>
       <Email>a.bilyi@kpi.ua</Email>
       <Status>false</Status>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+        <SpecialtyName>Медицина</SpecialtyName>
+      </Specialty>
+      <Participations />
+      <Assignments />
     </Teacher>
     <Teacher>
       <EmpId>18</EmpId>
@@ -162,6 +264,12 @@
       <PhoneNumber>+380502223344</PhoneNumber>
       <Email>i.humeniuk@edu.ua</Email>
       <Status>false</Status>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+        <SpecialtyName>Лабораторна діагностика</SpecialtyName>
+      </Specialty>
+      <Participations />
+      <Assignments />
     </Teacher>
     <Teacher>
       <EmpId>19</EmpId>
@@ -171,6 +279,12 @@
       <PhoneNumber>+380974445566</PhoneNumber>
       <Email>d.polishchuk@kafedra.ua</Email>
       <Status>false</Status>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+        <SpecialtyName>Лабораторна діагностика</SpecialtyName>
+      </Specialty>
+      <Participations />
+      <Assignments />
     </Teacher>
     <Teacher>
       <EmpId>20</EmpId>
@@ -180,6 +294,12 @@
       <PhoneNumber>+380937891234</PhoneNumber>
       <Email>h.synytsia@edu.ua</Email>
       <Status>false</Status>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+        <SpecialtyName>Медицина</SpecialtyName>
+      </Specialty>
+      <Participations />
+      <Assignments />
     </Teacher>
   </Teachers>
   <Subjects>
@@ -189,6 +309,10 @@
       <Semester>6</Semester>
       <TotalHours>120</TotalHours>
       <Status>true</Status>
+      <Specialty>
+        <SpecialtyId>1</SpecialtyId>
+        <SpecialtyName>Медицина</SpecialtyName>
+      </Specialty>
     </Subject>
     <Subject>
       <SubjectId>2</SubjectId>
@@ -196,6 +320,10 @@
       <Semester>6</Semester>
       <TotalHours>120</TotalHours>
       <Status>true</Status>
+      <Specialty>
+        <SpecialtyId>1</SpecialtyId>
+        <SpecialtyName>Медицина</SpecialtyName>
+      </Specialty>
     </Subject>
     <Subject>
       <SubjectId>3</SubjectId>
@@ -203,6 +331,10 @@
       <Semester>4</Semester>
       <TotalHours>90</TotalHours>
       <Status>true</Status>
+      <Specialty>
+        <SpecialtyId>2</SpecialtyId>
+        <SpecialtyName>Стоматологія</SpecialtyName>
+      </Specialty>
     </Subject>
     <Subject>
       <SubjectId>4</SubjectId>
@@ -210,6 +342,10 @@
       <Semester>6</Semester>
       <TotalHours>90</TotalHours>
       <Status>true</Status>
+      <Specialty>
+        <SpecialtyId>2</SpecialtyId>
+        <SpecialtyName>Стоматологія</SpecialtyName>
+      </Specialty>
     </Subject>
     <Subject>
       <SubjectId>5</SubjectId>
@@ -217,6 +353,10 @@
       <Semester>4</Semester>
       <TotalHours>80</TotalHours>
       <Status>true</Status>
+      <Specialty>
+        <SpecialtyId>4</SpecialtyId>
+        <SpecialtyName>Лабораторна діагностика</SpecialtyName>
+      </Specialty>
     </Subject>
     <Subject>
       <SubjectId>6</SubjectId>
@@ -224,6 +364,10 @@
       <Semester>6</Semester>
       <TotalHours>80</TotalHours>
       <Status>true</Status>
+      <Specialty>
+        <SpecialtyId>4</SpecialtyId>
+        <SpecialtyName>Лабораторна діагностика</SpecialtyName>
+      </Specialty>
     </Subject>
     <Subject>
       <SubjectId>7</SubjectId>
@@ -231,6 +375,10 @@
       <Semester>6</Semester>
       <TotalHours>100</TotalHours>
       <Status>true</Status>
+      <Specialty>
+        <SpecialtyId>3</SpecialtyId>
+        <SpecialtyName>Педіатрія</SpecialtyName>
+      </Specialty>
     </Subject>
     <Subject>
       <SubjectId>8</SubjectId>
@@ -238,6 +386,10 @@
       <Semester>4</Semester>
       <TotalHours>110</TotalHours>
       <Status>true</Status>
+      <Specialty>
+        <SpecialtyId>5</SpecialtyId>
+        <SpecialtyName>Фізична терапія</SpecialtyName>
+      </Specialty>
     </Subject>
     <Subject>
       <SubjectId>9</SubjectId>
@@ -245,6 +397,10 @@
       <Semester>4</Semester>
       <TotalHours>90</TotalHours>
       <Status>true</Status>
+      <Specialty>
+        <SpecialtyId>6</SpecialtyId>
+        <SpecialtyName>Сестринська справа</SpecialtyName>
+      </Specialty>
     </Subject>
     <Subject>
       <SubjectId>10</SubjectId>
@@ -252,6 +408,10 @@
       <Semester>4</Semester>
       <TotalHours>90</TotalHours>
       <Status>true</Status>
+      <Specialty>
+        <SpecialtyId>6</SpecialtyId>
+        <SpecialtyName>Сестринська справа</SpecialtyName>
+      </Specialty>
     </Subject>
     <Subject>
       <SubjectId>11</SubjectId>
@@ -259,6 +419,10 @@
       <Semester>8</Semester>
       <TotalHours>100</TotalHours>
       <Status>true</Status>
+      <Specialty>
+        <SpecialtyId>1</SpecialtyId>
+        <SpecialtyName>Медицина</SpecialtyName>
+      </Specialty>
     </Subject>
     <Subject>
       <SubjectId>12</SubjectId>
@@ -266,6 +430,10 @@
       <Semester>8</Semester>
       <TotalHours>100</TotalHours>
       <Status>true</Status>
+      <Specialty>
+        <SpecialtyId>2</SpecialtyId>
+        <SpecialtyName>Стоматологія</SpecialtyName>
+      </Specialty>
     </Subject>
     <Subject>
       <SubjectId>13</SubjectId>
@@ -273,6 +441,10 @@
       <Semester>2</Semester>
       <TotalHours>60</TotalHours>
       <Status>true</Status>
+      <Specialty>
+        <SpecialtyId>6</SpecialtyId>
+        <SpecialtyName>Сестринська справа</SpecialtyName>
+      </Specialty>
     </Subject>
     <Subject>
       <SubjectId>14</SubjectId>
@@ -280,6 +452,10 @@
       <Semester>6</Semester>
       <TotalHours>90</TotalHours>
       <Status>true</Status>
+      <Specialty>
+        <SpecialtyId>2</SpecialtyId>
+        <SpecialtyName>Стоматологія</SpecialtyName>
+      </Specialty>
     </Subject>
     <Subject>
       <SubjectId>15</SubjectId>
@@ -287,411 +463,714 @@
       <Semester>6</Semester>
       <TotalHours>120</TotalHours>
       <Status>true</Status>
+      <Specialty>
+        <SpecialtyId>1</SpecialtyId>
+        <SpecialtyName>Медицина</SpecialtyName>
+      </Specialty>
     </Subject>
   </Subjects>
   <Assignments>
     <Assignment>
-      <AssignmentId>1</AssignmentId>
-      <PlanHours>40</PlanHours>
-      <TaughtHours>30</TaughtHours>
-      <HireDate>0001-01-01T00:00:00</HireDate>
-      <Status>true</Status>
-      <Subjects>
-        <Subject>
-          <SubjectId>0</SubjectId>
-          <Name>Патологічна фізіологія (Медицина)</Name>
-          <Semester>0</Semester>
-          <TotalHours>0</TotalHours>
-          <Status>false</Status>
-        </Subject>
-      </Subjects>
-      <LessonType>
-        <LessonTypeId>0</LessonTypeId>
-        <TypeName>Лекція</TypeName>
-      </LessonType>
-    </Assignment>
-    <Assignment>
-      <AssignmentId>2</AssignmentId>
-      <PlanHours>30</PlanHours>
-      <TaughtHours>28</TaughtHours>
-      <HireDate>0001-01-01T00:00:00</HireDate>
-      <Status>true</Status>
-      <Subjects>
-        <Subject>
-          <SubjectId>0</SubjectId>
-          <Name>Патологічна фізіологія (Медицина, іноземні студенти)</Name>
-          <Semester>0</Semester>
-          <TotalHours>0</TotalHours>
-          <Status>false</Status>
-        </Subject>
-      </Subjects>
-      <LessonType>
-        <LessonTypeId>0</LessonTypeId>
-        <TypeName>Практичне заняття</TypeName>
-      </LessonType>
-    </Assignment>
-    <Assignment>
-      <AssignmentId>3</AssignmentId>
-      <PlanHours>45</PlanHours>
-      <TaughtHours>45</TaughtHours>
-      <HireDate>0001-01-01T00:00:00</HireDate>
-      <Status>true</Status>
-      <Subjects>
-        <Subject>
-          <SubjectId>0</SubjectId>
-          <Name>Патологічна фізіологія (Стоматологія, 2 курс)</Name>
-          <Semester>0</Semester>
-          <TotalHours>0</TotalHours>
-          <Status>false</Status>
-        </Subject>
-      </Subjects>
-      <LessonType>
-        <LessonTypeId>0</LessonTypeId>
-        <TypeName>Лабораторне заняття</TypeName>
-      </LessonType>
-    </Assignment>
-    <Assignment>
-      <AssignmentId>4</AssignmentId>
-      <PlanHours>35</PlanHours>
-      <TaughtHours>32</TaughtHours>
-      <HireDate>0001-01-01T00:00:00</HireDate>
-      <Status>true</Status>
-      <Subjects>
-        <Subject>
-          <SubjectId>0</SubjectId>
-          <Name>Патологічна фізіологія (Стоматологія, 3 курс)</Name>
-          <Semester>0</Semester>
-          <TotalHours>0</TotalHours>
-          <Status>false</Status>
-        </Subject>
-      </Subjects>
-      <LessonType>
-        <LessonTypeId>0</LessonTypeId>
-        <TypeName>Лекція</TypeName>
-      </LessonType>
-    </Assignment>
-    <Assignment>
-      <AssignmentId>5</AssignmentId>
-      <PlanHours>25</PlanHours>
-      <TaughtHours>20</TaughtHours>
-      <HireDate>0001-01-01T00:00:00</HireDate>
-      <Status>true</Status>
-      <Subjects>
-        <Subject>
-          <SubjectId>0</SubjectId>
-          <Name>Патологічна фізіологія (Лабораторна діагностика, 2 курс)</Name>
-          <Semester>0</Semester>
-          <TotalHours>0</TotalHours>
-          <Status>false</Status>
-        </Subject>
-      </Subjects>
-      <LessonType>
-        <LessonTypeId>0</LessonTypeId>
-        <TypeName>Практичне заняття</TypeName>
-      </LessonType>
-    </Assignment>
-    <Assignment>
-      <AssignmentId>6</AssignmentId>
-      <PlanHours>50</PlanHours>
-      <TaughtHours>40</TaughtHours>
-      <HireDate>0001-01-01T00:00:00</HireDate>
-      <Status>true</Status>
-      <Subjects>
-        <Subject>
-          <SubjectId>0</SubjectId>
-          <Name>Патологічна фізіологія (Лабораторна діагностика, 3 курс)</Name>
-          <Semester>0</Semester>
-          <TotalHours>0</TotalHours>
-          <Status>false</Status>
-        </Subject>
-      </Subjects>
-      <LessonType>
-        <LessonTypeId>0</LessonTypeId>
-        <TypeName>Лабораторне заняття</TypeName>
-      </LessonType>
-    </Assignment>
-    <Assignment>
-      <AssignmentId>7</AssignmentId>
-      <PlanHours>60</PlanHours>
-      <TaughtHours>60</TaughtHours>
-      <HireDate>0001-01-01T00:00:00</HireDate>
-      <Status>true</Status>
-      <Subjects>
-        <Subject>
-          <SubjectId>0</SubjectId>
-          <Name>Патофізіологія з особливостями дитячого віку (Педіатрія)</Name>
-          <Semester>0</Semester>
-          <TotalHours>0</TotalHours>
-          <Status>false</Status>
-        </Subject>
-      </Subjects>
-      <LessonType>
-        <LessonTypeId>0</LessonTypeId>
-        <TypeName>Лекція</TypeName>
-      </LessonType>
-    </Assignment>
-    <Assignment>
       <AssignmentId>8</AssignmentId>
       <PlanHours>30</PlanHours>
       <TaughtHours>25</TaughtHours>
-      <HireDate>0001-01-01T00:00:00</HireDate>
-      <Status>true</Status>
-      <Subjects>
-        <Subject>
-          <SubjectId>0</SubjectId>
-          <Name>Нормальна фізіологія людини та патологічна фізіологія (Фізична терапія)</Name>
-          <Semester>0</Semester>
-          <TotalHours>0</TotalHours>
-          <Status>false</Status>
-        </Subject>
-      </Subjects>
+      <Status>false</Status>
+      <Teacher>
+        <EmpId>5</EmpId>
+        <FullName>Євгенія Мельниченко</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Subject>
+        <SubjectId>4</SubjectId>
+        <Name>Патологічна фізіологія (Стоматологія, 3 курс)</Name>
+        <Semester>0</Semester>
+        <TotalHours>0</TotalHours>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>2</SpecialtyId>
+          <SpecialtyName>Стоматологія</SpecialtyName>
+        </Specialty>
+      </Subject>
       <LessonType>
-        <LessonTypeId>0</LessonTypeId>
+        <LessonTypeId>4</LessonTypeId>
         <TypeName>Семінар</TypeName>
       </LessonType>
-    </Assignment>
-    <Assignment>
-      <AssignmentId>9</AssignmentId>
-      <PlanHours>40</PlanHours>
-      <TaughtHours>30</TaughtHours>
-      <HireDate>0001-01-01T00:00:00</HireDate>
-      <Status>true</Status>
-      <Subjects>
-        <Subject>
-          <SubjectId>0</SubjectId>
-          <Name>Патоморфологія та патофізіологія (Сестринська справа)</Name>
-          <Semester>0</Semester>
-          <TotalHours>0</TotalHours>
-          <Status>false</Status>
-        </Subject>
-      </Subjects>
-      <LessonType>
-        <LessonTypeId>0</LessonTypeId>
-        <TypeName>Практичне заняття</TypeName>
-      </LessonType>
-    </Assignment>
-    <Assignment>
-      <AssignmentId>10</AssignmentId>
-      <PlanHours>45</PlanHours>
-      <TaughtHours>45</TaughtHours>
-      <HireDate>0001-01-01T00:00:00</HireDate>
-      <Status>true</Status>
-      <Subjects>
-        <Subject>
-          <SubjectId>0</SubjectId>
-          <Name>Патоморфологія та патофізіологія (Сестринська справа, іноземці)</Name>
-          <Semester>0</Semester>
-          <TotalHours>0</TotalHours>
-          <Status>false</Status>
-        </Subject>
-      </Subjects>
-      <LessonType>
-        <LessonTypeId>0</LessonTypeId>
-        <TypeName>Лекція</TypeName>
-      </LessonType>
-    </Assignment>
-    <Assignment>
-      <AssignmentId>11</AssignmentId>
-      <PlanHours>35</PlanHours>
-      <TaughtHours>20</TaughtHours>
-      <HireDate>0001-01-01T00:00:00</HireDate>
-      <Status>true</Status>
-      <Subjects>
-        <Subject>
-          <SubjectId>0</SubjectId>
-          <Name>Клінічна патофізіологія (Медицина, 4 курс)</Name>
-          <Semester>0</Semester>
-          <TotalHours>0</TotalHours>
-          <Status>false</Status>
-        </Subject>
-      </Subjects>
-      <LessonType>
-        <LessonTypeId>0</LessonTypeId>
-        <TypeName>Лабораторне заняття</TypeName>
-      </LessonType>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
     </Assignment>
     <Assignment>
       <AssignmentId>12</AssignmentId>
       <PlanHours>50</PlanHours>
       <TaughtHours>48</TaughtHours>
-      <HireDate>0001-01-01T00:00:00</HireDate>
-      <Status>true</Status>
-      <Subjects>
-        <Subject>
-          <SubjectId>0</SubjectId>
-          <Name>Клінічна патофізіологія (Стоматологія, 4 курс)</Name>
-          <Semester>0</Semester>
-          <TotalHours>0</TotalHours>
-          <Status>false</Status>
-        </Subject>
-      </Subjects>
+      <Status>false</Status>
+      <Teacher>
+        <EmpId>9</EmpId>
+        <FullName>Ігор Сич</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Subject>
+        <SubjectId>12</SubjectId>
+        <Name>Клінічна патофізіологія (Стоматологія, 4 курс)</Name>
+        <Semester>0</Semester>
+        <TotalHours>0</TotalHours>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>2</SpecialtyId>
+          <SpecialtyName>Стоматологія</SpecialtyName>
+        </Specialty>
+      </Subject>
       <LessonType>
-        <LessonTypeId>0</LessonTypeId>
+        <LessonTypeId>1</LessonTypeId>
         <TypeName>Лекція</TypeName>
       </LessonType>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
     </Assignment>
     <Assignment>
-      <AssignmentId>13</AssignmentId>
-      <PlanHours>30</PlanHours>
+      <AssignmentId>9</AssignmentId>
+      <PlanHours>40</PlanHours>
       <TaughtHours>30</TaughtHours>
-      <HireDate>0001-01-01T00:00:00</HireDate>
-      <Status>true</Status>
-      <Subjects>
-        <Subject>
-          <SubjectId>0</SubjectId>
-          <Name>Клінічна патофізіологія (Медсестринство, заочна форма)</Name>
-          <Semester>0</Semester>
-          <TotalHours>0</TotalHours>
-          <Status>false</Status>
-        </Subject>
-      </Subjects>
+      <Status>false</Status>
+      <Teacher>
+        <EmpId>6</EmpId>
+        <FullName>Андрій Онищенко</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Subject>
+        <SubjectId>9</SubjectId>
+        <Name>Патоморфологія та патофізіологія (Сестринська справа)</Name>
+        <Semester>0</Semester>
+        <TotalHours>0</TotalHours>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>6</SpecialtyId>
+          <SpecialtyName>Сестринська справа</SpecialtyName>
+        </Specialty>
+      </Subject>
       <LessonType>
-        <LessonTypeId>0</LessonTypeId>
+        <LessonTypeId>2</LessonTypeId>
         <TypeName>Практичне заняття</TypeName>
       </LessonType>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
     </Assignment>
     <Assignment>
-      <AssignmentId>14</AssignmentId>
-      <PlanHours>40</PlanHours>
-      <TaughtHours>35</TaughtHours>
-      <HireDate>0001-01-01T00:00:00</HireDate>
-      <Status>true</Status>
-      <Subjects>
-        <Subject>
-          <SubjectId>0</SubjectId>
-          <Name>Патофізіологія англійською (Stomatology, 3 курс)</Name>
-          <Semester>0</Semester>
-          <TotalHours>0</TotalHours>
-          <Status>false</Status>
-        </Subject>
-      </Subjects>
-      <LessonType>
-        <LessonTypeId>0</LessonTypeId>
-        <TypeName>Семінар</TypeName>
-      </LessonType>
-    </Assignment>
-    <Assignment>
-      <AssignmentId>15</AssignmentId>
+      <AssignmentId>7</AssignmentId>
       <PlanHours>60</PlanHours>
-      <TaughtHours>50</TaughtHours>
-      <HireDate>0001-01-01T00:00:00</HireDate>
-      <Status>true</Status>
-      <Subjects>
-        <Subject>
-          <SubjectId>0</SubjectId>
-          <Name>Патофізіологія англійською (Medicine, 3 курс)</Name>
-          <Semester>0</Semester>
-          <TotalHours>0</TotalHours>
-          <Status>false</Status>
-        </Subject>
-      </Subjects>
+      <TaughtHours>60</TaughtHours>
+      <Status>false</Status>
+      <Teacher>
+        <EmpId>4</EmpId>
+        <FullName>Валерія Дробович</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Subject>
+        <SubjectId>7</SubjectId>
+        <Name>Патофізіологія з особливостями дитячого віку (Педіатрія)</Name>
+        <Semester>0</Semester>
+        <TotalHours>0</TotalHours>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>3</SpecialtyId>
+          <SpecialtyName>Педіатрія</SpecialtyName>
+        </Specialty>
+      </Subject>
       <LessonType>
-        <LessonTypeId>0</LessonTypeId>
+        <LessonTypeId>1</LessonTypeId>
         <TypeName>Лекція</TypeName>
       </LessonType>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
     </Assignment>
     <Assignment>
-      <AssignmentId>16</AssignmentId>
-      <PlanHours>40</PlanHours>
-      <TaughtHours>38</TaughtHours>
-      <HireDate>0001-01-01T00:00:00</HireDate>
-      <Status>true</Status>
-      <Subjects>
-        <Subject>
-          <SubjectId>0</SubjectId>
-          <Name>Патологічна фізіологія (Медицина)</Name>
-          <Semester>0</Semester>
-          <TotalHours>0</TotalHours>
-          <Status>false</Status>
-        </Subject>
-      </Subjects>
+      <AssignmentId>3</AssignmentId>
+      <PlanHours>45</PlanHours>
+      <TaughtHours>45</TaughtHours>
+      <Status>false</Status>
+      <Teacher>
+        <EmpId>2</EmpId>
+        <FullName>Камілла Ващук</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Subject>
+        <SubjectId>3</SubjectId>
+        <Name>Патологічна фізіологія (Стоматологія, 2 курс)</Name>
+        <Semester>0</Semester>
+        <TotalHours>0</TotalHours>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>2</SpecialtyId>
+          <SpecialtyName>Стоматологія</SpecialtyName>
+        </Specialty>
+      </Subject>
       <LessonType>
-        <LessonTypeId>0</LessonTypeId>
-        <TypeName>Практичне заняття</TypeName>
-      </LessonType>
-    </Assignment>
-    <Assignment>
-      <AssignmentId>17</AssignmentId>
-      <PlanHours>50</PlanHours>
-      <TaughtHours>47</TaughtHours>
-      <HireDate>0001-01-01T00:00:00</HireDate>
-      <Status>true</Status>
-      <Subjects>
-        <Subject>
-          <SubjectId>0</SubjectId>
-          <Name>Патологічна фізіологія (Стоматологія, 2 курс)</Name>
-          <Semester>0</Semester>
-          <TotalHours>0</TotalHours>
-          <Status>false</Status>
-        </Subject>
-      </Subjects>
-      <LessonType>
-        <LessonTypeId>0</LessonTypeId>
+        <LessonTypeId>3</LessonTypeId>
         <TypeName>Лабораторне заняття</TypeName>
       </LessonType>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
     </Assignment>
     <Assignment>
-      <AssignmentId>18</AssignmentId>
-      <PlanHours>30</PlanHours>
-      <TaughtHours>28</TaughtHours>
-      <HireDate>0001-01-01T00:00:00</HireDate>
-      <Status>true</Status>
-      <Subjects>
-        <Subject>
-          <SubjectId>0</SubjectId>
-          <Name>Патологічна фізіологія (Лабораторна діагностика, 2 курс)</Name>
-          <Semester>0</Semester>
-          <TotalHours>0</TotalHours>
-          <Status>false</Status>
-        </Subject>
-      </Subjects>
+      <AssignmentId>4</AssignmentId>
+      <PlanHours>35</PlanHours>
+      <TaughtHours>32</TaughtHours>
+      <Status>false</Status>
+      <Teacher>
+        <EmpId>2</EmpId>
+        <FullName>Камілла Ващук</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Subject>
+        <SubjectId>4</SubjectId>
+        <Name>Патологічна фізіологія (Стоматологія, 3 курс)</Name>
+        <Semester>0</Semester>
+        <TotalHours>0</TotalHours>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>2</SpecialtyId>
+          <SpecialtyName>Стоматологія</SpecialtyName>
+        </Specialty>
+      </Subject>
       <LessonType>
-        <LessonTypeId>0</LessonTypeId>
+        <LessonTypeId>1</LessonTypeId>
         <TypeName>Лекція</TypeName>
       </LessonType>
-    </Assignment>
-    <Assignment>
-      <AssignmentId>19</AssignmentId>
-      <PlanHours>25</PlanHours>
-      <TaughtHours>24</TaughtHours>
-      <HireDate>0001-01-01T00:00:00</HireDate>
-      <Status>true</Status>
-      <Subjects>
-        <Subject>
-          <SubjectId>0</SubjectId>
-          <Name>Патологічна фізіологія (Лабораторна діагностика, 3 курс)</Name>
-          <Semester>0</Semester>
-          <TotalHours>0</TotalHours>
-          <Status>false</Status>
-        </Subject>
-      </Subjects>
-      <LessonType>
-        <LessonTypeId>0</LessonTypeId>
-        <TypeName>Семінар</TypeName>
-      </LessonType>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
     </Assignment>
     <Assignment>
       <AssignmentId>20</AssignmentId>
       <PlanHours>45</PlanHours>
       <TaughtHours>42</TaughtHours>
-      <HireDate>0001-01-01T00:00:00</HireDate>
-      <Status>true</Status>
-      <Subjects>
-        <Subject>
-          <SubjectId>0</SubjectId>
-          <Name>Патофізіологія з особливостями дитячого віку (Педіатрія)</Name>
-          <Semester>0</Semester>
-          <TotalHours>0</TotalHours>
-          <Status>false</Status>
-        </Subject>
-      </Subjects>
+      <Status>false</Status>
+      <Teacher>
+        <EmpId>2</EmpId>
+        <FullName>Камілла Ващук</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Subject>
+        <SubjectId>7</SubjectId>
+        <Name>Патофізіологія з особливостями дитячого віку (Педіатрія)</Name>
+        <Semester>0</Semester>
+        <TotalHours>0</TotalHours>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>3</SpecialtyId>
+          <SpecialtyName>Педіатрія</SpecialtyName>
+        </Specialty>
+      </Subject>
       <LessonType>
-        <LessonTypeId>0</LessonTypeId>
+        <LessonTypeId>2</LessonTypeId>
         <TypeName>Практичне заняття</TypeName>
       </LessonType>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
+    </Assignment>
+    <Assignment>
+      <AssignmentId>11</AssignmentId>
+      <PlanHours>35</PlanHours>
+      <TaughtHours>20</TaughtHours>
+      <Status>false</Status>
+      <Teacher>
+        <EmpId>8</EmpId>
+        <FullName>Максим Бутко</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Subject>
+        <SubjectId>11</SubjectId>
+        <Name>Клінічна патофізіологія (Медицина, 4 курс)</Name>
+        <Semester>0</Semester>
+        <TotalHours>0</TotalHours>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>1</SpecialtyId>
+          <SpecialtyName>Медицина</SpecialtyName>
+        </Specialty>
+      </Subject>
+      <LessonType>
+        <LessonTypeId>3</LessonTypeId>
+        <TypeName>Лабораторне заняття</TypeName>
+      </LessonType>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
+    </Assignment>
+    <Assignment>
+      <AssignmentId>1</AssignmentId>
+      <PlanHours>44</PlanHours>
+      <TaughtHours>33</TaughtHours>
+      <Status>false</Status>
+      <Teacher>
+        <EmpId>3</EmpId>
+        <FullName>Марія Овсієнко</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Subject>
+        <SubjectId>8</SubjectId>
+        <Name>Нормальна фізіологія людини та патологічна фізіологія (Фізична терапія)</Name>
+        <Semester>0</Semester>
+        <TotalHours>0</TotalHours>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>5</SpecialtyId>
+          <SpecialtyName>Фізична терапія</SpecialtyName>
+        </Specialty>
+      </Subject>
+      <LessonType>
+        <LessonTypeId>2</LessonTypeId>
+        <TypeName>Практичне заняття</TypeName>
+      </LessonType>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
+    </Assignment>
+    <Assignment>
+      <AssignmentId>5</AssignmentId>
+      <PlanHours>25</PlanHours>
+      <TaughtHours>20</TaughtHours>
+      <Status>false</Status>
+      <Teacher>
+        <EmpId>3</EmpId>
+        <FullName>Марія Овсієнко</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Subject>
+        <SubjectId>5</SubjectId>
+        <Name>Патологічна фізіологія (Лабораторна діагностика, 2 курс)</Name>
+        <Semester>0</Semester>
+        <TotalHours>0</TotalHours>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>4</SpecialtyId>
+          <SpecialtyName>Лабораторна діагностика</SpecialtyName>
+        </Specialty>
+      </Subject>
+      <LessonType>
+        <LessonTypeId>2</LessonTypeId>
+        <TypeName>Практичне заняття</TypeName>
+      </LessonType>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
+    </Assignment>
+    <Assignment>
+      <AssignmentId>6</AssignmentId>
+      <PlanHours>50</PlanHours>
+      <TaughtHours>40</TaughtHours>
+      <Status>false</Status>
+      <Teacher>
+        <EmpId>3</EmpId>
+        <FullName>Марія Овсієнко</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Subject>
+        <SubjectId>6</SubjectId>
+        <Name>Патологічна фізіологія (Лабораторна діагностика, 3 курс)</Name>
+        <Semester>0</Semester>
+        <TotalHours>0</TotalHours>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>4</SpecialtyId>
+          <SpecialtyName>Лабораторна діагностика</SpecialtyName>
+        </Specialty>
+      </Subject>
+      <LessonType>
+        <LessonTypeId>3</LessonTypeId>
+        <TypeName>Лабораторне заняття</TypeName>
+      </LessonType>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
+    </Assignment>
+    <Assignment>
+      <AssignmentId>15</AssignmentId>
+      <PlanHours>60</PlanHours>
+      <TaughtHours>50</TaughtHours>
+      <Status>false</Status>
+      <Teacher>
+        <EmpId>12</EmpId>
+        <FullName>Наталя Король</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Subject>
+        <SubjectId>15</SubjectId>
+        <Name>Патофізіологія англійською (Medicine, 3 курс)</Name>
+        <Semester>0</Semester>
+        <TotalHours>0</TotalHours>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>1</SpecialtyId>
+          <SpecialtyName>Медицина</SpecialtyName>
+        </Specialty>
+      </Subject>
+      <LessonType>
+        <LessonTypeId>1</LessonTypeId>
+        <TypeName>Лекція</TypeName>
+      </LessonType>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
+    </Assignment>
+    <Assignment>
+      <AssignmentId>10</AssignmentId>
+      <PlanHours>45</PlanHours>
+      <TaughtHours>45</TaughtHours>
+      <Status>false</Status>
+      <Teacher>
+        <EmpId>7</EmpId>
+        <FullName>Оксана Черевко</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Subject>
+        <SubjectId>10</SubjectId>
+        <Name>Патоморфологія та патофізіологія (Сестринська справа, іноземці)</Name>
+        <Semester>0</Semester>
+        <TotalHours>0</TotalHours>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>6</SpecialtyId>
+          <SpecialtyName>Сестринська справа</SpecialtyName>
+        </Specialty>
+      </Subject>
+      <LessonType>
+        <LessonTypeId>1</LessonTypeId>
+        <TypeName>Лекція</TypeName>
+      </LessonType>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
+    </Assignment>
+    <Assignment>
+      <AssignmentId>14</AssignmentId>
+      <PlanHours>40</PlanHours>
+      <TaughtHours>35</TaughtHours>
+      <Status>false</Status>
+      <Teacher>
+        <EmpId>11</EmpId>
+        <FullName>Олег Шевченко</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Subject>
+        <SubjectId>14</SubjectId>
+        <Name>Патофізіологія англійською (Stomatology, 3 курс)</Name>
+        <Semester>0</Semester>
+        <TotalHours>0</TotalHours>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>2</SpecialtyId>
+          <SpecialtyName>Стоматологія</SpecialtyName>
+        </Specialty>
+      </Subject>
+      <LessonType>
+        <LessonTypeId>4</LessonTypeId>
+        <TypeName>Семінар</TypeName>
+      </LessonType>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
+    </Assignment>
+    <Assignment>
+      <AssignmentId>2</AssignmentId>
+      <PlanHours>30</PlanHours>
+      <TaughtHours>28</TaughtHours>
+      <Status>false</Status>
+      <Teacher>
+        <EmpId>1</EmpId>
+        <FullName>Панас Овчаренко</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Subject>
+        <SubjectId>2</SubjectId>
+        <Name>Патологічна фізіологія (Медицина, іноземні студенти)</Name>
+        <Semester>0</Semester>
+        <TotalHours>0</TotalHours>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>1</SpecialtyId>
+          <SpecialtyName>Медицина</SpecialtyName>
+        </Specialty>
+      </Subject>
+      <LessonType>
+        <LessonTypeId>2</LessonTypeId>
+        <TypeName>Практичне заняття</TypeName>
+      </LessonType>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
+    </Assignment>
+    <Assignment>
+      <AssignmentId>19</AssignmentId>
+      <PlanHours>25</PlanHours>
+      <TaughtHours>24</TaughtHours>
+      <Status>false</Status>
+      <Teacher>
+        <EmpId>1</EmpId>
+        <FullName>Панас Овчаренко</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Subject>
+        <SubjectId>6</SubjectId>
+        <Name>Патологічна фізіологія (Лабораторна діагностика, 3 курс)</Name>
+        <Semester>0</Semester>
+        <TotalHours>0</TotalHours>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>4</SpecialtyId>
+          <SpecialtyName>Лабораторна діагностика</SpecialtyName>
+        </Specialty>
+      </Subject>
+      <LessonType>
+        <LessonTypeId>4</LessonTypeId>
+        <TypeName>Семінар</TypeName>
+      </LessonType>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
+    </Assignment>
+    <Assignment>
+      <AssignmentId>16</AssignmentId>
+      <PlanHours>40</PlanHours>
+      <TaughtHours>38</TaughtHours>
+      <Status>false</Status>
+      <Teacher>
+        <EmpId>13</EmpId>
+        <FullName>Руслан Коваль</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Subject>
+        <SubjectId>1</SubjectId>
+        <Name>Патологічна фізіологія (Медицина)</Name>
+        <Semester>0</Semester>
+        <TotalHours>0</TotalHours>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>1</SpecialtyId>
+          <SpecialtyName>Медицина</SpecialtyName>
+        </Specialty>
+      </Subject>
+      <LessonType>
+        <LessonTypeId>2</LessonTypeId>
+        <TypeName>Практичне заняття</TypeName>
+      </LessonType>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
+    </Assignment>
+    <Assignment>
+      <AssignmentId>18</AssignmentId>
+      <PlanHours>30</PlanHours>
+      <TaughtHours>28</TaughtHours>
+      <Status>false</Status>
+      <Teacher>
+        <EmpId>15</EmpId>
+        <FullName>Сергій Іщенко</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Subject>
+        <SubjectId>5</SubjectId>
+        <Name>Патологічна фізіологія (Лабораторна діагностика, 2 курс)</Name>
+        <Semester>0</Semester>
+        <TotalHours>0</TotalHours>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>4</SpecialtyId>
+          <SpecialtyName>Лабораторна діагностика</SpecialtyName>
+        </Specialty>
+      </Subject>
+      <LessonType>
+        <LessonTypeId>1</LessonTypeId>
+        <TypeName>Лекція</TypeName>
+      </LessonType>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
+    </Assignment>
+    <Assignment>
+      <AssignmentId>17</AssignmentId>
+      <PlanHours>50</PlanHours>
+      <TaughtHours>47</TaughtHours>
+      <Status>false</Status>
+      <Teacher>
+        <EmpId>14</EmpId>
+        <FullName>Тетяна Бондар</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Subject>
+        <SubjectId>3</SubjectId>
+        <Name>Патологічна фізіологія (Стоматологія, 2 курс)</Name>
+        <Semester>0</Semester>
+        <TotalHours>0</TotalHours>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>2</SpecialtyId>
+          <SpecialtyName>Стоматологія</SpecialtyName>
+        </Specialty>
+      </Subject>
+      <LessonType>
+        <LessonTypeId>3</LessonTypeId>
+        <TypeName>Лабораторне заняття</TypeName>
+      </LessonType>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
+    </Assignment>
+    <Assignment>
+      <AssignmentId>13</AssignmentId>
+      <PlanHours>30</PlanHours>
+      <TaughtHours>30</TaughtHours>
+      <Status>false</Status>
+      <Teacher>
+        <EmpId>10</EmpId>
+        <FullName>Юлія Пилипенко</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Subject>
+        <SubjectId>13</SubjectId>
+        <Name>Клінічна патофізіологія (Медсестринство, заочна форма)</Name>
+        <Semester>0</Semester>
+        <TotalHours>0</TotalHours>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>6</SpecialtyId>
+          <SpecialtyName>Сестринська справа</SpecialtyName>
+        </Specialty>
+      </Subject>
+      <LessonType>
+        <LessonTypeId>2</LessonTypeId>
+        <TypeName>Практичне заняття</TypeName>
+      </LessonType>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
     </Assignment>
   </Assignments>
-  <LessonTypes />
   <Researches>
     <Research>
       <ResearchId>1</ResearchId>
@@ -699,6 +1178,10 @@
       <StartDate>2021-01-10T00:00:00</StartDate>
       <EndDate>2023-12-20T00:00:00</EndDate>
       <Participants />
+      <Specialty>
+        <SpecialtyId>1</SpecialtyId>
+        <SpecialtyName>Медицина</SpecialtyName>
+      </Specialty>
     </Research>
     <Research>
       <ResearchId>2</ResearchId>
@@ -706,6 +1189,10 @@
       <StartDate>2020-09-01T00:00:00</StartDate>
       <EndDate>2022-09-01T00:00:00</EndDate>
       <Participants />
+      <Specialty>
+        <SpecialtyId>1</SpecialtyId>
+        <SpecialtyName>Медицина</SpecialtyName>
+      </Specialty>
     </Research>
     <Research>
       <ResearchId>3</ResearchId>
@@ -713,6 +1200,10 @@
       <StartDate>2022-02-15T00:00:00</StartDate>
       <EndDate>0001-01-01T00:00:00</EndDate>
       <Participants />
+      <Specialty>
+        <SpecialtyId>1</SpecialtyId>
+        <SpecialtyName>Медицина</SpecialtyName>
+      </Specialty>
     </Research>
     <Research>
       <ResearchId>4</ResearchId>
@@ -720,6 +1211,10 @@
       <StartDate>2021-05-01T00:00:00</StartDate>
       <EndDate>2024-01-01T00:00:00</EndDate>
       <Participants />
+      <Specialty>
+        <SpecialtyId>1</SpecialtyId>
+        <SpecialtyName>Медицина</SpecialtyName>
+      </Specialty>
     </Research>
     <Research>
       <ResearchId>5</ResearchId>
@@ -727,6 +1222,10 @@
       <StartDate>2019-03-20T00:00:00</StartDate>
       <EndDate>2021-03-20T00:00:00</EndDate>
       <Participants />
+      <Specialty>
+        <SpecialtyId>3</SpecialtyId>
+        <SpecialtyName>Педіатрія</SpecialtyName>
+      </Specialty>
     </Research>
     <Research>
       <ResearchId>6</ResearchId>
@@ -734,6 +1233,10 @@
       <StartDate>2023-06-01T00:00:00</StartDate>
       <EndDate>0001-01-01T00:00:00</EndDate>
       <Participants />
+      <Specialty>
+        <SpecialtyId>3</SpecialtyId>
+        <SpecialtyName>Педіатрія</SpecialtyName>
+      </Specialty>
     </Research>
     <Research>
       <ResearchId>7</ResearchId>
@@ -741,6 +1244,10 @@
       <StartDate>2020-01-01T00:00:00</StartDate>
       <EndDate>2022-06-01T00:00:00</EndDate>
       <Participants />
+      <Specialty>
+        <SpecialtyId>4</SpecialtyId>
+        <SpecialtyName>Лабораторна діагностика</SpecialtyName>
+      </Specialty>
     </Research>
     <Research>
       <ResearchId>8</ResearchId>
@@ -748,161 +1255,544 @@
       <StartDate>2022-08-01T00:00:00</StartDate>
       <EndDate>0001-01-01T00:00:00</EndDate>
       <Participants />
+      <Specialty>
+        <SpecialtyId>4</SpecialtyId>
+        <SpecialtyName>Лабораторна діагностика</SpecialtyName>
+      </Specialty>
     </Research>
   </Researches>
   <Participations>
     <Participation>
-      <ParticipationId>0</ParticipationId>
+      <ParticipationId>1</ParticipationId>
       <Project>
-        <ResearchId>0</ResearchId>
-        <ResearchName>Механізми хронічного запалення при автоімунних процесах</ResearchName>
-        <StartDate>2021-01-10T00:00:00</StartDate>
-        <EndDate>2023-12-20T00:00:00</EndDate>
-      </Project>
-    </Participation>
-    <Participation>
-      <ParticipationId>0</ParticipationId>
-      <Project>
-        <ResearchId>0</ResearchId>
+        <ResearchId>2</ResearchId>
         <ResearchName>Патофізіологія стресу та депресивних розладів</ResearchName>
         <StartDate>2020-09-01T00:00:00</StartDate>
         <EndDate>2022-09-01T00:00:00</EndDate>
+        <Participants />
+        <Specialty>
+          <SpecialtyId>1</SpecialtyId>
+          <SpecialtyName>Медицина</SpecialtyName>
+        </Specialty>
       </Project>
+      <Teacher>
+        <EmpId>2</EmpId>
+        <FullName>Камілла Ващук</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
     </Participation>
     <Participation>
-      <ParticipationId>0</ParticipationId>
+      <ParticipationId>2</ParticipationId>
       <Project>
-        <ResearchId>0</ResearchId>
-        <ResearchName>Вплив запалення на серцево-судинну систему</ResearchName>
-        <StartDate>2022-02-15T00:00:00</StartDate>
-        <EndDate>0001-01-01T00:00:00</EndDate>
-      </Project>
-    </Participation>
-    <Participation>
-      <ParticipationId>0</ParticipationId>
-      <Project>
-        <ResearchId>0</ResearchId>
-        <ResearchName>Порушення функцій травної системи при метаболічному синдромі</ResearchName>
-        <StartDate>2021-05-01T00:00:00</StartDate>
-        <EndDate>2024-01-01T00:00:00</EndDate>
-      </Project>
-    </Participation>
-    <Participation>
-      <ParticipationId>0</ParticipationId>
-      <Project>
-        <ResearchId>0</ResearchId>
-        <ResearchName>Нейроендокринна регуляція в умовах гіпоксії</ResearchName>
-        <StartDate>2019-03-20T00:00:00</StartDate>
-        <EndDate>2021-03-20T00:00:00</EndDate>
-      </Project>
-    </Participation>
-    <Participation>
-      <ParticipationId>0</ParticipationId>
-      <Project>
-        <ResearchId>0</ResearchId>
-        <ResearchName>Дослідження системи мати-плацента-плід при токсичному впливі</ResearchName>
-        <StartDate>2023-06-01T00:00:00</StartDate>
-        <EndDate>0001-01-01T00:00:00</EndDate>
-      </Project>
-    </Participation>
-    <Participation>
-      <ParticipationId>0</ParticipationId>
-      <Project>
-        <ResearchId>0</ResearchId>
-        <ResearchName>Хронічне запалення у патології репродуктивної системи</ResearchName>
-        <StartDate>2020-01-01T00:00:00</StartDate>
-        <EndDate>2022-06-01T00:00:00</EndDate>
-      </Project>
-    </Participation>
-    <Participation>
-      <ParticipationId>0</ParticipationId>
-      <Project>
-        <ResearchId>0</ResearchId>
-        <ResearchName>Імунопатогенез уражень сечостатевої системи</ResearchName>
-        <StartDate>2022-08-01T00:00:00</StartDate>
-        <EndDate>0001-01-01T00:00:00</EndDate>
-      </Project>
-    </Participation>
-    <Participation>
-      <ParticipationId>0</ParticipationId>
-      <Project>
-        <ResearchId>0</ResearchId>
-        <ResearchName>Вплив запалення на серцево-судинну систему</ResearchName>
-        <StartDate>2022-02-15T00:00:00</StartDate>
-        <EndDate>0001-01-01T00:00:00</EndDate>
-      </Project>
-    </Participation>
-    <Participation>
-      <ParticipationId>0</ParticipationId>
-      <Project>
-        <ResearchId>0</ResearchId>
-        <ResearchName>Нейроендокринна регуляція в умовах гіпоксії</ResearchName>
-        <StartDate>2019-03-20T00:00:00</StartDate>
-        <EndDate>2021-03-20T00:00:00</EndDate>
-      </Project>
-    </Participation>
-    <Participation>
-      <ParticipationId>0</ParticipationId>
-      <Project>
-        <ResearchId>0</ResearchId>
-        <ResearchName>Механізми хронічного запалення при автоімунних процесах</ResearchName>
-        <StartDate>2021-01-10T00:00:00</StartDate>
-        <EndDate>2023-12-20T00:00:00</EndDate>
-      </Project>
-    </Participation>
-    <Participation>
-      <ParticipationId>0</ParticipationId>
-      <Project>
-        <ResearchId>0</ResearchId>
+        <ResearchId>2</ResearchId>
         <ResearchName>Патофізіологія стресу та депресивних розладів</ResearchName>
         <StartDate>2020-09-01T00:00:00</StartDate>
         <EndDate>2022-09-01T00:00:00</EndDate>
+        <Participants />
+        <Specialty>
+          <SpecialtyId>1</SpecialtyId>
+          <SpecialtyName>Медицина</SpecialtyName>
+        </Specialty>
       </Project>
+      <Teacher>
+        <EmpId>2</EmpId>
+        <FullName>Камілла Ващук</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
     </Participation>
     <Participation>
-      <ParticipationId>0</ParticipationId>
+      <ParticipationId>3</ParticipationId>
       <Project>
-        <ResearchId>0</ResearchId>
+        <ResearchId>3</ResearchId>
+        <ResearchName>Вплив запалення на серцево-судинну систему</ResearchName>
+        <StartDate>2022-02-15T00:00:00</StartDate>
+        <EndDate>0001-01-01T00:00:00</EndDate>
+        <Participants />
+        <Specialty>
+          <SpecialtyId>1</SpecialtyId>
+          <SpecialtyName>Медицина</SpecialtyName>
+        </Specialty>
+      </Project>
+      <Teacher>
+        <EmpId>3</EmpId>
+        <FullName>Марія Овсієнко</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
+    </Participation>
+    <Participation>
+      <ParticipationId>4</ParticipationId>
+      <Project>
+        <ResearchId>4</ResearchId>
         <ResearchName>Порушення функцій травної системи при метаболічному синдромі</ResearchName>
         <StartDate>2021-05-01T00:00:00</StartDate>
         <EndDate>2024-01-01T00:00:00</EndDate>
+        <Participants />
+        <Specialty>
+          <SpecialtyId>1</SpecialtyId>
+          <SpecialtyName>Медицина</SpecialtyName>
+        </Specialty>
       </Project>
+      <Teacher>
+        <EmpId>4</EmpId>
+        <FullName>Валерія Дробович</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
     </Participation>
     <Participation>
-      <ParticipationId>0</ParticipationId>
+      <ParticipationId>5</ParticipationId>
       <Project>
-        <ResearchId>0</ResearchId>
+        <ResearchId>5</ResearchId>
+        <ResearchName>Нейроендокринна регуляція в умовах гіпоксії</ResearchName>
+        <StartDate>2019-03-20T00:00:00</StartDate>
+        <EndDate>2021-03-20T00:00:00</EndDate>
+        <Participants />
+        <Specialty>
+          <SpecialtyId>3</SpecialtyId>
+          <SpecialtyName>Педіатрія</SpecialtyName>
+        </Specialty>
+      </Project>
+      <Teacher>
+        <EmpId>5</EmpId>
+        <FullName>Євгенія Мельниченко</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
+    </Participation>
+    <Participation>
+      <ParticipationId>6</ParticipationId>
+      <Project>
+        <ResearchId>6</ResearchId>
         <ResearchName>Дослідження системи мати-плацента-плід при токсичному впливі</ResearchName>
         <StartDate>2023-06-01T00:00:00</StartDate>
         <EndDate>0001-01-01T00:00:00</EndDate>
+        <Participants />
+        <Specialty>
+          <SpecialtyId>3</SpecialtyId>
+          <SpecialtyName>Педіатрія</SpecialtyName>
+        </Specialty>
       </Project>
+      <Teacher>
+        <EmpId>6</EmpId>
+        <FullName>Андрій Онищенко</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
     </Participation>
     <Participation>
-      <ParticipationId>0</ParticipationId>
+      <ParticipationId>7</ParticipationId>
       <Project>
-        <ResearchId>0</ResearchId>
-        <ResearchName>Механізми хронічного запалення при автоімунних процесах</ResearchName>
-        <StartDate>2021-01-10T00:00:00</StartDate>
-        <EndDate>2023-12-20T00:00:00</EndDate>
-      </Project>
-    </Participation>
-    <Participation>
-      <ParticipationId>0</ParticipationId>
-      <Project>
-        <ResearchId>0</ResearchId>
+        <ResearchId>7</ResearchId>
         <ResearchName>Хронічне запалення у патології репродуктивної системи</ResearchName>
         <StartDate>2020-01-01T00:00:00</StartDate>
         <EndDate>2022-06-01T00:00:00</EndDate>
+        <Participants />
+        <Specialty>
+          <SpecialtyId>4</SpecialtyId>
+          <SpecialtyName>Лабораторна діагностика</SpecialtyName>
+        </Specialty>
       </Project>
+      <Teacher>
+        <EmpId>7</EmpId>
+        <FullName>Оксана Черевко</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
     </Participation>
     <Participation>
-      <ParticipationId>0</ParticipationId>
+      <ParticipationId>8</ParticipationId>
       <Project>
-        <ResearchId>0</ResearchId>
+        <ResearchId>8</ResearchId>
         <ResearchName>Імунопатогенез уражень сечостатевої системи</ResearchName>
         <StartDate>2022-08-01T00:00:00</StartDate>
         <EndDate>0001-01-01T00:00:00</EndDate>
+        <Participants />
+        <Specialty>
+          <SpecialtyId>4</SpecialtyId>
+          <SpecialtyName>Лабораторна діагностика</SpecialtyName>
+        </Specialty>
       </Project>
+      <Teacher>
+        <EmpId>8</EmpId>
+        <FullName>Максим Бутко</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
+    </Participation>
+    <Participation>
+      <ParticipationId>9</ParticipationId>
+      <Project>
+        <ResearchId>3</ResearchId>
+        <ResearchName>Вплив запалення на серцево-судинну систему</ResearchName>
+        <StartDate>2022-02-15T00:00:00</StartDate>
+        <EndDate>0001-01-01T00:00:00</EndDate>
+        <Participants />
+        <Specialty>
+          <SpecialtyId>1</SpecialtyId>
+          <SpecialtyName>Медицина</SpecialtyName>
+        </Specialty>
+      </Project>
+      <Teacher>
+        <EmpId>2</EmpId>
+        <FullName>Камілла Ващук</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
+    </Participation>
+    <Participation>
+      <ParticipationId>10</ParticipationId>
+      <Project>
+        <ResearchId>5</ResearchId>
+        <ResearchName>Нейроендокринна регуляція в умовах гіпоксії</ResearchName>
+        <StartDate>2019-03-20T00:00:00</StartDate>
+        <EndDate>2021-03-20T00:00:00</EndDate>
+        <Participants />
+        <Specialty>
+          <SpecialtyId>3</SpecialtyId>
+          <SpecialtyName>Педіатрія</SpecialtyName>
+        </Specialty>
+      </Project>
+      <Teacher>
+        <EmpId>3</EmpId>
+        <FullName>Марія Овсієнко</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
+    </Participation>
+    <Participation>
+      <ParticipationId>11</ParticipationId>
+      <Project>
+        <ResearchId>1</ResearchId>
+        <ResearchName>Механізми хронічного запалення при автоімунних процесах</ResearchName>
+        <StartDate>2021-01-10T00:00:00</StartDate>
+        <EndDate>2023-12-20T00:00:00</EndDate>
+        <Participants />
+        <Specialty>
+          <SpecialtyId>1</SpecialtyId>
+          <SpecialtyName>Медицина</SpecialtyName>
+        </Specialty>
+      </Project>
+      <Teacher>
+        <EmpId>4</EmpId>
+        <FullName>Валерія Дробович</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
+    </Participation>
+    <Participation>
+      <ParticipationId>12</ParticipationId>
+      <Project>
+        <ResearchId>2</ResearchId>
+        <ResearchName>Патофізіологія стресу та депресивних розладів</ResearchName>
+        <StartDate>2020-09-01T00:00:00</StartDate>
+        <EndDate>2022-09-01T00:00:00</EndDate>
+        <Participants />
+        <Specialty>
+          <SpecialtyId>1</SpecialtyId>
+          <SpecialtyName>Медицина</SpecialtyName>
+        </Specialty>
+      </Project>
+      <Teacher>
+        <EmpId>5</EmpId>
+        <FullName>Євгенія Мельниченко</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
+    </Participation>
+    <Participation>
+      <ParticipationId>13</ParticipationId>
+      <Project>
+        <ResearchId>4</ResearchId>
+        <ResearchName>Порушення функцій травної системи при метаболічному синдромі</ResearchName>
+        <StartDate>2021-05-01T00:00:00</StartDate>
+        <EndDate>2024-01-01T00:00:00</EndDate>
+        <Participants />
+        <Specialty>
+          <SpecialtyId>1</SpecialtyId>
+          <SpecialtyName>Медицина</SpecialtyName>
+        </Specialty>
+      </Project>
+      <Teacher>
+        <EmpId>6</EmpId>
+        <FullName>Андрій Онищенко</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
+    </Participation>
+    <Participation>
+      <ParticipationId>14</ParticipationId>
+      <Project>
+        <ResearchId>6</ResearchId>
+        <ResearchName>Дослідження системи мати-плацента-плід при токсичному впливі</ResearchName>
+        <StartDate>2023-06-01T00:00:00</StartDate>
+        <EndDate>0001-01-01T00:00:00</EndDate>
+        <Participants />
+        <Specialty>
+          <SpecialtyId>3</SpecialtyId>
+          <SpecialtyName>Педіатрія</SpecialtyName>
+        </Specialty>
+      </Project>
+      <Teacher>
+        <EmpId>7</EmpId>
+        <FullName>Оксана Черевко</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
+    </Participation>
+    <Participation>
+      <ParticipationId>15</ParticipationId>
+      <Project>
+        <ResearchId>1</ResearchId>
+        <ResearchName>Механізми хронічного запалення при автоімунних процесах</ResearchName>
+        <StartDate>2021-01-10T00:00:00</StartDate>
+        <EndDate>2023-12-20T00:00:00</EndDate>
+        <Participants />
+        <Specialty>
+          <SpecialtyId>1</SpecialtyId>
+          <SpecialtyName>Медицина</SpecialtyName>
+        </Specialty>
+      </Project>
+      <Teacher>
+        <EmpId>8</EmpId>
+        <FullName>Максим Бутко</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
+    </Participation>
+    <Participation>
+      <ParticipationId>16</ParticipationId>
+      <Project>
+        <ResearchId>7</ResearchId>
+        <ResearchName>Хронічне запалення у патології репродуктивної системи</ResearchName>
+        <StartDate>2020-01-01T00:00:00</StartDate>
+        <EndDate>2022-06-01T00:00:00</EndDate>
+        <Participants />
+        <Specialty>
+          <SpecialtyId>4</SpecialtyId>
+          <SpecialtyName>Лабораторна діагностика</SpecialtyName>
+        </Specialty>
+      </Project>
+      <Teacher>
+        <EmpId>9</EmpId>
+        <FullName>Ігор Сич</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
+    </Participation>
+    <Participation>
+      <ParticipationId>17</ParticipationId>
+      <Project>
+        <ResearchId>8</ResearchId>
+        <ResearchName>Імунопатогенез уражень сечостатевої системи</ResearchName>
+        <StartDate>2022-08-01T00:00:00</StartDate>
+        <EndDate>0001-01-01T00:00:00</EndDate>
+        <Participants />
+        <Specialty>
+          <SpecialtyId>4</SpecialtyId>
+          <SpecialtyName>Лабораторна діагностика</SpecialtyName>
+        </Specialty>
+      </Project>
+      <Teacher>
+        <EmpId>10</EmpId>
+        <FullName>Юлія Пилипенко</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
+    </Participation>
+    <Participation>
+      <ParticipationId>18</ParticipationId>
+      <Project>
+        <ResearchId>1</ResearchId>
+        <ResearchName>Механізми хронічного запалення при автоімунних процесах</ResearchName>
+        <StartDate>2021-01-10T00:00:00</StartDate>
+        <EndDate>2023-12-20T00:00:00</EndDate>
+        <Participants />
+        <Specialty>
+          <SpecialtyId>1</SpecialtyId>
+          <SpecialtyName>Медицина</SpecialtyName>
+        </Specialty>
+      </Project>
+      <Teacher>
+        <EmpId>1</EmpId>
+        <FullName>Панас Овчаренко</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
+    </Participation>
+    <Participation>
+      <ParticipationId>19</ParticipationId>
+      <Project>
+        <ResearchId>1</ResearchId>
+        <ResearchName>Механізми хронічного запалення при автоімунних процесах</ResearchName>
+        <StartDate>2021-01-10T00:00:00</StartDate>
+        <EndDate>2023-12-20T00:00:00</EndDate>
+        <Participants />
+        <Specialty>
+          <SpecialtyId>1</SpecialtyId>
+          <SpecialtyName>Медицина</SpecialtyName>
+        </Specialty>
+      </Project>
+      <Teacher>
+        <EmpId>1</EmpId>
+        <FullName>Панас Овчаренко</FullName>
+        <HireDate>0001-01-01T00:00:00</HireDate>
+        <Status>false</Status>
+        <Specialty>
+          <SpecialtyId>0</SpecialtyId>
+        </Specialty>
+        <Participations />
+        <Assignments />
+      </Teacher>
+      <Specialty>
+        <SpecialtyId>0</SpecialtyId>
+      </Specialty>
     </Participation>
   </Participations>
 </DepartmentData>

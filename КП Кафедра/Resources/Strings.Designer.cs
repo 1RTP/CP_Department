@@ -412,6 +412,24 @@ namespace КП_Кафедра.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Спеціальність.
+        /// </summary>
+        internal static string column_specialty {
+            get {
+                return ResourceManager.GetString("column_specialty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Спеціальність.
+        /// </summary>
+        internal static string column_specialty_name {
+            get {
+                return ResourceManager.GetString("column_specialty_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Дата початку.
         /// </summary>
         internal static string column_start_date {
@@ -579,6 +597,15 @@ namespace КП_Кафедра.Resources {
         internal static string txtSemester {
             get {
                 return ResourceManager.GetString("txtSemester", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Спеціальність.
+        /// </summary>
+        internal static string txtSpecialty {
+            get {
+                return ResourceManager.GetString("txtSpecialty", resourceCulture);
             }
         }
         

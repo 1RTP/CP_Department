@@ -12,6 +12,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static КП_Кафедра.ToastForm;
 
+public static class SqliteDataReaderExtensions
+{
+    public static int GetInt32OrDefault(this SqliteDataReader reader, string columnName)
+    {
+        int ordinal = reader.GetOrdinal(columnName);
+        return !reader.IsDBNull(ordinal) ? reader.GetInt32(ordinal) : 0;
+    }
+}
+
 namespace КП_Кафедра.Forms
 {
     public partial class FormParticipation : Form
@@ -20,7 +29,6 @@ namespace КП_Кафедра.Forms
         private DataTable originalTable;
         private readonly string dbPath;
         public static FormParticipation Instance { get; private set; }
-
 
         public FormParticipation()
         {
@@ -69,7 +77,7 @@ namespace КП_Кафедра.Forms
                 if (!(dataGridView1?.DataSource is DataTable dt)) return;
                 string safe = query.Replace("'", "''");
 
-                var columnsToSearch = new[] { "emp_full_name", "research_name" }; // колонки для пошуку
+                var columnsToSearch = new[] { "emp_full_name", "research_name", "specialty_name" }; // колонки для пошуку
 
                 var parts = new List<string>();
                 foreach (var col in columnsToSearch)
@@ -101,23 +109,59 @@ namespace КП_Кафедра.Forms
                 {
                     connection.Open();
 
-                    string query = @"SELECT pir.participation_id,
-                                    t.emp_full_name,
-                                    r.research_name,
-                                    r.start_date,
-                                    r.end_date
-                             FROM participation_in_research pir
-                             JOIN teacher t ON pir.emp_id = t.emp_id
-                             JOIN research r ON pir.research_id = r.research_id";
+                    string query = @"SELECT 
+                            pir.participation_id,
+                            t.emp_id,
+                            t.emp_full_name,
+                            r.research_id,
+                            r.research_name,
+                            sp.specialty_id,
+                            sp.specialty_name,
+                            r.start_date,
+                            r.end_date
+                        FROM participation_in_research pir
+                        JOIN teacher t ON pir.emp_id = t.emp_id
+                        JOIN research r ON pir.research_id = r.research_id
+                        LEFT JOIN specialty sp ON r.specialty_id = sp.specialty_id;";
+
+                    DataTable table = new DataTable();
+                    table.Columns.Add("participation_id", typeof(int));
+                    table.Columns.Add("emp_id", typeof(int));
+                    table.Columns.Add("emp_full_name", typeof(string));
+                    table.Columns.Add("research_id", typeof(int));
+                    table.Columns.Add("research_name", typeof(string));
+                    table.Columns.Add("specialty_id", typeof(int));
+                    table.Columns.Add("specialty_name", typeof(string));
+                    table.Columns.Add("start_date", typeof(string));
+                    table.Columns.Add("end_date", typeof(string));
 
                     using (var command = new SqliteCommand(query, connection))
                     using (var reader = command.ExecuteReader())
                     {
-                        DataTable table = new DataTable();
-                        table.Load(reader);
-                        originalTable = table.Copy();
-                        dataGridView1.DataSource = table;
-                        ApplyColumnLocalization();
+                        while (reader.Read())
+                        {
+                            table.Rows.Add(
+                                reader.GetInt32OrDefault("participation_id"),
+                                reader.GetInt32OrDefault("emp_id"),
+                                reader["emp_full_name"]?.ToString() ?? "",
+                                reader.GetInt32OrDefault("research_id"),
+                                reader["research_name"]?.ToString() ?? "",
+                                reader.GetInt32OrDefault("specialty_id"),
+                                reader["specialty_name"]?.ToString() ?? "",
+                                reader["start_date"]?.ToString() ?? "",
+                                reader["end_date"]?.ToString() ?? ""
+                            );
+                        }
+                    }
+
+                    originalTable = table.Copy();
+                    dataGridView1.DataSource = table;
+                    ApplyColumnLocalization();
+
+                    string[] hiddenCols = { "emp_id", "research_id", "specialty_id" };
+                    foreach (var col in hiddenCols)
+                    {
+                        if (dataGridView1.Columns.Contains(col)) dataGridView1.Columns[col].Visible = false;
                     }
                 }
 
@@ -125,14 +169,15 @@ namespace КП_Кафедра.Forms
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", $"Помилка при завантаженні участі у дослідженнях: {ex.Message}");
+                Toast.Show("ERROR", "Помилка при завантаженні участі у дослідженнях");
+                LoggerService.LogError($"Помилка при завантаженні участі у дослідженнях (LoadParticipation): {ex.Message}");
             }
         }
 
 
         public List<Participation> GetParticipationFromGrid()
         {
-            List<Participation> participations = new List<Participation>();
+            var participations = new List<Participation>();
 
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
@@ -140,12 +185,23 @@ namespace КП_Кафедра.Forms
 
                 participations.Add(new Participation
                 {
-                    Teacher = new Teacher { FullName = row.Cells["emp_full_name"].Value?.ToString() },
+                    ParticipationId = Convert.ToInt32(row.Cells["participation_id"].Value),
+                    Teacher = new Teacher
+                    {
+                        EmpId = Convert.ToInt32(row.Cells["emp_id"].Value),
+                        FullName = row.Cells["emp_full_name"].Value?.ToString() ?? ""
+                    },
                     Project = new Research
                     {
-                        ResearchName = row.Cells["research_name"].Value?.ToString(),
-                        StartDate = DateTime.TryParse(row.Cells["start_date"].Value?.ToString(), out DateTime start) ? start : DateTime.MinValue,
-                        EndDate = DateTime.TryParse(row.Cells["end_date"].Value?.ToString(), out DateTime end) ? end : DateTime.MinValue
+                        ResearchId = Convert.ToInt32(row.Cells["research_id"].Value),
+                        ResearchName = row.Cells["research_name"].Value?.ToString() ?? "",
+                        Specialty = new Specialty
+                        {
+                            SpecialtyId = Convert.ToInt32(row.Cells["specialty_id"].Value),
+                            SpecialtyName = row.Cells["specialty_name"].Value?.ToString() ?? ""
+                        },
+                        StartDate = DateTime.TryParse(row.Cells["start_date"].Value?.ToString(), out DateTime startDate) ? startDate : DateTime.MinValue,
+                        EndDate = DateTime.TryParse(row.Cells["end_date"].Value?.ToString(), out DateTime endDate) ? endDate : DateTime.MinValue
                     }
                 });
             }
@@ -161,6 +217,7 @@ namespace КП_Кафедра.Forms
                 { "emp_full_name", "column_emp_full_name" },
                 { "research_name", "column_research_name" },
                 { "start_date", "column_start_date" },
+                { "specialty_name", "column_specialty_name" },
                 { "end_date", "column_end_date" }
             };
 
@@ -260,21 +317,25 @@ namespace КП_Кафедра.Forms
                         return;
                     }
 
-                    string query = @"INSERT INTO participation_in_research (emp_id, research_id)
-                                     VALUES (@emp, @res)";
+                    object specialtyParam = DBNull.Value;
+
+                    string query = @"INSERT INTO participation_in_research (emp_id, research_id, specialty_id) VALUES (@emp, @res, @spec)";
                     using (var cmd = new SqliteCommand(query, connection))
                     {
                         cmd.Parameters.AddWithValue("@emp", empId);
                         cmd.Parameters.AddWithValue("@res", researchId);
+                        cmd.Parameters.AddWithValue("@spec", specialtyParam);
                         cmd.ExecuteNonQuery();
                     }
                 }
+
                 LoadParticipation();
                 Toast.Show("SUCCESS", "Участь успішно додано!");
             }
             catch (Exception ex)
             {
                 Toast.Show("ERROR", $"Помилка при додаванні: {ex.Message}");
+                LoggerService.LogError($"Помилка при додаванні участі: {ex.Message}");
             }
         }
 
@@ -288,6 +349,7 @@ namespace КП_Кафедра.Forms
                 using (var connection = new SqliteConnection($"Data Source={dbPath}"))
                 {
                     connection.Open();
+
                     int empId = GetTeacherIdByName(connection, txtName.Text.Trim());
                     int researchId = GetResearchIdByName(connection, txtProjectName.Text.Trim());
 
@@ -297,21 +359,26 @@ namespace КП_Кафедра.Forms
                         return;
                     }
 
-                    string query = @"UPDATE participation_in_research SET emp_id=@emp, research_id=@res WHERE participation_id=@id";
+                    object specialtyParam = DBNull.Value;
+
+                    string query = @"UPDATE participation_in_research SET emp_id=@emp, research_id=@res, specialty_id=@spec WHERE participation_id=@id";
                     using (var cmd = new SqliteCommand(query, connection))
                     {
                         cmd.Parameters.AddWithValue("@emp", empId);
                         cmd.Parameters.AddWithValue("@res", researchId);
+                        cmd.Parameters.AddWithValue("@spec", specialtyParam);
                         cmd.Parameters.AddWithValue("@id", id);
                         cmd.ExecuteNonQuery();
                     }
                 }
+
                 LoadParticipation();
                 Toast.Show("SUCCESS", "Участь оновлено успішно!");
             }
             catch (Exception ex)
             {
                 Toast.Show("ERROR", $"Помилка при оновленні: {ex.Message}");
+                LoggerService.LogError($"Помилка при оновленні участі: {ex.Message}");
             }
         }
 
@@ -328,6 +395,7 @@ namespace КП_Кафедра.Forms
                 using (var connection = new SqliteConnection($"Data Source={dbPath}"))
                 {
                     connection.Open();
+
                     string query = "DELETE FROM participation_in_research WHERE participation_id=@id";
                     using (var cmd = new SqliteCommand(query, connection))
                     {
@@ -335,6 +403,7 @@ namespace КП_Кафедра.Forms
                         cmd.ExecuteNonQuery();
                     }
                 }
+
                 LoadParticipation();
                 Toast.Show("SUCCESS", "Участь видалено!");
             }
@@ -357,16 +426,13 @@ namespace КП_Кафедра.Forms
             txtProjectName.Text = dataGridView1.CurrentRow.Cells["research_name"].Value?.ToString();
             DateTime.TryParse(dataGridView1.CurrentRow.Cells["start_date"].Value?.ToString(), out DateTime start);
             DateTime.TryParse(dataGridView1.CurrentRow.Cells["end_date"].Value?.ToString(), out DateTime end);
-            dtpStartDate.Value = start == DateTime.MinValue ? DateTime.Now : start;
-            dtpEndDate.Value = end == DateTime.MinValue ? DateTime.Now : end;
+         
         }
 
         private void ClearInputFields()
         {
             txtName.Text = LanguageManager.GetString("txtName");
             txtProjectName.Text = LanguageManager.GetString("txtProjectName");
-            dtpStartDate.Value = DateTime.Today;
-            dtpEndDate.Value = DateTime.Today;
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -398,5 +464,7 @@ namespace КП_Кафедра.Forms
                 return result != null ? Convert.ToInt32(result) : 0;
             }
         }
+
+
     }
 }

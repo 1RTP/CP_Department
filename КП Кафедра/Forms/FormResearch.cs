@@ -67,7 +67,7 @@ namespace КП_Кафедра.Forms
                 if (!(dataGridView1?.DataSource is DataTable dt)) return;
                 string safe = query.Replace("'", "''");
 
-                var columnsToSearch = new[] { "research_name" }; // колонки для пошуку
+                var columnsToSearch = new[] { "research_name", "specialty_name" }; // колонки для пошуку
 
                 var parts = new List<string>();
                 foreach (var col in columnsToSearch)
@@ -96,33 +96,64 @@ namespace КП_Кафедра.Forms
         {
             try
             {
-                using (var connection = new SQLiteConnection($"Data Source={dbPath}"))
+                using (var connection = new SqliteConnection($"Data Source={dbPath}"))
                 {
                     connection.Open();
-                    string query = @"SELECT research_id, research_name, start_date, end_date FROM research";
+                    string query = @"SELECT 
+                                r.research_id,
+                                r.research_name,
+                                sp.specialty_id,
+                                sp.specialty_name,
+                                r.start_date,
+                                r.end_date
+                            FROM research r
+                            LEFT JOIN specialty sp ON r.specialty_id = sp.specialty_id;";
 
-                    using (var command = new SQLiteCommand(query, connection))
+                    DataTable table = new DataTable();
+                    table.Columns.Add("research_id", typeof(int));
+                    table.Columns.Add("research_name", typeof(string));
+                    table.Columns.Add("specialty_id", typeof(int));
+                    table.Columns.Add("specialty_name", typeof(string));
+                    table.Columns.Add("start_date", typeof(string));
+                    table.Columns.Add("end_date", typeof(string));
+
+                    using (var command = new SqliteCommand(query, connection))
                     using (var reader = command.ExecuteReader())
                     {
-                        DataTable table = new DataTable();
-                        table.Load(reader);
-                        originalTable = table.Copy();
-                        dataGridView1.DataSource = table;
-                        ApplyColumnLocalization();
+                        while (reader.Read())
+                        {
+                            table.Rows.Add(
+                                reader["research_id"] != DBNull.Value ? Convert.ToInt32(reader["research_id"]) : 0,
+                                reader["research_name"]?.ToString(),
+                                reader["specialty_id"] != DBNull.Value ? Convert.ToInt32(reader["specialty_id"]) : 0,
+                                reader["specialty_name"]?.ToString(),
+                                reader["start_date"]?.ToString(),
+                                reader["end_date"]?.ToString()
+                            );
+                        }
                     }
+
+                    originalTable = table.Copy();
+                    dataGridView1.DataSource = table;
+                    ApplyColumnLocalization();
+
+                    if (dataGridView1.Columns.Contains("specialty_id"))
+                        dataGridView1.Columns["specialty_id"].Visible = false;
+
                 }
+
                 DataService.Researches = GetResearchFromGrid();
             }
-            catch (Exception ex) 
-            { 
-                Toast.Show("ERROR", "Помилка при завантаженні проєктів");
-                LoggerService.LogError($"Помилка при завантаженні проєктів (LoadResearch): {ex.Message}");
+            catch (Exception ex)
+            {
+                Toast.Show("ERROR", "Помилка при завантаженні досліджень");
+                LoggerService.LogError($"Помилка при завантаженні досліджень (LoadResearch): {ex.Message}");
             }
         }
 
         public List<Research> GetResearchFromGrid()
         {
-            List<Research> researches = new List<Research>();
+            var researches = new List<Research>();
 
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
@@ -132,9 +163,13 @@ namespace КП_Кафедра.Forms
                 {
                     ResearchId = Convert.ToInt32(row.Cells["research_id"].Value),
                     ResearchName = row.Cells["research_name"].Value?.ToString(),
-                    StartDate = DateTime.TryParse(row.Cells["start_date"].Value?.ToString(), out DateTime start) ? start : DateTime.MinValue,
-                    EndDate = DateTime.TryParse(row.Cells["end_date"].Value?.ToString(), out DateTime end) ? end : DateTime.MinValue,
-                    Participants = new List<Participation>()
+                    Specialty = new Specialty
+                    {
+                        SpecialtyId = row.Cells["specialty_id"].Value == DBNull.Value ? 0 : Convert.ToInt32(row.Cells["specialty_id"].Value),
+                        SpecialtyName = row.Cells["specialty_name"].Value?.ToString() ?? ""
+                    },
+                    StartDate = DateTime.TryParse(row.Cells["start_date"].Value?.ToString(), out DateTime startDate) ? startDate : DateTime.MinValue,
+                    EndDate = DateTime.TryParse(row.Cells["end_date"].Value?.ToString(), out DateTime endDate) ? endDate : DateTime.MinValue
                 });
             }
 
@@ -165,6 +200,7 @@ namespace КП_Кафедра.Forms
             {
                 { "research_id", "column_research_id" },
                 { "research_name", "column_research_name" },
+                { "specialty_name", "column_specialty" },
                 { "start_date", "column_start_date" },
                 { "end_date", "column_end_date" }
             };
@@ -183,6 +219,38 @@ namespace КП_Кафедра.Forms
             txtProjectName.GotFocus += txtProjectName_GotFocus;
             txtProjectName.LostFocus += txtProjectName_LostFocus;
             txtProjectName.TextChanged += txtProjectName_TextChanged;
+
+            txtSpecialty.GotFocus += txtSpecialty_GotFocus;
+            txtSpecialty.LostFocus += txtSpecialty_LostFocus;
+            txtSpecialty.TextChanged += txtSpecialty_TextChanged;
+        }
+
+        private void txtSpecialty_TextChanged(object sender, EventArgs e)
+        {
+            string input = txtSpecialty.Text.Trim();
+            if (string.IsNullOrEmpty(input) || input == "Спеціальність" || input == "Specialty") return;
+            var validPattern = new System.Text.RegularExpressions.Regex(@"^[A-Za-zА-ЯІЇЄҐа-яіїєґ'\-\s]+$");
+            if (!validPattern.IsMatch(input))
+            {
+                Toast.Show("ERROR", "Невірний формат введення Спеціальності");
+                txtSpecialty.Text = "";
+            }
+        }
+
+        private void txtSpecialty_GotFocus(object sender, EventArgs e)
+        {
+            if (txtSpecialty.Text == "Спеціальність" || txtSpecialty.Text == "Specialty")
+            {
+                txtSpecialty.Text = "";
+            }
+        }
+
+        private void txtSpecialty_LostFocus(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtSpecialty.Text))
+            {
+                txtSpecialty.Text = LanguageManager.GetString("txtSpecialty");
+            }
         }
 
         private void txtProjectName_TextChanged(object sender, EventArgs e)
@@ -218,55 +286,120 @@ namespace КП_Кафедра.Forms
         {
             try
             {
-                using (var connection = new SQLiteConnection($"Data Source={dbPath}"))
+                using (var connection = new SqliteConnection($"Data Source={dbPath}"))
                 {
                     connection.Open();
-                    string query = @"INSERT INTO research (research_name, start_date, end_date) VALUES (@name, @start, @end)";
-                    using (var cmd = new SQLiteCommand(query, connection))
+
+                    int specialtyId = 0;
+                    string specialtyName = txtSpecialty.Text.Trim();
+
+                    if (!string.IsNullOrEmpty(specialtyName))
+                    {
+                        string findQuery = "SELECT specialty_id FROM specialty WHERE specialty_name = @name LIMIT 1";
+                        using (var findCmd = new SqliteCommand(findQuery, connection))
+                        {
+                            findCmd.Parameters.AddWithValue("@name", specialtyName);
+                            object result = findCmd.ExecuteScalar();
+
+                            if (result != null) specialtyId = Convert.ToInt32(result);
+                            else
+                            {
+                                string insertSpec = "INSERT INTO specialty (specialty_name) VALUES (@name)";
+                                using (var insertCmd = new SqliteCommand(insertSpec, connection))
+                                {
+                                    insertCmd.Parameters.AddWithValue("@name", specialtyName);
+                                    insertCmd.ExecuteNonQuery();
+                                }
+                                string getId = "SELECT last_insert_rowid()";
+                                using (var getCmd = new SqliteCommand(getId, connection))
+                                {
+                                    specialtyId = Convert.ToInt32(getCmd.ExecuteScalar());
+                                }
+                            }
+                        }
+                    }
+
+                    string query = @"INSERT INTO research (research_name, specialty_id, start_date, end_date) VALUES (@name, @specialtyId, @start, @end)";
+                    using (var cmd = new SqliteCommand(query, connection))
                     {
                         cmd.Parameters.AddWithValue("@name", txtProjectName.Text.Trim());
-                        cmd.Parameters.AddWithValue("@start", dtpStartDate.Value);
-                        cmd.Parameters.AddWithValue("@end", dtpEndDate.Value);
+                        cmd.Parameters.AddWithValue("@specialtyId", specialtyId);
+                        cmd.Parameters.AddWithValue("@start", dtpStartDate.Value.ToString("yyyy-MM-dd"));
+                        cmd.Parameters.AddWithValue("@end", dtpEndDate.Value.ToString("yyyy-MM-dd"));
                         cmd.ExecuteNonQuery();
                     }
                 }
+
                 LoadResearch();
                 Toast.Show("SUCCESS", "Дослідження додано успішно!");
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", "Помилка при додаванні");
-                LoggerService.LogError($"Помилка при додаванні: {ex.Message}");
+                Toast.Show("ERROR", "Помилка при додаванні дослідження");
+                LoggerService.LogError($"Помилка при додаванні дослідження: {ex.Message}");
             }
         }
 
         private void btnUpdateResearch_Click(object sender, EventArgs e)
         {
             if (dataGridView1.CurrentRow == null) return;
+
             int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["research_id"].Value);
 
             try
             {
-                using (var connection = new SQLiteConnection($"Data Source={dbPath}"))
+                using (var connection = new SqliteConnection($"Data Source={dbPath}"))
                 {
                     connection.Open();
-                    string query = @"UPDATE research SET research_name=@name, start_date=@start, end_date=@end WHERE research_id=@id";
-                    using (var cmd = new SQLiteCommand(query, connection))
+
+                    int specialtyId = 0;
+                    string specialtyName = txtSpecialty.Text.Trim();
+
+                    if (!string.IsNullOrEmpty(specialtyName))
+                    {
+                        string findQuery = "SELECT specialty_id FROM specialty WHERE specialty_name = @name LIMIT 1";
+                        using (var findCmd = new SqliteCommand(findQuery, connection))
+                        {
+                            findCmd.Parameters.AddWithValue("@name", specialtyName);
+                            object result = findCmd.ExecuteScalar();
+
+                            if (result != null) specialtyId = Convert.ToInt32(result);
+                            else
+                            {
+                                string insertSpec = "INSERT INTO specialty (specialty_name) VALUES (@name)";
+                                using (var insertCmd = new SqliteCommand(insertSpec, connection))
+                                {
+                                    insertCmd.Parameters.AddWithValue("@name", specialtyName);
+                                    insertCmd.ExecuteNonQuery();
+                                }
+                                string getId = "SELECT last_insert_rowid()";
+                                using (var getCmd = new SqliteCommand(getId, connection))
+                                {
+                                    specialtyId = Convert.ToInt32(getCmd.ExecuteScalar());
+                                }
+                            }
+                        }
+                    }
+
+                    string query = @"UPDATE research  SET research_name = @name, specialty_id = @specialtyId, start_date = @start, end_date = @end WHERE research_id = @id";
+                    using (var cmd = new SqliteCommand(query, connection))
                     {
                         cmd.Parameters.AddWithValue("@name", txtProjectName.Text.Trim());
-                        cmd.Parameters.AddWithValue("@start", dtpStartDate.Value);
-                        cmd.Parameters.AddWithValue("@end", dtpEndDate.Value);
+                        cmd.Parameters.AddWithValue("@specialtyId", specialtyId);
+                        cmd.Parameters.AddWithValue("@start", dtpStartDate.Value.ToString("yyyy-MM-dd"));
+                        cmd.Parameters.AddWithValue("@end", dtpEndDate.Value.ToString("yyyy-MM-dd"));
                         cmd.Parameters.AddWithValue("@id", id);
                         cmd.ExecuteNonQuery();
                     }
                 }
+
                 LoadResearch();
-                Toast.Show("SUCCESS", "Дослідження оновлено успішно!");
+                Toast.Show("SUCCESS", "Дані дослідження оновлено успішно!");
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", "Помилка при оновленні");
-                LoggerService.LogError($"Помилка при оновленні: {ex.Message}");
+                Toast.Show("ERROR", "Помилка при оновленні дослідження");
+                LoggerService.LogError($"Помилка при оновленні дослідження: {ex.Message}");
             }
         }
 
@@ -310,6 +443,11 @@ namespace КП_Кафедра.Forms
             }
 
             txtProjectName.Text = dataGridView1.CurrentRow.Cells["research_name"].Value?.ToString();
+            if (dataGridView1.Columns.Contains("specialty_name"))
+            {
+                txtSpecialty.Text = dataGridView1.CurrentRow.Cells["specialty_name"].Value?.ToString();
+            }
+            else { txtSpecialty.Text = LanguageManager.GetString("txtSpecialty"); }
             DateTime.TryParse(dataGridView1.CurrentRow.Cells["start_date"].Value?.ToString(), out DateTime start);
             DateTime.TryParse(dataGridView1.CurrentRow.Cells["end_date"].Value?.ToString(), out DateTime end);
             dtpStartDate.Value = start == DateTime.MinValue ? DateTime.Now : start;
@@ -319,6 +457,7 @@ namespace КП_Кафедра.Forms
         private void ClearInputFields()
         {
             txtProjectName.Text = LanguageManager.GetString("txtProjectName");
+            txtSpecialty.Text = LanguageManager.GetString("txtSpecialty");
             dtpStartDate.Value = DateTime.Today;
             dtpEndDate.Value = DateTime.Today;
         }
@@ -330,5 +469,7 @@ namespace КП_Кафедра.Forms
             dataGridView1.ClearSelection();
             isLoading = false;
         }
+
+
     }
 }

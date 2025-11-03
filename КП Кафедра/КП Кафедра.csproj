@@ -100,9 +100,7 @@
     <Compile Include="Forms\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormParticipation.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\FormParticipation.cs" />
     <Compile Include="Forms\FormParticipation.Designer.cs">
       <DependentUpon>FormParticipation.cs</DependentUpon>
     </Compile>
@@ -263,6 +261,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Data.Sqlite">
       <Version>9.0.10</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Office.Interop.Excel">
+      <Version>16.0.18925.20022</Version>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.4</Version>

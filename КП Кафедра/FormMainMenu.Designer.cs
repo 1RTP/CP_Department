@@ -105,7 +105,7 @@
             this.lblUserEmail.Location = new System.Drawing.Point(72, 37);
             this.lblUserEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserEmail.Name = "lblUserEmail";
-            this.lblUserEmail.Size = new System.Drawing.Size(131, 17);
+            this.lblUserEmail.Size = new System.Drawing.Size(112, 15);
             this.lblUserEmail.TabIndex = 2;
             this.lblUserEmail.Text = "admin@gmail.com";
             // 
@@ -118,7 +118,7 @@
             this.lblUserName.Location = new System.Drawing.Point(72, 16);
             this.lblUserName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(48, 18);
+            this.lblUserName.Size = new System.Drawing.Size(40, 15);
             this.lblUserName.TabIndex = 1;
             this.lblUserName.Text = "Name";
             // 
@@ -174,7 +174,7 @@
             this.label3.Location = new System.Drawing.Point(17, 10);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 17);
+            this.label3.Size = new System.Drawing.Size(38, 15);
             this.label3.TabIndex = 12;
             this.label3.Text = "ІНШЕ";
             // 
@@ -422,7 +422,7 @@
             this.label2.Location = new System.Drawing.Point(17, 160);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 17);
+            this.label2.Size = new System.Drawing.Size(64, 15);
             this.label2.TabIndex = 3;
             this.label2.Text = "ГОЛОВНЕ";
             // 
@@ -433,15 +433,15 @@
             this.panel6.Location = new System.Drawing.Point(267, 0);
             this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(880, 728);
+            this.panel6.Size = new System.Drawing.Size(882, 728);
             this.panel6.TabIndex = 12;
             // 
             // FormMainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1147, 728);
+            this.ClientSize = new System.Drawing.Size(1149, 728);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Arial", 8.8F);
@@ -449,7 +449,7 @@
             this.MinimumSize = new System.Drawing.Size(1165, 600);
             this.Name = "FormMainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Department";
             this.Load += new System.EventHandler(this.FormMainMenu_Load);
             this.panel1.ResumeLayout(false);
             this.panel8.ResumeLayout(false);

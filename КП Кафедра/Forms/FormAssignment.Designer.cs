@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel10 = new System.Windows.Forms.Panel();
             this.btnClear = new КП_Кафедра.RoundButton();
             this.btnDeleteAssignment = new КП_Кафедра.RoundButton();
@@ -46,6 +46,8 @@
             this.txtSubjectName = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.txtSpecialty = new System.Windows.Forms.TextBox();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -53,6 +55,8 @@
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
+            this.panel10.Controls.Add(this.panel2);
+            this.panel10.Controls.Add(this.txtSpecialty);
             this.panel10.Controls.Add(this.btnClear);
             this.panel10.Controls.Add(this.btnDeleteAssignment);
             this.panel10.Controls.Add(this.btnUpdateAssignment);
@@ -68,9 +72,10 @@
             this.panel10.Controls.Add(this.txtSubjectName);
             this.panel10.Controls.Add(this.txtName);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel10.Location = new System.Drawing.Point(756, 0);
+            this.panel10.Location = new System.Drawing.Point(567, 0);
+            this.panel10.Margin = new System.Windows.Forms.Padding(2);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(332, 652);
+            this.panel10.Size = new System.Drawing.Size(249, 530);
             this.panel10.TabIndex = 17;
             // 
             // btnClear
@@ -84,9 +89,10 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.ForeColor = System.Drawing.Color.White;
             this.btnClear.Image = global::КП_Кафедра.Properties.Resources.icons8_мусор_20;
-            this.btnClear.Location = new System.Drawing.Point(279, 227);
+            this.btnClear.Location = new System.Drawing.Point(209, 219);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(41, 38);
+            this.btnClear.Size = new System.Drawing.Size(31, 31);
             this.btnClear.TabIndex = 38;
             this.btnClear.TextColor = System.Drawing.Color.White;
             this.btnClear.UseVisualStyleBackColor = false;
@@ -103,9 +109,10 @@
             this.btnDeleteAssignment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteAssignment.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnDeleteAssignment.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteAssignment.Location = new System.Drawing.Point(211, 271);
+            this.btnDeleteAssignment.Location = new System.Drawing.Point(148, 256);
+            this.btnDeleteAssignment.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteAssignment.Name = "btnDeleteAssignment";
-            this.btnDeleteAssignment.Size = new System.Drawing.Size(110, 32);
+            this.btnDeleteAssignment.Size = new System.Drawing.Size(93, 26);
             this.btnDeleteAssignment.TabIndex = 37;
             this.btnDeleteAssignment.Text = "Видалити";
             this.btnDeleteAssignment.TextColor = System.Drawing.Color.White;
@@ -125,9 +132,10 @@
             this.btnUpdateAssignment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateAssignment.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnUpdateAssignment.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateAssignment.Location = new System.Drawing.Point(111, 271);
+            this.btnUpdateAssignment.Location = new System.Drawing.Point(73, 256);
+            this.btnUpdateAssignment.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdateAssignment.Name = "btnUpdateAssignment";
-            this.btnUpdateAssignment.Size = new System.Drawing.Size(93, 32);
+            this.btnUpdateAssignment.Size = new System.Drawing.Size(70, 26);
             this.btnUpdateAssignment.TabIndex = 36;
             this.btnUpdateAssignment.Text = "Оновити";
             this.btnUpdateAssignment.TextColor = System.Drawing.Color.White;
@@ -147,9 +155,10 @@
             this.btnAddAssignment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddAssignment.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnAddAssignment.ForeColor = System.Drawing.Color.White;
-            this.btnAddAssignment.Location = new System.Drawing.Point(16, 271);
+            this.btnAddAssignment.Location = new System.Drawing.Point(12, 256);
+            this.btnAddAssignment.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddAssignment.Name = "btnAddAssignment";
-            this.btnAddAssignment.Size = new System.Drawing.Size(90, 32);
+            this.btnAddAssignment.Size = new System.Drawing.Size(57, 26);
             this.btnAddAssignment.TabIndex = 35;
             this.btnAddAssignment.Text = "Додати";
             this.btnAddAssignment.TextColor = System.Drawing.Color.White;
@@ -159,10 +168,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(16, 127);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(12, 139);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(306, 2);
+            this.panel1.Size = new System.Drawing.Size(230, 2);
             this.panel1.TabIndex = 29;
             // 
             // txtLessonType
@@ -171,9 +179,10 @@
             this.txtLessonType.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtLessonType.Font = new System.Drawing.Font("Arial", 8.8F);
             this.txtLessonType.ForeColor = System.Drawing.Color.White;
-            this.txtLessonType.Location = new System.Drawing.Point(16, 111);
+            this.txtLessonType.Location = new System.Drawing.Point(12, 126);
+            this.txtLessonType.Margin = new System.Windows.Forms.Padding(2);
             this.txtLessonType.Name = "txtLessonType";
-            this.txtLessonType.Size = new System.Drawing.Size(306, 17);
+            this.txtLessonType.Size = new System.Drawing.Size(230, 14);
             this.txtLessonType.TabIndex = 28;
             this.txtLessonType.Text = "Тип заняття";
             this.txtLessonType.TextChanged += new System.EventHandler(this.txtLessonType_TextChanged);
@@ -181,37 +190,33 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.White;
-            this.panel6.Location = new System.Drawing.Point(15, 214);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4);
+            this.panel6.Location = new System.Drawing.Point(11, 210);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(306, 2);
+            this.panel6.Size = new System.Drawing.Size(230, 2);
             this.panel6.TabIndex = 27;
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.Location = new System.Drawing.Point(15, 170);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4);
+            this.panel5.Location = new System.Drawing.Point(11, 174);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(306, 2);
+            this.panel5.Size = new System.Drawing.Size(230, 2);
             this.panel5.TabIndex = 26;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Location = new System.Drawing.Point(16, 80);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4);
+            this.panel4.Location = new System.Drawing.Point(12, 65);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(306, 2);
+            this.panel4.Size = new System.Drawing.Size(230, 2);
             this.panel4.TabIndex = 25;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Location = new System.Drawing.Point(15, 32);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Location = new System.Drawing.Point(11, 26);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(306, 2);
+            this.panel3.Size = new System.Drawing.Size(230, 2);
             this.panel3.TabIndex = 24;
             // 
             // txtHoursTaught
@@ -220,9 +225,10 @@
             this.txtHoursTaught.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtHoursTaught.Font = new System.Drawing.Font("Arial", 8.8F);
             this.txtHoursTaught.ForeColor = System.Drawing.Color.White;
-            this.txtHoursTaught.Location = new System.Drawing.Point(15, 198);
+            this.txtHoursTaught.Location = new System.Drawing.Point(11, 197);
+            this.txtHoursTaught.Margin = new System.Windows.Forms.Padding(2);
             this.txtHoursTaught.Name = "txtHoursTaught";
-            this.txtHoursTaught.Size = new System.Drawing.Size(306, 17);
+            this.txtHoursTaught.Size = new System.Drawing.Size(230, 14);
             this.txtHoursTaught.TabIndex = 4;
             this.txtHoursTaught.Text = "Відпрацьовано годин";
             this.txtHoursTaught.TextChanged += new System.EventHandler(this.txtHoursTaught_TextChanged);
@@ -233,9 +239,10 @@
             this.txtPlanHours.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPlanHours.Font = new System.Drawing.Font("Arial", 8.8F);
             this.txtPlanHours.ForeColor = System.Drawing.Color.White;
-            this.txtPlanHours.Location = new System.Drawing.Point(15, 154);
+            this.txtPlanHours.Location = new System.Drawing.Point(11, 161);
+            this.txtPlanHours.Margin = new System.Windows.Forms.Padding(2);
             this.txtPlanHours.Name = "txtPlanHours";
-            this.txtPlanHours.Size = new System.Drawing.Size(306, 17);
+            this.txtPlanHours.Size = new System.Drawing.Size(230, 14);
             this.txtPlanHours.TabIndex = 3;
             this.txtPlanHours.Text = "Кількість годин за планом";
             this.txtPlanHours.TextChanged += new System.EventHandler(this.txtPlanHours_TextChanged);
@@ -246,9 +253,10 @@
             this.txtSubjectName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSubjectName.Font = new System.Drawing.Font("Arial", 8.8F);
             this.txtSubjectName.ForeColor = System.Drawing.Color.White;
-            this.txtSubjectName.Location = new System.Drawing.Point(16, 64);
+            this.txtSubjectName.Location = new System.Drawing.Point(12, 52);
+            this.txtSubjectName.Margin = new System.Windows.Forms.Padding(2);
             this.txtSubjectName.Name = "txtSubjectName";
-            this.txtSubjectName.Size = new System.Drawing.Size(306, 17);
+            this.txtSubjectName.Size = new System.Drawing.Size(230, 14);
             this.txtSubjectName.TabIndex = 1;
             this.txtSubjectName.Text = "Назва дисципліни";
             this.txtSubjectName.TextChanged += new System.EventHandler(this.txtSubjectName_TextChanged);
@@ -259,9 +267,10 @@
             this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtName.Font = new System.Drawing.Font("Arial", 8.8F);
             this.txtName.ForeColor = System.Drawing.Color.White;
-            this.txtName.Location = new System.Drawing.Point(15, 16);
+            this.txtName.Location = new System.Drawing.Point(11, 13);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(306, 17);
+            this.txtName.Size = new System.Drawing.Size(230, 14);
             this.txtName.TabIndex = 0;
             this.txtName.Text = "ПІБ";
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
@@ -277,42 +286,64 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(148)))), ((int)(((byte)(152)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(148)))), ((int)(((byte)(152)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(749, 652);
+            this.dataGridView1.Size = new System.Drawing.Size(562, 530);
             this.dataGridView1.TabIndex = 16;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Location = new System.Drawing.Point(11, 106);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(230, 2);
+            this.panel2.TabIndex = 40;
+            // 
+            // txtSpecialty
+            // 
+            this.txtSpecialty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
+            this.txtSpecialty.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSpecialty.Font = new System.Drawing.Font("Arial", 8.8F);
+            this.txtSpecialty.ForeColor = System.Drawing.Color.White;
+            this.txtSpecialty.Location = new System.Drawing.Point(11, 89);
+            this.txtSpecialty.Name = "txtSpecialty";
+            this.txtSpecialty.Size = new System.Drawing.Size(230, 14);
+            this.txtSpecialty.TabIndex = 39;
+            this.txtSpecialty.Text = "Спеціальність";
+            this.txtSpecialty.TextChanged += new System.EventHandler(this.txtSpecialty_TextChanged);
             // 
             // FormAssignment
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
-            this.ClientSize = new System.Drawing.Size(1088, 652);
+            this.ClientSize = new System.Drawing.Size(816, 530);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.dataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormAssignment";
             this.Text = "FormAssignment";
             this.Load += new System.EventHandler(this.FormAssignment_Load);
@@ -341,5 +372,7 @@
         private RoundButton btnDeleteAssignment;
         private RoundButton btnUpdateAssignment;
         private RoundButton btnAddAssignment;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox txtSpecialty;
     }
 }

@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SQLite;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -67,7 +66,7 @@ namespace КП_Кафедра.Forms
                 if (!(dataGridView1?.DataSource is DataTable dt)) return;
                 string safe = query.Replace("'", "''");
 
-                var columnsToSearch = new[] { "subject_name" }; // колонки для пошуку
+                var columnsToSearch = new[] { "subject_name", "specialty_name" }; // колонки для пошуку
 
                 var parts = new List<string>();
                 foreach (var col in columnsToSearch)
@@ -98,18 +97,48 @@ namespace КП_Кафедра.Forms
                 using (var connection = new SqliteConnection($"Data Source={dbPath}"))
                 {
                     connection.Open();
-                    string query = @"SELECT subject_id, subject_name, semester, total_hours FROM subjects";
+                    string query = @"SELECT 
+                                s.subject_id,
+                                s.subject_name,
+                                sp.specialty_id,
+                                sp.specialty_name,
+                                s.semester,
+                                s.total_hours
+                            FROM subjects s
+                            LEFT JOIN specialty sp ON s.specialty_id = sp.specialty_id;";
+
+                    DataTable table = new DataTable();
+                    table.Columns.Add("subject_id", typeof(int));
+                    table.Columns.Add("subject_name", typeof(string));
+                    table.Columns.Add("specialty_id", typeof(int));
+                    table.Columns.Add("specialty_name", typeof(string));
+                    table.Columns.Add("semester", typeof(int));
+                    table.Columns.Add("total_hours", typeof(int));
 
                     using (var command = new SqliteCommand(query, connection))
                     using (var reader = command.ExecuteReader())
                     {
-                        DataTable table = new DataTable();
-                        table.Load(reader);
-                        originalTable = table.Copy();
-                        dataGridView1.DataSource = table;
-                        ApplyColumnLocalization();
+                        while (reader.Read())
+                        {
+                            table.Rows.Add(
+                                reader["subject_id"] != DBNull.Value ? Convert.ToInt32(reader["subject_id"]) : 0,
+                                reader["subject_name"]?.ToString(),
+                                reader["specialty_id"] != DBNull.Value ? Convert.ToInt32(reader["specialty_id"]) : 0,
+                                reader["specialty_name"]?.ToString(),
+                                reader["semester"] != DBNull.Value ? Convert.ToInt32(reader["semester"]) : 0,
+                                reader["total_hours"] != DBNull.Value ? Convert.ToInt32(reader["total_hours"]) : 0
+                            );
+                        }
                     }
+
+                    originalTable = table.Copy();
+                    dataGridView1.DataSource = table;
+                    ApplyColumnLocalization();
+
+                    if (dataGridView1.Columns.Contains("specialty_id"))
+                        dataGridView1.Columns["specialty_id"].Visible = false;
                 }
+
                 DataService.Subjects = GetSubjectsFromGrid();
             }
             catch (Exception ex)
@@ -121,7 +150,7 @@ namespace КП_Кафедра.Forms
 
         public List<Subject> GetSubjectsFromGrid()
         {
-            List<Subject> subjects = new List<Subject>();
+            var subjects = new List<Subject>();
 
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
@@ -131,11 +160,17 @@ namespace КП_Кафедра.Forms
                 {
                     SubjectId = Convert.ToInt32(row.Cells["subject_id"].Value),
                     Name = row.Cells["subject_name"].Value?.ToString(),
+                    Specialty = new Specialty
+                    {
+                        SpecialtyId = row.Cells["specialty_id"].Value == DBNull.Value ? 0 : Convert.ToInt32(row.Cells["specialty_id"].Value),
+                        SpecialtyName = row.Cells["specialty_name"].Value?.ToString() ?? ""
+                    },
                     Semester = Convert.ToInt32(row.Cells["semester"].Value),
                     TotalHours = Convert.ToInt32(row.Cells["total_hours"].Value),
                     Status = true
                 });
             }
+
             return subjects;
         }
 
@@ -154,6 +189,7 @@ namespace КП_Кафедра.Forms
             txtSemester.Text = LanguageManager.GetString("txtSemester");
             txtSubjectName.Text = LanguageManager.GetString("txtSubjectName");
             txtTotalHours.Text = LanguageManager.GetString("txtTotalHours");
+            txtSpecialty.Text = LanguageManager.GetString("txtSpecialty");
             //btnClear.Text = LanguageManager.GetString("btnClear");
 
             ApplyColumnLocalization();
@@ -164,6 +200,7 @@ namespace КП_Кафедра.Forms
             var columnMap = new Dictionary<string, string>
             {
                 { "subject_id", "column_subject_id" },
+                { "specialty_name", "column_specialty" },
                 { "subject_name", "column_subject_name" },
                 { "semester", "column_semester" },
                 { "total_hours", "column_total_hours" }
@@ -191,6 +228,10 @@ namespace КП_Кафедра.Forms
             txtTotalHours.GotFocus += txtTotalHours_GotFocus;
             txtTotalHours.LostFocus += txtTotalHours_LostFocus;
             txtTotalHours.TextChanged += txtTotalHours_TextChanged;
+
+            txtSpecialty.GotFocus += txtSpecialty_GotFocus;
+            txtSpecialty.LostFocus += txtSpecialty_LostFocus;
+            txtSpecialty.TextChanged += txtSpecialty_TextChanged;
         }
 
         private void txtSubjectName_TextChanged(object sender, EventArgs e)
@@ -228,9 +269,7 @@ namespace КП_Кафедра.Forms
 
             string input = txtSemester.Text.Trim();
 
-            if (string.IsNullOrEmpty(input) || input == LanguageManager.GetString("txtSemester") ||
-                input == "Семестр" || input == "Semester")
-                return;
+            if (string.IsNullOrEmpty(input) || input == LanguageManager.GetString("txtSemester") || input == "Семестр" || input == "Semester") return;
 
             string filtered = new string(input.Where(char.IsDigit).ToArray());
             if (filtered != input)
@@ -242,8 +281,7 @@ namespace КП_Кафедра.Forms
 
         private void txtSemester_GotFocus(object sender, EventArgs e)
         {
-            if (txtSemester.Text == "Семестр" || txtSemester.Text == "Semester" || txtSemester.Text == LanguageManager.GetString("txtSemester"))
-                txtSemester.Text = "";
+            if (txtSemester.Text == "Семестр" || txtSemester.Text == "Semester" || txtSemester.Text == LanguageManager.GetString("txtSemester")) txtSemester.Text = "";
         }
 
         private void txtSemester_LostFocus(object sender, EventArgs e)
@@ -257,9 +295,7 @@ namespace КП_Кафедра.Forms
 
             string input = txtTotalHours.Text.Trim();
 
-            if (string.IsNullOrEmpty(input) || input == LanguageManager.GetString("txtTotalHours") ||
-                input == "Загальна кількість годин" || input == "Total hours")
-                return;
+            if (string.IsNullOrEmpty(input) || input == LanguageManager.GetString("txtTotalHours") || input == "Загальна кількість годин" || input == "Total hours") return;
 
             string filtered = new string(input.Where(char.IsDigit).ToArray());
             if (filtered != input)
@@ -271,15 +307,40 @@ namespace КП_Кафедра.Forms
 
         private void txtTotalHours_GotFocus(object sender, EventArgs e)
         {
-            if (txtTotalHours.Text == "Загальна кількість годин" || txtTotalHours.Text == "Total hours" ||
-                txtTotalHours.Text == LanguageManager.GetString("txtTotalHours"))
-                txtTotalHours.Text = "";
+            if (txtTotalHours.Text == "Загальна кількість годин" || txtTotalHours.Text == "Total hours" || txtTotalHours.Text == LanguageManager.GetString("txtTotalHours")) txtTotalHours.Text = "";
         }
 
         private void txtTotalHours_LostFocus(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtTotalHours.Text))
-                txtTotalHours.Text = LanguageManager.GetString("txtTotalHours");
+            if (string.IsNullOrWhiteSpace(txtTotalHours.Text)) txtTotalHours.Text = LanguageManager.GetString("txtTotalHours");
+        }
+
+        private void txtSpecialty_TextChanged(object sender, EventArgs e)
+        {
+            string input = txtSpecialty.Text.Trim();
+            if (string.IsNullOrEmpty(input) || input == "Спеціальність" || input == "Specialty") return;
+            var validPattern = new System.Text.RegularExpressions.Regex(@"^[A-Za-zА-ЯІЇЄҐа-яіїєґ'\-\s]+$");
+            if (!validPattern.IsMatch(input))
+            {
+                Toast.Show("ERROR", "Невірний формат введення Спеціальності");
+                txtSpecialty.Text = "";
+            }
+        }
+
+        private void txtSpecialty_GotFocus(object sender, EventArgs e)
+        {
+            if (txtSpecialty.Text == "Спеціальність" || txtSpecialty.Text == "Specialty")
+            {
+                txtSpecialty.Text = "";
+            }
+        }
+
+        private void txtSpecialty_LostFocus(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtSpecialty.Text))
+            {
+                txtSpecialty.Text = LanguageManager.GetString("txtSpecialty");
+            }
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -295,6 +356,8 @@ namespace КП_Кафедра.Forms
             txtSubjectName.Text = row.Cells["subject_name"].Value?.ToString() ?? LanguageManager.GetString("txtSubjectName");
             txtSemester.Text = row.Cells["semester"].Value?.ToString() ?? LanguageManager.GetString("txtSemester");
             txtTotalHours.Text = row.Cells["total_hours"].Value?.ToString() ?? LanguageManager.GetString("txtTotalHours");
+            txtSpecialty.Text = row.Cells["specialty_name"].Value?.ToString() ?? LanguageManager.GetString("txtSpecialty");
+
         }
 
         private void ClearInputFields()
@@ -302,6 +365,7 @@ namespace КП_Кафедра.Forms
             txtSubjectName.Text = LanguageManager.GetString("txtSubjectName");
             txtSemester.Text = LanguageManager.GetString("txtSemester");
             txtTotalHours.Text = LanguageManager.GetString("txtTotalHours");
+            txtSpecialty.Text = LanguageManager.GetString("txtSpecialty");
         }
 
         private void btnAddSubject_Click(object sender, EventArgs e)
@@ -311,22 +375,54 @@ namespace КП_Кафедра.Forms
                 using (var connection = new SqliteConnection($"Data Source={dbPath}"))
                 {
                     connection.Open();
-                    string query = @"INSERT INTO subjects (subject_name, semester, total_hours) VALUES (@name, @semester, @hours)";
+
+                    int specialtyId = 0;
+                    string specialtyName = txtSpecialty.Text.Trim();
+
+                    if (!string.IsNullOrEmpty(specialtyName))
+                    {
+                        string findQuery = "SELECT specialty_id FROM specialty WHERE specialty_name = @name LIMIT 1";
+                        using (var findCmd = new SqliteCommand(findQuery, connection))
+                        {
+                            findCmd.Parameters.AddWithValue("@name", specialtyName);
+                            object result = findCmd.ExecuteScalar();
+
+                            if (result != null) specialtyId = Convert.ToInt32(result);
+                            else
+                            {
+                                string insertSpec = "INSERT INTO specialty (specialty_name) VALUES (@name)";
+                                using (var insertCmd = new SqliteCommand(insertSpec, connection))
+                                {
+                                    insertCmd.Parameters.AddWithValue("@name", specialtyName);
+                                    insertCmd.ExecuteNonQuery();
+                                }
+                                string getId = "SELECT last_insert_rowid()";
+                                using (var getCmd = new SqliteCommand(getId, connection))
+                                {
+                                    specialtyId = Convert.ToInt32(getCmd.ExecuteScalar());
+                                }
+                            }
+                        }
+                    }
+
+                    string query = @"INSERT INTO subjects (subject_name, semester, total_hours, specialty_id) VALUES (@name, @semester, @hours, @specialtyId)";
                     using (var cmd = new SqliteCommand(query, connection))
                     {
                         cmd.Parameters.AddWithValue("@name", txtSubjectName.Text.Trim());
+                        cmd.Parameters.AddWithValue("@specialtyId", specialtyId);
                         cmd.Parameters.AddWithValue("@semester", int.Parse(txtSemester.Text.Trim()));
                         cmd.Parameters.AddWithValue("@hours", int.Parse(txtTotalHours.Text.Trim()));
                         cmd.ExecuteNonQuery();
                     }
                 }
+
                 LoadSubjects();
                 Toast.Show("SUCCESS", "Дисципліну додано успішно!");
             }
-            catch (Exception ex) 
-            { 
-                Toast.Show("ERROR", "Помилка при додаванні");
-                LoggerService.LogError($"Помилка при додаванні: {ex.Message}");
+            catch (Exception ex)
+            {
+                Toast.Show("ERROR", "Помилка при додаванні дисципліни");
+                LoggerService.LogError($"Помилка при додаванні дисципліни: {ex.Message}");
             }
         }
 
@@ -335,25 +431,62 @@ namespace КП_Кафедра.Forms
             if (dataGridView1.CurrentRow == null) return;
 
             int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["subject_id"].Value);
+
             try
             {
                 using (var connection = new SqliteConnection($"Data Source={dbPath}"))
                 {
                     connection.Open();
-                    string query = @"UPDATE subjects SET subject_name=@name, semester=@semester, total_hours=@hours WHERE subject_id=@id";
+
+                    int specialtyId = 0;
+                    string specialtyName = txtSpecialty.Text.Trim();
+
+                    if (!string.IsNullOrEmpty(specialtyName))
+                    {
+                        string findQuery = "SELECT specialty_id FROM specialty WHERE specialty_name = @name LIMIT 1";
+                        using (var findCmd = new SqliteCommand(findQuery, connection))
+                        {
+                            findCmd.Parameters.AddWithValue("@name", specialtyName);
+                            object result = findCmd.ExecuteScalar();
+
+                            if (result != null) specialtyId = Convert.ToInt32(result);
+                            else
+                            {
+                                string insertSpec = "INSERT INTO specialty (specialty_name) VALUES (@name)";
+                                using (var insertCmd = new SqliteCommand(insertSpec, connection))
+                                {
+                                    insertCmd.Parameters.AddWithValue("@name", specialtyName);
+                                    insertCmd.ExecuteNonQuery();
+                                }
+                                string getId = "SELECT last_insert_rowid()";
+                                using (var getCmd = new SqliteCommand(getId, connection))
+                                {
+                                    specialtyId = Convert.ToInt32(getCmd.ExecuteScalar());
+                                }
+                            }
+                        }
+                    }
+
+                    string query = @"UPDATE subjects SET subject_name = @name, specialty_id = @specialtyId, semester = @semester, total_hours = @hours WHERE subject_id = @id";
                     using (var cmd = new SqliteCommand(query, connection))
                     {
                         cmd.Parameters.AddWithValue("@name", txtSubjectName.Text.Trim());
+                        cmd.Parameters.AddWithValue("@specialtyId", specialtyId);
                         cmd.Parameters.AddWithValue("@semester", int.Parse(txtSemester.Text.Trim()));
                         cmd.Parameters.AddWithValue("@hours", int.Parse(txtTotalHours.Text.Trim()));
                         cmd.Parameters.AddWithValue("@id", id);
                         cmd.ExecuteNonQuery();
                     }
                 }
+
                 LoadSubjects();
-                Toast.Show("SUCCESS", "Дані предмету оновлено успішно!");
+                Toast.Show("SUCCESS", "Дані дисципліни оновлено успішно!");
             }
-            catch (Exception ex) { Toast.Show("ERROR", $"Помилка при оновленні: {ex.Message}"); }
+            catch (Exception ex)
+            {
+                Toast.Show("ERROR", "Помилка при оновленні дисципліни");
+                LoggerService.LogError($"Помилка при оновленні дисципліни: {ex.Message}");
+            }
         }
 
         private void btnDeleteSubject_Click(object sender, EventArgs e)
@@ -382,7 +515,7 @@ namespace КП_Кафедра.Forms
             catch (Exception ex) 
             {
                 Toast.Show("ERROR", "Помилка при видаленні");
-                LoggerService.LogError($"Помилка при завантаженні даних: {ex.Message}");
+                LoggerService.LogError($"Помилка при видаленні: {ex.Message}");
             }
         }
 

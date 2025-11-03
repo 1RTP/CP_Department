@@ -35,10 +35,8 @@
             this.btnDeleteParticipation = new КП_Кафедра.RoundButton();
             this.btnUpdateParticipation = new КП_Кафедра.RoundButton();
             this.btnAddParticipation = new КП_Кафедра.RoundButton();
-            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
             this.txtProjectName = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -53,16 +51,14 @@
             this.panel10.Controls.Add(this.btnDeleteParticipation);
             this.panel10.Controls.Add(this.btnUpdateParticipation);
             this.panel10.Controls.Add(this.btnAddParticipation);
-            this.panel10.Controls.Add(this.dtpEndDate);
             this.panel10.Controls.Add(this.panel4);
             this.panel10.Controls.Add(this.panel3);
-            this.panel10.Controls.Add(this.dtpStartDate);
             this.panel10.Controls.Add(this.txtProjectName);
             this.panel10.Controls.Add(this.txtName);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel10.Location = new System.Drawing.Point(756, 0);
+            this.panel10.Location = new System.Drawing.Point(569, 0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(332, 652);
+            this.panel10.Size = new System.Drawing.Size(247, 530);
             this.panel10.TabIndex = 17;
             // 
             // btnClear
@@ -76,9 +72,9 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.ForeColor = System.Drawing.Color.White;
             this.btnClear.Image = global::КП_Кафедра.Properties.Resources.icons8_мусор_20;
-            this.btnClear.Location = new System.Drawing.Point(279, 191);
+            this.btnClear.Location = new System.Drawing.Point(210, 91);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(41, 40);
+            this.btnClear.Size = new System.Drawing.Size(31, 31);
             this.btnClear.TabIndex = 34;
             this.btnClear.TextColor = System.Drawing.Color.White;
             this.btnClear.UseVisualStyleBackColor = false;
@@ -95,9 +91,9 @@
             this.btnDeleteParticipation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteParticipation.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnDeleteParticipation.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteParticipation.Location = new System.Drawing.Point(212, 238);
+            this.btnDeleteParticipation.Location = new System.Drawing.Point(148, 128);
             this.btnDeleteParticipation.Name = "btnDeleteParticipation";
-            this.btnDeleteParticipation.Size = new System.Drawing.Size(110, 32);
+            this.btnDeleteParticipation.Size = new System.Drawing.Size(93, 26);
             this.btnDeleteParticipation.TabIndex = 33;
             this.btnDeleteParticipation.Text = "Видалити";
             this.btnDeleteParticipation.TextColor = System.Drawing.Color.White;
@@ -117,9 +113,9 @@
             this.btnUpdateParticipation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateParticipation.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnUpdateParticipation.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateParticipation.Location = new System.Drawing.Point(112, 238);
+            this.btnUpdateParticipation.Location = new System.Drawing.Point(74, 128);
             this.btnUpdateParticipation.Name = "btnUpdateParticipation";
-            this.btnUpdateParticipation.Size = new System.Drawing.Size(93, 32);
+            this.btnUpdateParticipation.Size = new System.Drawing.Size(70, 26);
             this.btnUpdateParticipation.TabIndex = 32;
             this.btnUpdateParticipation.Text = "Оновити";
             this.btnUpdateParticipation.TextColor = System.Drawing.Color.White;
@@ -139,46 +135,32 @@
             this.btnAddParticipation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddParticipation.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnAddParticipation.ForeColor = System.Drawing.Color.White;
-            this.btnAddParticipation.Location = new System.Drawing.Point(17, 238);
+            this.btnAddParticipation.Location = new System.Drawing.Point(11, 128);
             this.btnAddParticipation.Name = "btnAddParticipation";
-            this.btnAddParticipation.Size = new System.Drawing.Size(90, 32);
+            this.btnAddParticipation.Size = new System.Drawing.Size(57, 26);
             this.btnAddParticipation.TabIndex = 31;
             this.btnAddParticipation.Text = "Додати";
             this.btnAddParticipation.TextColor = System.Drawing.Color.White;
             this.btnAddParticipation.UseVisualStyleBackColor = false;
             this.btnAddParticipation.Click += new System.EventHandler(this.btnAddParticipation_Click);
             // 
-            // dtpEndDate
-            // 
-            this.dtpEndDate.Location = new System.Drawing.Point(16, 157);
-            this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(306, 24);
-            this.dtpEndDate.TabIndex = 26;
-            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Location = new System.Drawing.Point(16, 85);
+            this.panel4.Location = new System.Drawing.Point(11, 82);
             this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(306, 2);
+            this.panel4.Size = new System.Drawing.Size(230, 2);
             this.panel4.TabIndex = 25;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Location = new System.Drawing.Point(15, 34);
+            this.panel3.Location = new System.Drawing.Point(11, 41);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(306, 2);
+            this.panel3.Size = new System.Drawing.Size(230, 2);
             this.panel3.TabIndex = 24;
-            // 
-            // dtpStartDate
-            // 
-            this.dtpStartDate.Location = new System.Drawing.Point(15, 115);
-            this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(306, 24);
-            this.dtpStartDate.TabIndex = 2;
             // 
             // txtProjectName
             // 
@@ -186,9 +168,9 @@
             this.txtProjectName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtProjectName.Font = new System.Drawing.Font("Arial", 8.8F);
             this.txtProjectName.ForeColor = System.Drawing.Color.White;
-            this.txtProjectName.Location = new System.Drawing.Point(16, 68);
+            this.txtProjectName.Location = new System.Drawing.Point(11, 65);
             this.txtProjectName.Name = "txtProjectName";
-            this.txtProjectName.Size = new System.Drawing.Size(306, 17);
+            this.txtProjectName.Size = new System.Drawing.Size(230, 14);
             this.txtProjectName.TabIndex = 1;
             this.txtProjectName.Text = "Назва проєкту";
             this.txtProjectName.TextChanged += new System.EventHandler(this.txtProjectName_TextChanged);
@@ -199,9 +181,9 @@
             this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtName.Font = new System.Drawing.Font("Arial", 8.8F);
             this.txtName.ForeColor = System.Drawing.Color.White;
-            this.txtName.Location = new System.Drawing.Point(15, 17);
+            this.txtName.Location = new System.Drawing.Point(11, 24);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(306, 17);
+            this.txtName.Size = new System.Drawing.Size(230, 14);
             this.txtName.TabIndex = 0;
             this.txtName.Text = "ПІБ";
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
@@ -242,15 +224,15 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(749, 652);
+            this.dataGridView1.Size = new System.Drawing.Size(562, 530);
             this.dataGridView1.TabIndex = 16;
             // 
             // FormParticipation
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
-            this.ClientSize = new System.Drawing.Size(1088, 652);
+            this.ClientSize = new System.Drawing.Size(816, 530);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.dataGridView1);
             this.Font = new System.Drawing.Font("Arial", 8.8F);
@@ -269,11 +251,9 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DateTimePicker dtpStartDate;
         private System.Windows.Forms.TextBox txtProjectName;
         private System.Windows.Forms.TextBox txtName;
         internal System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DateTimePicker dtpEndDate;
         private RoundButton btnClear;
         private RoundButton btnDeleteParticipation;
         private RoundButton btnUpdateParticipation;

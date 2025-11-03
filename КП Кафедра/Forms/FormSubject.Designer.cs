@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel10 = new System.Windows.Forms.Panel();
             this.btnClear = new КП_Кафедра.RoundButton();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -42,6 +42,8 @@
             this.txtSemester = new System.Windows.Forms.TextBox();
             this.txtSubjectName = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.txtSpecialty = new System.Windows.Forms.TextBox();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -49,6 +51,8 @@
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
+            this.panel10.Controls.Add(this.panel1);
+            this.panel10.Controls.Add(this.txtSpecialty);
             this.panel10.Controls.Add(this.btnClear);
             this.panel10.Controls.Add(this.panel5);
             this.panel10.Controls.Add(this.panel4);
@@ -60,9 +64,9 @@
             this.panel10.Controls.Add(this.txtSemester);
             this.panel10.Controls.Add(this.txtSubjectName);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel10.Location = new System.Drawing.Point(756, 0);
+            this.panel10.Location = new System.Drawing.Point(569, 0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(332, 652);
+            this.panel10.Size = new System.Drawing.Size(247, 530);
             this.panel10.TabIndex = 17;
             // 
             // btnClear
@@ -76,9 +80,9 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.ForeColor = System.Drawing.Color.White;
             this.btnClear.Image = global::КП_Кафедра.Properties.Resources.icons8_мусор_20;
-            this.btnClear.Location = new System.Drawing.Point(279, 152);
+            this.btnClear.Location = new System.Drawing.Point(206, 157);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(41, 40);
+            this.btnClear.Size = new System.Drawing.Size(31, 31);
             this.btnClear.TabIndex = 30;
             this.btnClear.TextColor = System.Drawing.Color.White;
             this.btnClear.UseVisualStyleBackColor = false;
@@ -87,28 +91,28 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.Location = new System.Drawing.Point(15, 137);
+            this.panel5.Location = new System.Drawing.Point(11, 148);
             this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(306, 2);
+            this.panel5.Size = new System.Drawing.Size(230, 2);
             this.panel5.TabIndex = 26;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Location = new System.Drawing.Point(16, 85);
+            this.panel4.Location = new System.Drawing.Point(11, 110);
             this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(306, 2);
+            this.panel4.Size = new System.Drawing.Size(230, 2);
             this.panel4.TabIndex = 25;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Location = new System.Drawing.Point(15, 34);
+            this.panel3.Location = new System.Drawing.Point(11, 41);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(306, 2);
+            this.panel3.Size = new System.Drawing.Size(230, 2);
             this.panel3.TabIndex = 24;
             // 
             // btnDeleteSubject
@@ -122,9 +126,9 @@
             this.btnDeleteSubject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteSubject.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnDeleteSubject.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteSubject.Location = new System.Drawing.Point(197, 199);
+            this.btnDeleteSubject.Location = new System.Drawing.Point(148, 194);
             this.btnDeleteSubject.Name = "btnDeleteSubject";
-            this.btnDeleteSubject.Size = new System.Drawing.Size(124, 32);
+            this.btnDeleteSubject.Size = new System.Drawing.Size(93, 26);
             this.btnDeleteSubject.TabIndex = 23;
             this.btnDeleteSubject.Text = "Видалити";
             this.btnDeleteSubject.TextColor = System.Drawing.Color.White;
@@ -144,9 +148,9 @@
             this.btnUpdateSubject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateSubject.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnUpdateSubject.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateSubject.Location = new System.Drawing.Point(97, 199);
+            this.btnUpdateSubject.Location = new System.Drawing.Point(74, 194);
             this.btnUpdateSubject.Name = "btnUpdateSubject";
-            this.btnUpdateSubject.Size = new System.Drawing.Size(93, 32);
+            this.btnUpdateSubject.Size = new System.Drawing.Size(70, 26);
             this.btnUpdateSubject.TabIndex = 21;
             this.btnUpdateSubject.Text = "Оновити";
             this.btnUpdateSubject.TextColor = System.Drawing.Color.White;
@@ -166,9 +170,9 @@
             this.btnAddSubject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddSubject.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnAddSubject.ForeColor = System.Drawing.Color.White;
-            this.btnAddSubject.Location = new System.Drawing.Point(15, 199);
+            this.btnAddSubject.Location = new System.Drawing.Point(11, 194);
             this.btnAddSubject.Name = "btnAddSubject";
-            this.btnAddSubject.Size = new System.Drawing.Size(76, 32);
+            this.btnAddSubject.Size = new System.Drawing.Size(57, 26);
             this.btnAddSubject.TabIndex = 20;
             this.btnAddSubject.Text = "Додати";
             this.btnAddSubject.TextColor = System.Drawing.Color.White;
@@ -181,9 +185,9 @@
             this.txtTotalHours.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtTotalHours.Font = new System.Drawing.Font("Arial", 8.8F);
             this.txtTotalHours.ForeColor = System.Drawing.Color.White;
-            this.txtTotalHours.Location = new System.Drawing.Point(15, 120);
+            this.txtTotalHours.Location = new System.Drawing.Point(11, 134);
             this.txtTotalHours.Name = "txtTotalHours";
-            this.txtTotalHours.Size = new System.Drawing.Size(306, 17);
+            this.txtTotalHours.Size = new System.Drawing.Size(230, 14);
             this.txtTotalHours.TabIndex = 3;
             this.txtTotalHours.Text = "Загальна кількість годин";
             this.txtTotalHours.TextChanged += new System.EventHandler(this.txtTotalHours_TextChanged);
@@ -194,9 +198,9 @@
             this.txtSemester.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSemester.Font = new System.Drawing.Font("Arial", 8.8F);
             this.txtSemester.ForeColor = System.Drawing.Color.White;
-            this.txtSemester.Location = new System.Drawing.Point(16, 68);
+            this.txtSemester.Location = new System.Drawing.Point(11, 96);
             this.txtSemester.Name = "txtSemester";
-            this.txtSemester.Size = new System.Drawing.Size(306, 17);
+            this.txtSemester.Size = new System.Drawing.Size(230, 14);
             this.txtSemester.TabIndex = 1;
             this.txtSemester.Text = "Семестр";
             this.txtSemester.TextChanged += new System.EventHandler(this.txtSemester_TextChanged);
@@ -207,9 +211,9 @@
             this.txtSubjectName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSubjectName.Font = new System.Drawing.Font("Arial", 8.8F);
             this.txtSubjectName.ForeColor = System.Drawing.Color.White;
-            this.txtSubjectName.Location = new System.Drawing.Point(15, 17);
+            this.txtSubjectName.Location = new System.Drawing.Point(10, 27);
             this.txtSubjectName.Name = "txtSubjectName";
-            this.txtSubjectName.Size = new System.Drawing.Size(306, 17);
+            this.txtSubjectName.Size = new System.Drawing.Size(230, 14);
             this.txtSubjectName.TabIndex = 0;
             this.txtSubjectName.Text = "Назва дисципліни";
             this.txtSubjectName.TextChanged += new System.EventHandler(this.txtSubjectName_TextChanged);
@@ -225,23 +229,23 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 8.8F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(148)))), ((int)(((byte)(152)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial", 8.8F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(148)))), ((int)(((byte)(152)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 8.8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 8.8F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
@@ -250,15 +254,37 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(749, 652);
+            this.dataGridView1.Size = new System.Drawing.Size(562, 530);
             this.dataGridView1.TabIndex = 16;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Location = new System.Drawing.Point(10, 76);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(230, 2);
+            this.panel1.TabIndex = 40;
+            // 
+            // txtSpecialty
+            // 
+            this.txtSpecialty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
+            this.txtSpecialty.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSpecialty.Font = new System.Drawing.Font("Arial", 8.8F);
+            this.txtSpecialty.ForeColor = System.Drawing.Color.White;
+            this.txtSpecialty.Location = new System.Drawing.Point(10, 62);
+            this.txtSpecialty.Name = "txtSpecialty";
+            this.txtSpecialty.Size = new System.Drawing.Size(230, 14);
+            this.txtSpecialty.TabIndex = 39;
+            this.txtSpecialty.Text = "Спеціальність";
+            this.txtSpecialty.TextChanged += new System.EventHandler(this.txtSpecialty_TextChanged);
             // 
             // FormSubject
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
-            this.ClientSize = new System.Drawing.Size(1088, 652);
+            this.ClientSize = new System.Drawing.Size(816, 530);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.dataGridView1);
             this.Font = new System.Drawing.Font("Arial", 8.8F);
@@ -286,5 +312,7 @@
         private System.Windows.Forms.TextBox txtSubjectName;
         internal System.Windows.Forms.DataGridView dataGridView1;
         private RoundButton btnClear;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txtSpecialty;
     }
 }
