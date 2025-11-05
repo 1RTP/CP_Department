@@ -25,6 +25,10 @@ namespace КП_Кафедра.Forms
         public FormTables()
         {
             InitializeComponent();
+            AppSettings.LoadSettings();
+            AppSettings.ApplyStyle(this);
+            AppSettings.StyleChanged += () => AppSettings.ApplyStyle(this);
+
             InitializeBoxes();
         }
 

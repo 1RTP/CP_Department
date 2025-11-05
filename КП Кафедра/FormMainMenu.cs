@@ -30,6 +30,10 @@ namespace КП_Кафедра
         public FormMainMenu(string userName, string userEmail)
         {
             InitializeComponent();
+            AppSettings.LoadSettings();
+            AppSettings.ApplyStyle(this);
+            AppSettings.StyleChanged += () => AppSettings.ApplyStyle(this);
+
             lblUserName.Text = userName;
             lblUserEmail.Text = userEmail;
             this.FormClosed += FormMainMenu_FormClosed;
@@ -132,6 +136,7 @@ namespace КП_Кафедра
         {
             btnHead.Text = LanguageManager.GetString("btnHead");
             btnSettings.Text = LanguageManager.GetString("btnSettings");
+            btnReports.Text = LanguageManager.GetString("btnReports");
         }
 
         private void btnReports_Click(object sender, EventArgs e)

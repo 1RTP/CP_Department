@@ -34,5 +34,41 @@ namespace КП_Кафедра.Properties {
                 this["Language"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Arial")]
+        public string FontName {
+            get {
+                return ((string)(this["FontName"]));
+            }
+            set {
+                this["FontName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("8.8")]
+        public float FontSize {
+            get {
+                return ((float)(this["FontSize"]));
+            }
+            set {
+                this["FontSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("White")]
+        public string TextColor {
+            get {
+                return ((string)(this["TextColor"]));
+            }
+            set {
+                this["TextColor"] = value;
+            }
+        }
     }
 }

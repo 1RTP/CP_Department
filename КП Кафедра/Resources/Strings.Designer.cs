@@ -115,11 +115,29 @@ namespace КП_Кафедра.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Конвертувати Word у PDF.
+        /// </summary>
+        internal static string btnConvertToPdf_Click {
+            get {
+                return ResourceManager.GetString("btnConvertToPdf_Click", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Деактивувати.
         /// </summary>
         internal static string btnDeactivateTeacher {
             get {
                 return ResourceManager.GetString("btnDeactivateTeacher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Скинути налаштування.
+        /// </summary>
+        internal static string btnDefaultSettings {
+            get {
+                return ResourceManager.GetString("btnDefaultSettings", resourceCulture);
             }
         }
         
@@ -160,11 +178,56 @@ namespace КП_Кафедра.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Зберегти у Excel.
+        /// </summary>
+        internal static string btnExportToExcel {
+            get {
+                return ResourceManager.GetString("btnExportToExcel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Зберегти у Word.
+        /// </summary>
+        internal static string btnExportToWord {
+            get {
+                return ResourceManager.GetString("btnExportToWord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Змінити шрифт.
+        /// </summary>
+        internal static string btnFont {
+            get {
+                return ResourceManager.GetString("btnFont", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на              Головна сторінка.
         /// </summary>
         internal static string btnHead {
             get {
                 return ResourceManager.GetString("btnHead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Завантажити з Excel.
+        /// </summary>
+        internal static string btnImportFromExcel {
+            get {
+                return ResourceManager.GetString("btnImportFromExcel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Завантажити з Word.
+        /// </summary>
+        internal static string btnImportFromWord {
+            get {
+                return ResourceManager.GetString("btnImportFromWord", resourceCulture);
             }
         }
         
@@ -178,11 +241,47 @@ namespace КП_Кафедра.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Відкрити Excel-звіт.
+        /// </summary>
+        internal static string btnOpenExcelReport {
+            get {
+                return ResourceManager.GetString("btnOpenExcelReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Відкрити Word-звіт.
+        /// </summary>
+        internal static string btnOpenWordReport {
+            get {
+                return ResourceManager.GetString("btnOpenWordReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Участь у проєктах.
         /// </summary>
         internal static string btnParticipation {
             get {
                 return ResourceManager.GetString("btnParticipation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Показати звіт.
+        /// </summary>
+        internal static string btnReport {
+            get {
+                return ResourceManager.GetString("btnReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на              Звіти.
+        /// </summary>
+        internal static string btnReports {
+            get {
+                return ResourceManager.GetString("btnReports", resourceCulture);
             }
         }
         
@@ -201,6 +300,15 @@ namespace КП_Кафедра.Resources {
         internal static string btnSave {
             get {
                 return ResourceManager.GetString("btnSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Зберегти.
+        /// </summary>
+        internal static string btnSaveSettings {
+            get {
+                return ResourceManager.GetString("btnSaveSettings", resourceCulture);
             }
         }
         
@@ -228,6 +336,15 @@ namespace КП_Кафедра.Resources {
         internal static string btnTeachers {
             get {
                 return ResourceManager.GetString("btnTeachers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Змінити колір тексту.
+        /// </summary>
+        internal static string btnTextColor {
+            get {
+                return ResourceManager.GetString("btnTextColor", resourceCulture);
             }
         }
         
@@ -498,6 +615,51 @@ namespace КП_Кафедра.Resources {
         internal static string lbLanguage {
             get {
                 return ResourceManager.GetString("lbLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Налаштування тексту.
+        /// </summary>
+        internal static string lblPreview {
+            get {
+                return ResourceManager.GetString("lblPreview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Призначення.
+        /// </summary>
+        internal static string rbAssignmentsReport {
+            get {
+                return ResourceManager.GetString("rbAssignmentsReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Проєкти.
+        /// </summary>
+        internal static string rbResearchReport {
+            get {
+                return ResourceManager.GetString("rbResearchReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Дисципліни.
+        /// </summary>
+        internal static string rbSubjectsReport {
+            get {
+                return ResourceManager.GetString("rbSubjectsReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Викладачі.
+        /// </summary>
+        internal static string rbTeachersReport {
+            get {
+                return ResourceManager.GetString("rbTeachersReport", resourceCulture);
             }
         }
         

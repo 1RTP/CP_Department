@@ -5,5 +5,14 @@
     <Setting Name="Language" Type="System.String" Scope="User">
       <Value Profile="(Default)">Українська</Value>
     </Setting>
+    <Setting Name="FontName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Arial</Value>
+    </Setting>
+    <Setting Name="FontSize" Type="System.Single" Scope="User">
+		<Value Profile="(Default)">8.8</Value>
+    </Setting>
+    <Setting Name="TextColor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">White</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

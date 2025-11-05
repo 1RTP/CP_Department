@@ -14,6 +14,9 @@ using System.Xml.Serialization;
 using КП_Кафедра.Forms;
 using КП_Кафедра.Properties;
 using static КП_Кафедра.ToastForm;
+using Word = Microsoft.Office.Interop.Word;
+using Xceed.Words.NET;
+using Xceed.Document.NET;
 
 namespace КП_Кафедра
 {
@@ -194,7 +197,7 @@ namespace КП_Кафедра
         static void Main()
         {
             LoggerService.LogInfo("Програма стартувала");
-                       
+
             try
             {
                 string lang = Settings.Default.Language;

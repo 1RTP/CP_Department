@@ -306,4 +306,58 @@
   <data name="column_specialty" xml:space="preserve">
     <value>Specialty</value>
   </data>
+  <data name="btnDefaultSettings" xml:space="preserve">
+    <value>Reset settings</value>
+  </data>
+  <data name="lblPreview" xml:space="preserve">
+    <value>Text settings</value>
+  </data>
+  <data name="btnSaveSettings" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="btnTextColor" xml:space="preserve">
+    <value>Change text color</value>
+  </data>
+  <data name="btnFont" xml:space="preserve">
+    <value>Change font</value>
+  </data>
+  <data name="rbTeachersReport" xml:space="preserve">
+    <value>Teachers</value>
+  </data>
+  <data name="rbSubjectsReport" xml:space="preserve">
+    <value>Subjects</value>
+  </data>
+  <data name="rbResearchReport" xml:space="preserve">
+    <value>Projects</value>
+  </data>
+  <data name="rbAssignmentsReport" xml:space="preserve">
+    <value>Assignments</value>
+  </data>
+  <data name="btnReport" xml:space="preserve">
+    <value>Show Report</value>
+  </data>
+  <data name="btnOpenExcelReport" xml:space="preserve">
+    <value>Open Excel Report</value>
+  </data>
+  <data name="btnOpenWordReport" xml:space="preserve">
+    <value>Open Word Report</value>
+  </data>
+  <data name="btnExportToExcel" xml:space="preserve">
+    <value>Save to Excel</value>
+  </data>
+  <data name="btnExportToWord" xml:space="preserve">
+    <value>Save to Word</value>
+  </data>
+  <data name="btnImportFromExcel" xml:space="preserve">
+    <value>Download from Excel</value>
+  </data>
+  <data name="btnImportFromWord" xml:space="preserve">
+    <value>Download from Word</value>
+  </data>
+  <data name="btnConvertToPdf_Click" xml:space="preserve">
+    <value>Convert Word to PDF</value>
+  </data>
+  <data name="btnReports" xml:space="preserve">
+    <value>             Reports</value>
+  </data>
 </root>

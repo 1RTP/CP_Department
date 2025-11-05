@@ -14,18 +14,25 @@ using КП_Кафедра.Properties;
 using static КП_Кафедра.ToastForm;
 using SerializerLib;
 
+
 namespace КП_Кафедра.Forms
 {
     public partial class FormSettings : Form
     {
         private string currentFormat = "XML"; // формат за замовчуванням
         private bool isInitializing = true;
-        //private string dataFolder = Path.Combine(Application.StartupPath, "Data");
         private readonly string dataFolder;
+        private Font selectedFont;
+        private Color selectedTextColor;
 
         public FormSettings()
         {
             InitializeComponent();
+
+            AppSettings.LoadSettings();
+            AppSettings.ApplyStyle(this);
+            lblPreview.Font = AppSettings.CurrentFont;
+            lblPreview.ForeColor = AppSettings.CurrentTextColor;
 
             string exeDir = AppDomain.CurrentDomain.BaseDirectory;
             string projectRoot = Path.GetFullPath(Path.Combine(exeDir, "..", ".."));
@@ -153,6 +160,11 @@ namespace КП_Кафедра.Forms
             btnSave.Text = LanguageManager.GetString("btnSave");
             btnLoad.Text = LanguageManager.GetString("btnLoad");
             lbLanguage.Text = LanguageManager.GetString("lbLanguage");
+            btnFont.Text = LanguageManager.GetString("btnFont");
+            btnTextColor.Text = LanguageManager.GetString("btnTextColor");
+            btnSaveSettings.Text = LanguageManager.GetString("btnSaveSettings");
+            lblPreview.Text = LanguageManager.GetString("lblPreview");
+            btnDefaultSettings.Text = LanguageManager.GetString("btnDefaultSettings");
             label1.Text = LanguageManager.GetString("label1");
         }
 
@@ -183,6 +195,51 @@ namespace КП_Кафедра.Forms
             Toast.Show("INFO", $"Обрано формат BIN.");
         }
 
+        private void btnFont_Click(object sender, EventArgs e)
+        {
+            using (FontDialog fontDialog = new FontDialog())
+            {
+                fontDialog.Font = selectedFont; // поточний шрифт
+                if (fontDialog.ShowDialog() == DialogResult.OK)
+                {
+                    selectedFont = fontDialog.Font;
+                    lblPreview.Font = selectedFont; // оновлюємо попередній перегляд
+                }
+            }
+        }
+
+        private void btnTextColor_Click(object sender, EventArgs e)
+        {
+            using (ColorDialog colorDialog = new ColorDialog())
+            {
+                colorDialog.Color = selectedTextColor;
+                if (colorDialog.ShowDialog() == DialogResult.OK)
+                {
+                    selectedTextColor = colorDialog.Color;
+                    lblPreview.ForeColor = selectedTextColor; // змінюємо колір тексту
+                }
+            }
+        }
+
+        private void btnSaveSettings_Click(object sender, EventArgs e)
+        {
+            AppSettings.CurrentFont = selectedFont;
+            AppSettings.CurrentTextColor = selectedTextColor;
+            AppSettings.ApplyStyle(this);
+            AppSettings.SaveSettings();
+            AppSettings.NotifyStyleChanged();
+            Toast.Show("SUCCESS", $"Налаштування застосовано.");
+        }
+
+        private void btnDefaultSettings_Click(object sender, EventArgs e)
+        {
+            AppSettings.ResetToDefault();
+            AppSettings.ApplyStyle(this);
+            lblPreview.Font = AppSettings.CurrentFont;
+            lblPreview.ForeColor = AppSettings.CurrentTextColor;
+            AppSettings.NotifyStyleChanged();
+            Toast.Show("INFO", $"Налаштування скинуто.");
+        }
     }
     
 }

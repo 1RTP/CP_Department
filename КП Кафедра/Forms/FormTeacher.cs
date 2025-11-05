@@ -23,6 +23,9 @@ namespace КП_Кафедра.Forms
         public FormTeacher()
         {
             InitializeComponent();
+            AppSettings.LoadSettings();
+            AppSettings.ApplyStyle(this);
+            AppSettings.StyleChanged += () => AppSettings.ApplyStyle(this);
 
             string exeDir = AppDomain.CurrentDomain.BaseDirectory;
             string projectRoot = Path.GetFullPath(Path.Combine(exeDir, "..", ".."));
@@ -97,20 +100,20 @@ namespace КП_Кафедра.Forms
                 {
                     connection.Open();
                     string query = @"
-                SELECT 
-                    t.emp_id,
-                    t.emp_full_name,
-                    t.emp_position,
-                    t.emp_hire_date,
-                    t.phone_number,
-                    t.email,
-                    t.status,
-                    s.specialty_id,
-                    s.specialty_name
-                FROM teacher t
-                LEFT JOIN specialty s ON t.specialty_id = s.specialty_id
-                ORDER BY t.status DESC, t.emp_id ASC;
-            ";
+                            SELECT 
+                                t.emp_id,
+                                t.emp_full_name,
+                                t.emp_position,
+                                t.emp_hire_date,
+                                t.phone_number,
+                                t.email,
+                                t.status,
+                                s.specialty_id,
+                                s.specialty_name
+                            FROM teacher t
+                            LEFT JOIN specialty s ON t.specialty_id = s.specialty_id
+                            ORDER BY t.status DESC, t.emp_id ASC;
+                        ";
 
                     DataTable table = new DataTable();
                     table.Columns.Add("emp_id", typeof(int));
@@ -150,8 +153,8 @@ namespace КП_Кафедра.Forms
                     dataGridView1.DataSource = table;
                     ApplyColumnLocalization();
 
-                    //if (dataGridView1.Columns.Contains("status")) // прибрати колонку статус з відображення
-                    //    dataGridView1.Columns["status"].Visible = false;
+                    if (dataGridView1.Columns.Contains("status")) // прибрати колонку статус з відображення
+                        dataGridView1.Columns["status"].Visible = false;
 
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
@@ -319,7 +322,6 @@ namespace КП_Кафедра.Forms
             const int maxLength = 15;
             if (input.Length > maxLength)
             {
-                //Toast.Show("ERROR", $"Номер телефону не може бути довшим за {maxLength} символів.");
                 txtPhone.Text = input.Substring(0, maxLength);
                 txtPhone.SelectionStart = txtPhone.Text.Length;
                 return;

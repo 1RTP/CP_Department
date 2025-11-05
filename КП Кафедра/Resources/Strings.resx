@@ -306,4 +306,58 @@
   <data name="column_specialty" xml:space="preserve">
     <value>Спеціальність</value>
   </data>
+  <data name="btnDefaultSettings" xml:space="preserve">
+    <value>Скинути налаштування</value>
+  </data>
+  <data name="lblPreview" xml:space="preserve">
+    <value>Налаштування тексту</value>
+  </data>
+  <data name="btnSaveSettings" xml:space="preserve">
+    <value>Зберегти</value>
+  </data>
+  <data name="btnTextColor" xml:space="preserve">
+    <value>Змінити колір тексту</value>
+  </data>
+  <data name="btnFont" xml:space="preserve">
+    <value>Змінити шрифт</value>
+  </data>
+  <data name="rbTeachersReport" xml:space="preserve">
+    <value>Викладачі</value>
+  </data>
+  <data name="rbSubjectsReport" xml:space="preserve">
+    <value>Дисципліни</value>
+  </data>
+  <data name="rbResearchReport" xml:space="preserve">
+    <value>Проєкти</value>
+  </data>
+  <data name="rbAssignmentsReport" xml:space="preserve">
+    <value>Призначення</value>
+  </data>
+  <data name="btnReport" xml:space="preserve">
+    <value>Показати звіт</value>
+  </data>
+  <data name="btnOpenExcelReport" xml:space="preserve">
+    <value>Відкрити Excel-звіт</value>
+  </data>
+  <data name="btnOpenWordReport" xml:space="preserve">
+    <value>Відкрити Word-звіт</value>
+  </data>
+  <data name="btnExportToExcel" xml:space="preserve">
+    <value>Зберегти у Excel</value>
+  </data>
+  <data name="btnExportToWord" xml:space="preserve">
+    <value>Зберегти у Word</value>
+  </data>
+  <data name="btnImportFromExcel" xml:space="preserve">
+    <value>Завантажити з Excel</value>
+  </data>
+  <data name="btnImportFromWord" xml:space="preserve">
+    <value>Завантажити з Word</value>
+  </data>
+  <data name="btnConvertToPdf_Click" xml:space="preserve">
+    <value>Конвертувати Word у PDF</value>
+  </data>
+  <data name="btnReports" xml:space="preserve">
+    <value>             Звіти</value>
+  </data>
 </root>

@@ -25,6 +25,9 @@ namespace КП_Кафедра.Forms
         public FormAssignment()
         {
             InitializeComponent();
+            AppSettings.LoadSettings();
+            AppSettings.ApplyStyle(this);
+            AppSettings.StyleChanged += () => AppSettings.ApplyStyle(this);
 
             string exeDir = AppDomain.CurrentDomain.BaseDirectory;
             string projectRoot = Path.GetFullPath(Path.Combine(exeDir, "..", ".."));
