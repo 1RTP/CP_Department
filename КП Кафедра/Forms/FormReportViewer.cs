@@ -41,14 +41,17 @@ namespace КП_Кафедра.Forms
 
                 if (!File.Exists(reportPath))
                 {
-                    Toast.Show("ERROR", $"Шаблон звіту не знайдено!{reportPath}"); return;
+                    Toast.Show("ERROR", "Шаблон звіту не знайдено!");
+                    LoggerService.LogError($"Шаблон звіту не знайдено!{reportPath}");
+                    return;
                 }
 
                 string xmlPath = Path.Combine(projectRoot, "Data", "department.xml");
 
                 if (!File.Exists(xmlPath))
                 {
-                    Toast.Show("ERROR", $"Файл даних не знайдено!{xmlPath}");
+                    Toast.Show("ERROR", "Файл даних не знайдено!");
+                    LoggerService.LogError($"Файл даних не знайдено!{xmlPath}");
                     return;
                 }
 
@@ -69,7 +72,8 @@ namespace КП_Кафедра.Forms
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", $"Помилка при завантаженні звіту: {ex.Message}");
+                Toast.Show("ERROR", $"Помилка при завантаженні звіту");
+                LoggerService.LogError($"Помилка при завантаженні звіту: {ex.Message}");
             }
         }
 

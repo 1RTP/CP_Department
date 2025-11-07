@@ -24,6 +24,7 @@ namespace КП_Кафедра.Forms
         private readonly string dbPath;
         RepExcel repExcel = new RepExcel();
         private readonly RepWord repWord = new RepWord();
+        public static FormReport Instance { get; private set; }
 
         public FormReport()
         {
@@ -131,7 +132,7 @@ namespace КП_Кафедра.Forms
                 }
                 else
                 {
-                    Toast.Show("WARNING", "Оберіть таблицю для збереження.");
+                    Toast.Show("WARNING", "Оберіть таблицю!");
                     LoggerService.LogError("Користувач не вибрав жодну таблицю для збереження.");
                     return;
                 }
@@ -140,7 +141,7 @@ namespace КП_Кафедра.Forms
 
                 if (dt.Rows.Count == 0)
                 {
-                    Toast.Show("WARNING", "Таблиця порожня. Немає даних для збереження.");
+                    Toast.Show("WARNING", "Таблиця порожня.");
                     LoggerService.LogError($"Збереження скасовано — таблиця {sheetName} порожня.");
                     return;
                 }
@@ -174,7 +175,7 @@ namespace КП_Кафедра.Forms
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", "Не вдалося відкрити файл Excel.");
+                Toast.Show("ERROR", "Не вдалося відкрити Excel.");
                 LoggerService.LogError($"Помилка відкриття Excel: {ex.Message}");
             }
         }
@@ -197,7 +198,7 @@ namespace КП_Кафедра.Forms
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", "Помилка при отриманні даних з бази!");
+                Toast.Show("ERROR", "Помилка отримання даних.");
                 LoggerService.LogError($"Помилка GetDataTable: {ex.Message} (Query: {query})");
                 return new DataTable();
             }
@@ -232,7 +233,7 @@ namespace КП_Кафедра.Forms
                 }
                 else
                 {
-                    Toast.Show("WARNING", "Оберіть таблицю для збереження у Word.");
+                    Toast.Show("WARNING", "Оберіть таблицю для Word.");
                     LoggerService.LogError("Користувач не вибрав жодну таблицю для збереження у Word.");
                     return;
                 }
@@ -241,7 +242,7 @@ namespace КП_Кафедра.Forms
 
                 if (dt.Rows.Count == 0)
                 {
-                    Toast.Show("WARNING", "Таблиця порожня. Немає даних для збереження.");
+                    Toast.Show("WARNING", "Таблиця порожня.");
                     LoggerService.LogError($"Збереження у Word скасовано — таблиця {fileName} порожня.");
                     return;
                 }
@@ -267,7 +268,7 @@ namespace КП_Кафедра.Forms
                     return;
                 }
 
-                Toast.Show("SUCCESS", "Завантаження з Word виконано успішно.");
+                Toast.Show("SUCCESS", "Дані з Word завантажено.");
                 LoggerService.LogInfo($"Завантажено {imported.Rows.Count} рядків із Word.");
             }
             catch (Exception ex)
@@ -286,7 +287,7 @@ namespace КП_Кафедра.Forms
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", "Не вдалося відкрити Word-файл.");
+                Toast.Show("ERROR", "Не вдалося відкрити Word.");
                 LoggerService.LogError($"Помилка відкриття Word: {ex.Message}");
             }
         }
@@ -310,7 +311,7 @@ namespace КП_Кафедра.Forms
                         doc.SaveToFile(pdfPath, Spire.Doc.FileFormat.PDF);
                         doc.Close();
 
-                        Toast.Show("SUCCESS", $"Файл PDF створено");
+                        Toast.Show("SUCCESS", "Файл PDF створено!");
                         LoggerService.LogInfo($"Word → PDF: {pdfPath}");
                     }
                     catch (Exception ex)

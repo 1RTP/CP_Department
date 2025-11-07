@@ -12,15 +12,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static КП_Кафедра.ToastForm;
 
-public static class SqliteDataReaderExtensions
-{
-    public static int GetInt32OrDefault(this SqliteDataReader reader, string columnName)
-    {
-        int ordinal = reader.GetOrdinal(columnName);
-        return !reader.IsDBNull(ordinal) ? reader.GetInt32(ordinal) : 0;
-    }
-}
-
 namespace КП_Кафедра.Forms
 {
     public partial class FormParticipation : Form
@@ -99,10 +90,10 @@ namespace КП_Кафедра.Forms
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", $"Помилка в Search(): {ex.Message}");
+                Toast.Show("ERROR", "Помилка в Search()");
+                LoggerService.LogError($"Помилка в Search(): {ex.Message}");
             }
         }
-
 
         private void LoadParticipation()
         {
@@ -172,7 +163,7 @@ namespace КП_Кафедра.Forms
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", "Помилка при завантаженні участі у дослідженнях");
+                Toast.Show("ERROR", "Помилка при завантаженні");
                 LoggerService.LogError($"Помилка при завантаженні участі у дослідженнях (LoadParticipation): {ex.Message}");
             }
         }
@@ -240,6 +231,13 @@ namespace КП_Кафедра.Forms
             ApplyLocalization();
         }
 
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            base.OnFormClosed(e);
+            LanguageManager.LanguageChanged -= ApplyLocalization;
+            Instance = null;
+        }
+
         private void ApplyLocalization()
         {
             btnAddParticipation.Text = LanguageManager.GetString("btnAddParticipation");
@@ -273,7 +271,7 @@ namespace КП_Кафедра.Forms
             var validPattern = new System.Text.RegularExpressions.Regex(@"^[A-Za-zА-ЯІЇЄҐа-яіїєґ'\-\s]+$");
             if (!validPattern.IsMatch(input))
             {
-                Toast.Show("ERROR", "Невірний формат ПІБ");
+                Toast.Show("ERROR", "Помилка у полі 'ПІБ'");
                 txtName.Text = "";
             }
         }
@@ -286,7 +284,7 @@ namespace КП_Кафедра.Forms
             var validPattern = new System.Text.RegularExpressions.Regex(@"^[A-Za-zА-ЯІЇЄҐа-яіїєґ0-9'\-\s\(\),\.]+$");
             if (!validPattern.IsMatch(input))
             {
-                Toast.Show("ERROR", "Невірний формат назви проєкту");
+                Toast.Show("ERROR", "Помилка у полі 'Назва проєкту'");
                 txtProjectName.Text = "";
             }
         }
@@ -316,7 +314,7 @@ namespace КП_Кафедра.Forms
 
                     if (empId == 0 || researchId == 0)
                     {
-                        Toast.Show("ERROR", "Не знайдено викладача або дослідження");
+                        Toast.Show("ERROR", "Не знайдено викладача/дослідження.");
                         return;
                     }
 
@@ -333,11 +331,11 @@ namespace КП_Кафедра.Forms
                 }
 
                 LoadParticipation();
-                Toast.Show("SUCCESS", "Участь успішно додано!");
+                Toast.Show("SUCCESS", "Успішно додано!");
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", $"Помилка при додаванні: {ex.Message}");
+                Toast.Show("ERROR", "Помилка при додаванні");
                 LoggerService.LogError($"Помилка при додаванні участі: {ex.Message}");
             }
         }
@@ -358,7 +356,7 @@ namespace КП_Кафедра.Forms
 
                     if (empId == 0 || researchId == 0)
                     {
-                        Toast.Show("ERROR", "Не знайдено викладача або дослідження");
+                        Toast.Show("ERROR", "Не знайдено викладача/дослідження.");
                         return;
                     }
 
@@ -376,11 +374,11 @@ namespace КП_Кафедра.Forms
                 }
 
                 LoadParticipation();
-                Toast.Show("SUCCESS", "Участь оновлено успішно!");
+                Toast.Show("SUCCESS", "Успішно оновлено!");
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", $"Помилка при оновленні: {ex.Message}");
+                Toast.Show("ERROR", "Помилка при оновленні");
                 LoggerService.LogError($"Помилка при оновленні участі: {ex.Message}");
             }
         }
@@ -408,11 +406,12 @@ namespace КП_Кафедра.Forms
                 }
 
                 LoadParticipation();
-                Toast.Show("SUCCESS", "Участь видалено!");
+                Toast.Show("SUCCESS", "Успішно видалено!");
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", $"Помилка при видаленні: {ex.Message}");
+                Toast.Show("ERROR", "Помилка при видаленні");
+                LoggerService.LogError($"Помилка при видаленні: {ex.Message}");
             }
         }
 

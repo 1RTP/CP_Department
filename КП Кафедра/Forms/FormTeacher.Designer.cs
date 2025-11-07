@@ -33,10 +33,15 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtSpecialty = new System.Windows.Forms.TextBox();
+            this.btnClear = new КП_Кафедра.RoundButton();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnDeleteTeacher = new КП_Кафедра.RoundButton();
+            this.btnDeactivateTeacher = new КП_Кафедра.RoundButton();
+            this.btnUpdateTeacher = new КП_Кафедра.RoundButton();
+            this.btnAddTeacher = new КП_Кафедра.RoundButton();
             this.chkActive = new System.Windows.Forms.CheckBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtPhone = new System.Windows.Forms.TextBox();
@@ -44,11 +49,6 @@
             this.txtPosition = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnClear = new КП_Кафедра.RoundButton();
-            this.btnDeleteTeacher = new КП_Кафедра.RoundButton();
-            this.btnDeactivateTeacher = new КП_Кафедра.RoundButton();
-            this.btnUpdateTeacher = new КП_Кафедра.RoundButton();
-            this.btnAddTeacher = new КП_Кафедра.RoundButton();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -102,6 +102,26 @@
             this.txtSpecialty.Text = "Спеціальність";
             this.txtSpecialty.TextChanged += new System.EventHandler(this.txtSpecialty_TextChanged);
             // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+            this.btnClear.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+            this.btnClear.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnClear.BorderRadius = 10;
+            this.btnClear.BorderSize = 0;
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.ForeColor = System.Drawing.Color.White;
+            this.btnClear.Image = global::КП_Кафедра.Properties.Resources.icons8_мусор_20;
+            this.btnClear.Location = new System.Drawing.Point(209, 231);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(31, 31);
+            this.btnClear.TabIndex = 29;
+            this.btnClear.TextColor = System.Drawing.Color.White;
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.White;
@@ -133,137 +153,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(230, 2);
             this.panel3.TabIndex = 24;
-            // 
-            // chkActive
-            // 
-            this.chkActive.AutoSize = true;
-            this.chkActive.Font = new System.Drawing.Font("Arial", 8.8F);
-            this.chkActive.ForeColor = System.Drawing.Color.White;
-            this.chkActive.Location = new System.Drawing.Point(12, 239);
-            this.chkActive.Margin = new System.Windows.Forms.Padding(2);
-            this.chkActive.Name = "chkActive";
-            this.chkActive.Size = new System.Drawing.Size(63, 19);
-            this.chkActive.TabIndex = 5;
-            this.chkActive.Text = "Статус";
-            this.chkActive.UseVisualStyleBackColor = true;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
-            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEmail.Font = new System.Drawing.Font("Arial", 8.8F);
-            this.txtEmail.ForeColor = System.Drawing.Color.White;
-            this.txtEmail.Location = new System.Drawing.Point(11, 204);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(230, 14);
-            this.txtEmail.TabIndex = 4;
-            this.txtEmail.Text = "Електронна пошта";
-            // 
-            // txtPhone
-            // 
-            this.txtPhone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
-            this.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPhone.Font = new System.Drawing.Font("Arial", 8.8F);
-            this.txtPhone.ForeColor = System.Drawing.Color.White;
-            this.txtPhone.Location = new System.Drawing.Point(11, 168);
-            this.txtPhone.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(230, 14);
-            this.txtPhone.TabIndex = 3;
-            this.txtPhone.Text = "Телефон";
-            // 
-            // dtpHireDate
-            // 
-            this.dtpHireDate.Location = new System.Drawing.Point(11, 129);
-            this.dtpHireDate.Margin = new System.Windows.Forms.Padding(2);
-            this.dtpHireDate.Name = "dtpHireDate";
-            this.dtpHireDate.Size = new System.Drawing.Size(231, 20);
-            this.dtpHireDate.TabIndex = 2;
-            // 
-            // txtPosition
-            // 
-            this.txtPosition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
-            this.txtPosition.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPosition.Font = new System.Drawing.Font("Arial", 8.8F);
-            this.txtPosition.ForeColor = System.Drawing.Color.White;
-            this.txtPosition.Location = new System.Drawing.Point(12, 52);
-            this.txtPosition.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPosition.Name = "txtPosition";
-            this.txtPosition.Size = new System.Drawing.Size(230, 14);
-            this.txtPosition.TabIndex = 1;
-            this.txtPosition.Text = "Посада";
-            // 
-            // txtName
-            // 
-            this.txtName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
-            this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtName.Font = new System.Drawing.Font("Arial", 8.8F);
-            this.txtName.ForeColor = System.Drawing.Color.White;
-            this.txtName.Location = new System.Drawing.Point(11, 13);
-            this.txtName.Margin = new System.Windows.Forms.Padding(2);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(230, 14);
-            this.txtName.TabIndex = 0;
-            this.txtName.Text = "ПІБ";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(148)))), ((int)(((byte)(152)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(562, 530);
-            this.dataGridView1.TabIndex = 14;
-            // 
-            // btnClear
-            // 
-            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
-            this.btnClear.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
-            this.btnClear.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnClear.BorderRadius = 10;
-            this.btnClear.BorderSize = 0;
-            this.btnClear.FlatAppearance.BorderSize = 0;
-            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Image = global::КП_Кафедра.Properties.Resources.icons8_мусор_20;
-            this.btnClear.Location = new System.Drawing.Point(209, 231);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(31, 31);
-            this.btnClear.TabIndex = 29;
-            this.btnClear.TextColor = System.Drawing.Color.White;
-            this.btnClear.UseVisualStyleBackColor = false;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnDeleteTeacher
             // 
@@ -355,6 +244,117 @@
             this.btnAddTeacher.TextColor = System.Drawing.Color.White;
             this.btnAddTeacher.UseVisualStyleBackColor = false;
             this.btnAddTeacher.Click += new System.EventHandler(this.btnAddTeacher_Click);
+            // 
+            // chkActive
+            // 
+            this.chkActive.AutoSize = true;
+            this.chkActive.Font = new System.Drawing.Font("Arial", 8.8F);
+            this.chkActive.ForeColor = System.Drawing.Color.White;
+            this.chkActive.Location = new System.Drawing.Point(12, 239);
+            this.chkActive.Margin = new System.Windows.Forms.Padding(2);
+            this.chkActive.Name = "chkActive";
+            this.chkActive.Size = new System.Drawing.Size(63, 19);
+            this.chkActive.TabIndex = 5;
+            this.chkActive.Text = "Статус";
+            this.chkActive.UseVisualStyleBackColor = true;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
+            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEmail.Font = new System.Drawing.Font("Arial", 8.8F);
+            this.txtEmail.ForeColor = System.Drawing.Color.White;
+            this.txtEmail.Location = new System.Drawing.Point(11, 203);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(230, 14);
+            this.txtEmail.TabIndex = 4;
+            this.txtEmail.Text = "Електронна пошта";
+            // 
+            // txtPhone
+            // 
+            this.txtPhone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
+            this.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPhone.Font = new System.Drawing.Font("Arial", 8.8F);
+            this.txtPhone.ForeColor = System.Drawing.Color.White;
+            this.txtPhone.Location = new System.Drawing.Point(11, 167);
+            this.txtPhone.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(230, 14);
+            this.txtPhone.TabIndex = 3;
+            this.txtPhone.Text = "Телефон";
+            // 
+            // dtpHireDate
+            // 
+            this.dtpHireDate.Location = new System.Drawing.Point(11, 129);
+            this.dtpHireDate.Margin = new System.Windows.Forms.Padding(2);
+            this.dtpHireDate.Name = "dtpHireDate";
+            this.dtpHireDate.Size = new System.Drawing.Size(231, 20);
+            this.dtpHireDate.TabIndex = 2;
+            // 
+            // txtPosition
+            // 
+            this.txtPosition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
+            this.txtPosition.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPosition.Font = new System.Drawing.Font("Arial", 8.8F);
+            this.txtPosition.ForeColor = System.Drawing.Color.White;
+            this.txtPosition.Location = new System.Drawing.Point(12, 51);
+            this.txtPosition.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPosition.Name = "txtPosition";
+            this.txtPosition.Size = new System.Drawing.Size(230, 14);
+            this.txtPosition.TabIndex = 1;
+            this.txtPosition.Text = "Посада";
+            // 
+            // txtName
+            // 
+            this.txtName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
+            this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtName.Font = new System.Drawing.Font("Arial", 8.8F);
+            this.txtName.ForeColor = System.Drawing.Color.White;
+            this.txtName.Location = new System.Drawing.Point(11, 12);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(230, 14);
+            this.txtName.TabIndex = 0;
+            this.txtName.Text = "ПІБ";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 8.8F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 8.8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.EnableHeadersVisualStyles = false;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(562, 530);
+            this.dataGridView1.TabIndex = 14;
             // 
             // FormTeacher
             // 

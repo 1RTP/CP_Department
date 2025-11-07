@@ -470,13 +470,13 @@
   ],
   "Assignments": [
     {
-      "AssignmentId": 8,
-      "PlanHours": 30,
-      "TaughtHours": 25,
+      "AssignmentId": 1,
+      "PlanHours": 40,
+      "TaughtHours": 30,
       "Status": false,
       "Teacher": {
-        "EmpId": 5,
-        "FullName": "Євгенія Мельниченко",
+        "EmpId": 1,
+        "FullName": "Панас Овчаренко",
         "Position": null,
         "HireDate": "0001-01-01T00:00:00",
         "PhoneNumber": null,
@@ -490,54 +490,14 @@
         "Assignments": []
       },
       "Subject": {
-        "SubjectId": 4,
-        "Name": "Патологічна фізіологія (Стоматологія, 3 курс)",
+        "SubjectId": 1,
+        "Name": "Патологічна фізіологія (Медицина)",
         "Semester": 0,
         "TotalHours": 0,
         "Status": false,
         "Specialty": {
-          "SpecialtyId": 2,
-          "SpecialtyName": "Стоматологія"
-        }
-      },
-      "LessonType": {
-        "LessonTypeId": 4,
-        "TypeName": "Семінар"
-      },
-      "Specialty": {
-        "SpecialtyId": 0,
-        "SpecialtyName": null
-      }
-    },
-    {
-      "AssignmentId": 12,
-      "PlanHours": 50,
-      "TaughtHours": 48,
-      "Status": false,
-      "Teacher": {
-        "EmpId": 9,
-        "FullName": "Ігор Сич",
-        "Position": null,
-        "HireDate": "0001-01-01T00:00:00",
-        "PhoneNumber": null,
-        "Email": null,
-        "Status": false,
-        "Specialty": {
-          "SpecialtyId": 0,
-          "SpecialtyName": null
-        },
-        "Participations": [],
-        "Assignments": []
-      },
-      "Subject": {
-        "SubjectId": 12,
-        "Name": "Клінічна патофізіологія (Стоматологія, 4 курс)",
-        "Semester": 0,
-        "TotalHours": 0,
-        "Status": false,
-        "Specialty": {
-          "SpecialtyId": 2,
-          "SpecialtyName": "Стоматологія"
+          "SpecialtyId": 1,
+          "SpecialtyName": "Медицина"
         }
       },
       "LessonType": {
@@ -550,13 +510,13 @@
       }
     },
     {
-      "AssignmentId": 9,
-      "PlanHours": 40,
-      "TaughtHours": 30,
+      "AssignmentId": 2,
+      "PlanHours": 30,
+      "TaughtHours": 28,
       "Status": false,
       "Teacher": {
-        "EmpId": 6,
-        "FullName": "Андрій Онищенко",
+        "EmpId": 1,
+        "FullName": "Панас Овчаренко",
         "Position": null,
         "HireDate": "0001-01-01T00:00:00",
         "PhoneNumber": null,
@@ -570,59 +530,19 @@
         "Assignments": []
       },
       "Subject": {
-        "SubjectId": 9,
-        "Name": "Патоморфологія та патофізіологія (Сестринська справа)",
+        "SubjectId": 2,
+        "Name": "Патологічна фізіологія (Медицина, іноземні студенти)",
         "Semester": 0,
         "TotalHours": 0,
         "Status": false,
         "Specialty": {
-          "SpecialtyId": 6,
-          "SpecialtyName": "Сестринська справа"
+          "SpecialtyId": 1,
+          "SpecialtyName": "Медицина"
         }
       },
       "LessonType": {
         "LessonTypeId": 2,
         "TypeName": "Практичне заняття"
-      },
-      "Specialty": {
-        "SpecialtyId": 0,
-        "SpecialtyName": null
-      }
-    },
-    {
-      "AssignmentId": 7,
-      "PlanHours": 60,
-      "TaughtHours": 60,
-      "Status": false,
-      "Teacher": {
-        "EmpId": 4,
-        "FullName": "Валерія Дробович",
-        "Position": null,
-        "HireDate": "0001-01-01T00:00:00",
-        "PhoneNumber": null,
-        "Email": null,
-        "Status": false,
-        "Specialty": {
-          "SpecialtyId": 0,
-          "SpecialtyName": null
-        },
-        "Participations": [],
-        "Assignments": []
-      },
-      "Subject": {
-        "SubjectId": 7,
-        "Name": "Патофізіологія з особливостями дитячого віку (Педіатрія)",
-        "Semester": 0,
-        "TotalHours": 0,
-        "Status": false,
-        "Specialty": {
-          "SpecialtyId": 3,
-          "SpecialtyName": "Педіатрія"
-        }
-      },
-      "LessonType": {
-        "LessonTypeId": 1,
-        "TypeName": "Лекція"
       },
       "Specialty": {
         "SpecialtyId": 0,
@@ -710,126 +630,6 @@
       }
     },
     {
-      "AssignmentId": 20,
-      "PlanHours": 45,
-      "TaughtHours": 42,
-      "Status": false,
-      "Teacher": {
-        "EmpId": 2,
-        "FullName": "Камілла Ващук",
-        "Position": null,
-        "HireDate": "0001-01-01T00:00:00",
-        "PhoneNumber": null,
-        "Email": null,
-        "Status": false,
-        "Specialty": {
-          "SpecialtyId": 0,
-          "SpecialtyName": null
-        },
-        "Participations": [],
-        "Assignments": []
-      },
-      "Subject": {
-        "SubjectId": 7,
-        "Name": "Патофізіологія з особливостями дитячого віку (Педіатрія)",
-        "Semester": 0,
-        "TotalHours": 0,
-        "Status": false,
-        "Specialty": {
-          "SpecialtyId": 3,
-          "SpecialtyName": "Педіатрія"
-        }
-      },
-      "LessonType": {
-        "LessonTypeId": 2,
-        "TypeName": "Практичне заняття"
-      },
-      "Specialty": {
-        "SpecialtyId": 0,
-        "SpecialtyName": null
-      }
-    },
-    {
-      "AssignmentId": 11,
-      "PlanHours": 35,
-      "TaughtHours": 20,
-      "Status": false,
-      "Teacher": {
-        "EmpId": 8,
-        "FullName": "Максим Бутко",
-        "Position": null,
-        "HireDate": "0001-01-01T00:00:00",
-        "PhoneNumber": null,
-        "Email": null,
-        "Status": false,
-        "Specialty": {
-          "SpecialtyId": 0,
-          "SpecialtyName": null
-        },
-        "Participations": [],
-        "Assignments": []
-      },
-      "Subject": {
-        "SubjectId": 11,
-        "Name": "Клінічна патофізіологія (Медицина, 4 курс)",
-        "Semester": 0,
-        "TotalHours": 0,
-        "Status": false,
-        "Specialty": {
-          "SpecialtyId": 1,
-          "SpecialtyName": "Медицина"
-        }
-      },
-      "LessonType": {
-        "LessonTypeId": 3,
-        "TypeName": "Лабораторне заняття"
-      },
-      "Specialty": {
-        "SpecialtyId": 0,
-        "SpecialtyName": null
-      }
-    },
-    {
-      "AssignmentId": 1,
-      "PlanHours": 44,
-      "TaughtHours": 33,
-      "Status": false,
-      "Teacher": {
-        "EmpId": 3,
-        "FullName": "Марія Овсієнко",
-        "Position": null,
-        "HireDate": "0001-01-01T00:00:00",
-        "PhoneNumber": null,
-        "Email": null,
-        "Status": false,
-        "Specialty": {
-          "SpecialtyId": 0,
-          "SpecialtyName": null
-        },
-        "Participations": [],
-        "Assignments": []
-      },
-      "Subject": {
-        "SubjectId": 8,
-        "Name": "Нормальна фізіологія людини та патологічна фізіологія (Фізична терапія)",
-        "Semester": 0,
-        "TotalHours": 0,
-        "Status": false,
-        "Specialty": {
-          "SpecialtyId": 5,
-          "SpecialtyName": "Фізична терапія"
-        }
-      },
-      "LessonType": {
-        "LessonTypeId": 2,
-        "TypeName": "Практичне заняття"
-      },
-      "Specialty": {
-        "SpecialtyId": 0,
-        "SpecialtyName": null
-      }
-    },
-    {
       "AssignmentId": 5,
       "PlanHours": 25,
       "TaughtHours": 20,
@@ -910,13 +710,13 @@
       }
     },
     {
-      "AssignmentId": 15,
+      "AssignmentId": 7,
       "PlanHours": 60,
-      "TaughtHours": 50,
+      "TaughtHours": 60,
       "Status": false,
       "Teacher": {
-        "EmpId": 12,
-        "FullName": "Наталя Король",
+        "EmpId": 4,
+        "FullName": "Валерія Дробович",
         "Position": null,
         "HireDate": "0001-01-01T00:00:00",
         "PhoneNumber": null,
@@ -930,19 +730,99 @@
         "Assignments": []
       },
       "Subject": {
-        "SubjectId": 15,
-        "Name": "Патофізіологія англійською (Medicine, 3 курс)",
+        "SubjectId": 7,
+        "Name": "Патофізіологія з особливостями дитячого віку (Педіатрія)",
         "Semester": 0,
         "TotalHours": 0,
         "Status": false,
         "Specialty": {
-          "SpecialtyId": 1,
-          "SpecialtyName": "Медицина"
+          "SpecialtyId": 3,
+          "SpecialtyName": "Педіатрія"
         }
       },
       "LessonType": {
         "LessonTypeId": 1,
         "TypeName": "Лекція"
+      },
+      "Specialty": {
+        "SpecialtyId": 0,
+        "SpecialtyName": null
+      }
+    },
+    {
+      "AssignmentId": 8,
+      "PlanHours": 30,
+      "TaughtHours": 25,
+      "Status": false,
+      "Teacher": {
+        "EmpId": 5,
+        "FullName": "Євгенія Мельниченко",
+        "Position": null,
+        "HireDate": "0001-01-01T00:00:00",
+        "PhoneNumber": null,
+        "Email": null,
+        "Status": false,
+        "Specialty": {
+          "SpecialtyId": 0,
+          "SpecialtyName": null
+        },
+        "Participations": [],
+        "Assignments": []
+      },
+      "Subject": {
+        "SubjectId": 8,
+        "Name": "Нормальна фізіологія людини та патологічна фізіологія (Фізична терапія)",
+        "Semester": 0,
+        "TotalHours": 0,
+        "Status": false,
+        "Specialty": {
+          "SpecialtyId": 5,
+          "SpecialtyName": "Фізична терапія"
+        }
+      },
+      "LessonType": {
+        "LessonTypeId": 4,
+        "TypeName": "Семінар"
+      },
+      "Specialty": {
+        "SpecialtyId": 0,
+        "SpecialtyName": null
+      }
+    },
+    {
+      "AssignmentId": 9,
+      "PlanHours": 40,
+      "TaughtHours": 30,
+      "Status": false,
+      "Teacher": {
+        "EmpId": 6,
+        "FullName": "Андрій Онищенко",
+        "Position": null,
+        "HireDate": "0001-01-01T00:00:00",
+        "PhoneNumber": null,
+        "Email": null,
+        "Status": false,
+        "Specialty": {
+          "SpecialtyId": 0,
+          "SpecialtyName": null
+        },
+        "Participations": [],
+        "Assignments": []
+      },
+      "Subject": {
+        "SubjectId": 9,
+        "Name": "Патоморфологія та патофізіологія (Сестринська справа)",
+        "Semester": 0,
+        "TotalHours": 0,
+        "Status": false,
+        "Specialty": {
+          "SpecialtyId": 6,
+          "SpecialtyName": "Сестринська справа"
+        }
+      },
+      "LessonType": {
+        "LessonTypeId": 2,
+        "TypeName": "Практичне заняття"
       },
       "Specialty": {
         "SpecialtyId": 0,
@@ -990,6 +870,126 @@
       }
     },
     {
+      "AssignmentId": 11,
+      "PlanHours": 35,
+      "TaughtHours": 20,
+      "Status": false,
+      "Teacher": {
+        "EmpId": 8,
+        "FullName": "Максим Бутко",
+        "Position": null,
+        "HireDate": "0001-01-01T00:00:00",
+        "PhoneNumber": null,
+        "Email": null,
+        "Status": false,
+        "Specialty": {
+          "SpecialtyId": 0,
+          "SpecialtyName": null
+        },
+        "Participations": [],
+        "Assignments": []
+      },
+      "Subject": {
+        "SubjectId": 11,
+        "Name": "Клінічна патофізіологія (Медицина, 4 курс)",
+        "Semester": 0,
+        "TotalHours": 0,
+        "Status": false,
+        "Specialty": {
+          "SpecialtyId": 1,
+          "SpecialtyName": "Медицина"
+        }
+      },
+      "LessonType": {
+        "LessonTypeId": 3,
+        "TypeName": "Лабораторне заняття"
+      },
+      "Specialty": {
+        "SpecialtyId": 0,
+        "SpecialtyName": null
+      }
+    },
+    {
+      "AssignmentId": 12,
+      "PlanHours": 50,
+      "TaughtHours": 48,
+      "Status": false,
+      "Teacher": {
+        "EmpId": 9,
+        "FullName": "Ігор Сич",
+        "Position": null,
+        "HireDate": "0001-01-01T00:00:00",
+        "PhoneNumber": null,
+        "Email": null,
+        "Status": false,
+        "Specialty": {
+          "SpecialtyId": 0,
+          "SpecialtyName": null
+        },
+        "Participations": [],
+        "Assignments": []
+      },
+      "Subject": {
+        "SubjectId": 12,
+        "Name": "Клінічна патофізіологія (Стоматологія, 4 курс)",
+        "Semester": 0,
+        "TotalHours": 0,
+        "Status": false,
+        "Specialty": {
+          "SpecialtyId": 2,
+          "SpecialtyName": "Стоматологія"
+        }
+      },
+      "LessonType": {
+        "LessonTypeId": 1,
+        "TypeName": "Лекція"
+      },
+      "Specialty": {
+        "SpecialtyId": 0,
+        "SpecialtyName": null
+      }
+    },
+    {
+      "AssignmentId": 13,
+      "PlanHours": 30,
+      "TaughtHours": 30,
+      "Status": false,
+      "Teacher": {
+        "EmpId": 10,
+        "FullName": "Юлія Пилипенко",
+        "Position": null,
+        "HireDate": "0001-01-01T00:00:00",
+        "PhoneNumber": null,
+        "Email": null,
+        "Status": false,
+        "Specialty": {
+          "SpecialtyId": 0,
+          "SpecialtyName": null
+        },
+        "Participations": [],
+        "Assignments": []
+      },
+      "Subject": {
+        "SubjectId": 13,
+        "Name": "Клінічна патофізіологія (Медсестринство, заочна форма)",
+        "Semester": 0,
+        "TotalHours": 0,
+        "Status": false,
+        "Specialty": {
+          "SpecialtyId": 6,
+          "SpecialtyName": "Сестринська справа"
+        }
+      },
+      "LessonType": {
+        "LessonTypeId": 2,
+        "TypeName": "Практичне заняття"
+      },
+      "Specialty": {
+        "SpecialtyId": 0,
+        "SpecialtyName": null
+      }
+    },
+    {
       "AssignmentId": 14,
       "PlanHours": 40,
       "TaughtHours": 35,
@@ -1030,13 +1030,13 @@
       }
     },
     {
-      "AssignmentId": 2,
-      "PlanHours": 30,
-      "TaughtHours": 28,
+      "AssignmentId": 15,
+      "PlanHours": 60,
+      "TaughtHours": 50,
       "Status": false,
       "Teacher": {
-        "EmpId": 1,
-        "FullName": "Панас Овчаренко",
+        "EmpId": 12,
+        "FullName": "Наталя Король",
         "Position": null,
         "HireDate": "0001-01-01T00:00:00",
         "PhoneNumber": null,
@@ -1050,8 +1050,8 @@
         "Assignments": []
       },
       "Subject": {
-        "SubjectId": 2,
-        "Name": "Патологічна фізіологія (Медицина, іноземні студенти)",
+        "SubjectId": 15,
+        "Name": "Патофізіологія англійською (Medicine, 3 курс)",
         "Semester": 0,
         "TotalHours": 0,
         "Status": false,
@@ -1061,48 +1061,8 @@
         }
       },
       "LessonType": {
-        "LessonTypeId": 2,
-        "TypeName": "Практичне заняття"
-      },
-      "Specialty": {
-        "SpecialtyId": 0,
-        "SpecialtyName": null
-      }
-    },
-    {
-      "AssignmentId": 19,
-      "PlanHours": 25,
-      "TaughtHours": 24,
-      "Status": false,
-      "Teacher": {
-        "EmpId": 1,
-        "FullName": "Панас Овчаренко",
-        "Position": null,
-        "HireDate": "0001-01-01T00:00:00",
-        "PhoneNumber": null,
-        "Email": null,
-        "Status": false,
-        "Specialty": {
-          "SpecialtyId": 0,
-          "SpecialtyName": null
-        },
-        "Participations": [],
-        "Assignments": []
-      },
-      "Subject": {
-        "SubjectId": 6,
-        "Name": "Патологічна фізіологія (Лабораторна діагностика, 3 курс)",
-        "Semester": 0,
-        "TotalHours": 0,
-        "Status": false,
-        "Specialty": {
-          "SpecialtyId": 4,
-          "SpecialtyName": "Лабораторна діагностика"
-        }
-      },
-      "LessonType": {
-        "LessonTypeId": 4,
-        "TypeName": "Семінар"
+        "LessonTypeId": 1,
+        "TypeName": "Лекція"
       },
       "Specialty": {
         "SpecialtyId": 0,
@@ -1150,46 +1110,6 @@
       }
     },
     {
-      "AssignmentId": 18,
-      "PlanHours": 30,
-      "TaughtHours": 28,
-      "Status": false,
-      "Teacher": {
-        "EmpId": 15,
-        "FullName": "Сергій Іщенко",
-        "Position": null,
-        "HireDate": "0001-01-01T00:00:00",
-        "PhoneNumber": null,
-        "Email": null,
-        "Status": false,
-        "Specialty": {
-          "SpecialtyId": 0,
-          "SpecialtyName": null
-        },
-        "Participations": [],
-        "Assignments": []
-      },
-      "Subject": {
-        "SubjectId": 5,
-        "Name": "Патологічна фізіологія (Лабораторна діагностика, 2 курс)",
-        "Semester": 0,
-        "TotalHours": 0,
-        "Status": false,
-        "Specialty": {
-          "SpecialtyId": 4,
-          "SpecialtyName": "Лабораторна діагностика"
-        }
-      },
-      "LessonType": {
-        "LessonTypeId": 1,
-        "TypeName": "Лекція"
-      },
-      "Specialty": {
-        "SpecialtyId": 0,
-        "SpecialtyName": null
-      }
-    },
-    {
       "AssignmentId": 17,
       "PlanHours": 50,
       "TaughtHours": 47,
@@ -1230,13 +1150,13 @@
       }
     },
     {
-      "AssignmentId": 13,
+      "AssignmentId": 18,
       "PlanHours": 30,
-      "TaughtHours": 30,
+      "TaughtHours": 28,
       "Status": false,
       "Teacher": {
-        "EmpId": 10,
-        "FullName": "Юлія Пилипенко",
+        "EmpId": 15,
+        "FullName": "Сергій Іщенко",
         "Position": null,
         "HireDate": "0001-01-01T00:00:00",
         "PhoneNumber": null,
@@ -1250,14 +1170,94 @@
         "Assignments": []
       },
       "Subject": {
-        "SubjectId": 13,
-        "Name": "Клінічна патофізіологія (Медсестринство, заочна форма)",
+        "SubjectId": 5,
+        "Name": "Патологічна фізіологія (Лабораторна діагностика, 2 курс)",
         "Semester": 0,
         "TotalHours": 0,
         "Status": false,
         "Specialty": {
-          "SpecialtyId": 6,
-          "SpecialtyName": "Сестринська справа"
+          "SpecialtyId": 4,
+          "SpecialtyName": "Лабораторна діагностика"
+        }
+      },
+      "LessonType": {
+        "LessonTypeId": 1,
+        "TypeName": "Лекція"
+      },
+      "Specialty": {
+        "SpecialtyId": 0,
+        "SpecialtyName": null
+      }
+    },
+    {
+      "AssignmentId": 19,
+      "PlanHours": 25,
+      "TaughtHours": 24,
+      "Status": false,
+      "Teacher": {
+        "EmpId": 1,
+        "FullName": "Панас Овчаренко",
+        "Position": null,
+        "HireDate": "0001-01-01T00:00:00",
+        "PhoneNumber": null,
+        "Email": null,
+        "Status": false,
+        "Specialty": {
+          "SpecialtyId": 0,
+          "SpecialtyName": null
+        },
+        "Participations": [],
+        "Assignments": []
+      },
+      "Subject": {
+        "SubjectId": 6,
+        "Name": "Патологічна фізіологія (Лабораторна діагностика, 3 курс)",
+        "Semester": 0,
+        "TotalHours": 0,
+        "Status": false,
+        "Specialty": {
+          "SpecialtyId": 4,
+          "SpecialtyName": "Лабораторна діагностика"
+        }
+      },
+      "LessonType": {
+        "LessonTypeId": 4,
+        "TypeName": "Семінар"
+      },
+      "Specialty": {
+        "SpecialtyId": 0,
+        "SpecialtyName": null
+      }
+    },
+    {
+      "AssignmentId": 20,
+      "PlanHours": 45,
+      "TaughtHours": 42,
+      "Status": false,
+      "Teacher": {
+        "EmpId": 2,
+        "FullName": "Камілла Ващук",
+        "Position": null,
+        "HireDate": "0001-01-01T00:00:00",
+        "PhoneNumber": null,
+        "Email": null,
+        "Status": false,
+        "Specialty": {
+          "SpecialtyId": 0,
+          "SpecialtyName": null
+        },
+        "Participations": [],
+        "Assignments": []
+      },
+      "Subject": {
+        "SubjectId": 7,
+        "Name": "Патофізіологія з особливостями дитячого віку (Педіатрія)",
+        "Semester": 0,
+        "TotalHours": 0,
+        "Status": false,
+        "Specialty": {
+          "SpecialtyId": 3,
+          "SpecialtyName": "Педіатрія"
         }
       },
       "LessonType": {
@@ -1364,10 +1364,10 @@
     {
       "ParticipationId": 1,
       "Project": {
-        "ResearchId": 2,
-        "ResearchName": "Патофізіологія стресу та депресивних розладів",
-        "StartDate": "2020-09-01T00:00:00",
-        "EndDate": "2022-09-01T00:00:00",
+        "ResearchId": 1,
+        "ResearchName": "Механізми хронічного запалення при автоімунних процесах",
+        "StartDate": "2021-01-10T00:00:00",
+        "EndDate": "2023-12-20T00:00:00",
         "Participants": [],
         "Specialty": {
           "SpecialtyId": 1,
@@ -1375,8 +1375,8 @@
         }
       },
       "Teacher": {
-        "EmpId": 2,
-        "FullName": "Камілла Ващук",
+        "EmpId": 1,
+        "FullName": "Панас Овчаренко",
         "Position": null,
         "HireDate": "0001-01-01T00:00:00",
         "PhoneNumber": null,
@@ -1905,72 +1905,6 @@
       "Teacher": {
         "EmpId": 10,
         "FullName": "Юлія Пилипенко",
-        "Position": null,
-        "HireDate": "0001-01-01T00:00:00",
-        "PhoneNumber": null,
-        "Email": null,
-        "Status": false,
-        "Specialty": {
-          "SpecialtyId": 0,
-          "SpecialtyName": null
-        },
-        "Participations": [],
-        "Assignments": []
-      },
-      "Specialty": {
-        "SpecialtyId": 0,
-        "SpecialtyName": null
-      }
-    },
-    {
-      "ParticipationId": 18,
-      "Project": {
-        "ResearchId": 1,
-        "ResearchName": "Механізми хронічного запалення при автоімунних процесах",
-        "StartDate": "2021-01-10T00:00:00",
-        "EndDate": "2023-12-20T00:00:00",
-        "Participants": [],
-        "Specialty": {
-          "SpecialtyId": 1,
-          "SpecialtyName": "Медицина"
-        }
-      },
-      "Teacher": {
-        "EmpId": 1,
-        "FullName": "Панас Овчаренко",
-        "Position": null,
-        "HireDate": "0001-01-01T00:00:00",
-        "PhoneNumber": null,
-        "Email": null,
-        "Status": false,
-        "Specialty": {
-          "SpecialtyId": 0,
-          "SpecialtyName": null
-        },
-        "Participations": [],
-        "Assignments": []
-      },
-      "Specialty": {
-        "SpecialtyId": 0,
-        "SpecialtyName": null
-      }
-    },
-    {
-      "ParticipationId": 19,
-      "Project": {
-        "ResearchId": 1,
-        "ResearchName": "Механізми хронічного запалення при автоімунних процесах",
-        "StartDate": "2021-01-10T00:00:00",
-        "EndDate": "2023-12-20T00:00:00",
-        "Participants": [],
-        "Specialty": {
-          "SpecialtyId": 1,
-          "SpecialtyName": "Медицина"
-        }
-      },
-      "Teacher": {
-        "EmpId": 1,
-        "FullName": "Панас Овчаренко",
         "Position": null,
         "HireDate": "0001-01-01T00:00:00",
         "PhoneNumber": null,

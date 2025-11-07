@@ -403,7 +403,7 @@ namespace КП_Кафедра.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на ID.
+        ///   Ищет локализованную строку, похожую на №.
         /// </summary>
         internal static string column_assignment_id {
             get {
@@ -439,7 +439,7 @@ namespace КП_Кафедра.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на ID.
+        ///   Ищет локализованную строку, похожую на №.
         /// </summary>
         internal static string column_emp_id {
             get {
@@ -475,7 +475,7 @@ namespace КП_Кафедра.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на ID.
+        ///   Ищет локализованную строку, похожую на №.
         /// </summary>
         internal static string column_participation_id {
             get {
@@ -502,7 +502,7 @@ namespace КП_Кафедра.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на ID.
+        ///   Ищет локализованную строку, похожую на №.
         /// </summary>
         internal static string column_research_id {
             get {
@@ -565,7 +565,7 @@ namespace КП_Кафедра.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на ID.
+        ///   Ищет локализованную строку, похожую на №.
         /// </summary>
         internal static string column_subject_id {
             get {

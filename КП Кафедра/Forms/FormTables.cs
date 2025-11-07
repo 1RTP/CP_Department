@@ -87,7 +87,8 @@ namespace КП_Кафедра.Forms
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", $"Помилка під час пошуку: {ex.Message}");
+                Toast.Show("ERROR", "Помилка під час пошуку");
+                LoggerService.LogError($"Помилка під час пошуку: {ex.Message}");
             }
         }
 
@@ -155,34 +156,6 @@ namespace КП_Кафедра.Forms
             txtSearch.LostFocus += TxtSearch_LostFocus;
             txtSearch.TextChanged += txtSearch_TextChanged;
         }
-
-        //private void DataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        //{
-        //    if (dataGridView1.Columns.Contains("status"))
-        //    {
-        //        var row = dataGridView1.Rows[e.RowIndex];
-        //        if (row.Cells["status"].Value != null &&
-        //            int.TryParse(row.Cells["status"].Value.ToString(), out int status))
-        //        {
-        //            if (status == 0)
-        //            {
-        //                // неактивні викладачі
-        //                row.DefaultCellStyle.BackColor = Color.LightGray;
-        //                row.DefaultCellStyle.ForeColor = Color.DarkSlateGray;
-        //                row.DefaultCellStyle.SelectionBackColor = Color.Gray;
-        //                row.DefaultCellStyle.SelectionForeColor = Color.White;
-        //            }
-        //            else
-        //            {
-        //                // активні викладачі
-        //                row.DefaultCellStyle.BackColor = Color.White;
-        //                row.DefaultCellStyle.ForeColor = Color.Black;
-        //                row.DefaultCellStyle.SelectionBackColor = SystemColors.Highlight;
-        //                row.DefaultCellStyle.SelectionForeColor = Color.White;
-        //            }
-        //        }
-        //    }
-        //}
 
         private void OpenChildForm(Form childForm)
         {

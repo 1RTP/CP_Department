@@ -19,6 +19,7 @@ namespace КП_Кафедра.Forms
         private bool isLoading = false;
         private DataTable originalTable;
         private readonly string dbPath;
+        public static FormSubject Instance { get; private set; }
 
         public FormSubject()
         {
@@ -39,6 +40,7 @@ namespace КП_Кафедра.Forms
         {
             try
             {
+                Instance = this;
                 isLoading = true;
                 LoadSubjects();
                 isLoading = false;
@@ -88,7 +90,8 @@ namespace КП_Кафедра.Forms
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", $"Помилка в Search(): {ex.Message}");
+                Toast.Show("ERROR", "Помилка в Search()");
+                LoggerService.LogError($"Помилка в Search(): {ex.Message}");
             }
         }
 
@@ -146,7 +149,7 @@ namespace КП_Кафедра.Forms
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", "Помилка при завантаженні дисциплін");
+                Toast.Show("ERROR", "Помилка при завантаженні");
                 LoggerService.LogError($"Помилка при завантаженні дисциплін (LoadSubjects): {ex.Message}");
             }
         }
@@ -182,6 +185,13 @@ namespace КП_Кафедра.Forms
             base.OnLoad(e);
             LanguageManager.LanguageChanged += ApplyLocalization;
             ApplyLocalization();
+        }
+
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            base.OnFormClosed(e);
+            LanguageManager.LanguageChanged -= ApplyLocalization;
+            Instance = null;
         }
 
         private void ApplyLocalization()
@@ -240,12 +250,12 @@ namespace КП_Кафедра.Forms
         private void txtSubjectName_TextChanged(object sender, EventArgs e)
         {
             string input = txtSubjectName.Text.Trim();
-            if (string.IsNullOrEmpty(input) || input == "Назва предмету" || input == "Subject name") return;
+            if (string.IsNullOrEmpty(input) || input == "Назва дисципліни" || input == "Subject name") return;
 
             var validPattern = new System.Text.RegularExpressions.Regex(@"^[A-Za-zА-ЯІЇЄҐа-яіїєґ0-9'\-\s\(\),\.]+$");
             if (!validPattern.IsMatch(input))
             {
-                Toast.Show("ERROR", "Невірний формат назви дисципліни");
+                Toast.Show("ERROR", "Помилка у полі 'Дисципліна'.");
                 txtSubjectName.Text = "";
             }
         }
@@ -325,7 +335,7 @@ namespace КП_Кафедра.Forms
             var validPattern = new System.Text.RegularExpressions.Regex(@"^[A-Za-zА-ЯІЇЄҐа-яіїєґ'\-\s]+$");
             if (!validPattern.IsMatch(input))
             {
-                Toast.Show("ERROR", "Невірний формат введення Спеціальності");
+                Toast.Show("ERROR", "Помилка у полі 'Спеціальність'.");
                 txtSpecialty.Text = "";
             }
         }
@@ -420,11 +430,11 @@ namespace КП_Кафедра.Forms
                 }
 
                 LoadSubjects();
-                Toast.Show("SUCCESS", "Дисципліну додано успішно!");
+                Toast.Show("SUCCESS", "Успішно додано!");
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", "Помилка при додаванні дисципліни");
+                Toast.Show("ERROR", "Помилка при додаванні");
                 LoggerService.LogError($"Помилка при додаванні дисципліни: {ex.Message}");
             }
         }
@@ -483,11 +493,11 @@ namespace КП_Кафедра.Forms
                 }
 
                 LoadSubjects();
-                Toast.Show("SUCCESS", "Дані дисципліни оновлено успішно!");
+                Toast.Show("SUCCESS", "Успішно оновлено!");
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", "Помилка при оновленні дисципліни");
+                Toast.Show("ERROR", "Помилка при оновленні");
                 LoggerService.LogError($"Помилка при оновленні дисципліни: {ex.Message}");
             }
         }
@@ -513,7 +523,7 @@ namespace КП_Кафедра.Forms
                     }
                 }
                 LoadSubjects();
-                Toast.Show("SUCCESS", "Предмет видалено!");
+                Toast.Show("SUCCESS", "Успішно видалено!");
             }
             catch (Exception ex) 
             {

@@ -111,7 +111,7 @@ namespace КП_Кафедра
                             workbook.SaveAs(sfd.FileName);
                         }
 
-                        Toast.Show("SUCCESS", "Збереження виконано");
+                        Toast.Show("SUCCESS", "Успішно збережено!");
                         LoggerService.LogInfo($"Збереження Excel: {sheetName}");
                     }
                     catch (Exception ex)
@@ -149,7 +149,7 @@ namespace КП_Кафедра
                                 dt.Rows.Add(dr);
                             }
 
-                            Toast.Show("SUCCESS", "Завантаження виконано");
+                            Toast.Show("SUCCESS", "Успішно завантажено!");
                             LoggerService.LogInfo($"Завантаження Excel: {dt.Rows.Count} рядків");
                             return dt;
                         }
@@ -310,7 +310,7 @@ namespace КП_Кафедра
                             mainPart.Document.Save();
                         }
 
-                        Toast.Show("SUCCESS", "Звіт успішно збережено у Word.");
+                        Toast.Show("SUCCESS", "Звіт успішно збережено!");
                         LoggerService.LogInfo($"Збереження у Word завершено ({table.Rows.Count} рядків, файл: {fileName}.docx)");
                     }
                     catch (Exception ex)
@@ -374,7 +374,7 @@ namespace КП_Кафедра
                             }
                         }
 
-                        Toast.Show("SUCCESS", "Завантаження із Word виконано успішно.");
+                        Toast.Show("SUCCESS", "Успішно завантажено!");
                         LoggerService.LogInfo($"Завантаження Word завершено ({dt.Rows.Count} рядків, файл: {ofd.FileName}).");
 
                         return dt;

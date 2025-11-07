@@ -145,6 +145,7 @@ namespace КП_Кафедра.Forms
             }
         }
 
+
         private void cmbLanguage_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbLanguage.SelectedItem == null) return;
@@ -228,7 +229,7 @@ namespace КП_Кафедра.Forms
             AppSettings.ApplyStyle(this);
             AppSettings.SaveSettings();
             AppSettings.NotifyStyleChanged();
-            Toast.Show("SUCCESS", $"Налаштування застосовано.");
+            Toast.Show("SUCCESS", $"Налаштування застосовано!");
         }
 
         private void btnDefaultSettings_Click(object sender, EventArgs e)
@@ -238,7 +239,7 @@ namespace КП_Кафедра.Forms
             lblPreview.Font = AppSettings.CurrentFont;
             lblPreview.ForeColor = AppSettings.CurrentTextColor;
             AppSettings.NotifyStyleChanged();
-            Toast.Show("INFO", $"Налаштування скинуто.");
+            Toast.Show("INFO", $"Налаштування скинуто!");
         }
     }
     

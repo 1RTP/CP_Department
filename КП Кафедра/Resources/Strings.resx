@@ -193,10 +193,10 @@
     <value>Статус</value>
   </data>
   <data name="column_emp_id" xml:space="preserve">
-    <value>ID</value>
+    <value>№</value>
   </data>
   <data name="column_subject_id" xml:space="preserve">
-    <value>ID</value>
+    <value>№</value>
   </data>
   <data name="column_subject_name" xml:space="preserve">
     <value>Назва дисципліни</value>
@@ -208,7 +208,7 @@
     <value>Загальна кількість годин</value>
   </data>
   <data name="column_assignment_id" xml:space="preserve">
-    <value>ID</value>
+    <value>№</value>
   </data>
   <data name="column_plan_hours" xml:space="preserve">
     <value>Кількість годин за планом</value>
@@ -220,7 +220,7 @@
     <value>Тип заняття</value>
   </data>
   <data name="column_research_id" xml:space="preserve">
-    <value>ID</value>
+    <value>№</value>
   </data>
   <data name="column_research_name" xml:space="preserve">
     <value>Назва проєкту</value>
@@ -292,7 +292,7 @@
     <value>Завантаження та збереження даних у різних форматах:</value>
   </data>
   <data name="column_participation_id" xml:space="preserve">
-    <value>ID</value>
+    <value>№</value>
   </data>
   <data name="txtPassword" xml:space="preserve">
     <value>Пароль</value>

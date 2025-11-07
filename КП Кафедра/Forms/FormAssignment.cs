@@ -91,7 +91,7 @@ namespace КП_Кафедра.Forms
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", $"Помилка в Search(): {ex.Message}");
+                Toast.Show("ERROR", "Помилка в Search()");
                 LoggerService.LogError($"Помилка в Search(): {ex.Message}");
             }
         }
@@ -120,7 +120,7 @@ namespace КП_Кафедра.Forms
                         JOIN subjects s ON a.subject_id = s.subject_id
                         LEFT JOIN specialty sp ON s.specialty_id = sp.specialty_id
                         JOIN lesson_type l ON a.lesson_type_id = l.lesson_type_id
-                        ORDER BY t.emp_full_name ASC;";
+                        ORDER BY a.assignment_id ASC;";
 
                     DataTable table = new DataTable();
                     table.Columns.Add("assignment_id", typeof(int));
@@ -225,6 +225,13 @@ namespace КП_Кафедра.Forms
             ApplyLocalization();
         }
 
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            base.OnFormClosed(e);
+            LanguageManager.LanguageChanged -= ApplyLocalization;
+            Instance = null;
+        }
+
         private void ApplyLocalization()
         {
             btnAddAssignment.Text = LanguageManager.GetString("btnAddAssignment");
@@ -278,18 +285,17 @@ namespace КП_Кафедра.Forms
 
                     if (empId == 0 || subjId == 0 || typeId == 0)
                     {
-                        Toast.Show("ERROR", "Перевірте правильність введених даних (викладач, дисципліна або тип занять)");
+                        Toast.Show("ERROR", "Перевірте введені дані.");
                         return;
                     }
 
                     if (!int.TryParse(txtPlanHours.Text, out int plan) || !int.TryParse(txtHoursTaught.Text, out int taught))
                     {
-                        Toast.Show("ERROR", "Некоректні числові значення годин");
+                        Toast.Show("ERROR", "Некоректні години.");
                         return;
                     }
 
-                    string query = @"INSERT INTO assignment (emp_id, subject_id, lesson_type_id, plan_hours, hours_taught)
-                             VALUES (@emp, @subj, @type, @plan, @taught)";
+                    string query = @"INSERT INTO assignment (emp_id, subject_id, lesson_type_id, plan_hours, hours_taught) VALUES (@emp, @subj, @type, @plan, @taught)";
                     using (var cmd = new SqliteCommand(query, connection))
                     {
                         cmd.Parameters.AddWithValue("@emp", empId);
@@ -300,9 +306,7 @@ namespace КП_Кафедра.Forms
                         cmd.ExecuteNonQuery();
                     }
 
-                    string specialtyQuery = @"SELECT sp.specialty_name FROM subjects s
-                                      LEFT JOIN specialty sp ON s.specialty_id = sp.specialty_id
-                                      WHERE s.subject_id = @subjId";
+                    string specialtyQuery = @"SELECT sp.specialty_name FROM subjects s LEFT JOIN specialty sp ON s.specialty_id = sp.specialty_id WHERE s.subject_id = @subjId";
                     using (var cmd = new SqliteCommand(specialtyQuery, connection))
                     {
                         cmd.Parameters.AddWithValue("@subjId", subjId);
@@ -312,11 +316,11 @@ namespace КП_Кафедра.Forms
                 }
 
                 LoadAssignments();
-                Toast.Show("SUCCESS", "Призначення успішно додано!");
+                Toast.Show("SUCCESS", "Успішно додано!");
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", "Помилка при додаванні призначення");
+                Toast.Show("ERROR", "Помилка при додаванні");
                 LoggerService.LogError($"Помилка при додаванні призначення (btnAddAssignment_Click): {ex.Message}");
             }
         }
@@ -343,13 +347,13 @@ namespace КП_Кафедра.Forms
 
                     if (empId == 0 || subjId == 0 || typeId == 0)
                     {
-                        Toast.Show("ERROR", "Не знайдено викладача, дисципліну або тип занять");
+                        Toast.Show("ERROR", "Не знайдено дані.");
                         return;
                     }
 
                     if (!int.TryParse(txtPlanHours.Text, out int plan) || !int.TryParse(txtHoursTaught.Text, out int taught))
                     {
-                        Toast.Show("ERROR", "Некоректні числові значення годин");
+                        Toast.Show("ERROR", "Некоректні години.");
                         return;
                     }
 
@@ -365,9 +369,7 @@ namespace КП_Кафедра.Forms
                         cmd.ExecuteNonQuery();
                     }
 
-                    string specialtyQuery = @"SELECT sp.specialty_name FROM subjects s
-                                      LEFT JOIN specialty sp ON s.specialty_id = sp.specialty_id
-                                      WHERE s.subject_id = @subjId";
+                    string specialtyQuery = @"SELECT sp.specialty_name FROM subjects s LEFT JOIN specialty sp ON s.specialty_id = sp.specialty_id WHERE s.subject_id = @subjId";
                     using (var cmd = new SqliteCommand(specialtyQuery, connection))
                     {
                         cmd.Parameters.AddWithValue("@subjId", subjId);
@@ -377,11 +379,11 @@ namespace КП_Кафедра.Forms
                 }
 
                 LoadAssignments();
-                Toast.Show("SUCCESS", "Призначення успішно оновлено!");
+                Toast.Show("SUCCESS", "Успішно оновлено!");
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", "Помилка при оновленні призначення");
+                Toast.Show("ERROR", "Помилка при оновленні");
                 LoggerService.LogError($"Помилка при оновленні призначення (btnUpdateAssignment_Click): {ex.Message}");
             }
         }
@@ -412,11 +414,11 @@ namespace КП_Кафедра.Forms
                 }
 
                 LoadAssignments();
-                Toast.Show("SUCCESS", "Призначення успішно видалено!");
+                Toast.Show("SUCCESS", "Успішно видалено!");
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", "Помилка при видаленні призначення");
+                Toast.Show("ERROR", "Помилка при видаленні");
                 LoggerService.LogError($"Помилка при видаленні призначення (btnDeleteAssignment_Click): {ex.Message}");
             }
         }
@@ -520,7 +522,7 @@ namespace КП_Кафедра.Forms
             var validPattern = new System.Text.RegularExpressions.Regex(@"^[A-Za-zА-ЯІЇЄҐа-яіїєґ'\-\s]+$");
             if (!validPattern.IsMatch(input))
             {
-                Toast.Show("ERROR", "Невірний формат введення Спеціальності");
+                Toast.Show("ERROR", "Помилка у полі 'Спеціальність'.");
                 txtSpecialty.Text = "";
             }
         }
@@ -548,7 +550,7 @@ namespace КП_Кафедра.Forms
             var validPattern = new System.Text.RegularExpressions.Regex(@"^[A-Za-zА-ЯІЇЄҐа-яіїєґ'\-\s]+$");
             if (!validPattern.IsMatch(input))
             {
-                Toast.Show("ERROR", "Невірний формат введення ПІБ");
+                Toast.Show("ERROR", "Помилка у полі 'ПІБ'.");
                 txtName.Text = "";
             }
         }
@@ -577,7 +579,7 @@ namespace КП_Кафедра.Forms
             var validPattern = new System.Text.RegularExpressions.Regex(@"^[A-Za-zА-ЯІЇЄҐа-яіїєґ0-9'\-\s\(\),\.]+$");
             if (!validPattern.IsMatch(input))
             {
-                Toast.Show("ERROR", "Невірний формат назви дисципліни");
+                Toast.Show("ERROR", "Помилка у полі 'Дисципліна'.");
                 txtSubjectName.Text = "";
             }
         }
@@ -606,7 +608,7 @@ namespace КП_Кафедра.Forms
             var validPattern = new System.Text.RegularExpressions.Regex(@"^[A-Za-zА-ЯІЇЄҐа-яіїєґ0-9'\-\s\(\),\.]+$");
             if (!validPattern.IsMatch(input))
             {
-                Toast.Show("ERROR", "Невірний формат типу заняття");
+                Toast.Show("ERROR", "Помилка у полі 'Тип заняття'.");
                 txtLessonType.Text = "";
             }
         }
@@ -645,9 +647,7 @@ namespace КП_Кафедра.Forms
 
         private void txtPlanHours_GotFocus(object sender, EventArgs e)
         {
-            if (txtPlanHours.Text == "Кількість годин за планом" || txtPlanHours.Text == "Plan hours" ||
-                txtPlanHours.Text == LanguageManager.GetString("txtPlanHours"))
-                txtPlanHours.Text = "";
+            if (txtPlanHours.Text == "Кількість годин за планом" || txtPlanHours.Text == "Plan hours" || txtPlanHours.Text == LanguageManager.GetString("txtPlanHours")) txtPlanHours.Text = "";
         }
 
         private void txtPlanHours_LostFocus(object sender, EventArgs e)

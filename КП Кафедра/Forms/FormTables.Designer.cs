@@ -58,7 +58,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(870, 108);
+            this.panel1.Size = new System.Drawing.Size(872, 108);
             this.panel1.TabIndex = 12;
             // 
             // btnParticipation
@@ -73,7 +73,7 @@
             this.btnParticipation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnParticipation.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnParticipation.ForeColor = System.Drawing.Color.White;
-            this.btnParticipation.Location = new System.Drawing.Point(584, 58);
+            this.btnParticipation.Location = new System.Drawing.Point(586, 58);
             this.btnParticipation.Name = "btnParticipation";
             this.btnParticipation.Size = new System.Drawing.Size(156, 32);
             this.btnParticipation.TabIndex = 32;
@@ -94,7 +94,7 @@
             this.btnAssignments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAssignments.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnAssignments.ForeColor = System.Drawing.Color.White;
-            this.btnAssignments.Location = new System.Drawing.Point(746, 58);
+            this.btnAssignments.Location = new System.Drawing.Point(748, 58);
             this.btnAssignments.Name = "btnAssignments";
             this.btnAssignments.Size = new System.Drawing.Size(112, 32);
             this.btnAssignments.TabIndex = 28;
@@ -115,7 +115,7 @@
             this.btnTeachers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTeachers.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnTeachers.ForeColor = System.Drawing.Color.White;
-            this.btnTeachers.Location = new System.Drawing.Point(260, 58);
+            this.btnTeachers.Location = new System.Drawing.Point(262, 58);
             this.btnTeachers.Name = "btnTeachers";
             this.btnTeachers.Size = new System.Drawing.Size(102, 32);
             this.btnTeachers.TabIndex = 29;
@@ -136,7 +136,7 @@
             this.btnSubjects.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubjects.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnSubjects.ForeColor = System.Drawing.Color.White;
-            this.btnSubjects.Location = new System.Drawing.Point(368, 58);
+            this.btnSubjects.Location = new System.Drawing.Point(370, 58);
             this.btnSubjects.Name = "btnSubjects";
             this.btnSubjects.Size = new System.Drawing.Size(102, 32);
             this.btnSubjects.TabIndex = 30;
@@ -157,7 +157,7 @@
             this.btnResearches.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnResearches.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnResearches.ForeColor = System.Drawing.Color.White;
-            this.btnResearches.Location = new System.Drawing.Point(476, 58);
+            this.btnResearches.Location = new System.Drawing.Point(478, 58);
             this.btnResearches.Name = "btnResearches";
             this.btnResearches.Size = new System.Drawing.Size(102, 32);
             this.btnResearches.TabIndex = 31;
@@ -191,10 +191,10 @@
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSearch.Font = new System.Drawing.Font("Arial", 8.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txtSearch.ForeColor = System.Drawing.Color.White;
-            this.txtSearch.Location = new System.Drawing.Point(45, 64);
+            this.txtSearch.Location = new System.Drawing.Point(45, 66);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(200, 17);
+            this.txtSearch.Size = new System.Drawing.Size(200, 14);
             this.txtSearch.TabIndex = 13;
             this.txtSearch.Text = "Пошук";
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
@@ -204,15 +204,15 @@
             this.contentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contentPanel.Location = new System.Drawing.Point(0, 108);
             this.contentPanel.Name = "contentPanel";
-            this.contentPanel.Size = new System.Drawing.Size(870, 483);
+            this.contentPanel.Size = new System.Drawing.Size(872, 483);
             this.contentPanel.TabIndex = 13;
             // 
             // FormTables
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
-            this.ClientSize = new System.Drawing.Size(870, 591);
+            this.ClientSize = new System.Drawing.Size(872, 591);
             this.Controls.Add(this.contentPanel);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Arial", 8.8F);

@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.txtSpecialty = new System.Windows.Forms.TextBox();
             this.btnClear = new КП_Кафедра.RoundButton();
             this.btnDeleteAssignment = new КП_Кафедра.RoundButton();
             this.btnUpdateAssignment = new КП_Кафедра.RoundButton();
@@ -46,8 +48,6 @@
             this.txtSubjectName = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.txtSpecialty = new System.Windows.Forms.TextBox();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -77,6 +77,28 @@
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(249, 530);
             this.panel10.TabIndex = 17;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Location = new System.Drawing.Point(11, 103);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(230, 2);
+            this.panel2.TabIndex = 40;
+            // 
+            // txtSpecialty
+            // 
+            this.txtSpecialty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
+            this.txtSpecialty.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSpecialty.Font = new System.Drawing.Font("Arial", 8.8F);
+            this.txtSpecialty.ForeColor = System.Drawing.Color.White;
+            this.txtSpecialty.Location = new System.Drawing.Point(11, 89);
+            this.txtSpecialty.Name = "txtSpecialty";
+            this.txtSpecialty.Size = new System.Drawing.Size(230, 14);
+            this.txtSpecialty.TabIndex = 39;
+            this.txtSpecialty.Text = "Спеціальність";
+            this.txtSpecialty.TextChanged += new System.EventHandler(this.txtSpecialty_TextChanged);
             // 
             // btnClear
             // 
@@ -168,7 +190,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(12, 139);
+            this.panel1.Location = new System.Drawing.Point(12, 140);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(230, 2);
             this.panel1.TabIndex = 29;
@@ -190,7 +212,7 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.White;
-            this.panel6.Location = new System.Drawing.Point(11, 210);
+            this.panel6.Location = new System.Drawing.Point(11, 211);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(230, 2);
             this.panel6.TabIndex = 27;
@@ -198,7 +220,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.Location = new System.Drawing.Point(11, 174);
+            this.panel5.Location = new System.Drawing.Point(11, 175);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(230, 2);
             this.panel5.TabIndex = 26;
@@ -206,7 +228,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Location = new System.Drawing.Point(12, 65);
+            this.panel4.Location = new System.Drawing.Point(12, 66);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(230, 2);
             this.panel4.TabIndex = 25;
@@ -214,7 +236,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Location = new System.Drawing.Point(11, 26);
+            this.panel3.Location = new System.Drawing.Point(11, 27);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(230, 2);
             this.panel3.TabIndex = 24;
@@ -286,23 +308,23 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(148)))), ((int)(((byte)(152)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 8.8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
@@ -312,28 +334,6 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(562, 530);
             this.dataGridView1.TabIndex = 16;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(11, 106);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(230, 2);
-            this.panel2.TabIndex = 40;
-            // 
-            // txtSpecialty
-            // 
-            this.txtSpecialty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
-            this.txtSpecialty.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSpecialty.Font = new System.Drawing.Font("Arial", 8.8F);
-            this.txtSpecialty.ForeColor = System.Drawing.Color.White;
-            this.txtSpecialty.Location = new System.Drawing.Point(11, 89);
-            this.txtSpecialty.Name = "txtSpecialty";
-            this.txtSpecialty.Size = new System.Drawing.Size(230, 14);
-            this.txtSpecialty.TabIndex = 39;
-            this.txtSpecialty.Text = "Спеціальність";
-            this.txtSpecialty.TextChanged += new System.EventHandler(this.txtSpecialty_TextChanged);
             // 
             // FormAssignment
             // 

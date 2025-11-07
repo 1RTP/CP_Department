@@ -193,10 +193,10 @@
     <value>Status</value>
   </data>
   <data name="column_emp_id" xml:space="preserve">
-    <value>ID</value>
+    <value>№</value>
   </data>
   <data name="column_subject_id" xml:space="preserve">
-    <value>ID</value>
+    <value>№</value>
   </data>
   <data name="column_subject_name" xml:space="preserve">
     <value>Subject name</value>
@@ -208,7 +208,7 @@
     <value>Total hours</value>
   </data>
   <data name="column_assignment_id" xml:space="preserve">
-    <value>ID</value>
+    <value>№</value>
   </data>
   <data name="column_plan_hours" xml:space="preserve">
     <value>Planned hours</value>
@@ -220,7 +220,7 @@
     <value>Lesson type</value>
   </data>
   <data name="column_research_id" xml:space="preserve">
-    <value>ID</value>
+    <value>№</value>
   </data>
   <data name="column_research_name" xml:space="preserve">
     <value>Project name</value>
@@ -292,7 +292,7 @@
     <value>Download and save data in various formats:</value>
   </data>
   <data name="column_participation_id" xml:space="preserve">
-    <value>ID</value>
+    <value>№</value>
   </data>
   <data name="txtPassword" xml:space="preserve">
     <value>Password</value>

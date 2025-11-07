@@ -19,6 +19,7 @@ namespace КП_Кафедра.Forms
         private DataTable originalTable;
         private bool isLoading = false;
         private readonly string dbPath;
+        public static FormTeacher Instance { get; private set; }
 
         public FormTeacher()
         {
@@ -39,6 +40,7 @@ namespace КП_Кафедра.Forms
         {
             try
             {
+                Instance = this;
                 isLoading = true;
                 LoadTeachers();
                 isLoading = false;
@@ -86,7 +88,7 @@ namespace КП_Кафедра.Forms
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", $"Помилка в Search()");
+                Toast.Show("ERROR", "Помилка в Search()");
                 LoggerService.LogError($"Помилка в Search(): {ex.Message}");
             }
         }
@@ -112,8 +114,7 @@ namespace КП_Кафедра.Forms
                                 s.specialty_name
                             FROM teacher t
                             LEFT JOIN specialty s ON t.specialty_id = s.specialty_id
-                            ORDER BY t.status DESC, t.emp_id ASC;
-                        ";
+                            ORDER BY t.status DESC, t.emp_id ASC;";
 
                     DataTable table = new DataTable();
                     table.Columns.Add("emp_id", typeof(int));
@@ -175,7 +176,7 @@ namespace КП_Кафедра.Forms
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", "Помилка при завантаженні викладачів");
+                Toast.Show("ERROR", "Помилка при завантаженні");
                 LoggerService.LogError($"Помилка при завантаженні викладачів (LoadTeachers): {ex.Message}");
             }
         }
@@ -232,7 +233,7 @@ namespace КП_Кафедра.Forms
             var validPattern = new System.Text.RegularExpressions.Regex(@"^[A-Za-zА-ЯІЇЄҐа-яіїєґ'\-\s]+$");
             if (!validPattern.IsMatch(input))
             {
-                Toast.Show("ERROR", "Невірний формат введення ПІБ");
+                Toast.Show("ERROR", "Помилка у полі 'ПІБ'.");
                 txtName.Text = "";
             }
         }
@@ -260,7 +261,7 @@ namespace КП_Кафедра.Forms
             var validPattern = new System.Text.RegularExpressions.Regex(@"^[A-Za-zА-ЯІЇЄҐа-яіїєґ'\-\s]+$");
             if (!validPattern.IsMatch(input))
             {
-                Toast.Show("ERROR", "Невірний формат введення Спеціальності");
+                Toast.Show("ERROR", "Помилка у полі 'Спеціальність'.");
                 txtSpecialty.Text = "";
             }
         }
@@ -288,7 +289,7 @@ namespace КП_Кафедра.Forms
             var validPattern = new System.Text.RegularExpressions.Regex(@"^[A-Za-zА-ЯІЇЄҐа-яіїєґ'\-\s]+$");
             if (!validPattern.IsMatch(input))
             {
-                Toast.Show("ERROR", "Невірний формат введення Посади");
+                Toast.Show("ERROR", "Помилка у полі 'Посада'.");
                 txtPosition.Text = "";
             }
         }
@@ -367,7 +368,7 @@ namespace КП_Кафедра.Forms
             var validPattern = new System.Text.RegularExpressions.Regex(@"^[a-zA-Z0-9@._\-]+$");
             if (!validPattern.IsMatch(input))
             {
-                Toast.Show("ERROR", "Email має містити лише англійські символи та допустимі знаки.");
+                Toast.Show("ERROR", "Помилка у полі 'Email'.");
                 txtEmail.Text = "";
             }
         }
@@ -444,11 +445,11 @@ namespace КП_Кафедра.Forms
                 }
 
                 LoadTeachers();
-                Toast.Show("SUCCESS", "Викладача додано успішно!");
+                Toast.Show("SUCCESS", "Успішно додано!");
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", "Помилка при додаванні викладача");
+                Toast.Show("ERROR", "Помилка при додаванні");
                 LoggerService.LogError($"Помилка при додаванні викладача: {ex.Message}");
             }
         }
@@ -519,11 +520,11 @@ namespace КП_Кафедра.Forms
                 }
 
                 LoadTeachers();
-                Toast.Show("SUCCESS", "Дані викладача оновлено успішно!");
+                Toast.Show("SUCCESS", "Успішно оновлено!");
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", "Помилка при оновленні даних викладача");
+                Toast.Show("ERROR", "Помилка при оновленні");
                 LoggerService.LogError($"Помилка при оновленні даних викладача: {ex.Message}");
             }
         }
@@ -547,7 +548,7 @@ namespace КП_Кафедра.Forms
                     }
                 }
                 LoadTeachers();
-                Toast.Show("SUCCESS", "Викладача деактивовано.");
+                Toast.Show("SUCCESS", "Успішно деактивовано!");
             }
             catch (Exception ex) 
             { 
@@ -576,7 +577,7 @@ namespace КП_Кафедра.Forms
                     }
                 }
                 LoadTeachers();
-                Toast.Show("SUCCESS", "Викладача повністю видалено!");
+                Toast.Show("SUCCESS", "Успішно видалено!");
             }
             catch (Exception ex) 
             { 
@@ -590,6 +591,13 @@ namespace КП_Кафедра.Forms
             base.OnLoad(e);
             LanguageManager.LanguageChanged += ApplyLocalization;
             ApplyLocalization();
+        }
+
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            base.OnFormClosed(e);
+            LanguageManager.LanguageChanged -= ApplyLocalization;
+            Instance = null;
         }
 
         private void ApplyLocalization()

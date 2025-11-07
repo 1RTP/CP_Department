@@ -20,6 +20,7 @@ namespace КП_Кафедра.Forms
         private bool isLoading = false;
         private DataTable originalTable;
         private readonly string dbPath;
+        public static FormResearch Instance { get; private set; }
 
         public FormResearch()
         {
@@ -40,6 +41,7 @@ namespace КП_Кафедра.Forms
         {
             try
             {
+                Instance = this;
                 isLoading = true;
                 LoadResearch();
                 isLoading = false;
@@ -89,7 +91,7 @@ namespace КП_Кафедра.Forms
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", $"Помилка в Search()");
+                Toast.Show("ERROR", "Помилка в Search()");
                 LoggerService.LogError($"Помилка в Search(): {ex.Message}");
             }
         }
@@ -149,7 +151,7 @@ namespace КП_Кафедра.Forms
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", "Помилка при завантаженні досліджень");
+                Toast.Show("ERROR", "Помилка при завантаженні");
                 LoggerService.LogError($"Помилка при завантаженні досліджень (LoadResearch): {ex.Message}");
             }
         }
@@ -184,6 +186,13 @@ namespace КП_Кафедра.Forms
             base.OnLoad(e);
             LanguageManager.LanguageChanged += ApplyLocalization;
             ApplyLocalization();
+        }
+
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            base.OnFormClosed(e);
+            LanguageManager.LanguageChanged -= ApplyLocalization;
+            Instance = null;
         }
 
         private void ApplyLocalization()
@@ -235,7 +244,7 @@ namespace КП_Кафедра.Forms
             var validPattern = new System.Text.RegularExpressions.Regex(@"^[A-Za-zА-ЯІЇЄҐа-яіїєґ'\-\s]+$");
             if (!validPattern.IsMatch(input))
             {
-                Toast.Show("ERROR", "Невірний формат введення Спеціальності");
+                Toast.Show("ERROR", "Помилка у полі 'Спеціальність'.");
                 txtSpecialty.Text = "";
             }
         }
@@ -264,7 +273,7 @@ namespace КП_Кафедра.Forms
             var validPattern = new System.Text.RegularExpressions.Regex(@"^[A-Za-zА-ЯІЇЄҐа-яіїєґ0-9'\-\s\(\),\.]+$");
             if (!validPattern.IsMatch(input))
             {
-                Toast.Show("ERROR", "Невірний формат назви проєкту");
+                Toast.Show("ERROR", "Помилка у полі 'Назва проєкту'");
                 txtProjectName.Text = "";
             }
         }
@@ -334,11 +343,11 @@ namespace КП_Кафедра.Forms
                 }
 
                 LoadResearch();
-                Toast.Show("SUCCESS", "Дослідження додано успішно!");
+                Toast.Show("SUCCESS", "Успішно додано!");
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", "Помилка при додаванні дослідження");
+                Toast.Show("ERROR", "Помилка при додаванні");
                 LoggerService.LogError($"Помилка при додаванні дослідження: {ex.Message}");
             }
         }
@@ -397,11 +406,11 @@ namespace КП_Кафедра.Forms
                 }
 
                 LoadResearch();
-                Toast.Show("SUCCESS", "Дані дослідження оновлено успішно!");
+                Toast.Show("SUCCESS", "Успішно оновлено!");
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", "Помилка при оновленні дослідження");
+                Toast.Show("ERROR", "Помилка при оновленні");
                 LoggerService.LogError($"Помилка при оновленні дослідження: {ex.Message}");
             }
         }
@@ -427,7 +436,7 @@ namespace КП_Кафедра.Forms
                     }
                 }
                 LoadResearch();
-                Toast.Show("SUCCESS", "Дослідження видалено!");
+                Toast.Show("SUCCESS", "Успішно видалено!");
             }
             catch (Exception ex)
             {

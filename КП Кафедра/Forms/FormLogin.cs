@@ -105,15 +105,15 @@ namespace КП_Кафедра.Forms
 
                 if (email == "" || email == "Email" || password == "" || password == "Password")
                 {
-                    Toast.Show("ERROR", "Будь ласка, заповніть усі поля.");
+                    Toast.Show("ERROR", "Заповніть усі поля!");
                     return;
                 }
 
-                if (!File.Exists(filePath)) { Toast.Show("ERROR", "Файл з обліковими даними не знайдено."); return; }
+                if (!File.Exists(filePath)) { Toast.Show("ERROR", "Файл обліку не знайдено."); return; }
 
                 var adminData = ClassSerializeJSON1.DeserializeFromJSON<AdminCredentials>(filePath, msg => LoggerService.LogInfo(msg));
 
-                if (adminData == null) { Toast.Show("ERROR", "Некоректний формат даних авторизації."); return; }
+                if (adminData == null) { Toast.Show("ERROR", "Помилка формату даних."); return; }
 
                 if (email.Equals(adminData.Email, StringComparison.OrdinalIgnoreCase) && password == adminData.Password)
                 {
@@ -124,12 +124,13 @@ namespace КП_Кафедра.Forms
                 }
                 else
                 {
-                    Toast.Show("ERROR", "Неправильна пошта або пароль.");
+                    Toast.Show("ERROR", "Невірна пошта або пароль.");
                 }
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", $"Помилка авторизації: {ex.Message}");
+                Toast.Show("ERROR", $"Помилка авторизації");
+                LoggerService.LogError($"Помилка авторизації: {ex.Message}");
             }
         }
 
