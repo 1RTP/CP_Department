@@ -124,10 +124,12 @@
             // 
             this.btnDeleteAssignment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
             this.btnDeleteAssignment.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
-            this.btnDeleteAssignment.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnDeleteAssignment.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
             this.btnDeleteAssignment.BorderRadius = 10;
-            this.btnDeleteAssignment.BorderSize = 0;
+            this.btnDeleteAssignment.BorderSize = 1;
             this.btnDeleteAssignment.FlatAppearance.BorderSize = 0;
+            this.btnDeleteAssignment.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(55)))), ((int)(((byte)(33)))));
+            this.btnDeleteAssignment.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(55)))), ((int)(((byte)(33)))));
             this.btnDeleteAssignment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteAssignment.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnDeleteAssignment.ForeColor = System.Drawing.Color.White;

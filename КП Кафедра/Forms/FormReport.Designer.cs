@@ -28,12 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cmbExcelSheets = new System.Windows.Forms.ComboBox();
             this.rbAssignmentsReport = new System.Windows.Forms.RadioButton();
             this.rbResearchReport = new System.Windows.Forms.RadioButton();
             this.rbSubjectsReport = new System.Windows.Forms.RadioButton();
             this.rbTeachersReport = new System.Windows.Forms.RadioButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnExportToExcel1 = new КП_Кафедра.RoundButton();
+            this.btnChooseExcelFile = new КП_Кафедра.RoundButton();
+            this.btnConvertToPdf_Click = new КП_Кафедра.RoundButton();
             this.btnExportToWord = new КП_Кафедра.RoundButton();
             this.btnImportFromWord = new КП_Кафедра.RoundButton();
             this.btnOpenWordReport = new КП_Кафедра.RoundButton();
@@ -41,13 +48,17 @@
             this.btnExportToExcel = new КП_Кафедра.RoundButton();
             this.btnOpenExcelReport = new КП_Кафедра.RoundButton();
             this.btnReport = new КП_Кафедра.RoundButton();
-            this.btnConvertToPdf_Click = new КП_Кафедра.RoundButton();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
+            this.panel1.Controls.Add(this.btnExportToExcel1);
+            this.panel1.Controls.Add(this.btnChooseExcelFile);
+            this.panel1.Controls.Add(this.cmbExcelSheets);
             this.panel1.Controls.Add(this.btnConvertToPdf_Click);
             this.panel1.Controls.Add(this.btnExportToWord);
             this.panel1.Controls.Add(this.btnImportFromWord);
@@ -67,12 +78,21 @@
             this.panel1.Size = new System.Drawing.Size(794, 128);
             this.panel1.TabIndex = 14;
             // 
+            // cmbExcelSheets
+            // 
+            this.cmbExcelSheets.FormattingEnabled = true;
+            this.cmbExcelSheets.Location = new System.Drawing.Point(12, 58);
+            this.cmbExcelSheets.Name = "cmbExcelSheets";
+            this.cmbExcelSheets.Size = new System.Drawing.Size(121, 23);
+            this.cmbExcelSheets.TabIndex = 38;
+            this.cmbExcelSheets.SelectedIndexChanged += new System.EventHandler(this.cmbExcelSheets_SelectedIndexChanged);
+            // 
             // rbAssignmentsReport
             // 
             this.rbAssignmentsReport.AutoSize = true;
             this.rbAssignmentsReport.Font = new System.Drawing.Font("Arial", 8.8F);
             this.rbAssignmentsReport.ForeColor = System.Drawing.Color.White;
-            this.rbAssignmentsReport.Location = new System.Drawing.Point(286, 16);
+            this.rbAssignmentsReport.Location = new System.Drawing.Point(276, 16);
             this.rbAssignmentsReport.Name = "rbAssignmentsReport";
             this.rbAssignmentsReport.Size = new System.Drawing.Size(102, 19);
             this.rbAssignmentsReport.TabIndex = 23;
@@ -85,7 +105,7 @@
             this.rbResearchReport.AutoSize = true;
             this.rbResearchReport.Font = new System.Drawing.Font("Arial", 8.8F);
             this.rbResearchReport.ForeColor = System.Drawing.Color.White;
-            this.rbResearchReport.Location = new System.Drawing.Point(208, 16);
+            this.rbResearchReport.Location = new System.Drawing.Point(198, 16);
             this.rbResearchReport.Name = "rbResearchReport";
             this.rbResearchReport.Size = new System.Drawing.Size(72, 19);
             this.rbResearchReport.TabIndex = 22;
@@ -98,7 +118,7 @@
             this.rbSubjectsReport.AutoSize = true;
             this.rbSubjectsReport.Font = new System.Drawing.Font("Arial", 8.8F);
             this.rbSubjectsReport.ForeColor = System.Drawing.Color.White;
-            this.rbSubjectsReport.Location = new System.Drawing.Point(111, 16);
+            this.rbSubjectsReport.Location = new System.Drawing.Point(101, 16);
             this.rbSubjectsReport.Name = "rbSubjectsReport";
             this.rbSubjectsReport.Size = new System.Drawing.Size(91, 19);
             this.rbSubjectsReport.TabIndex = 21;
@@ -111,7 +131,7 @@
             this.rbTeachersReport.AutoSize = true;
             this.rbTeachersReport.Font = new System.Drawing.Font("Arial", 8.8F);
             this.rbTeachersReport.ForeColor = System.Drawing.Color.White;
-            this.rbTeachersReport.Location = new System.Drawing.Point(22, 16);
+            this.rbTeachersReport.Location = new System.Drawing.Point(12, 16);
             this.rbTeachersReport.Name = "rbTeachersReport";
             this.rbTeachersReport.Size = new System.Drawing.Size(83, 19);
             this.rbTeachersReport.TabIndex = 20;
@@ -122,12 +142,114 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+            this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(148)))), ((int)(((byte)(152)))));
             this.panel2.Location = new System.Drawing.Point(0, 128);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(794, 350);
             this.panel2.TabIndex = 15;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 8.8F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 8.8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.EnableHeadersVisualStyles = false;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 7);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(770, 331);
+            this.dataGridView1.TabIndex = 17;
+            // 
+            // btnExportToExcel1
+            // 
+            this.btnExportToExcel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnExportToExcel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+            this.btnExportToExcel1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+            this.btnExportToExcel1.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnExportToExcel1.BorderRadius = 10;
+            this.btnExportToExcel1.BorderSize = 0;
+            this.btnExportToExcel1.FlatAppearance.BorderSize = 0;
+            this.btnExportToExcel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExportToExcel1.Font = new System.Drawing.Font("Arial", 8.8F);
+            this.btnExportToExcel1.ForeColor = System.Drawing.Color.White;
+            this.btnExportToExcel1.Location = new System.Drawing.Point(423, 52);
+            this.btnExportToExcel1.Name = "btnExportToExcel1";
+            this.btnExportToExcel1.Size = new System.Drawing.Size(161, 32);
+            this.btnExportToExcel1.TabIndex = 40;
+            this.btnExportToExcel1.Text = "Зберегти у Excel з таблиці";
+            this.btnExportToExcel1.TextColor = System.Drawing.Color.White;
+            this.btnExportToExcel1.UseVisualStyleBackColor = false;
+            this.btnExportToExcel1.Click += new System.EventHandler(this.btnExportToExcel1_Click);
+            // 
+            // btnChooseExcelFile
+            // 
+            this.btnChooseExcelFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnChooseExcelFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+            this.btnChooseExcelFile.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+            this.btnChooseExcelFile.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnChooseExcelFile.BorderRadius = 10;
+            this.btnChooseExcelFile.BorderSize = 0;
+            this.btnChooseExcelFile.FlatAppearance.BorderSize = 0;
+            this.btnChooseExcelFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChooseExcelFile.Font = new System.Drawing.Font("Arial", 8.8F);
+            this.btnChooseExcelFile.ForeColor = System.Drawing.Color.White;
+            this.btnChooseExcelFile.Location = new System.Drawing.Point(149, 52);
+            this.btnChooseExcelFile.Name = "btnChooseExcelFile";
+            this.btnChooseExcelFile.Size = new System.Drawing.Size(131, 32);
+            this.btnChooseExcelFile.TabIndex = 39;
+            this.btnChooseExcelFile.Text = "Вибрати Excel-файл";
+            this.btnChooseExcelFile.TextColor = System.Drawing.Color.White;
+            this.btnChooseExcelFile.UseVisualStyleBackColor = false;
+            this.btnChooseExcelFile.Click += new System.EventHandler(this.btnChooseExcelFile_Click);
+            // 
+            // btnConvertToPdf_Click
+            // 
+            this.btnConvertToPdf_Click.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnConvertToPdf_Click.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+            this.btnConvertToPdf_Click.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+            this.btnConvertToPdf_Click.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnConvertToPdf_Click.BorderRadius = 10;
+            this.btnConvertToPdf_Click.BorderSize = 0;
+            this.btnConvertToPdf_Click.FlatAppearance.BorderSize = 0;
+            this.btnConvertToPdf_Click.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConvertToPdf_Click.Font = new System.Drawing.Font("Arial", 8.8F);
+            this.btnConvertToPdf_Click.ForeColor = System.Drawing.Color.White;
+            this.btnConvertToPdf_Click.Location = new System.Drawing.Point(623, 90);
+            this.btnConvertToPdf_Click.Name = "btnConvertToPdf_Click";
+            this.btnConvertToPdf_Click.Size = new System.Drawing.Size(159, 32);
+            this.btnConvertToPdf_Click.TabIndex = 37;
+            this.btnConvertToPdf_Click.Text = "Конвертувати Word у PDF";
+            this.btnConvertToPdf_Click.TextColor = System.Drawing.Color.White;
+            this.btnConvertToPdf_Click.UseVisualStyleBackColor = false;
+            this.btnConvertToPdf_Click.Click += new System.EventHandler(this.btnConvertToPdf_Click_Click);
             // 
             // btnExportToWord
             // 
@@ -162,7 +284,7 @@
             this.btnImportFromWord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImportFromWord.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnImportFromWord.ForeColor = System.Drawing.Color.White;
-            this.btnImportFromWord.Location = new System.Drawing.Point(149, 90);
+            this.btnImportFromWord.Location = new System.Drawing.Point(286, 90);
             this.btnImportFromWord.Name = "btnImportFromWord";
             this.btnImportFromWord.Size = new System.Drawing.Size(131, 32);
             this.btnImportFromWord.TabIndex = 35;
@@ -204,7 +326,7 @@
             this.btnImportFromExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImportFromExcel.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnImportFromExcel.ForeColor = System.Drawing.Color.White;
-            this.btnImportFromExcel.Location = new System.Drawing.Point(149, 52);
+            this.btnImportFromExcel.Location = new System.Drawing.Point(286, 52);
             this.btnImportFromExcel.Name = "btnImportFromExcel";
             this.btnImportFromExcel.Size = new System.Drawing.Size(131, 32);
             this.btnImportFromExcel.TabIndex = 33;
@@ -225,7 +347,7 @@
             this.btnExportToExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExportToExcel.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnExportToExcel.ForeColor = System.Drawing.Color.White;
-            this.btnExportToExcel.Location = new System.Drawing.Point(12, 52);
+            this.btnExportToExcel.Location = new System.Drawing.Point(149, 90);
             this.btnExportToExcel.Name = "btnExportToExcel";
             this.btnExportToExcel.Size = new System.Drawing.Size(131, 32);
             this.btnExportToExcel.TabIndex = 32;
@@ -276,27 +398,6 @@
             this.btnReport.UseVisualStyleBackColor = false;
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
-            // btnConvertToPdf_Click
-            // 
-            this.btnConvertToPdf_Click.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnConvertToPdf_Click.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
-            this.btnConvertToPdf_Click.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
-            this.btnConvertToPdf_Click.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnConvertToPdf_Click.BorderRadius = 10;
-            this.btnConvertToPdf_Click.BorderSize = 0;
-            this.btnConvertToPdf_Click.FlatAppearance.BorderSize = 0;
-            this.btnConvertToPdf_Click.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConvertToPdf_Click.Font = new System.Drawing.Font("Arial", 8.8F);
-            this.btnConvertToPdf_Click.ForeColor = System.Drawing.Color.White;
-            this.btnConvertToPdf_Click.Location = new System.Drawing.Point(286, 90);
-            this.btnConvertToPdf_Click.Name = "btnConvertToPdf_Click";
-            this.btnConvertToPdf_Click.Size = new System.Drawing.Size(159, 32);
-            this.btnConvertToPdf_Click.TabIndex = 37;
-            this.btnConvertToPdf_Click.Text = "Конвертувати Word у PDF";
-            this.btnConvertToPdf_Click.TextColor = System.Drawing.Color.White;
-            this.btnConvertToPdf_Click.UseVisualStyleBackColor = false;
-            this.btnConvertToPdf_Click.Click += new System.EventHandler(this.btnConvertToPdf_Click_Click);
-            // 
             // FormReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -310,6 +411,8 @@
             this.Load += new System.EventHandler(this.FormReport_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -330,5 +433,9 @@
         private RoundButton btnExportToWord;
         private RoundButton btnImportFromWord;
         private RoundButton btnConvertToPdf_Click;
+        private System.Windows.Forms.ComboBox cmbExcelSheets;
+        private RoundButton btnChooseExcelFile;
+        internal System.Windows.Forms.DataGridView dataGridView1;
+        private RoundButton btnExportToExcel1;
     }
 }

@@ -45,10 +45,10 @@
             this.chkActive = new System.Windows.Forms.CheckBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtPhone = new System.Windows.Forms.TextBox();
-            this.dtpHireDate = new System.Windows.Forms.DateTimePicker();
             this.txtPosition = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtpHireDate = new КП_Кафедра.DatePicker();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -56,6 +56,7 @@
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
+            this.panel10.Controls.Add(this.dtpHireDate);
             this.panel10.Controls.Add(this.panel1);
             this.panel10.Controls.Add(this.txtSpecialty);
             this.panel10.Controls.Add(this.btnClear);
@@ -70,14 +71,13 @@
             this.panel10.Controls.Add(this.chkActive);
             this.panel10.Controls.Add(this.txtEmail);
             this.panel10.Controls.Add(this.txtPhone);
-            this.panel10.Controls.Add(this.dtpHireDate);
             this.panel10.Controls.Add(this.txtPosition);
             this.panel10.Controls.Add(this.txtName);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel10.Location = new System.Drawing.Point(567, 0);
+            this.panel10.Location = new System.Drawing.Point(564, 0);
             this.panel10.Margin = new System.Windows.Forms.Padding(2);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(249, 530);
+            this.panel10.Size = new System.Drawing.Size(252, 530);
             this.panel10.TabIndex = 15;
             // 
             // panel1
@@ -159,14 +159,16 @@
             this.btnDeleteTeacher.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDeleteTeacher.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
             this.btnDeleteTeacher.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
-            this.btnDeleteTeacher.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnDeleteTeacher.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
             this.btnDeleteTeacher.BorderRadius = 10;
-            this.btnDeleteTeacher.BorderSize = 0;
+            this.btnDeleteTeacher.BorderSize = 1;
             this.btnDeleteTeacher.FlatAppearance.BorderSize = 0;
+            this.btnDeleteTeacher.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(55)))), ((int)(((byte)(33)))));
+            this.btnDeleteTeacher.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(55)))), ((int)(((byte)(33)))));
             this.btnDeleteTeacher.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteTeacher.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnDeleteTeacher.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteTeacher.Location = new System.Drawing.Point(149, 493);
+            this.btnDeleteTeacher.Location = new System.Drawing.Point(152, 493);
             this.btnDeleteTeacher.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteTeacher.Name = "btnDeleteTeacher";
             this.btnDeleteTeacher.Size = new System.Drawing.Size(93, 26);
@@ -284,14 +286,6 @@
             this.txtPhone.TabIndex = 3;
             this.txtPhone.Text = "Телефон";
             // 
-            // dtpHireDate
-            // 
-            this.dtpHireDate.Location = new System.Drawing.Point(11, 129);
-            this.dtpHireDate.Margin = new System.Windows.Forms.Padding(2);
-            this.dtpHireDate.Name = "dtpHireDate";
-            this.dtpHireDate.Size = new System.Drawing.Size(231, 20);
-            this.dtpHireDate.TabIndex = 2;
-            // 
             // txtPosition
             // 
             this.txtPosition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
@@ -353,8 +347,22 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(562, 530);
+            this.dataGridView1.Size = new System.Drawing.Size(559, 530);
             this.dataGridView1.TabIndex = 14;
+            // 
+            // dtpHireDate
+            // 
+            this.dtpHireDate.BorderColor = System.Drawing.Color.White;
+            this.dtpHireDate.BorderSize = 1;
+            this.dtpHireDate.Font = new System.Drawing.Font("Arial", 8.8F);
+            this.dtpHireDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpHireDate.Location = new System.Drawing.Point(11, 127);
+            this.dtpHireDate.MinimumSize = new System.Drawing.Size(0, 25);
+            this.dtpHireDate.Name = "dtpHireDate";
+            this.dtpHireDate.Size = new System.Drawing.Size(230, 25);
+            this.dtpHireDate.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+            this.dtpHireDate.TabIndex = 39;
+            this.dtpHireDate.TextColor = System.Drawing.Color.White;
             // 
             // FormTeacher
             // 
@@ -389,12 +397,12 @@
         private System.Windows.Forms.CheckBox chkActive;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtPhone;
-        private System.Windows.Forms.DateTimePicker dtpHireDate;
         private System.Windows.Forms.TextBox txtPosition;
         private System.Windows.Forms.TextBox txtName;
         internal System.Windows.Forms.DataGridView dataGridView1;
         private RoundButton btnClear;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtSpecialty;
+        private DatePicker dtpHireDate;
     }
 }

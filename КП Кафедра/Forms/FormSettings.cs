@@ -135,7 +135,7 @@ namespace КП_Кафедра.Forms
                 {
                     teacherForm.UpdateGrid(DataService.Teachers);
                 }
-                Toast.Show("INFO", $"Дані завантажено з файлу у форматі{currentFormat}.");
+                Toast.Show("INFO", $"Дані завантажено у форматі {currentFormat}.");
                 LoggerService.LogInfo($"Десеріалізовано всі дані з {currentFormat}.");
             }
             catch (Exception ex)

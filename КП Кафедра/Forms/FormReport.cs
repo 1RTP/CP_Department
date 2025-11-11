@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.Sqlite;
+using ClosedXML.Excel;
 using static КП_Кафедра.ToastForm;
 
 namespace КП_Кафедра.Forms
@@ -24,6 +25,7 @@ namespace КП_Кафедра.Forms
         private readonly string dbPath;
         RepExcel repExcel = new RepExcel();
         private readonly RepWord repWord = new RepWord();
+        private string selectedExcelFilePath = string.Empty;
         public static FormReport Instance { get; private set; }
 
         public FormReport()
@@ -105,6 +107,7 @@ namespace КП_Кафедра.Forms
 
         private void btnExportToExcel_Click(object sender, EventArgs e)
         {
+
             try
             {
                 string query = "";
@@ -138,7 +141,6 @@ namespace КП_Кафедра.Forms
                 }
 
                 DataTable dt = GetDataTable(query);
-
                 if (dt.Rows.Count == 0)
                 {
                     Toast.Show("WARNING", "Таблиця порожня.");
@@ -158,12 +160,26 @@ namespace КП_Кафедра.Forms
 
         private void btnImportFromExcel_Click(object sender, EventArgs e)
         {
-            DataTable imported = repExcel.ImportFromExcel();
-            if (imported == null)
-            {
-                LoggerService.LogError("Завантаження Excel скасовано користувачем.");
-                return;
-            }
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Excel файли (*.xlsx)|*.xlsx";
+            ofd.Title = "Оберіть Excel-файл";
+
+            if (ofd.ShowDialog() != DialogResult.OK) return;
+            string filePath = ofd.FileName;
+            List<string> sheetNames = repExcel.GetSheetNames(filePath);
+
+            cmbExcelSheets.DataSource = sheetNames;
+            string selectedSheet = cmbExcelSheets.SelectedItem?.ToString();
+            DataTable imported = repExcel.ImportFromExcel(filePath, selectedSheet);
+
+            dataGridView1.DataSource = imported;
+
+            //DataTable imported = repExcel.ImportFromExcel();
+            //if (imported == null)
+            //{
+            //    LoggerService.LogError("Завантаження Excel скасовано користувачем.");
+            //    return;
+            //}
         }
 
         private void btnOpenExcelReport_Click(object sender, EventArgs e)
@@ -319,6 +335,66 @@ namespace КП_Кафедра.Forms
                         Toast.Show("ERROR", "Не вдалося створити PDF.");
                         LoggerService.LogError($"Помилка під час створення PDF: {ex.Message}");
                     }
+                }
+            }
+        }
+
+        private void btnChooseExcelFile_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "Excel файли (*.xlsx)|*.xlsx";
+                ofd.Title = "Оберіть Excel-файл";
+
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    selectedExcelFilePath = ofd.FileName;
+
+                    List<string> sheetNames = repExcel.GetSheetNames(selectedExcelFilePath);
+                    if (sheetNames.Count == 0)
+                    {
+                        Toast.Show("WARNING", "Файл не містить листів.");
+                        cmbExcelSheets.DataSource = null;
+                        dataGridView1.DataSource = null;
+                        return;
+                    }
+
+                    cmbExcelSheets.DataSource = sheetNames;
+                    cmbExcelSheets.SelectedIndex = 0;
+                }
+            }
+        }
+
+        private void cmbExcelSheets_SelectedIndexChanged(object sender, EventArgs e) // можливо прибрати
+        {
+            if (string.IsNullOrEmpty(selectedExcelFilePath)) return;
+            string selectedSheet = cmbExcelSheets.SelectedItem?.ToString();
+            if (string.IsNullOrEmpty(selectedSheet)) return;
+            DataTable imported = repExcel.ImportFromExcel(selectedExcelFilePath, selectedSheet);
+            if (imported != null)
+            {
+                dataGridView1.DataSource = imported; 
+                Toast.Show("SUCCESS", "Успішно завантажено!");
+                LoggerService.LogInfo($"Завантаження Excel: {selectedExcelFilePath}, лист {selectedSheet}, рядків: {imported.Rows.Count}");
+            }
+            else
+            {
+                Toast.Show("ERROR", "Не вдалося завантажити дані.");
+                LoggerService.LogError($"Помилка завантаження Excel: {selectedExcelFilePath}, лист {selectedSheet}");
+            }
+        }
+
+        private void btnExportToExcel1_Click(object sender, EventArgs e) // можливо прибрати
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "Excel файли (*.xlsx)|*.xlsx";
+                sfd.Title = "Зберегти як Excel";
+                sfd.FileName = "Збережені_дані.xlsx";
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    repExcel.ExportDataGridViewToExcel(dataGridView1, sfd.FileName);
                 }
             }
         }

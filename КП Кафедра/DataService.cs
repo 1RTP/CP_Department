@@ -16,6 +16,31 @@ namespace КП_Кафедра
         public static void LogError(string message) { logger.Error(message); }
     }
 
+    //public sealed class LoggerSingleton // sealed - не дозволяє наслідування
+    //{
+    //    private static LoggerSingleton _instance;
+    //    private static readonly object _lock = new object();
+    //    private readonly Logger _logger;
+
+    //    private LoggerSingleton() { _logger = LogManager.GetCurrentClassLogger(); } 
+
+    //    public static LoggerSingleton Instance
+    //    {
+    //        get
+    //        {
+    //            if (_instance == null) // захист від багатопотокового доступу
+    //            {
+    //                lock (_lock) if (_instance == null) _instance = new LoggerSingleton();
+    //            }
+    //            return _instance;
+    //        }
+    //    }
+
+    //    public void LogInfo(string message) => _logger.Info(message);
+    //    public void LogWarn(string message) => _logger.Warn(message);
+    //    public void LogError(string message) => _logger.Error(message);
+    //}
+
     public static class DataService
     {
         public static List<Teacher> Teachers = new List<Teacher>();

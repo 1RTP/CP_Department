@@ -82,6 +82,9 @@
     <Compile Include="AppSettings.cs" />
     <Compile Include="DatabaseSQL.cs" />
     <Compile Include="DataService.cs" />
+    <Compile Include="DatePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DepartmentData.cs" />
     <Compile Include="FormMainMenu.cs">
       <SubType>Form</SubType>
@@ -173,6 +176,8 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="SqliteDataReaderExtensions.cs" />
+    <None Include="Resources\calendarWhite.png" />
+    <None Include="Resources\calendarDark.png" />
     <None Include="Resources\icons8-test-account-501.png" />
     <None Include="Resources\icons8-test-account-50.png" />
     <None Include="Resources\icons8-замок-20.png" />

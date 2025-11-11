@@ -1,8 +1,13 @@
 ﻿using ClosedXML.Excel;
+using DocumentFormat.OpenXml;
+using DocumentFormat.OpenXml.Packaging;
+using Spire.Doc;
+using Spire.Doc.Documents;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -12,10 +17,6 @@ using Xceed.Document.NET;
 using Xceed.Words.NET;
 using static КП_Кафедра.ToastForm;
 using OpenXmlWord = DocumentFormat.OpenXml.Wordprocessing;
-using DocumentFormat.OpenXml;
-using DocumentFormat.OpenXml.Packaging;
-using Spire.Doc;
-using Spire.Doc.Documents;
 
 namespace КП_Кафедра
 {
@@ -23,7 +24,8 @@ namespace КП_Кафедра
     {
         public static readonly Dictionary<string, string> columnNames = new Dictionary<string, string>
         {
-            { "emp_id", "№" },
+            //{ "emp_id", "№" },
+            { "emp_id", "Номер викладача" }, // можливо прибрати
             { "emp_full_name", "ПІБ" },
             { "emp_position", "Посада" },
             { "emp_hire_date", "Дата прийняття на роботу" },
@@ -37,7 +39,8 @@ namespace КП_Кафедра
             { "lesson_type_id", "Номер типу заняття" },
             { "hours_taught", "Відпрацьовано годин" },
             { "specialty_id", "Номер спеціальності" },
-            { "assignment_id", "№" },
+            //{ "assignment_id", "№" },
+            { "assignment_id", "Номер призначення" }, // можливо прибрати
             { "plan_hours", "Кількість годин за планом" },
             { "lesson_type", "Тип заняття" },
             { "research_id", "Номер наукової роботи" },
@@ -45,6 +48,18 @@ namespace КП_Кафедра
             { "start_date", "Дата початку" },
             { "end_date", "Дата завершення" }
         };
+
+        public List<string> GetSheetNames(string filePath) // можливо прибрати
+        {
+            var sheetNames = new List<string>();
+            if (!File.Exists(filePath)) throw new FileNotFoundException("Файл не знайдено.", filePath);
+            using (var workbook = new XLWorkbook(filePath))
+            {
+                foreach (var sheet in workbook.Worksheets) sheetNames.Add(sheet.Name);
+            }
+
+            return sheetNames;
+        }
 
         public void ExportToExcel(DataTable table, string sheetName = "Дані")
         {
@@ -123,44 +138,132 @@ namespace КП_Кафедра
             }
         }
 
-        public DataTable ImportFromExcel()
+        public void ExportDataGridViewToExcel(DataGridView dgv, string fileName) // можливо прибрати
         {
-            using (OpenFileDialog ofd = new OpenFileDialog())
+            try
             {
-                ofd.Filter = "Excel файли (*.xlsx)|*.xlsx";
-                ofd.Title = "Виберіть Excel файл";
-
-                if (ofd.ShowDialog() == DialogResult.OK)
+                using (XLWorkbook wb = new XLWorkbook())
                 {
-                    try
+                    var ws = wb.Worksheets.Add("Лист1");
+
+                    for (int col = 0; col < dgv.Columns.Count; col++)
                     {
-                        using (XLWorkbook workbook = new XLWorkbook(ofd.FileName))
+                        var headerCell = dgv.Columns[col].HeaderCell;
+                        var excelHeaderCell = ws.Cell(1, col + 1);
+
+                        excelHeaderCell.Value = dgv.Columns[col].HeaderText;
+                        excelHeaderCell.Style.Font.Bold = true;
+
+                        var backColor = headerCell.Style.BackColor;
+                        if (backColor == Color.Empty) backColor = dgv.ColumnHeadersDefaultCellStyle.BackColor;
+                        if (backColor != Color.Empty) excelHeaderCell.Style.Fill.BackgroundColor = XLColor.FromArgb(backColor.R, backColor.G, backColor.B);
+
+                        var foreColor = headerCell.Style.ForeColor;
+                        if (foreColor == Color.Empty) foreColor = dgv.ColumnHeadersDefaultCellStyle.ForeColor;
+                        if (foreColor != Color.Empty) excelHeaderCell.Style.Font.FontColor = XLColor.FromArgb(foreColor.R, foreColor.G, foreColor.B);
+
+                        excelHeaderCell.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                        excelHeaderCell.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+                    }
+
+                    for (int row = 0; row < dgv.Rows.Count; row++)
+                    {
+                        var rowStyleBackColor = dgv.Rows[row].DefaultCellStyle.BackColor;
+                        var rowStyleForeColor = dgv.Rows[row].DefaultCellStyle.ForeColor;
+
+                        for (int col = 0; col < dgv.Columns.Count; col++)
                         {
-                            IXLWorksheet ws = workbook.Worksheet(1);
-                            DataTable dt = new DataTable();
+                            var cell = dgv.Rows[row].Cells[col];
+                            var excelCell = ws.Cell(row + 2, col + 1);
 
-                            foreach (IXLCell cell in ws.Row(1).CellsUsed()) dt.Columns.Add(cell.Value.ToString());
+                            excelCell.Value = cell.Value?.ToString();
 
-                            foreach (IXLRow row in ws.RowsUsed().Skip(1))
-                            {
-                                DataRow dr = dt.NewRow();
-                                int i = 0;
-                                foreach (IXLCell cell in row.Cells(1, dt.Columns.Count)) dr[i++] = cell.Value.ToString();
-                                dt.Rows.Add(dr);
-                            }
+                            Color backColor = cell.Style.BackColor != Color.Empty ? cell.Style.BackColor : rowStyleBackColor != Color.Empty ? rowStyleBackColor : dgv.DefaultCellStyle.BackColor;
+                            if (backColor != Color.Empty) excelCell.Style.Fill.BackgroundColor = XLColor.FromArgb(backColor.R, backColor.G, backColor.B);
 
-                            Toast.Show("SUCCESS", "Успішно завантажено!");
-                            LoggerService.LogInfo($"Завантаження Excel: {dt.Rows.Count} рядків");
-                            return dt;
+                            Color foreColor = cell.Style.ForeColor != Color.Empty ? cell.Style.ForeColor : rowStyleForeColor != Color.Empty ? rowStyleForeColor : dgv.DefaultCellStyle.ForeColor;
+                            if (foreColor != Color.Empty) excelCell.Style.Font.FontColor = XLColor.FromArgb(foreColor.R, foreColor.G, foreColor.B);
                         }
                     }
-                    catch (Exception ex)
-                    {
-                        Toast.Show("ERROR", "Помилка завантаження");
-                        LoggerService.LogError($"Помилка завантаження Excel: {ex.Message}");
-                    }
+
+                    ws.Columns().AdjustToContents();
+                    wb.SaveAs(fileName);
                 }
 
+                Toast.Show("SUCCESS", "Успішно збережено!");
+                LoggerService.LogInfo($"Збереження Excel: {fileName}");
+            }
+            catch (Exception ex)
+            {
+                Toast.Show("ERROR", "Помилка збереження");
+                LoggerService.LogError($"Помилка збереження Excel: {ex.Message}");
+            }
+        }
+
+        public DataTable ImportFromExcel(string filePath, string sheetName)
+        {
+            //using (OpenFileDialog ofd = new OpenFileDialog())
+            //{
+            //    ofd.Filter = "Excel файли (*.xlsx)|*.xlsx";
+            //    ofd.Title = "Виберіть Excel файл";
+
+            //    if (ofd.ShowDialog() == DialogResult.OK)
+            //    {
+            //        try
+            //        {
+            //            using (XLWorkbook workbook = new XLWorkbook(ofd.FileName))
+            //            {
+            //                IXLWorksheet ws = workbook.Worksheet(1);
+            //                DataTable dt = new DataTable();
+
+            //                foreach (IXLCell cell in ws.Row(1).CellsUsed()) dt.Columns.Add(cell.Value.ToString());
+
+            //                foreach (IXLRow row in ws.RowsUsed().Skip(1))
+            //                {
+            //                    DataRow dr = dt.NewRow();
+            //                    int i = 0;
+            //                    foreach (IXLCell cell in row.Cells(1, dt.Columns.Count)) dr[i++] = cell.Value.ToString();
+            //                    dt.Rows.Add(dr);
+            //                }
+
+            //                Toast.Show("SUCCESS", "Успішно завантажено!");
+            //                LoggerService.LogInfo($"Завантаження Excel: {dt.Rows.Count} рядків");
+            //                return dt;
+            //            }
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            Toast.Show("ERROR", "Помилка завантаження");
+            //            LoggerService.LogError($"Помилка завантаження Excel: {ex.Message}");
+            //        }
+            //    }
+
+            //    return null;
+            //}
+
+            if (!File.Exists(filePath)) throw new FileNotFoundException("Файл не знайдено.", filePath); // можливо прибрати
+            try
+            {
+                using (var workbook = new XLWorkbook(filePath))
+                {
+                    IXLWorksheet ws = workbook.Worksheet(sheetName);
+                    DataTable dt = new DataTable();
+                    foreach (IXLCell cell in ws.Row(1).CellsUsed()) dt.Columns.Add(cell.Value.ToString());
+                    foreach (IXLRow row in ws.RowsUsed().Skip(1))
+                    {
+                        DataRow dr = dt.NewRow();
+                        int i = 0;
+                        foreach (IXLCell cell in row.Cells(1, dt.Columns.Count)) dr[i++] = cell.Value.ToString() ?? string.Empty;
+                        dt.Rows.Add(dr);
+                    }
+                    LoggerService.LogInfo($"Завантаження Excel: {dt.Rows.Count} рядків");
+                    return dt;
+                }
+            }
+            catch (Exception ex)
+            {
+                Toast.Show("ERROR", "Помилка завантаження");
+                LoggerService.LogError($"Помилка завантаження Excel ({sheetName}): {ex.Message}");
                 return null;
             }
         }

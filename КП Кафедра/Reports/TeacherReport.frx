@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/09/2025 09:11:50" ReportInfo.Modified="11/09/2025 11:16:57" ReportInfo.CreatorVersion="2026.1.2.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <XmlDataConnection Name="Connection" ConnectionString="rijcmlqpjHWVazDtLLzphTxxcfEaXe8NDHwD9IjsAGywPgdJNotIqLna7dVAF2BRA1tBh6wljYVBHuJpLco4vONpw0iwkD/pFjl8vKrS+SMeSIuj3/3NW4fAc7sbURf2blfy/sl">
+      <TableDataSource Name="Teachers" DataType="System.Int32" Enabled="true" TableName="Teachers">
+        <Column Name="Teachers_Id" DataType="System.Int32"/>
+      </TableDataSource>
+      <TableDataSource Name="Teacher" DataType="System.Int32" Enabled="true" TableName="Teacher">
+        <Column Name="EmpId" DataType="System.String"/>
+        <Column Name="FullName" DataType="System.String"/>
+        <Column Name="Position" DataType="System.String"/>
+        <Column Name="HireDate" DataType="System.String"/>
+        <Column Name="PhoneNumber" DataType="System.String"/>
+        <Column Name="Email" DataType="System.String"/>
+        <Column Name="Status" DataType="System.String"/>
+        <Column Name="Teacher_Id" DataType="System.Int32"/>
+        <Column Name="Participations" DataType="System.String"/>
+        <Column Name="Assignments" DataType="System.String"/>
+        <Column Name="Teachers_Id" DataType="System.Int32"/>
+        <Column Name="Assignment_Id" DataType="System.Int32"/>
+        <Column Name="Participation_Id" DataType="System.Int32"/>
+      </TableDataSource>
+      <TableDataSource Name="Specialty" DataType="System.Int32" Enabled="true" TableName="Specialty">
+        <Column Name="SpecialtyId" DataType="System.String"/>
+        <Column Name="SpecialtyName" DataType="System.String"/>
+        <Column Name="Teacher_Id" DataType="System.Int32"/>
+        <Column Name="Subject_Id" DataType="System.Int32"/>
+        <Column Name="Assignment_Id" DataType="System.Int32"/>
+        <Column Name="Research_Id" DataType="System.Int32"/>
+        <Column Name="Project_Id" DataType="System.Int32"/>
+        <Column Name="Participation_Id" DataType="System.Int32"/>
+      </TableDataSource>
+      <TableDataSource Name="Subjects" DataType="System.Int32" Enabled="true" TableName="Subjects">
+        <Column Name="Subjects_Id" DataType="System.Int32"/>
+      </TableDataSource>
+      <TableDataSource Name="Subject" DataType="System.Int32" Enabled="true" TableName="Subject">
+        <Column Name="SubjectId" DataType="System.String"/>
+        <Column Name="Name" DataType="System.String"/>
+        <Column Name="Semester" DataType="System.String"/>
+        <Column Name="TotalHours" DataType="System.String"/>
+        <Column Name="Status" DataType="System.String"/>
+        <Column Name="Subject_Id" DataType="System.Int32"/>
+        <Column Name="Subjects_Id" DataType="System.Int32"/>
+        <Column Name="Assignment_Id" DataType="System.Int32"/>
+      </TableDataSource>
+      <TableDataSource Name="Assignments" DataType="System.Int32" Enabled="true" TableName="Assignments">
+        <Column Name="Assignments_Id" DataType="System.Int32"/>
+      </TableDataSource>
+      <TableDataSource Name="Assignment" DataType="System.Int32" Enabled="true" TableName="Assignment">
+        <Column Name="AssignmentId" DataType="System.String"/>
+        <Column Name="PlanHours" DataType="System.String"/>
+        <Column Name="TaughtHours" DataType="System.String"/>
+        <Column Name="Status" DataType="System.String"/>
+        <Column Name="Assignment_Id" DataType="System.Int32"/>
+        <Column Name="Assignments_Id" DataType="System.Int32"/>
+      </TableDataSource>
+      <TableDataSource Name="LessonType" DataType="System.Int32" Enabled="true" TableName="LessonType">
+        <Column Name="LessonTypeId" DataType="System.String"/>
+        <Column Name="TypeName" DataType="System.String"/>
+        <Column Name="Assignment_Id" DataType="System.Int32"/>
+      </TableDataSource>
+      <TableDataSource Name="Researches" DataType="System.Int32" Enabled="true" TableName="Researches">
+        <Column Name="Researches_Id" DataType="System.Int32"/>
+      </TableDataSource>
+      <TableDataSource Name="Research" DataType="System.Int32" Enabled="true" TableName="Research">
+        <Column Name="ResearchId" DataType="System.String"/>
+        <Column Name="ResearchName" DataType="System.String"/>
+        <Column Name="StartDate" DataType="System.String"/>
+        <Column Name="EndDate" DataType="System.String"/>
+        <Column Name="Participants" DataType="System.String"/>
+        <Column Name="Research_Id" DataType="System.Int32"/>
+        <Column Name="Researches_Id" DataType="System.Int32"/>
+      </TableDataSource>
+      <TableDataSource Name="Participations" DataType="System.Int32" Enabled="true" TableName="Participations">
+        <Column Name="Participations_Id" DataType="System.Int32"/>
+      </TableDataSource>
+      <TableDataSource Name="Participation" DataType="System.Int32" Enabled="true" TableName="Participation">
+        <Column Name="ParticipationId" DataType="System.String"/>
+        <Column Name="Participation_Id" DataType="System.Int32"/>
+        <Column Name="Participations_Id" DataType="System.Int32"/>
+      </TableDataSource>
+      <TableDataSource Name="Project" DataType="System.Int32" Enabled="true" TableName="Project">
+        <Column Name="ResearchId" DataType="System.String"/>
+        <Column Name="ResearchName" DataType="System.String"/>
+        <Column Name="StartDate" DataType="System.String"/>
+        <Column Name="EndDate" DataType="System.String"/>
+        <Column Name="Participants" DataType="System.String"/>
+        <Column Name="Project_Id" DataType="System.Int32"/>
+        <Column Name="Participation_Id" DataType="System.Int32"/>
+      </TableDataSource>
+    </XmlDataConnection>
+    <Relation Name="Teacher_Specialty" ParentDataSource="Teacher" ChildDataSource="Specialty" ParentColumns="Teacher_Id" ChildColumns="Teacher_Id" Enabled="true"/>
+    <Relation Name="Teachers_Teacher" ParentDataSource="Teachers" ChildDataSource="Teacher" ParentColumns="Teachers_Id" ChildColumns="Teachers_Id" Enabled="true"/>
+    <Relation Name="Subject_Specialty" ParentDataSource="Subject" ChildDataSource="Specialty" ParentColumns="Subject_Id" ChildColumns="Subject_Id" Enabled="true"/>
+    <Relation Name="Subjects_Subject" ParentDataSource="Subjects" ChildDataSource="Subject" ParentColumns="Subjects_Id" ChildColumns="Subjects_Id" Enabled="true"/>
+    <Relation Name="Assignment_Teacher" ParentDataSource="Assignment" ChildDataSource="Teacher" ParentColumns="Assignment_Id" ChildColumns="Assignment_Id" Enabled="true"/>
+    <Relation Name="Assignment_Subject" ParentDataSource="Assignment" ChildDataSource="Subject" ParentColumns="Assignment_Id" ChildColumns="Assignment_Id" Enabled="true"/>
+    <Relation Name="Assignment_LessonType" ParentDataSource="Assignment" ChildDataSource="LessonType" ParentColumns="Assignment_Id" ChildColumns="Assignment_Id" Enabled="true"/>
+    <Relation Name="Assignment_Specialty" ParentDataSource="Assignment" ChildDataSource="Specialty" ParentColumns="Assignment_Id" ChildColumns="Assignment_Id" Enabled="true"/>
+    <Relation Name="Assignments_Assignment" ParentDataSource="Assignments" ChildDataSource="Assignment" ParentColumns="Assignments_Id" ChildColumns="Assignments_Id" Enabled="true"/>
+    <Relation Name="Research_Specialty" ParentDataSource="Research" ChildDataSource="Specialty" ParentColumns="Research_Id" ChildColumns="Research_Id" Enabled="true"/>
+    <Relation Name="Researches_Research" ParentDataSource="Researches" ChildDataSource="Research" ParentColumns="Researches_Id" ChildColumns="Researches_Id" Enabled="true"/>
+    <Relation Name="Project_Specialty" ParentDataSource="Project" ChildDataSource="Specialty" ParentColumns="Project_Id" ChildColumns="Project_Id" Enabled="true"/>
+    <Relation Name="Participation_Project" ParentDataSource="Participation" ChildDataSource="Project" ParentColumns="Participation_Id" ChildColumns="Participation_Id" Enabled="true"/>
+    <Relation Name="Participation_Teacher" ParentDataSource="Participation" ChildDataSource="Teacher" ParentColumns="Participation_Id" ChildColumns="Participation_Id" Enabled="true"/>
+    <Relation Name="Participation_Specialty" ParentDataSource="Participation" ChildDataSource="Specialty" ParentColumns="Participation_Id" ChildColumns="Participation_Id" Enabled="true"/>
+    <Relation Name="Participations_Participation" ParentDataSource="Participations" ChildDataSource="Participation" ParentColumns="Participations_Id" ChildColumns="Participations_Id" Enabled="true"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8"/>
+    <PageHeaderBand Name="PageHeader1" Top="41.8" Width="718.2" Height="37.8"/>
+    <DataBand Name="Data1" Top="83.6" Width="718.2" Height="283.5" DataSource="Teacher">
+      <TextObject Name="Text1" Width="37.8" Height="18.9" Text="ПІБ:" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text2" Left="66.15" Width="198.45" Height="18.9" Text="[Teacher.FullName]" Font="Arial, 10pt"/>
+      <TextObject Name="Text3" Top="18.9" Width="66.15" Height="18.9" Text="Посада:" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text4" Left="66.15" Top="18.9" Width="198.45" Height="18.9" Text="[Teacher.Position]" Font="Arial, 10pt"/>
+      <TextObject Name="Text6" Left="510.3" Width="207.9" Height="18.9" Text="[Teacher.PhoneNumber]" Font="Arial, 10pt"/>
+      <TextObject Name="Text5" Left="510.3" Top="18.9" Width="207.9" Height="18.9" Text="[Teacher.Email]" Font="Arial, 10pt"/>
+      <TextObject Name="Text7" Left="359.1" Top="18.9" Width="151.2" Height="18.9" Text="Електронна пошта:" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text8" Left="359.1" Width="132.3" Height="18.9" Text="Номер телефону:" Font="Arial, 10pt, style=Bold"/>
+      <LineObject Name="Line1" Top="47.25" Width="718.2"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="371.1" Width="718.2" Height="18.9"/>
+  </ReportPage>
+</Report>

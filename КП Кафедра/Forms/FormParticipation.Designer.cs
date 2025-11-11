@@ -56,9 +56,9 @@
             this.panel10.Controls.Add(this.txtProjectName);
             this.panel10.Controls.Add(this.txtName);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel10.Location = new System.Drawing.Point(569, 0);
+            this.panel10.Location = new System.Drawing.Point(563, 0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(247, 530);
+            this.panel10.Size = new System.Drawing.Size(253, 530);
             this.panel10.TabIndex = 17;
             // 
             // btnClear
@@ -84,10 +84,12 @@
             // 
             this.btnDeleteParticipation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
             this.btnDeleteParticipation.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
-            this.btnDeleteParticipation.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnDeleteParticipation.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
             this.btnDeleteParticipation.BorderRadius = 10;
-            this.btnDeleteParticipation.BorderSize = 0;
+            this.btnDeleteParticipation.BorderSize = 1;
             this.btnDeleteParticipation.FlatAppearance.BorderSize = 0;
+            this.btnDeleteParticipation.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(55)))), ((int)(((byte)(33)))));
+            this.btnDeleteParticipation.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(55)))), ((int)(((byte)(33)))));
             this.btnDeleteParticipation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteParticipation.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnDeleteParticipation.ForeColor = System.Drawing.Color.White;
@@ -201,7 +203,7 @@
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 8.8F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 8.8F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -224,7 +226,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(562, 530);
+            this.dataGridView1.Size = new System.Drawing.Size(556, 530);
             this.dataGridView1.TabIndex = 16;
             // 
             // FormParticipation
