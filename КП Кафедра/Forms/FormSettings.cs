@@ -39,6 +39,9 @@ namespace КП_Кафедра.Forms
             dataFolder = Path.Combine(projectRoot, "Data");
 
             LanguageManager.LanguageChanged += ApplyLocalization;
+
+            treeViewFiles.NodeMouseDoubleClick += treeViewFiles_NodeMouseDoubleClick;
+            treeViewFiles.ImageList = imageListIcons;
         }
 
         private void FormSettings_Load(object sender, EventArgs e)
@@ -239,8 +242,113 @@ namespace КП_Кафедра.Forms
             lblPreview.Font = AppSettings.CurrentFont;
             lblPreview.ForeColor = AppSettings.CurrentTextColor;
             AppSettings.NotifyStyleChanged();
+
+            Settings.Default.Language = "uk";
+            Settings.Default.Save();
+            LanguageManager.ApplyLanguage("uk");
+            cmbLanguage.SelectedItem = "Українська";
+            ApplyLocalization(); 
+
             Toast.Show("INFO", $"Налаштування скинуто!");
         }
+
+        private void btnLoadTree_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string exeDir = AppDomain.CurrentDomain.BaseDirectory;
+                string projectRoot = Path.GetFullPath(Path.Combine(exeDir, "..", ".."));
+                string rootPath = projectRoot;
+
+                if (!Directory.Exists(rootPath))
+                {
+                    Toast.Show("ERROR", $"Папка {rootPath} не знайдена!");
+                    return;
+                }
+
+                LoadDirectoryTree(rootPath);
+                Toast.Show("SUCCESS", "Дерево каталогів побудовано!");
+            }
+            catch (Exception ex)
+            {
+                LoggerService.LogError($"Помилка при побудові дерева: {ex.Message}");
+            }
+        }
+
+        private void treeViewFiles_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            string path = e.Node.Tag.ToString();
+            if (File.Exists(path))
+            {
+                try
+                {
+                    System.Diagnostics.Process.Start(path);
+                }
+                catch (Win32Exception ex)
+                {
+                    Toast.Show("ERROR", $"Немає програми для відкриття файлу!");
+                    LoggerService.LogError($"Помилка відкриття файлу {path}: {ex.Message}");
+                }
+                catch (Exception ex)
+                {
+                    Toast.Show("ERROR", $"Помилка при відкритті файлу!");
+                    LoggerService.LogError($"Помилка відкриття файлу {path}: {ex.Message}");
+                }
+            }
+            else
+            {
+                Toast.Show("ERROR", $"Файл не знайдено!");
+                LoggerService.LogError($"Файл не знайдено: {path}");
+            }
+        }
+
+        private void LoadDirectoryTree(string rootPath)
+        {
+            treeViewFiles.Nodes.Clear();
+
+            DirectoryInfo rootDir = new DirectoryInfo(rootPath);
+            TreeNode rootNode = new TreeNode(rootDir.Name)
+            {
+                Tag = rootDir.FullName,
+                ImageIndex = 0,
+                SelectedImageIndex = 1
+            };
+
+            GetDirectories(rootDir, rootNode);
+            treeViewFiles.Nodes.Add(rootNode);
+            //treeViewFiles.ExpandAll(); // папки розгорнуті
+        }
+
+        private void GetDirectories(DirectoryInfo directoryInfo, TreeNode parentNode)
+        {
+            try
+            {
+                foreach (var dir in directoryInfo.GetDirectories())
+                {
+                    TreeNode dirNode = new TreeNode(dir.Name)
+                    {
+                        Tag = dir.FullName,
+                        ImageIndex = 0,
+                        SelectedImageIndex = 1
+                    };
+                    parentNode.Nodes.Add(dirNode);
+                    GetDirectories(dir, dirNode);
+                }
+
+                foreach (var file in directoryInfo.GetFiles())
+                {
+                    TreeNode fileNode = new TreeNode(file.Name)
+                    {
+                        Tag = file.FullName,
+                        ImageIndex = 2,
+                        SelectedImageIndex = 2
+                    };
+                    parentNode.Nodes.Add(fileNode);
+                }
+            }
+            catch (UnauthorizedAccessException) { }
+        }
+
     }
     
 }

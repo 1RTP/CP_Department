@@ -29,9 +29,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSettings));
             this.cmbLanguage = new System.Windows.Forms.ComboBox();
             this.lbLanguage = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnLoadTree = new КП_Кафедра.RoundButton();
+            this.treeViewFiles = new System.Windows.Forms.TreeView();
             this.btnDefaultSettings = new КП_Кафедра.RoundButton();
             this.btnSaveSettings = new КП_Кафедра.RoundButton();
             this.btnTextColor = new КП_Кафедра.RoundButton();
@@ -43,6 +47,7 @@
             this.rbBIN = new System.Windows.Forms.RadioButton();
             this.rbXML = new System.Windows.Forms.RadioButton();
             this.rbJSON = new System.Windows.Forms.RadioButton();
+            this.imageListIcons = new System.Windows.Forms.ImageList(this.components);
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,6 +77,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
+            this.panel1.Controls.Add(this.btnLoadTree);
+            this.panel1.Controls.Add(this.treeViewFiles);
             this.panel1.Controls.Add(this.btnDefaultSettings);
             this.panel1.Controls.Add(this.btnSaveSettings);
             this.panel1.Controls.Add(this.btnTextColor);
@@ -89,6 +96,38 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(782, 469);
             this.panel1.TabIndex = 14;
+            // 
+            // btnLoadTree
+            // 
+            this.btnLoadTree.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+            this.btnLoadTree.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+            this.btnLoadTree.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnLoadTree.BorderRadius = 10;
+            this.btnLoadTree.BorderSize = 0;
+            this.btnLoadTree.FlatAppearance.BorderSize = 0;
+            this.btnLoadTree.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadTree.Font = new System.Drawing.Font("Arial", 8.8F);
+            this.btnLoadTree.ForeColor = System.Drawing.Color.White;
+            this.btnLoadTree.Location = new System.Drawing.Point(263, 93);
+            this.btnLoadTree.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLoadTree.Name = "btnLoadTree";
+            this.btnLoadTree.Size = new System.Drawing.Size(164, 26);
+            this.btnLoadTree.TabIndex = 39;
+            this.btnLoadTree.Text = "Показати дерево проєкту";
+            this.btnLoadTree.TextColor = System.Drawing.Color.White;
+            this.btnLoadTree.UseVisualStyleBackColor = false;
+            this.btnLoadTree.Click += new System.EventHandler(this.btnLoadTree_Click);
+            // 
+            // treeViewFiles
+            // 
+            this.treeViewFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+            this.treeViewFiles.Font = new System.Drawing.Font("Arial", 8.8F);
+            this.treeViewFiles.ForeColor = System.Drawing.Color.White;
+            this.treeViewFiles.LineColor = System.Drawing.Color.White;
+            this.treeViewFiles.Location = new System.Drawing.Point(15, 93);
+            this.treeViewFiles.Name = "treeViewFiles";
+            this.treeViewFiles.Size = new System.Drawing.Size(234, 141);
+            this.treeViewFiles.TabIndex = 38;
             // 
             // btnDefaultSettings
             // 
@@ -290,6 +329,14 @@
             this.rbJSON.UseVisualStyleBackColor = true;
             this.rbJSON.CheckedChanged += new System.EventHandler(this.rbJSON_CheckedChanged);
             // 
+            // imageListIcons
+            // 
+            this.imageListIcons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListIcons.ImageStream")));
+            this.imageListIcons.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListIcons.Images.SetKeyName(0, "icons8-папка-40.png");
+            this.imageListIcons.Images.SetKeyName(1, "icons8-открыть-папку-40.png");
+            this.imageListIcons.Images.SetKeyName(2, "icons8-файл-40.png");
+            // 
             // FormSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -321,5 +368,8 @@
         private System.Windows.Forms.Label lblPreview;
         private RoundButton btnDefaultSettings;
         private RoundButton btnSaveSettings;
+        private System.Windows.Forms.TreeView treeViewFiles;
+        private System.Windows.Forms.ImageList imageListIcons;
+        private RoundButton btnLoadTree;
     }
 }

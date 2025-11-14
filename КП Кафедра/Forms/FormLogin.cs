@@ -140,10 +140,6 @@ namespace КП_Кафедра.Forms
             public string Password { get; set; }
             public string Name { get; set; }
         }
-
-       
-
-        
     }
 }
 

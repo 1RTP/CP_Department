@@ -24,8 +24,7 @@ namespace КП_Кафедра
     {
         public static readonly Dictionary<string, string> columnNames = new Dictionary<string, string>
         {
-            //{ "emp_id", "№" },
-            { "emp_id", "Номер викладача" }, // можливо прибрати
+            { "emp_id", "Номер викладача" },
             { "emp_full_name", "ПІБ" },
             { "emp_position", "Посада" },
             { "emp_hire_date", "Дата прийняття на роботу" },
@@ -39,8 +38,7 @@ namespace КП_Кафедра
             { "lesson_type_id", "Номер типу заняття" },
             { "hours_taught", "Відпрацьовано годин" },
             { "specialty_id", "Номер спеціальності" },
-            //{ "assignment_id", "№" },
-            { "assignment_id", "Номер призначення" }, // можливо прибрати
+            { "assignment_id", "Номер призначення" },
             { "plan_hours", "Кількість годин за планом" },
             { "lesson_type", "Тип заняття" },
             { "research_id", "Номер наукової роботи" },
@@ -48,18 +46,6 @@ namespace КП_Кафедра
             { "start_date", "Дата початку" },
             { "end_date", "Дата завершення" }
         };
-
-        public List<string> GetSheetNames(string filePath) // можливо прибрати
-        {
-            var sheetNames = new List<string>();
-            if (!File.Exists(filePath)) throw new FileNotFoundException("Файл не знайдено.", filePath);
-            using (var workbook = new XLWorkbook(filePath))
-            {
-                foreach (var sheet in workbook.Worksheets) sheetNames.Add(sheet.Name);
-            }
-
-            return sheetNames;
-        }
 
         public void ExportToExcel(DataTable table, string sheetName = "Дані")
         {
@@ -138,132 +124,44 @@ namespace КП_Кафедра
             }
         }
 
-        public void ExportDataGridViewToExcel(DataGridView dgv, string fileName) // можливо прибрати
+        public DataTable ImportFromExcel()
         {
-            try
+            using (OpenFileDialog ofd = new OpenFileDialog())
             {
-                using (XLWorkbook wb = new XLWorkbook())
+                ofd.Filter = "Excel файли (*.xlsx)|*.xlsx";
+                ofd.Title = "Виберіть Excel файл";
+
+                if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    var ws = wb.Worksheets.Add("Лист1");
-
-                    for (int col = 0; col < dgv.Columns.Count; col++)
+                    try
                     {
-                        var headerCell = dgv.Columns[col].HeaderCell;
-                        var excelHeaderCell = ws.Cell(1, col + 1);
-
-                        excelHeaderCell.Value = dgv.Columns[col].HeaderText;
-                        excelHeaderCell.Style.Font.Bold = true;
-
-                        var backColor = headerCell.Style.BackColor;
-                        if (backColor == Color.Empty) backColor = dgv.ColumnHeadersDefaultCellStyle.BackColor;
-                        if (backColor != Color.Empty) excelHeaderCell.Style.Fill.BackgroundColor = XLColor.FromArgb(backColor.R, backColor.G, backColor.B);
-
-                        var foreColor = headerCell.Style.ForeColor;
-                        if (foreColor == Color.Empty) foreColor = dgv.ColumnHeadersDefaultCellStyle.ForeColor;
-                        if (foreColor != Color.Empty) excelHeaderCell.Style.Font.FontColor = XLColor.FromArgb(foreColor.R, foreColor.G, foreColor.B);
-
-                        excelHeaderCell.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
-                        excelHeaderCell.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
-                    }
-
-                    for (int row = 0; row < dgv.Rows.Count; row++)
-                    {
-                        var rowStyleBackColor = dgv.Rows[row].DefaultCellStyle.BackColor;
-                        var rowStyleForeColor = dgv.Rows[row].DefaultCellStyle.ForeColor;
-
-                        for (int col = 0; col < dgv.Columns.Count; col++)
+                        using (XLWorkbook workbook = new XLWorkbook(ofd.FileName))
                         {
-                            var cell = dgv.Rows[row].Cells[col];
-                            var excelCell = ws.Cell(row + 2, col + 1);
+                            IXLWorksheet ws = workbook.Worksheet(1);
+                            DataTable dt = new DataTable();
 
-                            excelCell.Value = cell.Value?.ToString();
+                            foreach (IXLCell cell in ws.Row(1).CellsUsed()) dt.Columns.Add(cell.Value.ToString());
 
-                            Color backColor = cell.Style.BackColor != Color.Empty ? cell.Style.BackColor : rowStyleBackColor != Color.Empty ? rowStyleBackColor : dgv.DefaultCellStyle.BackColor;
-                            if (backColor != Color.Empty) excelCell.Style.Fill.BackgroundColor = XLColor.FromArgb(backColor.R, backColor.G, backColor.B);
+                            foreach (IXLRow row in ws.RowsUsed().Skip(1))
+                            {
+                                DataRow dr = dt.NewRow();
+                                int i = 0;
+                                foreach (IXLCell cell in row.Cells(1, dt.Columns.Count)) dr[i++] = cell.Value.ToString();
+                                dt.Rows.Add(dr);
+                            }
 
-                            Color foreColor = cell.Style.ForeColor != Color.Empty ? cell.Style.ForeColor : rowStyleForeColor != Color.Empty ? rowStyleForeColor : dgv.DefaultCellStyle.ForeColor;
-                            if (foreColor != Color.Empty) excelCell.Style.Font.FontColor = XLColor.FromArgb(foreColor.R, foreColor.G, foreColor.B);
+                            Toast.Show("SUCCESS", "Успішно завантажено!");
+                            LoggerService.LogInfo($"Завантаження Excel: {dt.Rows.Count} рядків");
+                            return dt;
                         }
                     }
-
-                    ws.Columns().AdjustToContents();
-                    wb.SaveAs(fileName);
-                }
-
-                Toast.Show("SUCCESS", "Успішно збережено!");
-                LoggerService.LogInfo($"Збереження Excel: {fileName}");
-            }
-            catch (Exception ex)
-            {
-                Toast.Show("ERROR", "Помилка збереження");
-                LoggerService.LogError($"Помилка збереження Excel: {ex.Message}");
-            }
-        }
-
-        public DataTable ImportFromExcel(string filePath, string sheetName)
-        {
-            //using (OpenFileDialog ofd = new OpenFileDialog())
-            //{
-            //    ofd.Filter = "Excel файли (*.xlsx)|*.xlsx";
-            //    ofd.Title = "Виберіть Excel файл";
-
-            //    if (ofd.ShowDialog() == DialogResult.OK)
-            //    {
-            //        try
-            //        {
-            //            using (XLWorkbook workbook = new XLWorkbook(ofd.FileName))
-            //            {
-            //                IXLWorksheet ws = workbook.Worksheet(1);
-            //                DataTable dt = new DataTable();
-
-            //                foreach (IXLCell cell in ws.Row(1).CellsUsed()) dt.Columns.Add(cell.Value.ToString());
-
-            //                foreach (IXLRow row in ws.RowsUsed().Skip(1))
-            //                {
-            //                    DataRow dr = dt.NewRow();
-            //                    int i = 0;
-            //                    foreach (IXLCell cell in row.Cells(1, dt.Columns.Count)) dr[i++] = cell.Value.ToString();
-            //                    dt.Rows.Add(dr);
-            //                }
-
-            //                Toast.Show("SUCCESS", "Успішно завантажено!");
-            //                LoggerService.LogInfo($"Завантаження Excel: {dt.Rows.Count} рядків");
-            //                return dt;
-            //            }
-            //        }
-            //        catch (Exception ex)
-            //        {
-            //            Toast.Show("ERROR", "Помилка завантаження");
-            //            LoggerService.LogError($"Помилка завантаження Excel: {ex.Message}");
-            //        }
-            //    }
-
-            //    return null;
-            //}
-
-            if (!File.Exists(filePath)) throw new FileNotFoundException("Файл не знайдено.", filePath); // можливо прибрати
-            try
-            {
-                using (var workbook = new XLWorkbook(filePath))
-                {
-                    IXLWorksheet ws = workbook.Worksheet(sheetName);
-                    DataTable dt = new DataTable();
-                    foreach (IXLCell cell in ws.Row(1).CellsUsed()) dt.Columns.Add(cell.Value.ToString());
-                    foreach (IXLRow row in ws.RowsUsed().Skip(1))
+                    catch (Exception ex)
                     {
-                        DataRow dr = dt.NewRow();
-                        int i = 0;
-                        foreach (IXLCell cell in row.Cells(1, dt.Columns.Count)) dr[i++] = cell.Value.ToString() ?? string.Empty;
-                        dt.Rows.Add(dr);
+                        Toast.Show("ERROR", "Помилка завантаження");
+                        LoggerService.LogError($"Помилка завантаження Excel: {ex.Message}");
                     }
-                    LoggerService.LogInfo($"Завантаження Excel: {dt.Rows.Count} рядків");
-                    return dt;
                 }
-            }
-            catch (Exception ex)
-            {
-                Toast.Show("ERROR", "Помилка завантаження");
-                LoggerService.LogError($"Помилка завантаження Excel ({sheetName}): {ex.Message}");
+
                 return null;
             }
         }

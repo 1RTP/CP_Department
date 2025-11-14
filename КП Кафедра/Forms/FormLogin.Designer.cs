@@ -57,7 +57,7 @@
             this.txtPassword.Font = new System.Drawing.Font("Arial", 8.8F);
             this.txtPassword.ForeColor = System.Drawing.Color.White;
             this.txtPassword.Location = new System.Drawing.Point(62, 178);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(185, 14);
             this.txtPassword.TabIndex = 25;
@@ -80,7 +80,7 @@
             this.txtEmail.Font = new System.Drawing.Font("Arial", 8.8F);
             this.txtEmail.ForeColor = System.Drawing.Color.White;
             this.txtEmail.Location = new System.Drawing.Point(62, 141);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(188, 14);
             this.txtEmail.TabIndex = 27;
@@ -100,11 +100,11 @@
             this.btnLogin.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Location = new System.Drawing.Point(62, 215);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(189, 26);
             this.btnLogin.TabIndex = 36;
-            this.btnLogin.Text = "Увійти";
+            this.btnLogin.Text = "Login";
             this.btnLogin.TextColor = System.Drawing.Color.White;
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -113,7 +113,7 @@
             // 
             this.pictureBox2.Image = global::КП_Кафедра.Properties.Resources.icons8_замок_20;
             this.pictureBox2.Location = new System.Drawing.Point(37, 172);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(20, 22);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -124,7 +124,7 @@
             // 
             this.pictureBox1.Image = global::КП_Кафедра.Properties.Resources.icons8_эл__адрес_20;
             this.pictureBox1.Location = new System.Drawing.Point(37, 135);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(20, 22);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -147,7 +147,7 @@
             // 
             this.pictureBox3.BackgroundImage = global::КП_Кафедра.Properties.Resources.icons8_test_account_50;
             this.pictureBox3.Location = new System.Drawing.Point(92, 35);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(52, 50);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -169,7 +169,7 @@
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.txtPassword);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximumSize = new System.Drawing.Size(322, 400);
             this.MinimumSize = new System.Drawing.Size(322, 400);
             this.Name = "FormLogin";

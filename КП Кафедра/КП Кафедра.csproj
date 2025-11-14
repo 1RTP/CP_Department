@@ -176,6 +176,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="SqliteDataReaderExtensions.cs" />
+    <None Include="Resources\icons8-файл-40.png" />
+    <None Include="Resources\icons8-папка-40.png" />
+    <None Include="Resources\icons8-открыть-папку-40.png" />
     <None Include="Resources\calendarWhite.png" />
     <None Include="Resources\calendarDark.png" />
     <None Include="Resources\icons8-test-account-501.png" />
