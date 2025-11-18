@@ -170,6 +170,7 @@ namespace КП_Кафедра.Forms
             lblPreview.Text = LanguageManager.GetString("lblPreview");
             btnDefaultSettings.Text = LanguageManager.GetString("btnDefaultSettings");
             label1.Text = LanguageManager.GetString("label1");
+            btnLoadTree.Text = LanguageManager.GetString("btnLoadTree");
         }
 
         private void rbXML_CheckedChanged(object sender, EventArgs e)
@@ -280,10 +281,7 @@ namespace КП_Кафедра.Forms
             string path = e.Node.Tag.ToString();
             if (File.Exists(path))
             {
-                try
-                {
-                    System.Diagnostics.Process.Start(path);
-                }
+                try { System.Diagnostics.Process.Start(path); }
                 catch (Win32Exception ex)
                 {
                     Toast.Show("ERROR", $"Немає програми для відкриття файлу!");
@@ -295,11 +293,7 @@ namespace КП_Кафедра.Forms
                     LoggerService.LogError($"Помилка відкриття файлу {path}: {ex.Message}");
                 }
             }
-            else
-            {
-                Toast.Show("ERROR", $"Файл не знайдено!");
-                LoggerService.LogError($"Файл не знайдено: {path}");
-            }
+            else { LoggerService.LogError($"Файл не знайдено: {path}"); }
         }
 
         private void LoadDirectoryTree(string rootPath)

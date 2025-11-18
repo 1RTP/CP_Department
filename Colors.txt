@@ -1,5 +1,0 @@
-144; 148; 152 
-btnAddTeacher
-btnUpdateTeacher
-btnDeactivateTeacher
-btnDeleteTeacher

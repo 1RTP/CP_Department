@@ -354,10 +354,13 @@
   <data name="btnImportFromWord" xml:space="preserve">
     <value>Download from Word</value>
   </data>
-  <data name="btnConvertToPdf_Click" xml:space="preserve">
+  <data name="btnConvertToPdf" xml:space="preserve">
     <value>Convert Word to PDF</value>
   </data>
   <data name="btnReports" xml:space="preserve">
     <value>             Reports</value>
+  </data>
+  <data name="btnLoadTree" xml:space="preserve">
+    <value>Show project tree</value>
   </data>
 </root>

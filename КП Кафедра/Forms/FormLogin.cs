@@ -110,11 +110,8 @@ namespace КП_Кафедра.Forms
                 }
 
                 if (!File.Exists(filePath)) { Toast.Show("ERROR", "Файл обліку не знайдено."); return; }
-
                 var adminData = ClassSerializeJSON1.DeserializeFromJSON<AdminCredentials>(filePath, msg => LoggerService.LogInfo(msg));
-
                 if (adminData == null) { Toast.Show("ERROR", "Помилка формату даних."); return; }
-
                 if (email.Equals(adminData.Email, StringComparison.OrdinalIgnoreCase) && password == adminData.Password)
                 {
                     Toast.Show("SUCCESS", "Вхід виконано успішно.");
@@ -122,10 +119,7 @@ namespace КП_Кафедра.Forms
                     main.Show();
                     this.Hide();
                 }
-                else
-                {
-                    Toast.Show("ERROR", "Невірна пошта або пароль.");
-                }
+                else { Toast.Show("ERROR", "Невірна пошта або пароль."); }
             }
             catch (Exception ex)
             {

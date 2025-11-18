@@ -24,8 +24,8 @@ namespace КП_Кафедра
     {
         private Form activeForm = null;
 
-        private Boolean showPanel = false;
-        private Boolean showPanel2 = false;
+        //private Boolean showPanel = false;
+        //private Boolean showPanel2 = false;
 
         public FormMainMenu(string userName, string userEmail)
         {
@@ -43,7 +43,7 @@ namespace КП_Кафедра
         {
             try
             {
-                tooglePanels();
+                //tooglePanels();
             }
             catch (Exception ex) { LoggerService.LogError($"Помилка при завантаженні даних: {ex.Message}"); }
         }
@@ -65,40 +65,40 @@ namespace КП_Кафедра
         }
 
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            showPanel2 = false;
-            showPanel = !showPanel;
-            tooglePanels();
-        }
+        //private void button3_Click(object sender, EventArgs e)
+        //{
+        //    showPanel2 = false;
+        //    showPanel = !showPanel;
+        //    tooglePanels();
+        //}
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            showPanel = false;
-            showPanel2 = !showPanel2;
-            tooglePanels();
-        }
+        //private void button4_Click(object sender, EventArgs e)
+        //{
+        //    showPanel = false;
+        //    showPanel2 = !showPanel2;
+        //    tooglePanels();
+        //}
 
-        private void tooglePanels()
-        {
-            if (showPanel)
-            {
-                panel4.Height = 123;
-            }
-            else
-            {
-                panel4.Height = 0;
-            }
+        //private void tooglePanels()
+        //{
+        //    if (showPanel)
+        //    {
+        //        panel4.Height = 123;
+        //    }
+        //    else
+        //    {
+        //        panel4.Height = 0;
+        //    }
 
-            if (showPanel2)
-            {
-                panel5.Height = 82;
-            }
-            else
-            {
-                panel5.Height = 0;
-            }
-        }
+        //    if (showPanel2)
+        //    {
+        //        panel5.Height = 82;
+        //    }
+        //    else
+        //    {
+        //        panel5.Height = 0;
+        //    }
+        //}
 
         private void btnHead_Click(object sender, EventArgs e)
         {

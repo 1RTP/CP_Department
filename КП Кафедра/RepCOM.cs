@@ -204,8 +204,7 @@ namespace КП_Кафедра
                 {
                     try
                     {
-                        using (WordprocessingDocument wordDoc = WordprocessingDocument.Create(
-                            sfd.FileName, WordprocessingDocumentType.Document))
+                        using (WordprocessingDocument wordDoc = WordprocessingDocument.Create(sfd.FileName, WordprocessingDocumentType.Document))
                         {
                             MainDocumentPart mainPart = wordDoc.AddMainDocumentPart();
                             mainPart.Document = new OpenXmlWord.Document(new OpenXmlWord.Body());

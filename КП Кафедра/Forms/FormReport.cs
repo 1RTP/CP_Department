@@ -74,7 +74,7 @@ namespace КП_Кафедра.Forms
             btnExportToWord.Text = LanguageManager.GetString("btnExportToWord");
             btnImportFromExcel.Text = LanguageManager.GetString("btnImportFromExcel");
             btnImportFromWord.Text = LanguageManager.GetString("btnImportFromWord");
-            btnConvertToPdf_Click.Text = LanguageManager.GetString("btnConvertToPdf_Click");
+            btnConvertToPdf.Text = LanguageManager.GetString("btnConvertToPdf");
         }
 
         private void RadioButtons_CheckedChanged(object sender, EventArgs e)
@@ -294,7 +294,7 @@ namespace КП_Кафедра.Forms
             }
         }
 
-        private void btnConvertToPdf_Click_Click(object sender, EventArgs e)
+        private void btnConvertToPdf_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {

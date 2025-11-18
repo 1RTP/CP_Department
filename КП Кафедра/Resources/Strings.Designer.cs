@@ -117,9 +117,9 @@ namespace КП_Кафедра.Resources {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Конвертувати Word у PDF.
         /// </summary>
-        internal static string btnConvertToPdf_Click {
+        internal static string btnConvertToPdf {
             get {
-                return ResourceManager.GetString("btnConvertToPdf_Click", resourceCulture);
+                return ResourceManager.GetString("btnConvertToPdf", resourceCulture);
             }
         }
         
@@ -237,6 +237,15 @@ namespace КП_Кафедра.Resources {
         internal static string btnLoad {
             get {
                 return ResourceManager.GetString("btnLoad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Показати дерево проєкту.
+        /// </summary>
+        internal static string btnLoadTree {
+            get {
+                return ResourceManager.GetString("btnLoadTree", resourceCulture);
             }
         }
         

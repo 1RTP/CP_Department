@@ -29,12 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.rbAssignmentsReport = new System.Windows.Forms.RadioButton();
-            this.rbResearchReport = new System.Windows.Forms.RadioButton();
-            this.rbSubjectsReport = new System.Windows.Forms.RadioButton();
-            this.rbTeachersReport = new System.Windows.Forms.RadioButton();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnConvertToPdf_Click = new КП_Кафедра.RoundButton();
+            this.btnConvertToPdf = new КП_Кафедра.RoundButton();
             this.btnExportToWord = new КП_Кафедра.RoundButton();
             this.btnImportFromWord = new КП_Кафедра.RoundButton();
             this.btnOpenWordReport = new КП_Кафедра.RoundButton();
@@ -42,13 +37,18 @@
             this.btnExportToExcel = new КП_Кафедра.RoundButton();
             this.btnOpenExcelReport = new КП_Кафедра.RoundButton();
             this.btnReport = new КП_Кафедра.RoundButton();
+            this.rbAssignmentsReport = new System.Windows.Forms.RadioButton();
+            this.rbResearchReport = new System.Windows.Forms.RadioButton();
+            this.rbSubjectsReport = new System.Windows.Forms.RadioButton();
+            this.rbTeachersReport = new System.Windows.Forms.RadioButton();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
-            this.panel1.Controls.Add(this.btnConvertToPdf_Click);
+            this.panel1.Controls.Add(this.btnConvertToPdf);
             this.panel1.Controls.Add(this.btnExportToWord);
             this.panel1.Controls.Add(this.btnImportFromWord);
             this.panel1.Controls.Add(this.btnOpenWordReport);
@@ -67,88 +67,26 @@
             this.panel1.Size = new System.Drawing.Size(928, 128);
             this.panel1.TabIndex = 14;
             // 
-            // rbAssignmentsReport
+            // btnConvertToPdf
             // 
-            this.rbAssignmentsReport.AutoSize = true;
-            this.rbAssignmentsReport.Font = new System.Drawing.Font("Arial", 8.8F);
-            this.rbAssignmentsReport.ForeColor = System.Drawing.Color.White;
-            this.rbAssignmentsReport.Location = new System.Drawing.Point(276, 16);
-            this.rbAssignmentsReport.Name = "rbAssignmentsReport";
-            this.rbAssignmentsReport.Size = new System.Drawing.Size(102, 19);
-            this.rbAssignmentsReport.TabIndex = 23;
-            this.rbAssignmentsReport.TabStop = true;
-            this.rbAssignmentsReport.Text = "Призначення";
-            this.rbAssignmentsReport.UseVisualStyleBackColor = true;
-            // 
-            // rbResearchReport
-            // 
-            this.rbResearchReport.AutoSize = true;
-            this.rbResearchReport.Font = new System.Drawing.Font("Arial", 8.8F);
-            this.rbResearchReport.ForeColor = System.Drawing.Color.White;
-            this.rbResearchReport.Location = new System.Drawing.Point(198, 16);
-            this.rbResearchReport.Name = "rbResearchReport";
-            this.rbResearchReport.Size = new System.Drawing.Size(72, 19);
-            this.rbResearchReport.TabIndex = 22;
-            this.rbResearchReport.TabStop = true;
-            this.rbResearchReport.Text = "Проєкти";
-            this.rbResearchReport.UseVisualStyleBackColor = true;
-            // 
-            // rbSubjectsReport
-            // 
-            this.rbSubjectsReport.AutoSize = true;
-            this.rbSubjectsReport.Font = new System.Drawing.Font("Arial", 8.8F);
-            this.rbSubjectsReport.ForeColor = System.Drawing.Color.White;
-            this.rbSubjectsReport.Location = new System.Drawing.Point(101, 16);
-            this.rbSubjectsReport.Name = "rbSubjectsReport";
-            this.rbSubjectsReport.Size = new System.Drawing.Size(91, 19);
-            this.rbSubjectsReport.TabIndex = 21;
-            this.rbSubjectsReport.TabStop = true;
-            this.rbSubjectsReport.Text = "Дисципліни";
-            this.rbSubjectsReport.UseVisualStyleBackColor = true;
-            // 
-            // rbTeachersReport
-            // 
-            this.rbTeachersReport.AutoSize = true;
-            this.rbTeachersReport.Font = new System.Drawing.Font("Arial", 8.8F);
-            this.rbTeachersReport.ForeColor = System.Drawing.Color.White;
-            this.rbTeachersReport.Location = new System.Drawing.Point(12, 16);
-            this.rbTeachersReport.Name = "rbTeachersReport";
-            this.rbTeachersReport.Size = new System.Drawing.Size(83, 19);
-            this.rbTeachersReport.TabIndex = 20;
-            this.rbTeachersReport.TabStop = true;
-            this.rbTeachersReport.Text = "Викладачі";
-            this.rbTeachersReport.UseVisualStyleBackColor = true;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(148)))), ((int)(((byte)(152)))));
-            this.panel2.Location = new System.Drawing.Point(0, 128);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(928, 350);
-            this.panel2.TabIndex = 15;
-            // 
-            // btnConvertToPdf_Click
-            // 
-            this.btnConvertToPdf_Click.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnConvertToPdf_Click.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
-            this.btnConvertToPdf_Click.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
-            this.btnConvertToPdf_Click.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnConvertToPdf_Click.BorderRadius = 10;
-            this.btnConvertToPdf_Click.BorderSize = 0;
-            this.btnConvertToPdf_Click.FlatAppearance.BorderSize = 0;
-            this.btnConvertToPdf_Click.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConvertToPdf_Click.Font = new System.Drawing.Font("Arial", 8.8F);
-            this.btnConvertToPdf_Click.ForeColor = System.Drawing.Color.White;
-            this.btnConvertToPdf_Click.Location = new System.Drawing.Point(757, 90);
-            this.btnConvertToPdf_Click.Name = "btnConvertToPdf_Click";
-            this.btnConvertToPdf_Click.Size = new System.Drawing.Size(159, 32);
-            this.btnConvertToPdf_Click.TabIndex = 37;
-            this.btnConvertToPdf_Click.Text = "Конвертувати Word у PDF";
-            this.btnConvertToPdf_Click.TextColor = System.Drawing.Color.White;
-            this.btnConvertToPdf_Click.UseVisualStyleBackColor = false;
-            this.btnConvertToPdf_Click.Click += new System.EventHandler(this.btnConvertToPdf_Click_Click);
+            this.btnConvertToPdf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnConvertToPdf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+            this.btnConvertToPdf.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+            this.btnConvertToPdf.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnConvertToPdf.BorderRadius = 10;
+            this.btnConvertToPdf.BorderSize = 0;
+            this.btnConvertToPdf.FlatAppearance.BorderSize = 0;
+            this.btnConvertToPdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConvertToPdf.Font = new System.Drawing.Font("Arial", 8.8F);
+            this.btnConvertToPdf.ForeColor = System.Drawing.Color.White;
+            this.btnConvertToPdf.Location = new System.Drawing.Point(757, 90);
+            this.btnConvertToPdf.Name = "btnConvertToPdf";
+            this.btnConvertToPdf.Size = new System.Drawing.Size(159, 32);
+            this.btnConvertToPdf.TabIndex = 37;
+            this.btnConvertToPdf.Text = "Конвертувати Word у PDF";
+            this.btnConvertToPdf.TextColor = System.Drawing.Color.White;
+            this.btnConvertToPdf.UseVisualStyleBackColor = false;
+            this.btnConvertToPdf.Click += new System.EventHandler(this.btnConvertToPdf_Click);
             // 
             // btnExportToWord
             // 
@@ -293,6 +231,68 @@
             this.btnReport.UseVisualStyleBackColor = false;
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
+            // rbAssignmentsReport
+            // 
+            this.rbAssignmentsReport.AutoSize = true;
+            this.rbAssignmentsReport.Font = new System.Drawing.Font("Arial", 8.8F);
+            this.rbAssignmentsReport.ForeColor = System.Drawing.Color.White;
+            this.rbAssignmentsReport.Location = new System.Drawing.Point(276, 16);
+            this.rbAssignmentsReport.Name = "rbAssignmentsReport";
+            this.rbAssignmentsReport.Size = new System.Drawing.Size(102, 19);
+            this.rbAssignmentsReport.TabIndex = 23;
+            this.rbAssignmentsReport.TabStop = true;
+            this.rbAssignmentsReport.Text = "Призначення";
+            this.rbAssignmentsReport.UseVisualStyleBackColor = true;
+            // 
+            // rbResearchReport
+            // 
+            this.rbResearchReport.AutoSize = true;
+            this.rbResearchReport.Font = new System.Drawing.Font("Arial", 8.8F);
+            this.rbResearchReport.ForeColor = System.Drawing.Color.White;
+            this.rbResearchReport.Location = new System.Drawing.Point(198, 16);
+            this.rbResearchReport.Name = "rbResearchReport";
+            this.rbResearchReport.Size = new System.Drawing.Size(72, 19);
+            this.rbResearchReport.TabIndex = 22;
+            this.rbResearchReport.TabStop = true;
+            this.rbResearchReport.Text = "Проєкти";
+            this.rbResearchReport.UseVisualStyleBackColor = true;
+            // 
+            // rbSubjectsReport
+            // 
+            this.rbSubjectsReport.AutoSize = true;
+            this.rbSubjectsReport.Font = new System.Drawing.Font("Arial", 8.8F);
+            this.rbSubjectsReport.ForeColor = System.Drawing.Color.White;
+            this.rbSubjectsReport.Location = new System.Drawing.Point(101, 16);
+            this.rbSubjectsReport.Name = "rbSubjectsReport";
+            this.rbSubjectsReport.Size = new System.Drawing.Size(91, 19);
+            this.rbSubjectsReport.TabIndex = 21;
+            this.rbSubjectsReport.TabStop = true;
+            this.rbSubjectsReport.Text = "Дисципліни";
+            this.rbSubjectsReport.UseVisualStyleBackColor = true;
+            // 
+            // rbTeachersReport
+            // 
+            this.rbTeachersReport.AutoSize = true;
+            this.rbTeachersReport.Font = new System.Drawing.Font("Arial", 8.8F);
+            this.rbTeachersReport.ForeColor = System.Drawing.Color.White;
+            this.rbTeachersReport.Location = new System.Drawing.Point(12, 16);
+            this.rbTeachersReport.Name = "rbTeachersReport";
+            this.rbTeachersReport.Size = new System.Drawing.Size(83, 19);
+            this.rbTeachersReport.TabIndex = 20;
+            this.rbTeachersReport.TabStop = true;
+            this.rbTeachersReport.Text = "Викладачі";
+            this.rbTeachersReport.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(148)))), ((int)(((byte)(152)))));
+            this.panel2.Location = new System.Drawing.Point(0, 128);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(928, 350);
+            this.panel2.TabIndex = 15;
+            // 
             // FormReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -325,6 +325,6 @@
         private RoundButton btnOpenWordReport;
         private RoundButton btnExportToWord;
         private RoundButton btnImportFromWord;
-        private RoundButton btnConvertToPdf_Click;
+        private RoundButton btnConvertToPdf;
     }
 }

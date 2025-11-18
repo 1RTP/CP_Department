@@ -108,10 +108,10 @@
             this.btnLoadTree.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoadTree.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnLoadTree.ForeColor = System.Drawing.Color.White;
-            this.btnLoadTree.Location = new System.Drawing.Point(263, 93);
+            this.btnLoadTree.Location = new System.Drawing.Point(377, 93);
             this.btnLoadTree.Margin = new System.Windows.Forms.Padding(2);
             this.btnLoadTree.Name = "btnLoadTree";
-            this.btnLoadTree.Size = new System.Drawing.Size(164, 26);
+            this.btnLoadTree.Size = new System.Drawing.Size(159, 26);
             this.btnLoadTree.TabIndex = 39;
             this.btnLoadTree.Text = "Показати дерево проєкту";
             this.btnLoadTree.TextColor = System.Drawing.Color.White;
@@ -126,7 +126,7 @@
             this.treeViewFiles.LineColor = System.Drawing.Color.White;
             this.treeViewFiles.Location = new System.Drawing.Point(15, 93);
             this.treeViewFiles.Name = "treeViewFiles";
-            this.treeViewFiles.Size = new System.Drawing.Size(234, 141);
+            this.treeViewFiles.Size = new System.Drawing.Size(344, 193);
             this.treeViewFiles.TabIndex = 38;
             // 
             // btnDefaultSettings
