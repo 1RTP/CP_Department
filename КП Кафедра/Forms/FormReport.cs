@@ -1,7 +1,9 @@
-﻿using FastReport;
+﻿using ClosedXML.Excel;
+using FastReport;
 using FastReport.DevComponents.DotNetBar.Controls;
 using FastReport.Format;
 using FastReport.Preview;
+using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,8 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Data.Sqlite;
-using ClosedXML.Excel;
+using КП_Кафедра.ReportsBridge;
 using static КП_Кафедра.ToastForm;
 
 namespace КП_Кафедра.Forms
@@ -23,10 +24,8 @@ namespace КП_Кафедра.Forms
         private string selectedReport = "TeachersReport.frx";
         private readonly string reportsFolderPath;
         private readonly string dbPath;
-        RepExcel repExcel = new RepExcel();
-        private readonly RepWord repWord = new RepWord();
-        private string selectedExcelFilePath = string.Empty;
-        public static FormReport Instance { get; private set; }
+
+        private AbstractReport currentReport;
 
         public FormReport()
         {
@@ -79,12 +78,45 @@ namespace КП_Кафедра.Forms
 
         private void RadioButtons_CheckedChanged(object sender, EventArgs e)
         {
-            if (!(sender is RadioButton rb) || !rb.Checked) return;
+            if (sender is RadioButton rb && rb.Checked)
+            {
+                if (rb == rbTeachersReport) selectedReport = "TeachersReport.frx";
+                else if (rb == rbSubjectsReport) selectedReport = "SubjectsReport.frx";
+                else if (rb == rbAssignmentsReport) selectedReport = "AssignmentsReport.frx";
+                else if (rb == rbResearchReport) selectedReport = "ResearchReport.frx";
 
-            if (rb == rbTeachersReport) selectedReport = "TeachersReport.frx";
-            else if (rb == rbSubjectsReport) selectedReport = "SubjectsReport.frx";
-            else if (rb == rbAssignmentsReport) selectedReport = "AssignmentsReport.frx";
-            else if (rb == rbResearchReport) selectedReport = "ResearchReport.frx";
+                UpdateCurrentReport();
+            }
+        }
+
+        private void UpdateCurrentReport()
+        {
+            string query = "";
+            string name = "";
+
+            if (rbTeachersReport.Checked)
+            {
+                query = "SELECT * FROM teacher;";
+                name = "Викладачі";
+            }
+            else if (rbSubjectsReport.Checked)
+            {
+                query = "SELECT * FROM subjects;";
+                name = "Дисципліни";
+            }
+            else if (rbAssignmentsReport.Checked)
+            {
+                query = "SELECT * FROM assignment;";
+                name = "Навантаження";
+            }
+            else if (rbResearchReport.Checked)
+            {
+                query = "SELECT * FROM research;";
+                name = "Наукові роботи";
+            }
+
+            currentReport = new SqlReport(query, dbPath, new ExcelExporter());
+            currentReport.ReportName = name;
         }
 
         private void btnReport_Click(object sender, EventArgs e)
@@ -107,64 +139,42 @@ namespace КП_Кафедра.Forms
 
         private void btnExportToExcel_Click(object sender, EventArgs e)
         {
-
             try
             {
-                string query = "";
-                string sheetName = "";
+                currentReport.SetExporter(new ExcelExporter());
+                currentReport.Export();
 
-                if (rbTeachersReport.Checked)
-                {
-                    query = "SELECT * FROM teacher;";
-                    sheetName = "Викладачі";
-                }
-                else if (rbSubjectsReport.Checked)
-                {
-                    query = "SELECT * FROM subjects;";
-                    sheetName = "Дисципліни";
-                }
-                else if (rbAssignmentsReport.Checked)
-                {
-                    query = "SELECT * FROM assignment;";
-                    sheetName = "Навантаження";
-                }
-                else if (rbResearchReport.Checked)
-                {
-                    query = "SELECT * FROM research;";
-                    sheetName = "Наукові роботи";
-                }
-                else
-                {
-                    Toast.Show("WARNING", "Оберіть таблицю!");
-                    LoggerService.LogError("Користувач не вибрав жодну таблицю для збереження.");
-                    return;
-                }
-
-                DataTable dt = GetDataTable(query);
-                if (dt.Rows.Count == 0)
-                {
-                    Toast.Show("WARNING", "Таблиця порожня.");
-                    LoggerService.LogError($"Збереження скасовано — таблиця {sheetName} порожня.");
-                    return;
-                }
-
-                repExcel.ExportToExcel(dt, sheetName);
-                LoggerService.LogInfo($"Успішно збережено таблицю: {sheetName}");
+                Toast.Show("SUCCESS", "Успішно збережено!");
+                LoggerService.LogInfo($"Експорт у Excel: {currentReport.ReportName}");
             }
             catch (Exception ex)
             {
                 Toast.Show("ERROR", "Помилка збереження у Excel");
-                LoggerService.LogError($"Помилка збереження Excel: {ex.Message}");
+                LoggerService.LogError($"Помилка Excel: {ex.Message}");
             }
         }
 
+
         private void btnImportFromExcel_Click(object sender, EventArgs e)
         {
-            DataTable imported = repExcel.ImportFromExcel();
-            if (imported == null)
+            try
             {
-                LoggerService.LogError("Завантаження Excel скасовано користувачем.");
-                return;
+                currentReport.SetExporter(new ExcelExporter());
+                DataTable imported = currentReport.Import();
+
+                if (imported == null)
+                {
+                    LoggerService.LogError("Імпорт Excel скасовано.");
+                    return;
+                }
+
+                Toast.Show("SUCCESS", "Дані з Excel завантажено.");
+                LoggerService.LogInfo("Імпорт Excel виконано.");
+            }
+            catch (Exception ex)
+            {
+                Toast.Show("ERROR", "Помилка імпорту з Excel.");
+                LoggerService.LogError($"Помилка імпорту Excel: {ex.Message}");
             }
         }
 
@@ -172,7 +182,9 @@ namespace КП_Кафедра.Forms
         {
             try
             {
-                repExcel.OpenExcelFile();
+                currentReport.SetExporter(new ExcelExporter());
+                currentReport.Open();
+
                 LoggerService.LogInfo("Користувач відкрив Excel-звіт.");
             }
             catch (Exception ex)
@@ -182,80 +194,20 @@ namespace КП_Кафедра.Forms
             }
         }
 
-        private DataTable GetDataTable(string query)
-        {
-            try
-            {
-                using (var connection = new SqliteConnection($"Data Source={dbPath}"))
-                {
-                    connection.Open();
-                    using (var cmd = new SqliteCommand(query, connection))
-                    using (var reader = cmd.ExecuteReader())
-                    {
-                        DataTable dt = new DataTable();
-                        dt.Load(reader);
-                        return dt;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Toast.Show("ERROR", "Помилка отримання даних.");
-                LoggerService.LogError($"Помилка GetDataTable: {ex.Message} (Query: {query})");
-                return new DataTable();
-            }
-        }
-
         private void btnExportToWord_Click(object sender, EventArgs e)
         {
             try
             {
-                string query = "";
-                string fileName = "";
+                currentReport.SetExporter(new WordExporter());
+                currentReport.Export();
 
-                if (rbTeachersReport.Checked)
-                {
-                    query = "SELECT * FROM teacher;";
-                    fileName = "Викладачі";
-                }
-                else if (rbSubjectsReport.Checked)
-                {
-                    query = "SELECT * FROM subjects;";
-                    fileName = "Дисципліни";
-                }
-                else if (rbAssignmentsReport.Checked)
-                {
-                    query = "SELECT * FROM assignment;";
-                    fileName = "Навантаження";
-                }
-                else if (rbResearchReport.Checked)
-                {
-                    query = "SELECT * FROM research;";
-                    fileName = "Наукові роботи";
-                }
-                else
-                {
-                    Toast.Show("WARNING", "Оберіть таблицю для Word.");
-                    LoggerService.LogError("Користувач не вибрав жодну таблицю для збереження у Word.");
-                    return;
-                }
-
-                DataTable dt = GetDataTable(query);
-
-                if (dt.Rows.Count == 0)
-                {
-                    Toast.Show("WARNING", "Таблиця порожня.");
-                    LoggerService.LogError($"Збереження у Word скасовано — таблиця {fileName} порожня.");
-                    return;
-                }
-
-                repWord.ExportToWord(dt, fileName);
-                LoggerService.LogInfo($"Успішно збережено таблицю у Word: {fileName}");
+                Toast.Show("SUCCESS", "Успішно збережено у Word!");
+                LoggerService.LogInfo($"Експорт у Word: {currentReport.ReportName}");
             }
             catch (Exception ex)
             {
                 Toast.Show("ERROR", "Помилка збереження у Word.");
-                LoggerService.LogError($"Помилка збереження у Word: {ex.Message}");
+                LoggerService.LogError($"Помилка Word: {ex.Message}");
             }
         }
 
@@ -263,20 +215,22 @@ namespace КП_Кафедра.Forms
         {
             try
             {
-                DataTable imported = repWord.ImportFromWord();
+                currentReport.SetExporter(new WordExporter());
+                DataTable imported = currentReport.Import();
+
                 if (imported == null)
                 {
-                    LoggerService.LogError("Завантаження Word скасовано користувачем.");
+                    LoggerService.LogError("Імпорт Word скасовано.");
                     return;
                 }
 
                 Toast.Show("SUCCESS", "Дані з Word завантажено.");
-                LoggerService.LogInfo($"Завантажено {imported.Rows.Count} рядків із Word.");
+                LoggerService.LogInfo("Імпорт Word виконано.");
             }
             catch (Exception ex)
             {
-                Toast.Show("ERROR", "Помилка завантаження з Word.");
-                LoggerService.LogError($"Помилка завантаження з Word: {ex.Message}");
+                Toast.Show("ERROR", "Помилка імпорту з Word.");
+                LoggerService.LogError($"Помилка імпорту Word: {ex.Message}");
             }
         }
 
@@ -284,7 +238,9 @@ namespace КП_Кафедра.Forms
         {
             try
             {
-                repWord.OpenWordFile();
+                currentReport.SetExporter(new WordExporter());
+                currentReport.Open();
+
                 LoggerService.LogInfo("Користувач відкрив Word-звіт.");
             }
             catch (Exception ex)
@@ -326,5 +282,8 @@ namespace КП_Кафедра.Forms
         }
 
         
+
+
+
     }
 }
