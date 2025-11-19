@@ -42,12 +42,16 @@
             this.rbSubjectsReport = new System.Windows.Forms.RadioButton();
             this.rbTeachersReport = new System.Windows.Forms.RadioButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnPreviousReport = new КП_Кафедра.RoundButton();
+            this.btnNextReport = new КП_Кафедра.RoundButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(54)))), ((int)(((byte)(85)))));
+            this.panel1.Controls.Add(this.btnPreviousReport);
+            this.panel1.Controls.Add(this.btnNextReport);
             this.panel1.Controls.Add(this.btnConvertToPdf);
             this.panel1.Controls.Add(this.btnExportToWord);
             this.panel1.Controls.Add(this.btnImportFromWord);
@@ -222,7 +226,7 @@
             this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReport.Font = new System.Drawing.Font("Arial", 8.8F);
             this.btnReport.ForeColor = System.Drawing.Color.White;
-            this.btnReport.Location = new System.Drawing.Point(528, 9);
+            this.btnReport.Location = new System.Drawing.Point(434, 9);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(114, 32);
             this.btnReport.TabIndex = 30;
@@ -293,6 +297,48 @@
             this.panel2.Size = new System.Drawing.Size(928, 350);
             this.panel2.TabIndex = 15;
             // 
+            // btnPreviousReport
+            // 
+            this.btnPreviousReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPreviousReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+            this.btnPreviousReport.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+            this.btnPreviousReport.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnPreviousReport.BorderRadius = 10;
+            this.btnPreviousReport.BorderSize = 0;
+            this.btnPreviousReport.FlatAppearance.BorderSize = 0;
+            this.btnPreviousReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPreviousReport.Font = new System.Drawing.Font("Arial", 8.8F);
+            this.btnPreviousReport.ForeColor = System.Drawing.Color.White;
+            this.btnPreviousReport.Image = global::КП_Кафедра.Properties.Resources.icons8_шеврон_вправо_25;
+            this.btnPreviousReport.Location = new System.Drawing.Point(601, 9);
+            this.btnPreviousReport.Name = "btnPreviousReport";
+            this.btnPreviousReport.Size = new System.Drawing.Size(41, 32);
+            this.btnPreviousReport.TabIndex = 39;
+            this.btnPreviousReport.TextColor = System.Drawing.Color.White;
+            this.btnPreviousReport.UseVisualStyleBackColor = false;
+            this.btnPreviousReport.Click += new System.EventHandler(this.btnPreviousReport_Click);
+            // 
+            // btnNextReport
+            // 
+            this.btnNextReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNextReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+            this.btnNextReport.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(100)))), ((int)(((byte)(141)))));
+            this.btnNextReport.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnNextReport.BorderRadius = 10;
+            this.btnNextReport.BorderSize = 0;
+            this.btnNextReport.FlatAppearance.BorderSize = 0;
+            this.btnNextReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNextReport.Font = new System.Drawing.Font("Arial", 8.8F);
+            this.btnNextReport.ForeColor = System.Drawing.Color.White;
+            this.btnNextReport.Image = global::КП_Кафедра.Properties.Resources.icons8_шеврон_влево_25;
+            this.btnNextReport.Location = new System.Drawing.Point(554, 9);
+            this.btnNextReport.Name = "btnNextReport";
+            this.btnNextReport.Size = new System.Drawing.Size(41, 32);
+            this.btnNextReport.TabIndex = 38;
+            this.btnNextReport.TextColor = System.Drawing.Color.White;
+            this.btnNextReport.UseVisualStyleBackColor = false;
+            this.btnNextReport.Click += new System.EventHandler(this.btnNextReport_Click);
+            // 
             // FormReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -326,5 +372,7 @@
         private RoundButton btnExportToWord;
         private RoundButton btnImportFromWord;
         private RoundButton btnConvertToPdf;
+        private RoundButton btnPreviousReport;
+        private RoundButton btnNextReport;
     }
 }

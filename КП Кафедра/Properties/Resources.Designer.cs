@@ -313,6 +313,26 @@ namespace КП_Кафедра.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_шеврон_влево_25 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-шеврон-влево-25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_шеврон_вправо_25 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-шеврон-вправо-25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_эл__адрес_20 {
             get {
                 object obj = ResourceManager.GetObject("icons8-эл.-адрес-20", resourceCulture);

@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using КП_Кафедра.ReportsBridge;
 using static КП_Кафедра.ToastForm;
+using КП_Кафедра.IteratorPattern;
 
 namespace КП_Кафедра.Forms
 {
@@ -26,6 +27,9 @@ namespace КП_Кафедра.Forms
         private readonly string dbPath;
 
         private AbstractReport currentReport;
+
+        private ReportCollection reportCollection;
+        private IReportIterator reportIterator;
 
         public FormReport()
         {
@@ -39,6 +43,8 @@ namespace КП_Кафедра.Forms
             reportsFolderPath = Path.Combine(projectRoot, "Reports");
             dbPath = Path.Combine(projectRoot, "Data", "department.db");
 
+            reportCollection = new ReportCollection(reportsFolderPath);
+            reportIterator = reportCollection.CreateIterator();
         }
 
         private void FormReport_Load(object sender, EventArgs e)
@@ -50,6 +56,8 @@ namespace КП_Кафедра.Forms
 
             rbTeachersReport.Checked = true;
             selectedReport = "TeachersReport.frx";
+            UpdateCurrentReport();
+            SyncIteratorWithRadio();
         }
 
         protected override void OnLoad(EventArgs e)
@@ -116,6 +124,18 @@ namespace КП_Кафедра.Forms
 
             currentReport = new SqlReport(query, dbPath, new ExcelExporter());
             currentReport.ReportName = name;
+        }
+
+        private void SyncIteratorWithRadio()
+        {
+            string fullPath = Path.Combine(reportsFolderPath, selectedReport);
+
+            int index = reportCollection.Reports.IndexOf(fullPath);
+            if (index >= 0)
+            {
+                reportIterator = reportCollection.CreateIterator();
+                for (int i = 0; i < index; i++) reportIterator.Next();
+            }
         }
 
         private void btnReport_Click(object sender, EventArgs e)
@@ -280,5 +300,26 @@ namespace КП_Кафедра.Forms
             }
         }
 
+        private void btnNextReport_Click(object sender, EventArgs e)
+        {
+            if (reportIterator.HasNext())
+            {
+                string fullPath = reportIterator.Next();
+                selectedReport = Path.GetFileName(fullPath);
+                OpenReportPreview(selectedReport);
+            }
+            else { Toast.Show("INFO", "Це останній звіт"); }
+        }
+
+        private void btnPreviousReport_Click(object sender, EventArgs e)
+        {
+            if (reportIterator.HasPrevious())
+            {
+                string fullPath = reportIterator.Previous();
+                selectedReport = Path.GetFileName(fullPath);
+                OpenReportPreview(selectedReport);
+            }
+            else { Toast.Show("INFO", "Це перший звіт"); }
+        }
     }
 }
