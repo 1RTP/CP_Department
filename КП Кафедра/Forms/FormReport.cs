@@ -50,7 +50,6 @@ namespace КП_Кафедра.Forms
 
             rbTeachersReport.Checked = true;
             selectedReport = "TeachersReport.frx";
-
         }
 
         protected override void OnLoad(EventArgs e)
@@ -280,10 +279,6 @@ namespace КП_Кафедра.Forms
                 }
             }
         }
-
-        
-
-
 
     }
 }
